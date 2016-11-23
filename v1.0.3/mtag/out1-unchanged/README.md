@@ -1,5 +1,5 @@
 This output was produced by running this command:
 
-    p4-graphs ../mtag-edge.p4
+    p4-graphs ../mtag-edge.p4 > stdout.txt
 
 with no changes to the file ../mtag-edge.p4 at all.

@@ -1,4 +1,3 @@
-% p4-graphs ../mtag-edge.p4
 parsing successful
 semantic checking successful
 Header type standard_metadata_t not byte-aligned, adding padding
