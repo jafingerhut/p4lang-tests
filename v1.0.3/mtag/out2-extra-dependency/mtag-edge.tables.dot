@@ -1,0 +1,34 @@
+digraph g {
+   buffer [shape=doublecircle];
+   egress [shape=doublecircle];
+   strip_mtag [shape=ellipse];
+   strip_mtag -> identify_port [arrowhead=normal label="_strip_mtag"];
+   identify_port [shape=ellipse];
+   identify_port -> _condition_0 [arrowhead=normal label="common_set_port_type"];
+   _condition_0 [shape=box label="(local_metadata.ingress_error == 0)"];
+   _condition_0 -> buffer [arrowhead=odot];
+   _condition_0 -> local_switching [arrowhead=dot];
+   local_switching [shape=ellipse];
+   local_switching -> _condition_1 [arrowhead=normal label="set_egress_spec"];
+   _condition_1 [shape=box label="(standard_metadata.egress_spec == 0)"];
+   _condition_1 -> buffer [arrowhead=odot];
+   _condition_1 -> mTag_table [arrowhead=dot];
+   mTag_table [shape=ellipse];
+   mTag_table -> buffer [arrowhead=normal label="add_mTag"];
+   mTag_table -> buffer [arrowhead=normal label="common_copy_pkt_to_cpu"];
+   mTag_table -> buffer [arrowhead=normal label="_no_op"];
+   local_switching -> _condition_1 [arrowhead=normal label="_no_op"];
+   identify_port -> _condition_0 [arrowhead=normal label="common_drop_pkt"];
+   identify_port -> _condition_0 [arrowhead=normal label="_no_op"];
+   strip_mtag -> identify_port [arrowhead=normal label="_no_op"];
+   buffer -> egress_check
+   egress_check [shape=ellipse];
+   egress_check -> egress_meter [arrowhead=normal label="common_drop_pkt"];
+   egress_meter [shape=ellipse];
+   egress_meter -> egress [arrowhead=normal label="miss"];
+   egress_meter -> meter_policy [arrowhead=normal label="hit"];
+   meter_policy [shape=ellipse];
+   meter_policy -> egress [arrowhead=normal label="_drop"];
+   meter_policy -> egress [arrowhead=normal label="_no_op"];
+   egress_check -> egress_meter [arrowhead=normal label="_no_op"];
+}

@@ -1,0 +1,4 @@
+digraph egress {
+egress_check -> egress_meter [style=dotted ];
+egress_meter -> meter_policy [color=red label="local_metadata.color" decorate=true];
+}
