@@ -1,0 +1,476 @@
+digraph ingress {
+_condition_54 [shape=box label="_condition_54\n(ingress_metadata.drop_flag == 1)"];
+_condition_53 [shape=box label="_condition_53\n((ingress_metadata.bypass_lookups & 32) == 0)"];
+_condition_52 [shape=box label="_condition_52\n(ingress_metadata.port_type != 1)"];
+_condition_50 [shape=box label="_condition_50\n(ingress_metadata.egress_ifindex == 65535)"];
+_condition_40 [shape=box label="_condition_40\n((l3_metadata.lkp_ip_type == 2) and (ipv6_metadata.ipv6_unicast_enabled == 1))"];
+_condition_41 [shape=box label="_condition_41\n(ipv6_metadata.ipv6_urpf_mode != 0)"];
+_condition_42 [shape=box label="_condition_42\n((l3_metadata.urpf_mode == 2) and (l3_metadata.urpf_hit == 1))"];
+_condition_43 [shape=box label="_condition_43\n((ingress_metadata.bypass_lookups & 16) == 0)"];
+_condition_44 [shape=box label="_condition_44\n(((tunnel_metadata.tunnel_terminate == 0) and (valid ipv4)) or ((tunnel_metadata.tunnel_terminate == 1) and (valid inner_ipv4)))"];
+_condition_45 [shape=box label="_condition_45\n(((tunnel_metadata.tunnel_terminate == 0) and (valid ipv6)) or ((tunnel_metadata.tunnel_terminate == 1) and (valid inner_ipv6)))"];
+_condition_46 [shape=box label="_condition_46\n((ingress_metadata.bypass_lookups & 16) == 0)"];
+_condition_47 [shape=box label="_condition_47\n(ingress_metadata.port_type != 1)"];
+_condition_48 [shape=box label="_condition_48\n(not (ingress_metadata.bypass_lookups == 65535))"];
+_condition_49 [shape=box label="_condition_49\n(nexthop_metadata.nexthop_type == 1)"];
+_condition_51 [shape=box label="_condition_51\n(l2_metadata.learning_enabled == 1)"];
+_condition_35 [shape=box label="_condition_35\n((ingress_metadata.bypass_lookups & 1) == 0)"];
+_condition_34 [shape=box label="_condition_34\n(l3_metadata.lkp_ip_type == 2)"];
+_condition_37 [shape=box label="_condition_37\n((ingress_metadata.bypass_lookups & 2) == 0)"];
+_condition_36 [shape=box label="_condition_36\n(((ingress_metadata.bypass_lookups & 2) == 0) and (multicast_metadata.ipv6_multicast_enabled == 1))"];
+_condition_31 [shape=box label="_condition_31\n(l3_metadata.lkp_ip_type == 1)"];
+_condition_30 [shape=box label="_condition_30\n(l3_metadata.lkp_ip_type == 2)"];
+_condition_33 [shape=box label="_condition_33\n(((ingress_metadata.bypass_lookups & 2) == 0) and (multicast_metadata.ipv4_multicast_enabled == 1))"];
+_condition_32 [shape=box label="_condition_32\n((ingress_metadata.bypass_lookups & 1) == 0)"];
+_condition_38 [shape=box label="_condition_38\n((l3_metadata.lkp_ip_type == 1) and (ipv4_metadata.ipv4_unicast_enabled == 1))"];
+_condition_26 [shape=box label="_condition_26\n(l3_metadata.lkp_ip_type == 0)"];
+_condition_27 [shape=box label="_condition_27\n((ingress_metadata.bypass_lookups & 4) == 0)"];
+_condition_24 [shape=box label="_condition_24\n(((ingress_metadata.bypass_lookups & 128) == 0) and (ingress_metadata.port_type == 0))"];
+_condition_25 [shape=box label="_condition_25\n((ingress_metadata.bypass_lookups & 1) == 0)"];
+_condition_23 [shape=box label="_condition_23\n(((ingress_metadata.bypass_lookups & 64) == 0) and (ingress_metadata.drop_flag == 0))"];
+_condition_20 [shape=box label="_condition_20\n(ingress_metadata.port_type == 0)"];
+_condition_21 [shape=box label="_condition_21\n(ingress_metadata.port_type != 1)"];
+_condition_22 [shape=box label="_condition_22\n(not ((valid mpls[0]) and (l3_metadata.fib_hit == 1)))"];
+_condition_28 [shape=box label="_condition_28\n((ingress_metadata.bypass_lookups & 4) == 0)"];
+_condition_29 [shape=box label="_condition_29\n(l3_metadata.lkp_ip_type == 1)"];
+_condition_13 [shape=box label="_condition_13\n(tunnel_metadata.ingress_tunnel_type != 0)"];
+_condition_12 [shape=box label="_condition_12\n(tunnel_metadata.tunnel_terminate == 0)"];
+_condition_11 [shape=box label="_condition_11\n(valid fabric_header_multicast)"];
+_condition_10 [shape=box label="_condition_10\n(ingress_metadata.port_type == 1)"];
+_condition_17 [shape=box label="_condition_17\n(valid ipv6)"];
+_condition_16 [shape=box label="_condition_16\n(valid ipv4)"];
+_condition_15 [shape=box label="_condition_15\n(valid ipv6)"];
+_condition_14 [shape=box label="_condition_14\n(valid ipv4)"];
+_condition_19 [shape=box label="_condition_19\n((tunnel_metadata.tunnel_terminate == 1) or ((multicast_metadata.outer_mcast_route_hit == 1) and (((multicast_metadata.outer_mcast_mode == 1) and (multicast_metadata.mcast_rpf_group == 0)) or ((multicast_metadata.outer_mcast_mode == 2) and (multicast_metadata.mcast_rpf_group != 0)))))"];
+_condition_18 [shape=box label="_condition_18\n(valid mpls[0])"];
+_condition_7 [shape=box label="_condition_7\n((ingress_metadata.port_type == 0) and (security_metadata.ipsg_enabled == 1))"];
+_condition_6 [shape=box label="_condition_6\n(qos_metadata.trust_pcp == 1)"];
+_condition_5 [shape=box label="_condition_5\n(qos_metadata.trust_dscp == 1)"];
+_condition_4 [shape=box label="_condition_4\n((ingress_metadata.bypass_lookups & 8) == 0)"];
+_condition_3 [shape=box label="_condition_3\n((ingress_metadata.port_type == 0) and (l2_metadata.stp_group != 0))"];
+_condition_2 [shape=box label="_condition_2\n(valid mpls[0])"];
+_condition_1 [shape=box label="_condition_1\n(valid ipv6)"];
+_condition_0 [shape=box label="_condition_0\n(valid ipv4)"];
+_condition_9 [shape=box label="_condition_9\n(ingress_metadata.port_type != 0)"];
+_condition_8 [shape=box label="_condition_8\n(not (valid int_header))"];
+_condition_39 [shape=box label="_condition_39\n(ipv4_metadata.ipv4_urpf_mode != 0)"];
+ipv6_fib_lpm -> _condition_42 [style=dotted ];
+ipv6_fib_lpm -> fwd_result [color=red label="l3_metadata.fib_hit" decorate=true];
+lag_group -> fabric_lag [color=red label="fabric_metadata.dst_device" decorate=true];
+lag_group -> _condition_51 [style=dotted ];
+ipv4_urpf -> ipv4_urpf_lpm [color=green label="" decorate=true];
+ipv4_urpf -> ipv4_fib [style=dotted ];
+ipv4_fib_lpm -> _condition_42 [style=dotted ];
+ipv4_fib_lpm -> fwd_result [color=red label="l3_metadata.fib_hit" decorate=true];
+fabric_ingress_dst_lkp -> _condition_11 [color=red label="fabric_header_multicast._valid" decorate=true];
+fabric_ingress_dst_lkp -> _condition_10 [style=dotted ];
+fabric_ingress_dst_lkp -> _condition_13 [color=red label="tunnel_metadata.ingress_tunnel_type" decorate=true];
+fabric_ingress_dst_lkp -> _condition_12 [color=red label="tunnel_metadata.tunnel_terminate" decorate=true];
+compute_other_hashes -> ecmp_group [color=red label="hash_metadata.hash1" decorate=true];
+compute_other_hashes -> _condition_46 [style=dotted ];
+ipv4_src_vtep -> _condition_19 [style=dotted ];
+ipv4_src_vtep -> ipv4_dest_vtep [color=green label="" decorate=true];
+ipv6_dest_vtep -> _condition_19 [color=red label="tunnel_metadata.tunnel_terminate" decorate=true];
+validate_outer_ipv6_packet -> ingress_qos_map_dscp [color=red label="l3_metadata.lkp_dscp" decorate=true];
+validate_outer_ipv6_packet -> switch_config_params [style=dotted ];
+validate_outer_ipv6_packet -> mpls [color=blue label="l3_metadata.lkp_ip_type,
+l3_metadata.lkp_ip_version" decorate=true];
+ipv6_src_vtep -> _condition_19 [style=dotted ];
+ipv6_src_vtep -> ipv6_dest_vtep [color=green label="" decorate=true];
+storm_control_stats -> _condition_48 [style=dotted ];
+sflow_ing_take_sample -> ipv6_src_vtep [color=yellow label="ingress_metadata.ifindex" decorate=true];
+sflow_ing_take_sample -> ipv4_src_vtep [color=yellow label="ingress_metadata.ifindex" decorate=true];
+sflow_ing_take_sample -> _condition_9 [style=dotted ];
+sflow_ing_take_sample -> mpls [color=yellow label="ingress_metadata.egress_ifindex,
+ingress_metadata.bd" decorate=true];
+nat_src -> _condition_43 [style=dotted ];
+nat_src -> nat_flow [color=green label="" decorate=true];
+compute_ipv4_hashes -> compute_other_hashes [color=red label="hash_metadata.hash1" decorate=true];
+compute_ipv4_hashes -> fwd_result [color=yellow label="ingress_metadata.drop_flag" decorate=true];
+_condition_54 -> drop_stats [color=green label="" decorate=true arrowhead = dot];
+_condition_53 -> _condition_54 [color=green label="" decorate=true arrowhead = dot];
+_condition_53 -> system_acl [color=green label="" decorate=true arrowhead = dot];
+_condition_52 -> _condition_53 [color=green label="" decorate=true arrowhead = dot];
+adjust_lkp_fields -> mac_acl [color=red label="l2_metadata.lkp_mac_sa,
+l2_metadata.lkp_mac_da" decorate=true];
+adjust_lkp_fields -> rmac [color=red label="l2_metadata.lkp_mac_da" decorate=true];
+adjust_lkp_fields -> nat_twice [color=red label="l3_metadata.lkp_l4_sport,
+ipv4_metadata.lkp_ipv4_da,
+l3_metadata.lkp_l4_dport,
+ipv4_metadata.lkp_ipv4_sa,
+l3_metadata.lkp_ip_proto" decorate=true];
+adjust_lkp_fields -> ingress_l4_dst_port [color=red label="l3_metadata.lkp_l4_dport" decorate=true];
+adjust_lkp_fields -> validate_packet [color=red label="l2_metadata.lkp_mac_da,
+ipv6_metadata.lkp_ipv6_sa,
+l3_metadata.lkp_ip_ttl,
+ipv4_metadata.lkp_ipv4_sa,
+l2_metadata.lkp_mac_sa" decorate=true];
+adjust_lkp_fields -> ingress_l4_src_port [color=red label="l3_metadata.lkp_l4_sport" decorate=true];
+adjust_lkp_fields -> smac [color=red label="l2_metadata.lkp_mac_sa" decorate=true];
+adjust_lkp_fields -> _condition_20 [style=dotted ];
+adjust_lkp_fields -> dmac [color=red label="l2_metadata.lkp_mac_da" decorate=true];
+_condition_50 -> bd_flood [color=green label="" decorate=true arrowhead = dot];
+_condition_50 -> lag_group [color=green label="" decorate=true arrowhead = diamond];
+ipv4_multicast_route_star_g -> nat_twice [style=dotted ];
+ipv4_multicast_route_star_g -> fwd_result [color=red label="multicast_metadata.mcast_mode,
+multicast_metadata.mcast_rpf_group,
+multicast_metadata.mcast_route_hit" decorate=true];
+ipv4_multicast_route -> ipv4_multicast_route_star_g [color=green label="" decorate=true];
+ipv4_multicast_route -> nat_twice [style=dotted ];
+ipv4_racl -> acl_stats [color=blue label="acl_metadata.acl_stats_index" decorate=true];
+ipv4_racl -> traffic_class [color=red label="qos_metadata.lkp_tc" decorate=true];
+ipv4_racl -> _condition_39 [style=dotted ];
+ipv4_racl -> fwd_result [color=red label="acl_metadata.racl_redirect" decorate=true];
+ipv4_racl -> meter_index [color=blue label="meter_metadata.packet_color" decorate=true];
+nat_twice -> _condition_43 [style=dotted ];
+nat_twice -> nat_dst [color=green label="" decorate=true];
+spanning_tree -> _condition_4 [style=dotted ];
+spanning_tree -> ipv6_src_vtep [color=yellow label="ingress_metadata.ifindex" decorate=true];
+spanning_tree -> ipv4_src_vtep [color=yellow label="ingress_metadata.ifindex" decorate=true];
+int_source -> native_packet_over_fabric [color=yellow label="ipv4_metadata.lkp_ipv4_sa,
+ipv4_metadata.lkp_ipv4_da" decorate=true];
+int_source -> sflow_ingress [style=dotted ];
+learn_notify -> fabric_lag [style=dotted ];
+mac_acl -> ipv4_racl [color=blue label="meter_metadata.packet_color,
+fabric_metadata.reason_code,
+intrinsic_metadata.ingress_cos,
+qos_metadata.lkp_tc,
+acl_metadata.acl_stats_index" decorate=true];
+mac_acl -> ipv6_racl [color=blue label="meter_metadata.packet_color,
+fabric_metadata.reason_code,
+intrinsic_metadata.ingress_cos,
+qos_metadata.lkp_tc,
+acl_metadata.acl_stats_index" decorate=true];
+mac_acl -> rmac [style=dotted ];
+mac_acl -> meter_index [color=red label="meter_metadata.meter_index" decorate=true];
+int_terminate -> native_packet_over_fabric [color=yellow label="ipv4_metadata.lkp_ipv4_da" decorate=true];
+int_terminate -> sflow_ing_take_sample [color=blue label="i2e_metadata.mirror_session_id" decorate=true];
+int_terminate -> int_sink_update_outer [color=red label="int_metadata_i2e.sink" decorate=true];
+urpf_bd -> nat_twice [style=dotted ];
+urpf_bd -> system_acl [color=red label="l3_metadata.urpf_check_fail" decorate=true];
+ipv6_racl -> acl_stats [color=blue label="acl_metadata.acl_stats_index" decorate=true];
+ipv6_racl -> traffic_class [color=red label="qos_metadata.lkp_tc" decorate=true];
+ipv6_racl -> _condition_41 [style=dotted ];
+ipv6_racl -> fwd_result [color=red label="acl_metadata.racl_redirect" decorate=true];
+ipv6_racl -> meter_index [color=blue label="meter_metadata.packet_color" decorate=true];
+_condition_40 -> ipv6_racl [color=green label="" decorate=true arrowhead = dot];
+_condition_40 -> _condition_42 [style=dotted ];
+_condition_40 -> _condition_41 [color=green label="" decorate=true arrowhead = dot];
+_condition_40 -> ipv6_fib [color=green label="" decorate=true arrowhead = dot];
+_condition_41 -> ipv6_fib [style=dotted ];
+_condition_41 -> ipv6_urpf [color=green label="" decorate=true arrowhead = dot];
+_condition_42 -> nat_twice [style=dotted ];
+_condition_42 -> urpf_bd [color=green label="" decorate=true arrowhead = dot];
+_condition_43 -> _condition_44 [style=dotted ];
+_condition_43 -> meter_index [color=green label="" decorate=true arrowhead = dot];
+_condition_44 -> compute_ipv4_hashes [color=green label="" decorate=true arrowhead = dot];
+_condition_44 -> _condition_45 [color=green label="" decorate=true arrowhead = diamond];
+_condition_45 -> compute_non_ip_hashes [color=green label="" decorate=true arrowhead = diamond];
+_condition_45 -> compute_ipv6_hashes [color=green label="" decorate=true arrowhead = dot];
+_condition_46 -> meter_action [color=green label="" decorate=true arrowhead = dot];
+_condition_46 -> _condition_47 [style=dotted ];
+_condition_47 -> _condition_51 [color=green label="" decorate=true arrowhead = dot];
+_condition_47 -> storm_control_stats [color=green label="" decorate=true arrowhead = dot];
+_condition_47 -> fabric_lag [style=dotted ];
+_condition_47 -> ingress_bd_stats [color=green label="" decorate=true arrowhead = dot];
+_condition_47 -> _condition_48 [color=green label="" decorate=true arrowhead = dot];
+_condition_47 -> acl_stats [color=green label="" decorate=true arrowhead = dot];
+_condition_48 -> fwd_result [color=green label="" decorate=true arrowhead = dot];
+_condition_48 -> _condition_49 [style=dotted ];
+_condition_49 -> ecmp_group [color=green label="" decorate=true arrowhead = dot];
+_condition_49 -> nexthop [color=green label="" decorate=true arrowhead = diamond];
+ingress_port_mapping -> _condition_9 [color=red label="ingress_metadata.port_type" decorate=true];
+ingress_port_mapping -> ingress_port_properties [style=dotted ];
+ingress_port_mapping -> port_vlan_mapping [color=red label="ingress_metadata.ifindex" decorate=true];
+ingress_port_mapping -> _condition_47 [color=red label="ingress_metadata.port_type" decorate=true];
+ingress_port_mapping -> sflow_ingress [color=red label="ingress_metadata.ifindex" decorate=true];
+ingress_port_mapping -> _condition_7 [color=red label="ingress_metadata.port_type" decorate=true];
+ingress_port_mapping -> _condition_52 [color=red label="ingress_metadata.port_type" decorate=true];
+ingress_port_mapping -> _condition_21 [color=red label="ingress_metadata.port_type" decorate=true];
+ingress_port_mapping -> _condition_20 [color=red label="ingress_metadata.port_type" decorate=true];
+ingress_port_mapping -> switch_config_params [color=blue label="ingress_metadata.ifindex" decorate=true];
+ipv4_fib -> _condition_42 [style=dotted ];
+ipv4_fib -> ipv4_fib_lpm [color=green label="" decorate=true];
+nat_dst -> _condition_43 [style=dotted ];
+nat_dst -> nat_src [color=green label="" decorate=true];
+ingress_bd_stats -> acl_stats [style=dotted ];
+_condition_51 -> learn_notify [color=green label="" decorate=true arrowhead = dot];
+_condition_51 -> fabric_lag [style=dotted ];
+native_packet_over_fabric -> _condition_13 [style=dotted ];
+native_packet_over_fabric -> mpls [color=blue label="l2_metadata.lkp_mac_da,
+l2_metadata.lkp_mac_type,
+l2_metadata.lkp_mac_sa" decorate=true];
+dmac -> _condition_26 [style=dotted ];
+dmac -> fwd_result [color=red label="l2_metadata.l2_redirect" decorate=true];
+bd_flood -> fabric_lag [color=blue label="intrinsic_metadata.mcast_grp" decorate=true];
+bd_flood -> _condition_51 [style=dotted ];
+meter_index -> meter_action [color=red label="meter_metadata.packet_color" decorate=true];
+meter_index -> storm_control_stats [color=red label="meter_metadata.packet_color" decorate=true];
+meter_index -> _condition_44 [style=dotted ];
+fabric_lag -> traffic_class [style=dotted ];
+fabric_lag -> system_acl [color=yellow label="fabric_metadata.dst_device" decorate=true];
+storm_control -> ipv6_acl [color=blue label="meter_metadata.packet_color,
+meter_metadata.meter_index" decorate=true];
+storm_control -> validate_packet [color=yellow label="l2_metadata.lkp_pkt_type" decorate=true];
+storm_control -> mac_acl [color=blue label="meter_metadata.packet_color,
+meter_metadata.meter_index" decorate=true];
+storm_control -> _condition_21 [style=dotted ];
+storm_control -> ip_acl [color=blue label="meter_metadata.packet_color,
+meter_metadata.meter_index" decorate=true];
+outer_ipv6_multicast -> outer_ipv6_multicast_star_g [color=green label="" decorate=true];
+outer_ipv6_multicast -> _condition_19 [style=dotted ];
+ipv4_urpf_lpm -> _condition_42 [color=red label="l3_metadata.urpf_mode,
+l3_metadata.urpf_hit" decorate=true];
+ipv4_urpf_lpm -> ipv4_fib [style=dotted ];
+switch_config_params -> port_vlan_mapping [style=dotted ];
+switch_config_params -> sflow_ingress [color=blue label="ingress_metadata.sflow_take_sample" decorate=true];
+switch_config_params -> fabric_ingress_dst_lkp [color=blue label="standard_metadata.egress_spec" decorate=true];
+nat_flow -> _condition_43 [style=dotted ];
+nat_flow -> fwd_result [color=red label="nat_metadata.nat_hit" decorate=true];
+compute_non_ip_hashes -> compute_other_hashes [color=blue label="hash_metadata.hash2" decorate=true];
+compute_non_ip_hashes -> fwd_result [color=yellow label="ingress_metadata.drop_flag" decorate=true];
+ingress_l4_src_port -> ipv6_acl [color=red label="acl_metadata.ingress_src_port_range_id" decorate=true];
+ingress_l4_src_port -> ip_acl [color=red label="acl_metadata.ingress_src_port_range_id" decorate=true];
+ingress_l4_src_port -> ingress_l4_dst_port [style=dotted ];
+int_sink_update_outer -> sflow_ingress [style=dotted ];
+acl_stats -> storm_control_stats [style=dotted ];
+_condition_35 -> ipv6_multicast_bridge [color=green label="" decorate=true arrowhead = dot];
+_condition_35 -> _condition_36 [style=dotted ];
+_condition_34 -> _condition_36 [color=green label="" decorate=true arrowhead = dot];
+_condition_34 -> _condition_35 [color=green label="" decorate=true arrowhead = dot];
+_condition_34 -> nat_twice [style=dotted ];
+_condition_37 -> nat_twice [style=dotted ];
+_condition_37 -> _condition_38 [color=green label="" decorate=true arrowhead = dot];
+_condition_36 -> ipv6_multicast_route [color=green label="" decorate=true arrowhead = dot];
+_condition_36 -> nat_twice [style=dotted ];
+_condition_31 -> _condition_32 [color=green label="" decorate=true arrowhead = dot];
+_condition_31 -> _condition_34 [color=green label="" decorate=true arrowhead = diamond];
+_condition_31 -> _condition_33 [color=green label="" decorate=true arrowhead = dot];
+_condition_30 -> ipv6_acl [color=green label="" decorate=true arrowhead = dot];
+_condition_30 -> rmac [style=dotted ];
+_condition_33 -> ipv4_multicast_route [color=green label="" decorate=true arrowhead = dot];
+_condition_33 -> nat_twice [style=dotted ];
+_condition_32 -> ipv4_multicast_bridge [color=green label="" decorate=true arrowhead = dot];
+_condition_32 -> _condition_33 [style=dotted ];
+ipsg_permit_special -> _condition_8 [style=dotted ];
+ipsg_permit_special -> native_packet_over_fabric [color=yellow label="l3_metadata.lkp_ip_proto,
+ipv4_metadata.lkp_ipv4_da,
+l3_metadata.lkp_l4_dport" decorate=true];
+compute_ipv6_hashes -> compute_other_hashes [color=red label="hash_metadata.hash1" decorate=true];
+compute_ipv6_hashes -> fwd_result [color=yellow label="ingress_metadata.drop_flag" decorate=true];
+ip_acl -> ipv4_racl [color=blue label="meter_metadata.packet_color,
+fabric_metadata.reason_code,
+intrinsic_metadata.ingress_cos,
+qos_metadata.lkp_tc,
+acl_metadata.acl_stats_index" decorate=true];
+ip_acl -> ipv6_racl [color=blue label="meter_metadata.packet_color,
+fabric_metadata.reason_code,
+intrinsic_metadata.ingress_cos,
+qos_metadata.lkp_tc,
+acl_metadata.acl_stats_index" decorate=true];
+ip_acl -> rmac [style=dotted ];
+ip_acl -> meter_index [color=red label="meter_metadata.meter_index" decorate=true];
+_condition_38 -> _condition_40 [color=green label="" decorate=true arrowhead = diamond];
+_condition_38 -> ipv4_racl [color=green label="" decorate=true arrowhead = dot];
+_condition_38 -> ipv4_fib [color=green label="" decorate=true arrowhead = dot];
+_condition_38 -> _condition_39 [color=green label="" decorate=true arrowhead = dot];
+ipv6_multicast_bridge -> ipv6_multicast_bridge_star_g [color=green label="" decorate=true];
+ipv6_multicast_bridge -> _condition_36 [style=dotted ];
+validate_outer_ethernet -> fabric_ingress_dst_lkp [color=yellow label="ethernet.etherType" decorate=true];
+validate_outer_ethernet -> _condition_0 [color=green label="" decorate=true];
+validate_outer_ethernet -> ingress_qos_map_pcp [color=red label="l2_metadata.lkp_pcp" decorate=true];
+validate_outer_ethernet -> switch_config_params [style=dotted ];
+ipv6_acl -> ipv4_racl [color=blue label="meter_metadata.packet_color,
+fabric_metadata.reason_code,
+intrinsic_metadata.ingress_cos,
+qos_metadata.lkp_tc,
+acl_metadata.acl_stats_index" decorate=true];
+ipv6_acl -> ipv6_racl [color=blue label="meter_metadata.packet_color,
+fabric_metadata.reason_code,
+intrinsic_metadata.ingress_cos,
+qos_metadata.lkp_tc,
+acl_metadata.acl_stats_index" decorate=true];
+ipv6_acl -> rmac [style=dotted ];
+ipv6_acl -> meter_index [color=red label="meter_metadata.meter_index" decorate=true];
+fwd_result -> _condition_54 [color=red label="ingress_metadata.drop_flag" decorate=true];
+fwd_result -> _condition_49 [color=red label="nexthop_metadata.nexthop_type" decorate=true];
+fabric_ingress_src_lkp -> _condition_12 [style=dotted ];
+smac -> learn_notify [color=red label="l2_metadata.l2_src_move,
+l2_metadata.l2_src_miss" decorate=true];
+smac -> _condition_25 [style=dotted ];
+meter_action -> _condition_47 [style=dotted ];
+_condition_26 -> _condition_28 [color=green label="" decorate=true arrowhead = diamond];
+_condition_26 -> _condition_27 [color=green label="" decorate=true arrowhead = dot];
+_condition_27 -> mac_acl [color=green label="" decorate=true arrowhead = dot];
+_condition_27 -> rmac [style=dotted ];
+_condition_24 -> smac [color=green label="" decorate=true arrowhead = dot];
+_condition_24 -> _condition_25 [style=dotted ];
+_condition_25 -> _condition_26 [style=dotted ];
+_condition_25 -> dmac [color=green label="" decorate=true arrowhead = dot];
+outer_ipv4_multicast_star_g -> _condition_19 [color=red label="multicast_metadata.outer_mcast_route_hit,
+multicast_metadata.mcast_rpf_group,
+multicast_metadata.outer_mcast_mode,
+tunnel_metadata.tunnel_terminate" decorate=true];
+_condition_23 -> validate_packet [color=green label="" decorate=true arrowhead = dot];
+_condition_23 -> ingress_l4_src_port [style=dotted ];
+_condition_20 -> _condition_21 [style=dotted ];
+_condition_20 -> storm_control [color=green label="" decorate=true arrowhead = dot];
+_condition_21 -> _condition_43 [style=dotted ];
+_condition_21 -> _condition_22 [color=green label="" decorate=true arrowhead = dot];
+_condition_22 -> _condition_25 [color=green label="" decorate=true arrowhead = dot];
+_condition_22 -> rmac [color=green label="" decorate=true arrowhead = dot];
+_condition_22 -> _condition_23 [color=green label="" decorate=true arrowhead = dot];
+_condition_22 -> _condition_43 [style=dotted ];
+_condition_22 -> nat_twice [color=green label="" decorate=true arrowhead = dot];
+_condition_22 -> ingress_l4_dst_port [color=green label="" decorate=true arrowhead = dot];
+_condition_22 -> ingress_l4_src_port [color=green label="" decorate=true arrowhead = dot];
+_condition_22 -> _condition_26 [color=green label="" decorate=true arrowhead = dot];
+_condition_22 -> _condition_24 [color=green label="" decorate=true arrowhead = dot];
+_condition_28 -> rmac [style=dotted ];
+_condition_28 -> _condition_29 [color=green label="" decorate=true arrowhead = dot];
+_condition_29 -> _condition_30 [color=green label="" decorate=true arrowhead = diamond];
+_condition_29 -> ip_acl [color=green label="" decorate=true arrowhead = dot];
+ipv6_urpf -> ipv6_urpf_lpm [color=green label="" decorate=true];
+ipv6_urpf -> ipv6_fib [style=dotted ];
+nexthop -> _condition_50 [color=red label="ingress_metadata.egress_ifindex" decorate=true];
+ingress_port_properties -> _condition_5 [color=red label="qos_metadata.trust_dscp" decorate=true];
+ingress_port_properties -> validate_outer_ethernet [style=dotted ];
+system_acl -> _condition_54 [style=dotted ];
+validate_packet -> compute_non_ip_hashes [color=red label="ingress_metadata.drop_flag" decorate=true];
+validate_packet -> compute_ipv6_hashes [color=red label="ingress_metadata.drop_flag" decorate=true];
+validate_packet -> ingress_bd_stats [color=blue label="l2_metadata.bd_stats_idx" decorate=true];
+validate_packet -> ingress_l4_src_port [style=dotted ];
+validate_packet -> compute_ipv4_hashes [color=red label="ingress_metadata.drop_flag" decorate=true];
+ipv4_multicast_bridge_star_g -> fwd_result [color=red label="multicast_metadata.mcast_bridge_hit" decorate=true];
+ipv4_multicast_bridge_star_g -> _condition_33 [style=dotted ];
+port_vlan_mapping -> _condition_51 [color=red label="l2_metadata.learning_enabled" decorate=true];
+port_vlan_mapping -> sflow_ing_take_sample [color=blue label="ingress_metadata.bd" decorate=true];
+port_vlan_mapping -> ipsg [color=red label="ingress_metadata.bd" decorate=true];
+port_vlan_mapping -> outer_rmac [color=red label="l3_metadata.rmac_group" decorate=true];
+port_vlan_mapping -> _condition_3 [color=red label="l2_metadata.stp_group" decorate=true];
+tunnel -> _condition_20 [style=dotted ];
+tunnel -> _condition_26 [color=red label="l3_metadata.lkp_ip_type" decorate=true];
+tunnel -> tunnel_lookup_miss [color=green label="" decorate=true];
+tunnel -> _condition_44 [color=red label="tunnel_metadata.tunnel_terminate" decorate=true];
+mpls -> _condition_19 [color=red label="tunnel_metadata.tunnel_terminate" decorate=true];
+mpls -> _condition_22 [color=red label="l3_metadata.fib_hit" decorate=true];
+_condition_13 -> _condition_19 [style=dotted ];
+_condition_13 -> outer_rmac [color=green label="" decorate=true arrowhead = dot];
+_condition_12 -> native_packet_over_fabric [color=green label="" decorate=true arrowhead = dot];
+_condition_12 -> ipv4_dest_vtep [color=yellow label="tunnel_metadata.tunnel_terminate" decorate=true];
+_condition_12 -> _condition_13 [style=dotted ];
+_condition_12 -> outer_ipv4_multicast [color=yellow label="tunnel_metadata.tunnel_terminate" decorate=true];
+_condition_12 -> outer_ipv6_multicast [color=yellow label="tunnel_metadata.tunnel_terminate" decorate=true];
+_condition_12 -> ipv6_dest_vtep [color=yellow label="tunnel_metadata.tunnel_terminate" decorate=true];
+_condition_11 -> fabric_ingress_src_lkp [color=green label="" decorate=true arrowhead = dot];
+_condition_11 -> _condition_12 [style=dotted ];
+_condition_10 -> _condition_11 [color=green label="" decorate=true arrowhead = dot];
+_condition_10 -> _condition_13 [style=dotted ];
+_condition_10 -> _condition_12 [color=green label="" decorate=true arrowhead = dot];
+_condition_17 -> ipv6_src_vtep [color=green label="" decorate=true arrowhead = dot];
+_condition_17 -> _condition_18 [color=green label="" decorate=true arrowhead = diamond];
+_condition_16 -> _condition_17 [color=green label="" decorate=true arrowhead = diamond];
+_condition_16 -> ipv4_src_vtep [color=green label="" decorate=true arrowhead = dot];
+_condition_15 -> _condition_19 [style=dotted ];
+_condition_15 -> outer_ipv6_multicast [color=green label="" decorate=true arrowhead = dot];
+_condition_14 -> outer_ipv4_multicast [color=green label="" decorate=true arrowhead = dot];
+_condition_14 -> _condition_15 [color=green label="" decorate=true arrowhead = diamond];
+_condition_19 -> adjust_lkp_fields [color=green label="" decorate=true arrowhead = diamond];
+_condition_19 -> tunnel [color=green label="" decorate=true arrowhead = dot];
+_condition_18 -> _condition_19 [style=dotted ];
+_condition_18 -> mpls [color=green label="" decorate=true arrowhead = dot];
+outer_rmac -> _condition_16 [color=green label="" decorate=true];
+outer_rmac -> _condition_14 [color=green label="" decorate=true];
+ingress_l4_dst_port -> ipv6_acl [color=red label="acl_metadata.ingress_dst_port_range_id" decorate=true];
+ingress_l4_dst_port -> _condition_24 [style=dotted ];
+ingress_l4_dst_port -> ip_acl [color=red label="acl_metadata.ingress_dst_port_range_id" decorate=true];
+ingress_qos_map_pcp -> _condition_7 [style=dotted ];
+ingress_qos_map_pcp -> storm_control [color=blue label="meter_metadata.packet_color" decorate=true];
+_condition_7 -> _condition_8 [style=dotted ];
+_condition_7 -> ipsg_permit_special [color=green label="" decorate=true arrowhead = dot];
+_condition_7 -> ipsg [color=green label="" decorate=true arrowhead = dot];
+_condition_6 -> _condition_7 [style=dotted ];
+_condition_6 -> ingress_qos_map_pcp [color=green label="" decorate=true arrowhead = dot];
+_condition_5 -> ingress_qos_map_dscp [color=green label="" decorate=true arrowhead = dot];
+_condition_5 -> _condition_6 [color=green label="" decorate=true arrowhead = diamond];
+_condition_4 -> _condition_5 [color=green label="" decorate=true arrowhead = dot];
+_condition_4 -> _condition_7 [style=dotted ];
+_condition_3 -> _condition_4 [style=dotted ];
+_condition_3 -> spanning_tree [color=green label="" decorate=true arrowhead = dot];
+_condition_2 -> validate_mpls_packet [color=green label="" decorate=true arrowhead = dot];
+_condition_2 -> switch_config_params [style=dotted ];
+_condition_1 -> _condition_2 [color=green label="" decorate=true arrowhead = diamond];
+_condition_1 -> validate_outer_ipv6_packet [color=green label="" decorate=true arrowhead = dot];
+_condition_0 -> validate_outer_ipv4_packet [color=green label="" decorate=true arrowhead = dot];
+_condition_0 -> _condition_1 [color=green label="" decorate=true arrowhead = diamond];
+ipv6_multicast_route -> nat_twice [style=dotted ];
+ipv6_multicast_route -> ipv6_multicast_route_star_g [color=green label="" decorate=true];
+tunnel_lookup_miss -> mac_acl [color=red label="l2_metadata.lkp_mac_sa,
+l2_metadata.lkp_mac_da" decorate=true];
+tunnel_lookup_miss -> rmac [color=red label="l2_metadata.lkp_mac_da" decorate=true];
+tunnel_lookup_miss -> nat_twice [color=red label="l3_metadata.lkp_l4_sport,
+ipv4_metadata.lkp_ipv4_da,
+l3_metadata.lkp_l4_dport,
+ipv4_metadata.lkp_ipv4_sa,
+l3_metadata.lkp_ip_proto" decorate=true];
+tunnel_lookup_miss -> ingress_l4_dst_port [color=red label="l3_metadata.lkp_l4_dport" decorate=true];
+tunnel_lookup_miss -> validate_packet [color=red label="l2_metadata.lkp_mac_da,
+ipv6_metadata.lkp_ipv6_sa,
+l3_metadata.lkp_ip_ttl,
+ipv4_metadata.lkp_ipv4_sa,
+l2_metadata.lkp_mac_sa" decorate=true];
+tunnel_lookup_miss -> ingress_l4_src_port [color=red label="l3_metadata.lkp_l4_sport" decorate=true];
+tunnel_lookup_miss -> smac [color=red label="l2_metadata.lkp_mac_sa" decorate=true];
+tunnel_lookup_miss -> _condition_20 [style=dotted ];
+tunnel_lookup_miss -> dmac [color=red label="l2_metadata.lkp_mac_da" decorate=true];
+_condition_9 -> _condition_10 [color=green label="" decorate=true arrowhead = dot];
+_condition_9 -> _condition_13 [style=dotted ];
+_condition_9 -> fabric_ingress_dst_lkp [color=green label="" decorate=true arrowhead = dot];
+_condition_8 -> int_terminate [color=green label="" decorate=true arrowhead = diamond];
+_condition_8 -> int_source [color=green label="" decorate=true arrowhead = dot];
+ingress_qos_map_dscp -> _condition_7 [style=dotted ];
+ingress_qos_map_dscp -> storm_control [color=blue label="meter_metadata.packet_color" decorate=true];
+ipv6_multicast_route_star_g -> nat_twice [style=dotted ];
+ipv6_multicast_route_star_g -> fwd_result [color=red label="multicast_metadata.mcast_mode,
+multicast_metadata.mcast_rpf_group,
+multicast_metadata.mcast_route_hit" decorate=true];
+validate_mpls_packet -> switch_config_params [style=dotted ];
+validate_mpls_packet -> mpls [color=red label="tunnel_metadata.mpls_label" decorate=true];
+outer_ipv6_multicast_star_g -> _condition_19 [color=red label="multicast_metadata.outer_mcast_route_hit,
+multicast_metadata.mcast_rpf_group,
+multicast_metadata.outer_mcast_mode,
+tunnel_metadata.tunnel_terminate" decorate=true];
+ecmp_group -> _condition_50 [color=red label="ingress_metadata.egress_ifindex" decorate=true];
+validate_outer_ipv4_packet -> ingress_qos_map_dscp [color=red label="l3_metadata.lkp_dscp" decorate=true];
+validate_outer_ipv4_packet -> switch_config_params [style=dotted ];
+validate_outer_ipv4_packet -> mpls [color=blue label="l3_metadata.lkp_ip_type,
+l3_metadata.lkp_ip_version" decorate=true];
+ipv4_multicast_bridge -> ipv4_multicast_bridge_star_g [color=green label="" decorate=true];
+ipv4_multicast_bridge -> _condition_33 [style=dotted ];
+sflow_ingress -> native_packet_over_fabric [color=yellow label="ipv4_metadata.lkp_ipv4_sa,
+ipv4_metadata.lkp_ipv4_da" decorate=true];
+sflow_ingress -> sflow_ing_take_sample [color=red label="ingress_metadata.sflow_take_sample,
+sflow_metadata.sflow_session_id" decorate=true];
+ipv6_urpf_lpm -> _condition_42 [color=red label="l3_metadata.urpf_mode,
+l3_metadata.urpf_hit" decorate=true];
+ipv6_urpf_lpm -> ipv6_fib [style=dotted ];
+ipv6_fib -> _condition_42 [style=dotted ];
+ipv6_fib -> ipv6_fib_lpm [color=green label="" decorate=true];
+ipsg -> ipv6_src_vtep [color=yellow label="ingress_metadata.ifindex" decorate=true];
+ipsg -> native_packet_over_fabric [color=yellow label="l2_metadata.lkp_mac_sa,
+ipv4_metadata.lkp_ipv4_sa" decorate=true];
+ipsg -> ipsg_permit_special [style=dotted ];
+ipsg -> ipv4_src_vtep [color=yellow label="ingress_metadata.ifindex" decorate=true];
+outer_ipv4_multicast -> outer_ipv4_multicast_star_g [color=green label="" decorate=true];
+outer_ipv4_multicast -> _condition_19 [style=dotted ];
+rmac -> _condition_37 [color=green label="" decorate=true];
+rmac -> _condition_31 [color=green label="" decorate=true];
+_condition_39 -> ipv4_urpf [color=green label="" decorate=true arrowhead = dot];
+_condition_39 -> ipv4_fib [style=dotted ];
+traffic_class -> _condition_52 [style=dotted ];
+traffic_class -> system_acl [color=blue label="intrinsic_metadata.ingress_cos,
+intrinsic_metadata.qid" decorate=true];
+ipv6_multicast_bridge_star_g -> _condition_36 [style=dotted ];
+ipv6_multicast_bridge_star_g -> fwd_result [color=red label="multicast_metadata.mcast_bridge_hit" decorate=true];
+ipv4_dest_vtep -> _condition_19 [color=red label="tunnel_metadata.tunnel_terminate" decorate=true];
+}

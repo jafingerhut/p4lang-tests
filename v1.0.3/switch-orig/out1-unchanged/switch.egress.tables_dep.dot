@@ -1,0 +1,229 @@
+digraph egress {
+_condition_61 [shape=box label="_condition_61\n((egress_metadata.routed == 0) or (l3_metadata.nexthop_index != 0))"];
+_condition_68 [shape=box label="_condition_68\n(valid ipv4)"];
+_condition_69 [shape=box label="_condition_69\n(valid ipv6)"];
+_condition_62 [shape=box label="_condition_62\n((ingress_metadata.bypass_lookups & 8) == 0)"];
+_condition_63 [shape=box label="_condition_63\n(egress_metadata.routed == 1)"];
+_condition_60 [shape=box label="_condition_60\n((multicast_metadata.inner_replica == 1) or (multicast_metadata.replica == 0))"];
+_condition_66 [shape=box label="_condition_66\n((fabric_metadata.fabric_header_present == 0) and (tunnel_metadata.egress_tunnel_type != 0))"];
+_condition_67 [shape=box label="_condition_67\n((tunnel_metadata.egress_tunnel_type != 15) and (tunnel_metadata.egress_tunnel_type != 16))"];
+_condition_64 [shape=box label="_condition_64\n(int_metadata.insert_cnt != 0)"];
+_condition_65 [shape=box label="_condition_65\n((nat_metadata.ingress_nat_mode != 0) and (nat_metadata.ingress_nat_mode != nat_metadata.egress_nat_mode))"];
+_condition_57 [shape=box label="_condition_57\n(intrinsic_metadata.egress_rid != 0)"];
+_condition_56 [shape=box label="_condition_56\n((standard_metadata.instance_type != 0) and (standard_metadata.instance_type != 5))"];
+_condition_55 [shape=box label="_condition_55\n((intrinsic_metadata.deflection_flag == 0) and (egress_metadata.bypass == 0))"];
+_condition_71 [shape=box label="_condition_71\n(egress_metadata.port_type == 0)"];
+_condition_70 [shape=box label="_condition_70\n(int_metadata.insert_cnt != 0)"];
+_condition_73 [shape=box label="_condition_73\n(((((tunnel_metadata.ingress_tunnel_type == 0) and (tunnel_metadata.egress_tunnel_type == 0)) and (egress_filter_metadata.bd == 0)) and (egress_filter_metadata.ifindex_check == 0)) or (((tunnel_metadata.ingress_tunnel_type != 0) and (tunnel_metadata.egress_tunnel_type != 0)) and (egress_filter_metadata.inner_bd == 0)))"];
+_condition_72 [shape=box label="_condition_72\n(multicast_metadata.inner_replica == 1)"];
+_condition_74 [shape=box label="_condition_74\n(egress_metadata.bypass == 0)"];
+_condition_59 [shape=box label="_condition_59\n(tunnel_metadata.tunnel_terminate == 1)"];
+_condition_58 [shape=box label="_condition_58\n((standard_metadata.instance_type == 0) or (standard_metadata.instance_type == 5))"];
+int_bos -> int_meta_header_update [color=yellow label="int_header.total_hop_cnt" decorate=true];
+_condition_61 -> rewrite [color=green label="" decorate=true arrowhead = dot];
+_condition_61 -> rewrite_multicast [color=green label="" decorate=true arrowhead = diamond];
+vlan_decap -> _condition_59 [style=dotted ];
+vlan_decap -> tunnel_decap_process_outer [color=blue label="ethernet.etherType" decorate=true];
+rewrite -> _condition_66 [color=red label="tunnel_metadata.egress_tunnel_type" decorate=true];
+rewrite -> mtu [color=red label="l3_metadata.mtu_index" decorate=true];
+rewrite -> egress_bd_map [color=red label="egress_metadata.bd" decorate=true];
+rewrite -> _condition_63 [color=red label="egress_metadata.routed" decorate=true];
+rewrite -> egress_bd_stats [color=red label="egress_metadata.bd" decorate=true];
+int_insert -> _condition_70 [color=red label="int_metadata.insert_cnt" decorate=true];
+int_insert -> _condition_65 [style=dotted ];
+int_insert -> _condition_64 [color=red label="int_metadata.insert_cnt" decorate=true];
+egress_ipv6_acl -> _condition_70 [style=dotted ];
+egress_ipv6_acl -> egress_system_acl [color=red label="acl_metadata.acl_deny,
+fabric_metadata.reason_code" decorate=true];
+int_inst_0003 -> int_bos [color=blue label="int_hop_latency_header.bos,
+int_q_occupancy_header.bos,
+int_ingress_port_id_header.bos,
+int_switch_id_header.bos" decorate=true];
+int_inst_0003 -> int_inst_0407 [style=dotted ];
+mirror -> _condition_61 [color=red label="l3_metadata.nexthop_index" decorate=true];
+mirror -> egress_port_mapping [style=dotted ];
+int_inst_1215 -> int_bos [style=dotted ];
+rid -> _condition_60 [color=red label="multicast_metadata.replica,
+multicast_metadata.inner_replica" decorate=true];
+rid -> replica_type [color=red label="multicast_metadata.replica,
+egress_metadata.same_bd_check" decorate=true];
+rid -> _condition_72 [color=red label="multicast_metadata.inner_replica" decorate=true];
+rid -> egress_port_mapping [color=blue label="tunnel_metadata.egress_tunnel_type" decorate=true];
+mtu -> int_insert [style=dotted ];
+mtu -> tunnel_encap_process_inner [color=yellow label="ipv6.payloadLen,
+ipv4.totalLen,
+ipv4._valid,
+ipv6._valid" decorate=true];
+egress_port_mapping -> egress_l4port_fields [style=dotted ];
+egress_port_mapping -> _condition_71 [color=red label="egress_metadata.port_type" decorate=true];
+egress_port_mapping -> egress_qos_map [color=red label="qos_metadata.egress_qos_group" decorate=true];
+egress_port_mapping -> _condition_59 [color=green label="" decorate=true];
+egress_port_mapping -> int_insert [color=green label="" decorate=true];
+egress_port_mapping -> _condition_62 [color=green label="" decorate=true];
+egress_port_mapping -> _condition_61 [color=green label="" decorate=true];
+egress_port_mapping -> _condition_58 [color=green label="" decorate=true];
+_condition_68 -> egress_ip_acl [color=green label="" decorate=true arrowhead = dot];
+_condition_68 -> _condition_69 [color=green label="" decorate=true arrowhead = diamond];
+_condition_69 -> egress_ipv6_acl [color=green label="" decorate=true arrowhead = dot];
+_condition_69 -> egress_mac_acl [color=green label="" decorate=true arrowhead = diamond];
+egress_bd_map -> _condition_62 [style=dotted ];
+egress_bd_map -> smac_rewrite [color=red label="egress_metadata.smac_idx" decorate=true];
+egress_bd_map -> _condition_65 [color=red label="nat_metadata.egress_nat_mode" decorate=true];
+tunnel_src_rewrite -> egress_ip_acl [color=red label="ipv4.srcAddr" decorate=true];
+tunnel_src_rewrite -> egress_ipv6_acl [color=red label="ipv6.srcAddr" decorate=true];
+tunnel_src_rewrite -> tunnel_dst_rewrite [style=dotted ];
+egress_l4port_fields -> egress_l4_dst_port [color=red label="l3_metadata.egress_l4_dport" decorate=true];
+egress_l4port_fields -> egress_l4_src_port [color=red label="l3_metadata.egress_l4_sport" decorate=true];
+egress_l4port_fields -> tunnel_encap_process_inner [color=yellow label="icmp.typeCode,
+icmp._valid,
+udp._valid,
+tcp._valid,
+tcp.dstPort,
+udp.srcPort,
+udp.dstPort,
+tcp.srcPort" decorate=true];
+_condition_62 -> _condition_63 [style=dotted ];
+_condition_62 -> egress_qos_map [color=green label="" decorate=true arrowhead = dot];
+_condition_63 -> mtu [style=dotted ];
+_condition_63 -> l3_rewrite [color=green label="" decorate=true arrowhead = dot];
+_condition_63 -> smac_rewrite [color=green label="" decorate=true arrowhead = dot];
+_condition_60 -> tunnel_decap_process_inner [color=green label="" decorate=true arrowhead = dot];
+_condition_60 -> _condition_61 [style=dotted ];
+_condition_60 -> tunnel_decap_process_outer [color=green label="" decorate=true arrowhead = dot];
+_condition_66 -> _condition_67 [color=green label="" decorate=true arrowhead = dot];
+_condition_66 -> egress_vni [color=green label="" decorate=true arrowhead = dot];
+_condition_66 -> _condition_68 [style=dotted ];
+_condition_67 -> tunnel_encap_process_outer [style=dotted ];
+_condition_67 -> tunnel_encap_process_inner [color=green label="" decorate=true arrowhead = dot];
+_condition_64 -> int_inst_0407 [color=green label="" decorate=true arrowhead = dot];
+_condition_64 -> int_inst_0003 [color=green label="" decorate=true arrowhead = dot];
+_condition_64 -> int_inst_0811 [color=green label="" decorate=true arrowhead = dot];
+_condition_64 -> int_inst_1215 [color=green label="" decorate=true arrowhead = dot];
+_condition_64 -> int_meta_header_update [style=dotted ];
+egress_bd_stats -> egress_l4port_fields [style=dotted ];
+egress_vlan_xlate -> egress_filter [style=dotted ];
+tunnel_encap_process_outer -> tunnel_mtu [color=red label="tunnel_metadata.tunnel_index" decorate=true];
+tunnel_encap_process_outer -> tunnel_rewrite [color=red label="tunnel_metadata.tunnel_index" decorate=true];
+tunnel_encap_process_outer -> _condition_68 [color=red label="ipv4._valid" decorate=true];
+tunnel_encap_process_outer -> int_outer_encap [color=red label="ipv4._valid" decorate=true];
+tunnel_mtu -> tunnel_src_rewrite [style=dotted ];
+tunnel_mtu -> egress_system_acl [color=red label="l3_metadata.l3_mtu_check" decorate=true];
+egress_filter_drop -> _condition_74 [style=dotted ];
+tunnel_decap_process_inner -> _condition_61 [style=dotted ];
+tunnel_decap_process_inner -> egress_nat [color=blue label="tcp.srcPort,
+udp.dstPort,
+tcp.dstPort,
+udp.srcPort" decorate=true];
+tunnel_decap_process_inner -> egress_l4port_fields [color=red label="udp._valid,
+tcp._valid,
+icmp._valid" decorate=true];
+tunnel_decap_process_outer -> rewrite [color=blue label="mpls[0].label" decorate=true];
+tunnel_decap_process_outer -> rewrite_multicast [color=red label="ipv6._valid,
+ipv6.dstAddr,
+ipv4.dstAddr,
+ipv4._valid" decorate=true];
+tunnel_decap_process_outer -> tunnel_decap_process_inner [style=dotted ];
+tunnel_smac_rewrite -> tunnel_dmac_rewrite [style=dotted ];
+tunnel_smac_rewrite -> egress_mac_acl [color=red label="ethernet.srcAddr" decorate=true];
+smac_rewrite -> mtu [style=dotted ];
+smac_rewrite -> tunnel_encap_process_outer [color=blue label="ethernet.srcAddr" decorate=true];
+replica_type -> _condition_61 [color=red label="egress_metadata.routed" decorate=true];
+replica_type -> egress_port_mapping [style=dotted ];
+rewrite_multicast -> egress_bd_map [style=dotted ];
+rewrite_multicast -> l3_rewrite [color=blue label="ethernet.dstAddr" decorate=true];
+_condition_65 -> egress_nat [color=green label="" decorate=true arrowhead = dot];
+_condition_65 -> egress_bd_stats [style=dotted ];
+egress_filter -> _condition_73 [color=red label="egress_filter_metadata.bd,
+egress_filter_metadata.ifindex_check,
+egress_filter_metadata.inner_bd" decorate=true];
+egress_filter -> _condition_72 [style=dotted ];
+int_inst_0407 -> int_bos [color=blue label="int_egress_port_tx_utilization_header.bos,
+int_egress_port_id_header.bos,
+int_q_congestion_header.bos,
+int_ingress_tstamp_header.bos" decorate=true];
+int_inst_0407 -> int_inst_0811 [style=dotted ];
+tunnel_rewrite -> tunnel_src_rewrite [color=red label="tunnel_metadata.tunnel_src_index" decorate=true];
+tunnel_rewrite -> tunnel_smac_rewrite [color=red label="tunnel_metadata.tunnel_smac_index" decorate=true];
+tunnel_rewrite -> tunnel_mtu [style=dotted ];
+tunnel_rewrite -> tunnel_dmac_rewrite [color=red label="tunnel_metadata.tunnel_dmac_index" decorate=true];
+tunnel_rewrite -> egress_filter [color=blue label="egress_metadata.outer_bd" decorate=true];
+tunnel_rewrite -> tunnel_dst_rewrite [color=red label="tunnel_metadata.tunnel_dst_index" decorate=true];
+egress_ip_acl -> _condition_70 [style=dotted ];
+egress_ip_acl -> egress_system_acl [color=red label="acl_metadata.acl_deny,
+fabric_metadata.reason_code" decorate=true];
+tunnel_encap_process_inner -> tunnel_encap_process_outer [color=blue label="udp._valid,
+egress_metadata.payload_length,
+ipv6._valid,
+tunnel_metadata.inner_ip_proto,
+udp.srcPort,
+ipv4.ihl,
+ipv4.diffserv,
+udp.checksum,
+udp.dstPort,
+ipv4.identification,
+ipv4.flags,
+ipv4.fragOffset,
+ipv4.ttl,
+ipv4.protocol,
+ipv4.hdrChecksum,
+udp.length_,
+ipv4.srcAddr,
+ipv4.version,
+ipv4.dstAddr,
+ipv6.version,
+ipv6.trafficClass,
+ipv6.flowLabel,
+ipv6.payloadLen,
+ipv4.totalLen,
+ipv6.nextHdr,
+ipv6.hopLimit,
+ipv6.srcAddr,
+ipv6.dstAddr,
+ipv4._valid" decorate=true];
+egress_nat -> egress_l4port_fields [color=blue label="tcp.srcPort,
+udp.dstPort,
+tcp.dstPort,
+udp.srcPort" decorate=true];
+egress_nat -> egress_bd_stats [style=dotted ];
+_condition_57 -> rid [color=green label="" decorate=true arrowhead = dot];
+_condition_57 -> egress_port_mapping [style=dotted ];
+_condition_56 -> _condition_57 [color=green label="" decorate=true arrowhead = diamond];
+_condition_56 -> mirror [color=green label="" decorate=true arrowhead = dot];
+_condition_55 -> _condition_56 [color=green label="" decorate=true arrowhead = dot];
+_condition_55 -> _condition_74 [style=dotted ];
+tunnel_dmac_rewrite -> _condition_68 [style=dotted ];
+tunnel_dmac_rewrite -> egress_mac_acl [color=red label="ethernet.dstAddr" decorate=true];
+egress_l4_dst_port -> _condition_66 [style=dotted ];
+egress_l4_dst_port -> tunnel_encap_process_outer [color=yellow label="l3_metadata.egress_l4_dport" decorate=true];
+egress_mac_acl -> _condition_70 [style=dotted ];
+egress_mac_acl -> egress_system_acl [color=red label="acl_metadata.acl_deny,
+fabric_metadata.reason_code" decorate=true];
+egress_mac_acl -> egress_vlan_xlate [color=yellow label="ethernet.etherType" decorate=true];
+egress_vni -> _condition_67 [style=dotted ];
+egress_vni -> tunnel_encap_process_outer [color=blue label="tunnel_metadata.vnid" decorate=true];
+_condition_71 -> egress_filter [style=dotted ];
+_condition_71 -> egress_vlan_xlate [color=green label="" decorate=true arrowhead = dot];
+_condition_70 -> _condition_71 [style=dotted ];
+_condition_70 -> int_outer_encap [color=green label="" decorate=true arrowhead = dot];
+_condition_73 -> _condition_74 [style=dotted ];
+_condition_73 -> egress_filter_drop [color=green label="" decorate=true arrowhead = dot];
+_condition_72 -> _condition_73 [color=green label="" decorate=true arrowhead = dot];
+_condition_72 -> _condition_74 [style=dotted ];
+_condition_74 -> egress_system_acl [color=green label="" decorate=true arrowhead = dot];
+_condition_59 -> _condition_60 [color=green label="" decorate=true arrowhead = dot];
+_condition_59 -> _condition_61 [style=dotted ];
+_condition_58 -> vlan_decap [color=green label="" decorate=true arrowhead = dot];
+_condition_58 -> _condition_59 [style=dotted ];
+l3_rewrite -> egress_nat [color=yellow label="ipv4.dstAddr" decorate=true];
+l3_rewrite -> smac_rewrite [style=dotted ];
+egress_l4_src_port -> egress_l4_dst_port [style=dotted ];
+egress_l4_src_port -> tunnel_encap_process_outer [color=yellow label="l3_metadata.egress_l4_sport" decorate=true];
+egress_qos_map -> _condition_63 [style=dotted ];
+egress_qos_map -> l3_rewrite [color=blue label="l3_metadata.lkp_dscp" decorate=true];
+int_meta_header_update -> _condition_65 [style=dotted ];
+int_outer_encap -> _condition_71 [style=dotted ];
+int_inst_0811 -> int_inst_1215 [style=dotted ];
+tunnel_dst_rewrite -> egress_ip_acl [color=red label="ipv4.dstAddr" decorate=true];
+tunnel_dst_rewrite -> tunnel_smac_rewrite [style=dotted ];
+tunnel_dst_rewrite -> egress_ipv6_acl [color=red label="ipv6.dstAddr" decorate=true];
+}

@@ -1,0 +1,116 @@
+parsing successful
+Semantic warning: Parameter fabric_mgid of action set_fabric_multicast defined in file /home/andy/p4/p4lang-tests/v1.0.3/switch-orig/out1-unchanged/../fabric.p4 at line 211 is not being used and will be removed
+Semantic warning: header type 'ieee802_1ah_t' is not reachable and will be removed
+Semantic warning: header type 'ipsec_esp_t' is not reachable and will be removed
+Semantic warning: header type 'ipsec_ah_t' is not reachable and will be removed
+Semantic warning: header type 'arp_rarp_t' is not reachable and will be removed
+Semantic warning: header type 'arp_rarp_ipv4_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_A_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_B_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_C_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_sample_cpu_t' is not reachable and will be removed
+Semantic warning: parser function 'parse_roce' is not reachable and will be removed
+Semantic warning: parser function 'parse_fcoe' is not reachable and will be removed
+Semantic warning: parser function 'parse_vpls' is not reachable and will be removed
+Semantic warning: parser function 'parse_pw' is not reachable and will be removed
+Semantic warning: parser function 'parse_udp_v6' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre_v6' is not reachable and will be removed
+Semantic warning: parser function 'parse_roce_v2' is not reachable and will be removed
+Semantic warning: parser function 'parse_sctp' is not reachable and will be removed
+Semantic warning: header instance 'outer_udp' is not reachable and will be removed
+Semantic warning: header instance 'eompls' is not reachable and will be removed
+Semantic warning: parser function 'parse_nsh' is not reachable and will be removed
+Semantic warning: parser function 'parse_lisp' is not reachable and will be removed
+Semantic warning: parser function 'parse_inner_sctp' is not reachable and will be removed
+Semantic warning: parser function 'parse_trill' is not reachable and will be removed
+Semantic warning: parser function 'parse_vntag' is not reachable and will be removed
+Semantic warning: parser function 'parse_bfd' is not reachable and will be removed
+Semantic warning: header instance 'sflow_sample' is not reachable and will be removed
+Semantic warning: header instance 'sflow_raw_hdr_record' is not reachable and will be removed
+Semantic warning: header instance 'global_config_metadata' is not reachable and will be removed
+Semantic warning: table 'outer_multicast_rpf' is not reachable and will be removed
+Semantic warning: table 'multicast_rpf' is not reachable and will be removed
+Semantic warning: control function 'process_mirroring' is not reachable and will be removed
+Semantic warning: header type 'eompls_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_sample_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_raw_hdr_record_t' is not reachable and will be removed
+Semantic warning: header instance 'roce' is not reachable and will be removed
+Semantic warning: header instance 'fcoe' is not reachable and will be removed
+Semantic warning: header instance 'roce_v2' is not reachable and will be removed
+Semantic warning: header instance 'sctp' is not reachable and will be removed
+Semantic warning: header instance 'nsh' is not reachable and will be removed
+Semantic warning: header instance 'nsh_context' is not reachable and will be removed
+Semantic warning: header instance 'lisp' is not reachable and will be removed
+Semantic warning: header instance 'inner_sctp' is not reachable and will be removed
+Semantic warning: header instance 'trill' is not reachable and will be removed
+Semantic warning: header instance 'vntag' is not reachable and will be removed
+Semantic warning: header instance 'bfd' is not reachable and will be removed
+Semantic warning: parser function 'parse_set_prio_max' is not reachable and will be removed
+Semantic warning: header type 'global_config_metadata_t' is not reachable and will be removed
+Semantic warning: action 'outer_multicast_rpf_check_pass' is not reachable and will be removed
+Semantic warning: action 'multicast_rpf_check_pass' is not reachable and will be removed
+Semantic warning: action 'multicast_rpf_check_fail' is not reachable and will be removed
+Semantic warning: header type 'roce_header_t' is not reachable and will be removed
+Semantic warning: header type 'roce_v2_header_t' is not reachable and will be removed
+Semantic warning: header type 'fcoe_header_t' is not reachable and will be removed
+Semantic warning: header type 'sctp_t' is not reachable and will be removed
+Semantic warning: header type 'nsh_t' is not reachable and will be removed
+Semantic warning: header type 'nsh_context_t' is not reachable and will be removed
+Semantic warning: header type 'trill_t' is not reachable and will be removed
+Semantic warning: header type 'lisp_t' is not reachable and will be removed
+Semantic warning: header type 'vntag_t' is not reachable and will be removed
+Semantic warning: header type 'bfd_t' is not reachable and will be removed
+semantic checking successful
+Header type standard_metadata_t not byte-aligned, adding padding
+Header type ingress_intrinsic_metadata_t not byte-aligned, adding padding
+Header type ingress_metadata_t not byte-aligned, adding padding
+Header type egress_metadata_t not byte-aligned, adding padding
+Header type l2_metadata_t not byte-aligned, adding padding
+Header type l3_metadata_t not byte-aligned, adding padding
+Header type ipv4_metadata_t not byte-aligned, adding padding
+Header type ipv6_metadata_t not byte-aligned, adding padding
+Header type tunnel_metadata_t not byte-aligned, adding padding
+Header type acl_metadata_t not byte-aligned, adding padding
+Header type nat_metadata_t not byte-aligned, adding padding
+Header type multicast_metadata_t not byte-aligned, adding padding
+Header type nexthop_metadata_t not byte-aligned, adding padding
+Header type security_metadata_t not byte-aligned, adding padding
+Header type fabric_metadata_t not byte-aligned, adding padding
+Header type int_metadata_i2e_t not byte-aligned, adding padding
+Header type meter_metadata_t not byte-aligned, adding padding
+Header type qos_metadata_t not byte-aligned, adding padding
+Generating files in directory /home/andy/p4/p4lang-tests/v1.0.3/switch-orig/out1-unchanged
+
+TABLE DEPENDENCIES...
+
+INGRESS PIPELINE
+['int_terminate', 'ingress_port_mapping', 'ingress_port_properties', 'int_source', 'validate_outer_ipv4_packet', 'validate_mpls_packet', 'validate_outer_ipv6_packet', 'validate_outer_ethernet']
+['ingress_qos_map_dscp', 'port_vlan_mapping', 'int_sink_update_outer', 'ingress_qos_map_pcp', 'ipsg_permit_special', 'switch_config_params']
+['fabric_ingress_dst_lkp', 'spanning_tree', 'sflow_ingress', 'ipsg', 'storm_control']
+['fabric_ingress_src_lkp', 'sflow_ing_take_sample', 'ipv6_src_vtep', 'native_packet_over_fabric', 'ipv4_dest_vtep', 'outer_ipv6_multicast_star_g', 'outer_ipv4_multicast_star_g', 'ipv6_dest_vtep', 'outer_ipv4_multicast', 'outer_ipv6_multicast', 'ipv4_src_vtep', 'outer_rmac']
+['mpls']
+['adjust_lkp_fields', 'tunnel', 'tunnel_lookup_miss']
+['ipv6_fib_lpm', 'ipv4_fib', 'ipv6_multicast_route_star_g', 'ipv6_multicast_bridge', 'nat_flow', 'nat_dst', 'ipv4_multicast_route_star_g', 'ipv6_multicast_bridge_star_g', 'ipv4_multicast_bridge', 'ipv6_fib', 'validate_packet', 'smac', 'ipv4_multicast_route', 'mac_acl', 'nat_src', 'nat_twice', 'ipv4_urpf', 'ingress_l4_src_port', 'ipv6_urpf', 'ipv6_multicast_route', 'dmac', 'ipv6_urpf_lpm', 'ipv4_multicast_bridge_star_g', 'rmac', 'ipv4_urpf_lpm', 'ipv4_fib_lpm', 'ingress_l4_dst_port']
+['learn_notify', 'compute_ipv6_hashes', 'ingress_bd_stats', 'ipv6_acl', 'compute_ipv4_hashes', 'compute_non_ip_hashes', 'urpf_bd', 'ip_acl']
+['ipv4_racl', 'ipv6_racl', 'compute_other_hashes']
+['acl_stats', 'traffic_class', 'fwd_result', 'meter_index']
+['storm_control_stats', 'drop_stats', 'ecmp_group', 'meter_action', 'nexthop']
+['lag_group', 'bd_flood']
+['fabric_lag', 'system_acl']
+pipeline ingress requires at least 13 stages
+
+EGRESS PIPELINE
+['rid', 'mirror']
+['replica_type', 'int_insert', 'egress_port_mapping', 'vlan_decap', 'tunnel_decap_process_inner']
+['int_inst_0811', 'int_inst_1215', 'egress_qos_map', 'int_inst_0003', 'tunnel_decap_process_outer', 'int_inst_0407']
+['int_bos', 'rewrite', 'rewrite_multicast', 'int_meta_header_update']
+['mtu', 'egress_bd_stats', 'egress_vni', 'egress_bd_map', 'l3_rewrite']
+['egress_nat', 'smac_rewrite']
+['egress_l4port_fields', 'tunnel_encap_process_inner']
+['egress_l4_dst_port', 'egress_l4_src_port', 'tunnel_encap_process_outer']
+['tunnel_mtu', 'tunnel_rewrite', 'int_outer_encap']
+['egress_filter', 'tunnel_src_rewrite', 'tunnel_smac_rewrite', 'tunnel_dmac_rewrite', 'tunnel_dst_rewrite']
+['egress_vlan_xlate', 'egress_ipv6_acl', 'egress_mac_acl', 'egress_ip_acl', 'egress_filter_drop']
+['egress_system_acl']
+pipeline egress requires at least 12 stages
+
