@@ -1,6 +1,6 @@
 This output was produced by running this command:
 
-p4-graphs ../mtag-edge.p4
+    p4-graphs ../mtag-edge.p4
 
 but after editing ../mtag-edge.p4 to change this line:
 
