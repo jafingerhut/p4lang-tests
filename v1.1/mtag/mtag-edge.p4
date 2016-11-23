@@ -72,7 +72,7 @@ table local_switching {
     }
     actions {
         set_egress_spec;
-        _no_op;
+        no_op;
     }
     max_size : 1024;
 }
