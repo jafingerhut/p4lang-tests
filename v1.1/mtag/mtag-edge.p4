@@ -33,6 +33,21 @@ action _strip_mtag() {
     modify_field(local_metadata.was_mtagged, 1);
 }
 
+// Seems strange to do this, but when running this command:
+//
+// p4-graphs mtag-edge.p4
+//
+// on the original mtag-edge.p4 file, I get an error that no_op in a
+// table's list of actions is a primitive action, and this was not
+// expected.  Putting the primitive actions into explicitly defined
+// actions works around this issue.
+action _drop() {
+    drop();
+}
+action _no_op() {
+    no_op();
+}
+
 // Always strip the mtag if present on the edge switch
 table strip_mtag {
     reads {
@@ -40,7 +55,7 @@ table strip_mtag {
     }
     actions {
         _strip_mtag;   // Strip mtag and record metadata
-        no_op;         // Pass thru otherwise
+        _no_op;         // Pass thru otherwise
     }
 }
 
@@ -54,7 +69,7 @@ table identify_port {
     actions { // Each table entry specifies *one* action
         common_set_port_type;
         common_drop_pkt; // If unknown port
-        no_op; // Allow packet to continue
+        _no_op; // Allow packet to continue
     }
     max_size : 64; // One rule per port
 }
@@ -72,7 +87,7 @@ table local_switching {
     }
     actions {
         set_egress_spec;
-        no_op;
+        _no_op;
     }
     max_size : 1024;
 }
@@ -118,7 +133,7 @@ table mTag_table {
         add_mTag; // Action called if pkt needs an mtag.
         // Option: If no mtag setup, forward to the CPU
         common_copy_pkt_to_cpu;
-        no_op;
+        _no_op;
     }
     max_size                 : 20000;
 }
@@ -132,7 +147,7 @@ table egress_check {
 
     actions {
         common_drop_pkt;
-        no_op;
+        _no_op;
     }
     max_size : PORT_COUNT; // At most one rule per port
 }
@@ -158,7 +173,7 @@ table egress_meter {
     }
     actions {
         meter_pkt;
-        no_op;
+        _no_op;
     }
     size : PORT_COUNT_SQUARED; // Could be smaller
 }
@@ -175,8 +190,8 @@ table meter_policy {
         local_metadata.color : exact;
     }
     actions {
-        drop; // Automatically counted by direct counter above
-        no_op;
+        _drop; // Automatically counted by direct counter above
+        _no_op;
     }
     size : PORT_COUNT_TIMES_4;
 }
