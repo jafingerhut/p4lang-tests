@@ -54,9 +54,11 @@ Command line option: --parser
 Primary functions: `export_parse_graph` and `dump_parser` in file
 source file dot.py.
 
-Small example: [v1.0.3/mtag/out1-unchanged/mtag-edge.parser.png]
+Small example:
+[v1.0.3/mtag/out1-unchanged/mtag-edge.parser.png](v1.0.3/mtag/out1-unchanged/mtag-edge.parser.png)
 
-Larger example: [v1.0.3/switch-orig/out1-unchanged/switch.parser.png]
+Larger example:
+[v1.0.3/switch-orig/out1-unchanged/switch.parser.png](v1.0.3/switch-orig/out1-unchanged/switch.parser.png)
 
 Parse graphs give good detailed representations of the parser nodes
 and the field values used to decide which parse node to go to next.
