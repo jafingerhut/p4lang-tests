@@ -1,0 +1,10 @@
+# Emacs temp files
+*~
+\#*\#
+
+# Vim swap files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+
+# Mac-specific files
+.DS_Store

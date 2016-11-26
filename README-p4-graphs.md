@@ -1,55 +1,77 @@
+# `p4-graphs` output files
+
 This command:
 
-    p4-graphs <name>.p4
+    p4-graphs <basename>.p4
 
 produces several output files, if it successfully parses the input
-file, and passes several semantic checks:
+file, and the p4 program passes several semantic checks:
 
-    <name>.parser.dot
-    <name>.parser.png
+* Parse graph in files: <basename>.parser.{dot,png}
+* Table control flow graph in files: <basename>.tables.{dot,png}
+* Table dependency graphs in files:
+  <basename>.ingress.tables_dep.{dot,png} for ingress pipeline, and
+  <basename>.egress.tables_dep.{dot,png} for egress pipeline.
 
-    <name>.tables.dot
-    <name>.tables.png
+The `.dot` files are input files in the syntax expected by the `dot`
+program in the GraphViz package.  They are used to generate the
+corresponding `.png` files.
 
-    <name>.ingress.tables_dep.dot
-    <name>.ingress.tables_dep.png
-
-    <name>.egress.tables_dep.dot
-    <name>.egress.tables_dep.png
-
-The .dot files look like input files for the dot program in the
-GraphViz package.  They appear to have been used to generate the
-corresponding .png files.
-
-----------------------------------------
-File: <name>.parser.png
-----------------------------------------
-
-appears to give good detailed representation of the parser nodes and
-the field values it uses to decide which node to go to next.  It
-doesn't show anything about tables or actions.  It begins with the
-packet arriving from the wire, and ends with the first table access.
+More details about each of these graphs is given below.
 
 
-----------------------------------------
-File: <name>.tables.png
-----------------------------------------
+## Parse graph
 
-appears to have these elements in it, from looking at the output of
-p4-v1.0.2/mtag-edge.p4 and comparing it to the source code.
+Files: <basename>.parser.{dot,png}
+
+Command line option: --parser
+
+Primary functions: `export_parse_graph` and `dump_parser` in file
+source file dot.py.
+
+Parse graphs give good detailed representations of the parser nodes
+and the field values used to decide which parse node to go to next.
+They contain nothing about tables or actions.  Each parse graph begins
+with the packet arriving from the wire, and ends with the first table
+access.
+
+TBD: Give 'legend' explaining shapes, styles, and colors of nodes and
+edges.
+
+TBD: Link to example, calling out pieces of it and what they mean.
+
+
+## Table control flow graph
+
+Files: <basename>.tables.{dot,png}
+
+Command line option: --table
+
+Primary functions: `export_table_graph` and `dump_table`
+
+TBD: Brief explanation of graph contents.
+
+TBD: Give 'legend' explaining shapes, styles, and colors of nodes and
+edges.
+
+TBD: Link to example, calling out pieces of it and what they mean.
+
+Table control flow graphs have these elements in them, from looking at
+the output of p4-v1.0.3/mtag-edge.p4 and comparing it to the source
+code.
 
 Legend:
 
-double-circled node - Used for special nodes 'buffer', representing
+* double-circled node - Used for special nodes 'buffer', representing
     buffering point at end of ingress pipeline, just before egress
     pipeline, and for node 'egress' at end of egress pipeline.  My
     guess is that it is probably not used for any other nodes in this
     graph.
 
-ellipse node - Used for tables.  Each has one solid arrowed line
+* ellipse node - Used for tables.  Each has one solid arrowed line
     leading out of it, labeled by the name of one action of the table.
 
-rectangle node - Used for conditional expressions in an 'if'
+* rectangle node - Used for conditional expressions in an 'if'
     statement.  The box contains the conditional expression.  Leading
     out of the node are two solid lines.  The one ending with a circle
     filled in black is the 'true' / 'then' branch.  The one ending
@@ -79,64 +101,60 @@ the arrowed line labeled 'miss' skips that table and goes to the
 NOTE: In the standard output of the p4-graphs command for input file
 mtag-edge.p4, it shows the following:
 
-----------------------------------------------------------------------
-parsing successful
-semantic checking successful
-Header type standard_metadata_t not byte-aligned, adding padding
-Generating files in directory /home/andy/p4/andy-tests/mtag-v1.0.2
-
-TABLE DEPENDENCIES...
-
-INGRESS PIPELINE
-['strip_mtag', 'identify_port']
-['local_switching']
-['mTag_table']
-pipeline ingress requires at least 3 stages
-
-EGRESS PIPELINE
-['egress_check', 'egress_meter']
-['meter_policy']
-pipeline egress requires at least 2 stages
-----------------------------------------------------------------------
+    parsing successful
+    semantic checking successful
+    Header type standard_metadata_t not byte-aligned, adding padding
+    Generating files in directory /home/andy/p4/andy-tests/mtag-v1.0.2
+    
+    TABLE DEPENDENCIES...
+    
+    INGRESS PIPELINE
+    ['strip_mtag', 'identify_port']
+    ['local_switching']
+    ['mTag_table']
+    pipeline ingress requires at least 3 stages
+    
+    EGRESS PIPELINE
+    ['egress_check', 'egress_meter']
+    ['meter_policy']
+    pipeline egress requires at least 2 stages
 
 I am not sure yet how to interpret the output after the 'INGRESS
 PIPELINE' line.
 
-Could it be that it is indicating that tables 'strip_mtag' and
+It could be that it is indicating that tables 'strip_mtag' and
 'identify_port' can be searched concurrently, because even though the
 'apply' operation for table 'identify_port' is sequentially after the
 one for 'strip_mtag' in the p4 source code, the search key for
-'identify_port' does not depend upon the actions of table 'strip_mtag'
-?  That seems likely, but double check.
+'identify_port' does not depend upon the actions of table
+'strip_mtag'.
 
-The search key for identify_port contains only
+The search key for table identify_port contains only
 standard_metadata.ingress_port.  That field is used several times in
 the source code, but only to read it, never to modify it.
 
-As an experiment, I added a field to table 'identify_port's search key
-that is modified by an action of table 'strip_mtag', field
+As an experiment, I added a field to table identify_port's search key
+that is modified by an action of table strip_mtag, field
 local_metadat.mtagged.  The standard output changed to the below:
 
-----------------------------------------------------------------------
-parsing successful
-semantic checking successful
-Header type standard_metadata_t not byte-aligned, adding padding
-Generating files in directory /home/andy/p4/andy-tests/mtag-v1.0.2
-
-TABLE DEPENDENCIES...
-
-INGRESS PIPELINE
-['strip_mtag']
-['identify_port']
-['local_switching']
-['mTag_table']
-pipeline ingress requires at least 4 stages
-
-EGRESS PIPELINE
-['egress_check', 'egress_meter']
-['meter_policy']
-pipeline egress requires at least 2 stages
-----------------------------------------------------------------------
+    parsing successful
+    semantic checking successful
+    Header type standard_metadata_t not byte-aligned, adding padding
+    Generating files in directory /home/andy/p4/andy-tests/mtag-v1.0.2
+    
+    TABLE DEPENDENCIES...
+    
+    INGRESS PIPELINE
+    ['strip_mtag']
+    ['identify_port']
+    ['local_switching']
+    ['mTag_table']
+    pipeline ingress requires at least 4 stages
+    
+    EGRESS PIPELINE
+    ['egress_check', 'egress_meter']
+    ['meter_policy']
+    pipeline egress requires at least 2 stages
 
 That is a pretty strong indication that my guess above is correct
 about dependencies.
@@ -166,14 +184,31 @@ show up in standard output as possibly concurrent.
 
 Table 'meter_policy' access depends upon hit/miss result of table
 'egress_meter', so is dependent upon it.  From examining the graph
-<name>.egress.tables_dep.png, it shows that the key of table
+<basename>.egress.tables_dep.png, it shows that the key of table
 meter_policy includes field local_metadata.color, which is modified by
 an action of table egress_meter.
 
 
-----------------------------------------
-File: <name>.ingress.tables_dep.png
-----------------------------------------
+## Table dependency graph
+
+Files: <basename>.ingress.tables_dep.{dot,png} for ingress pipeline,
+and <basename>.egress.tables_dep.{dot,png} for egress pipeline.  Also
+a table of schedule accesses obeying the dependencies in the p4
+program, and requiring the fewest number of stages possible, is given
+in the standard output.
+
+Command line option: --deps
+
+Primary functions: `export_table_dependency_graph` in file dot.py, and
+`build_table_graph_ingress`, `build_table_graph_egress`, and
+`generate_graph` in file dependency_graph.py.
+
+TBD: Brief explanation of graph contents.
+
+TBD: Give 'legend' explaining shapes, styles, and colors of nodes and
+edges.
+
+TBD: Link to example, calling out pieces of it and what they mean.
 
 This file is focused on table dependencies of only the ingress
 pipeline.
