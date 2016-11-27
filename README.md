@@ -243,12 +243,12 @@ Primary functions in `p4-graphs` that generates them:
 `generate_graph` in file dependency_graph.py.
 
 Small examples for mtag-edge.p4:
-[v1.0.3/mtag/out1-unchanged/mtag-edge.ingress.tables_dep.png](v1.0.3/mtag/out1-unchanged/mtag-edge.ingress.tables_dep.png)
-[v1.0.3/mtag/out1-unchanged/mtag-edge.egress.tables_dep.png](v1.0.3/mtag/out1-unchanged/mtag-edge.egress.tables_dep.png)
+* ingress [v1.0.3/mtag/out1-unchanged/mtag-edge.ingress.tables_dep.png](v1.0.3/mtag/out1-unchanged/mtag-edge.ingress.tables_dep.png)
+* egress [v1.0.3/mtag/out1-unchanged/mtag-edge.egress.tables_dep.png](v1.0.3/mtag/out1-unchanged/mtag-edge.egress.tables_dep.png)
 
 Larger examples for switch.p4:
-[v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png](v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png)
-[v1.0.3/switch-orig/out1-unchanged/switch.egress.tables_dep.png](v1.0.3/switch-orig/out1-unchanged/switch.egress.tables_dep.png)
+* ingress [v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png](v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png)
+* egress [v1.0.3/switch-orig/out1-unchanged/switch.egress.tables_dep.png](v1.0.3/switch-orig/out1-unchanged/switch.egress.tables_dep.png)
 
 TBD: Brief explanation of graph contents.
 
