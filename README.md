@@ -51,13 +51,13 @@ Files: <basename>.parser.{dot,png}
 
 Command line option: --parser
 
-Primary functions: `export_parse_graph` and `dump_parser` in file
-source file dot.py.
+Primary functions in `p4-graphs` that generates them:
+`export_parse_graph` and `dump_parser` in file source file dot.py.
 
-Small example:
+Small example for mtag-edge.p4:
 [v1.0.3/mtag/out1-unchanged/mtag-edge.parser.png](v1.0.3/mtag/out1-unchanged/mtag-edge.parser.png)
 
-Larger example:
+Larger example for switch.p4:
 [v1.0.3/switch-orig/out1-unchanged/switch.parser.png](v1.0.3/switch-orig/out1-unchanged/switch.parser.png)
 
 Parse graphs give good detailed representations of the parser nodes
@@ -78,7 +78,14 @@ Files: <basename>.tables.{dot,png}
 
 Command line option: --table
 
-Primary functions: `export_table_graph` and `dump_table`
+Primary functions in `p4-graphs` that generates them:
+`export_table_graph` and `dump_table`
+
+Small example for mtag-edge.p4:
+[v1.0.3/mtag/out1-unchanged/mtag-edge.tables.png](v1.0.3/mtag/out1-unchanged/mtag-edge.tables.png)
+
+Larger example for switch.p4:
+[v1.0.3/switch-orig/out1-unchanged/switch.tables.png](v1.0.3/switch-orig/out1-unchanged/switch.tables.png)
 
 TBD: Brief explanation of graph contents.
 
@@ -230,9 +237,18 @@ in the standard output.
 
 Command line option: --deps
 
-Primary functions: `export_table_dependency_graph` in file dot.py, and
+Primary functions in `p4-graphs` that generates them:
+`export_table_dependency_graph` in file dot.py, and
 `build_table_graph_ingress`, `build_table_graph_egress`, and
 `generate_graph` in file dependency_graph.py.
+
+Small examples for mtag-edge.p4:
+[v1.0.3/mtag/out1-unchanged/mtag-edge.ingress.tables_dep.png](v1.0.3/mtag/out1-unchanged/mtag-edge.ingress.tables_dep.png)
+[v1.0.3/mtag/out1-unchanged/mtag-edge.egress.tables_dep.png](v1.0.3/mtag/out1-unchanged/mtag-edge.egress.tables_dep.png)
+
+Larger examples for switch.p4:
+[v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png](v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png)
+[v1.0.3/switch-orig/out1-unchanged/switch.egress.tables_dep.png](v1.0.3/switch-orig/out1-unchanged/switch.egress.tables_dep.png)
 
 TBD: Brief explanation of graph contents.
 
