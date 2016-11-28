@@ -6,7 +6,7 @@ Generating files in directory /home/andy/p4/p4lang-tests/v1.0.3/mtag/out1-unchan
 TABLE DEPENDENCIES...
 
 INGRESS PIPELINE
-['strip_mtag', 'identify_port']
+['identify_port', 'strip_mtag']
 ['local_switching']
 ['mTag_table']
 pipeline ingress requires at least 3 stages
@@ -15,5 +15,4 @@ EGRESS PIPELINE
 ['egress_check', 'egress_meter']
 ['meter_policy']
 pipeline egress requires at least 2 stages
-
 
