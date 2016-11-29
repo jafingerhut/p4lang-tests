@@ -6,13 +6,30 @@ Generating files in directory /home/andy/p4/p4lang-tests/v1.0.3/mtag/out1-unchan
 TABLE DEPENDENCIES...
 
 INGRESS PIPELINE
-['identify_port', 'strip_mtag']
-['local_switching']
-['mTag_table']
+      search
+      key    result
+stage width  width  table/condition name
+----- ------ ------ --------------------
+--- stage 1 of 3 total search key width 10 result width 21
+    1      9     20 identify_port
+    1      1      1 strip_mtag
+--- stage 2 of 3 total search key width 60 result width 10
+    2     60     10 local_switching
+--- stage 3 of 3 total search key width 60 result width 35
+    3     60     35 mTag_table
+For all stages, total search key width 130 result width 66
 pipeline ingress requires at least 3 stages
 
 EGRESS PIPELINE
-['egress_check', 'egress_meter']
-['meter_policy']
+      search
+      key    result
+stage width  width  table/condition name
+----- ------ ------ --------------------
+--- stage 1 of 2 total search key width 27 result width 52
+    1     10     19 egress_check
+    1     17     33 egress_meter
+--- stage 2 of 2 total search key width 17 result width 1
+    2     17      1 meter_policy
+For all stages, total search key width 44 result width 53
 pipeline egress requires at least 2 stages
 
