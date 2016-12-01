@@ -65,7 +65,6 @@ table strip_mtag {
 table identify_port {
     reads {
         standard_metadata.ingress_port : exact;
-#undef FORCE_DEPENDENCY_AFTER_STRIP_MTAG
 #ifdef FORCE_DEPENDENCY_AFTER_STRIP_MTAG
         // The following line is not part of the original code from P4 spec.
         // I temporarily added it to test a guess about output of p4-graphs
@@ -202,7 +201,6 @@ table meter_policy {
     size : PORT_COUNT_TIMES_4;
 }
 
-#undef EXTRA_TEST_TABLE
 #ifdef EXTRA_TEST_TABLE
 // This table is not in the original mtag-edge.p4 code.  It is here
 // only for testing purposes.
