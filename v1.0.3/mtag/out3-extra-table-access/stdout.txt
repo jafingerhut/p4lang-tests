@@ -17,8 +17,8 @@ from table/condition       dependency type stage to table/condition
 identify_port              4 MATCH          0+1  _condition_0
 _condition_0               2 SUCCESSOR      1+0  local_switching
 local_switching            4 MATCH          1+1  _condition_1
-_condition_1               2 SUCCESSOR      2+0  mTag_table
 _condition_0               2 SUCCESSOR      1+0  extra_test_table
+_condition_1               2 SUCCESSOR      2+0  mTag_table
 ------------------------------
       search
       key    result
