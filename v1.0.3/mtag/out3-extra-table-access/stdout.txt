@@ -1,11 +1,25 @@
 parsing successful
 semantic checking successful
 Header type standard_metadata_t not byte-aligned, adding padding
-Generating files in directory /home/andy/p4/p4lang-tests/v1.0.3/mtag/out3-extra-table-access
+transitive reduction on ingress dependency graph took 0.0 sec
+transitive reduction on egress dependency graph took 0.0 sec
+Generating files in directory /Users/jafinger/Documents/p4-docs/p4lang-tests/v1.0.3/mtag/out3-extra-table-access
 
 TABLE DEPENDENCIES...
 
 INGRESS PIPELINE
+------------------------------
+Debug count_min_stages
+from table/condition       dependency type stage to table/condition
+-------------------------- --------------- ----- ------------------
+(none)                     0 unknown       -1+1  strip_mtag
+(none)                     0 unknown       -1+1  identify_port
+identify_port              4 MATCH          0+1  _condition_0
+_condition_0               2 SUCCESSOR      1+0  local_switching
+local_switching            4 MATCH          1+1  _condition_1
+_condition_1               2 SUCCESSOR      2+0  mTag_table
+_condition_0               2 SUCCESSOR      1+0  extra_test_table
+------------------------------
       search
       key    result
 stage width  width  table/condition name
@@ -22,6 +36,14 @@ For all stages, total search key width 178 result width 79
 pipeline ingress requires at least 3 stages
 
 EGRESS PIPELINE
+------------------------------
+Debug count_min_stages
+from table/condition       dependency type stage to table/condition
+-------------------------- --------------- ----- ------------------
+(none)                     0 unknown       -1+1  egress_check
+(none)                     0 unknown       -1+1  egress_meter
+egress_meter               4 MATCH          0+1  meter_policy
+------------------------------
       search
       key    result
 stage width  width  table/condition name

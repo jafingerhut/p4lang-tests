@@ -1,9 +1,16 @@
 #! /bin/bash
 
-OPTS="--deps-debug-count-min-stages"
+OPTS=""
+
+# To print details of how the minimum stage of each table access is
+# determined.
+OPTS="$OPTS --deps-debug-count-min-stages"
 
 # To get detailed debug output of how table search key and result
 # widths are calculated.
-#OPTS="--deps-debug-count-min-stages --debug-key-result-widths"
+#OPTS="$OPTS --debug-key-result-widths"
+
+# To skip calculation of transitive reduction of deps
+#OPTS="$OPTS --deps-skip-transitive-reduction"
 
 p4-graphs $OPTS --primitives ../primitives.json ../switch.p4 > stdout.txt
