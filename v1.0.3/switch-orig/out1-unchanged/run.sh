@@ -34,3 +34,15 @@ OPTS="$OPTS --deps-debug-count-min-stages"
 
 set -x
 p4-graphs $OPTS --primitives ../primitives.json ../switch.p4 > stdout.txt
+
+# At least sometimes I also want to generate png format graphs from
+# the same .dot files without rerunning p4-graphs.  Useful for linking
+# to on Github with graphic rendering, which eps files do not give.
+# Normally I do not want to do this, because of the extra time, so
+# comment out the 'exit 0' if you want it.
+exit 0
+BASENAME="switch"
+for CHART in parser tables ingress.tables_dep egress.tables_dep
+do
+    dot -Tpng ${BASENAME}.${CHART}.dot > ${BASENAME}.${CHART}.png
+done
