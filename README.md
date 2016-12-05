@@ -146,6 +146,11 @@ standard output.
 
 Command line option: --deps
 
+Additional command line options in my forked version of `p4-graphs`
+that customize how table dependency graphs are drawn (see output of
+`p4-graphs -h` for more details): `--deps-no-control-flow-edges`
+`--deps-no-condition-labels` `--deps-no-fields-on-edges`.
+
 Primary functions in `p4-graphs` that generates them:
 `export_table_dependency_graph` in file dot.py, and
 `build_table_graph_ingress`, `build_table_graph_egress`, and
@@ -175,13 +180,27 @@ from 'most restrictive' to 'least restrictive', meaning the
 restrictions that the dependency makes about when the two actions can
 be scheduled relative to one another.
 
-* red solid line with arrow, and label - match dependency.  Can only
-  be from a table, but to either a table or a condition.  Represents
-  at least one action of 'from' table writing a field that 'to'
-  condition reads, or that 'to' table uses in its table search key.
-  The action represented by the 'to' node cannot begin until the
+Short version just to get the color and dependency type
+correspondence:
+
+* `MATCH` `red`
+* `ACTION` `blue`
+* `SUCCESSOR` `green`
+* `REVERSE_READ` `orange` (or `yellow`)
+* `CONTROL_FLOW` `dotted black`
+
+Longer version with more details.  In all cases, if there is a label
+on the edge, it is a list of packet fields that are the ones that
+cause the dependency to exist.
+
+* `MATCH` dependency, drawn as red solid line with arrow, and label.
+  Can only be from a table, but to either a table or a condition.
+  Represents at least one action of 'from' table writing a field that
+  'to' condition reads, or that 'to' table uses in its table search
+  key.  The action represented by the 'to' node cannot begin until the
   'from' table action is completely finished.
-* blue solid line with arrow, and label - action dependency.  Can only
+
+* `ACTION` dependency, drawn as blue solid line with arrow.  Can only
   be from a table, to a table.  Represents at least one action of
   'from' table writing a field that 'to' table action reads or writes,
   but 'to' table does _not_ use the field in its search key.  The
@@ -193,25 +212,28 @@ be scheduled relative to one another.
   'ipv4_racl' and 'ipv6_racl', and also to those two tables from
   'ipv6_acl' and 'mac_acl'), then 'to' table action just needs to have
   its writes occur after 'from' table action writes.
-* green solid line with filled in circle, no label - successor
-  dependency.  Occurs when a 'from' table does an apply(to_table)
-  conditionally, based on the action of the result, or the hit/miss
-  part of the result.  Also occurs from a condition or table, to a
-  condition or table, I believe to indicate the sequential order of
-  those two things (TBD whether there is more to it than this).
 
-* yellow (or orange) solid line, and label - reverse read dependency.
-  This occurs from a table that reads a field, or from a condition
-  that reads a field, to a table that has an action that writes the
-  field.  In the RMT hardware architecture, it is straightforward to
-  schedule these in the same stage, but the reason for the dependency
-  is to ensure that the 'from' table/condition is _not executed after_
-  the 'to' table action writes.
+* `SUCCESSOR` dependency, drawn as green solid line with filled in
+  circle, no label.  Occurs when a 'from' table does an
+  apply(to_table) conditionally, based on the action of the result, or
+  the hit/miss part of the result.  Also occurs from a condition or
+  table, to a condition or table, I believe to indicate the sequential
+  order of those two things (TBD whether there is more to it than
+  this).
 
-* black dotted line with arrow, no label - control flow 'dependency'
-  (dependency in quotes because such dependencies make no restrictions
-  on scheduling -- we are free to reorder two events during exection
-  if none of the other dependencies above apply between two nodes).
+* `REVERSE_READ` dependency, drawn as yellow (or orange) solid line,
+  and label.  This occurs from a table that reads a field, or from a
+  condition that reads a field, to a table that has an action that
+  writes the field.  In the RMT hardware architecture, it is
+  straightforward to schedule these in the same stage, but the reason
+  for the dependency is to ensure that the 'from' table/condition is
+  _not executed after_ the 'to' table action writes.
+
+* `CONTROL_FLOW` dependency, drawn as black dotted line with arrow, no
+  label (dependency is in quotes because such dependencies make no
+  restrictions on scheduling -- we are free to reorder two events
+  during exection if none of the other dependencies above apply
+  between two nodes).
 
 References in the code:
 
