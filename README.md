@@ -183,11 +183,11 @@ be scheduled relative to one another.
 Short version just to get the color and dependency type
 correspondence:
 
-* `MATCH` `red`
+* `MATCH` `red` - most restrictive
 * `ACTION` `blue`
 * `SUCCESSOR` `green`
 * `REVERSE_READ` `orange` (or `yellow`)
-* `CONTROL_FLOW` `dotted black`
+* `CONTROL_FLOW` `dotted black` - least restrictive
 
 Longer version with more details.  In all cases, if there is a label
 on the edge, it is a list of packet fields that are the ones that
@@ -306,6 +306,31 @@ through the p4-graphs code:
   calls:
 * transitive_reduction() in that same file, for both ingress_graph and
   egress_graph
+
+My forked version of `p4-graphs` adds a new command line option
+`--deps-skip-transitive-reduction` that skips this step, since it has
+been found to take a long time for some larger P4 programs.  Skipping
+that step can cause `dot` to take too long to generate drawings of the
+dependency graphs, so I also added the option `--dot-format none` to
+skip running `dot`.  The `.dot` text files will still be generated.
+
+TBD: It seems like it should be possible to do this in linear or
+quadratic time rather than the O(N^3) claimed in the source code
+comments, because the dependency graph must be a DAG.  The existing
+`transitive_reduction` code takes different types of dependency edges
+into account, though, so not sure how to preserve that behavior even
+if there is a faster algorithm for 'normal graphs' with only one type
+of edge.
+
+TBD: The table dependency graphs currently always show
+`SuccessorDep`'s with a circle at the 'to' end of the line, indicating
+a True branch for the condition.  This is often incorrect.  The
+function generate_dot in file dependency_graph.py is probably using
+the wrong condition to determine whether to draw the arrowhead as a
+dot or a diamond using the value edge.dep.value, or perhaps
+edge.dep.value is not initialized correctly when creating the data
+structure from which the graph is drawn.  It would be nice to correct
+that.
 
 
 
@@ -443,10 +468,10 @@ A single node (an apply(table), or conditional expression evaluation
 of an 'if' statement) might do these things with a single field:
 
 * table node that:
-** reads field to create search key
-** reads field in action
-** writes field in action
-** any subset of the above 3 possibilities
+  * reads field to create search key
+  * reads field in action
+  * writes field in action
+  * any subset of the above 3 possibilities
 * condition node that reads field to evaluate the condition
 
 Let N1 and N2 be two nodes, where in the P4 source code N1 is executed
@@ -578,16 +603,6 @@ Examples:
   process_validate_outer_header, where _condition_0 is from the line
   "if (valid(ipv4)) {" and _condition_1 is from the line "if (valid
   (ipv6)) {".
-
-TBD: The table dependency graphs currently always show
-`SuccessorDep`'s with a circle at the 'to' end of the line, indicating
-a True branch for the condition.  This is often incorrect.  The
-function generate_dot in file dependency_graph.py is probably using
-the wrong condition to determine whether to draw the arrowhead as a
-dot or a diamond using the value edge.dep.value, or perhaps
-edge.dep.value is not initialized correctly when creating the data
-structure from which the graph is drawn.  It would be nice to correct
-that.
 
 TBD: Function `count_min_stages` allows scheduling of two table
 accesses for tables T1 and T2 in the same stage even if there is a
