@@ -164,6 +164,12 @@ Larger examples for switch.p4:
 * ingress [v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png](v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png)
 * egress [v1.0.3/switch-orig/out1-unchanged/switch.egress.tables_dep.png](v1.0.3/switch-orig/out1-unchanged/switch.egress.tables_dep.png)
 
+The same switch.p4 source code as the previous examples, but with many
+details omitted, to make the graphs smaller (no control flow edges, no
+labels on edges, no code of conditions in condition nodes):
+* ingress [v1.0.3/switch-orig/out2-unchanged-p4-smaller-dep-graphs/switch.ingress.tables_dep.png](v1.0.3/switch-orig/out2-unchanged-p4-smaller-dep-graphs/switch.ingress.tables_dep.png)
+* egress [v1.0.3/switch-orig/out2-unchanged-p4-smaller-dep-graphs/switch.egress.tables_dep.png](v1.0.3/switch-orig/out2-unchanged-p4-smaller-dep-graphs/switch.egress.tables_dep.png)
+
 Legend for nodes:
 
 * ellipse - table node, most likely always corresponding with a single
