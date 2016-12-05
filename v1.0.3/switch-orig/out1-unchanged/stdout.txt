@@ -79,7 +79,7 @@ Header type fabric_metadata_t not byte-aligned, adding padding
 Header type int_metadata_i2e_t not byte-aligned, adding padding
 Header type meter_metadata_t not byte-aligned, adding padding
 Header type qos_metadata_t not byte-aligned, adding padding
-transitive reduction on ingress dependency graph took 4.7 sec
+transitive reduction on ingress dependency graph took 5.0 sec
 transitive reduction on egress dependency graph took 0.1 sec
 Generating files in directory /Users/jafinger/Documents/p4-docs/p4lang-tests/v1.0.3/switch-orig/out1-unchanged
 
@@ -112,9 +112,9 @@ ingress_port_mapping       4 MATCH          0+1  _condition_7
 port_vlan_mapping          4 MATCH          1+1  ipsg
 _condition_7               2 SUCCESSOR      1+0  ipsg_permit_special
 (none)                     0 unknown       -1+1  _condition_8
+_condition_8               2 SUCCESSOR      0+0  int_source
 _condition_8               2 SUCCESSOR      0+0  int_terminate
 int_terminate              4 MATCH          0+1  int_sink_update_outer
-_condition_8               2 SUCCESSOR      0+0  int_source
 switch_config_params       3 ACTION         1+1  sflow_ingress
 sflow_ingress              4 MATCH          2+1  sflow_ing_take_sample
 ingress_port_mapping       4 MATCH          0+1  _condition_9
@@ -126,20 +126,20 @@ fabric_ingress_dst_lkp     4 MATCH          2+1  _condition_12
 _condition_12              2 SUCCESSOR      3+0  native_packet_over_fabric
 fabric_ingress_dst_lkp     4 MATCH          2+1  _condition_13
 _condition_13              2 SUCCESSOR      3+0  outer_rmac
-outer_rmac                 2 SUCCESSOR      3+0  _condition_16
-_condition_16              2 SUCCESSOR      3+0  ipv4_src_vtep
-_condition_16              2 SUCCESSOR      3+0  _condition_17
-_condition_17              2 SUCCESSOR      3+0  ipv6_src_vtep
-_condition_17              2 SUCCESSOR      3+0  _condition_18
-native_packet_over_fabric  3 ACTION         3+1  mpls
 outer_rmac                 2 SUCCESSOR      3+0  _condition_14
 _condition_14              2 SUCCESSOR      3+0  _condition_15
+_condition_15              2 SUCCESSOR      3+0  outer_ipv6_multicast
+outer_ipv6_multicast       2 SUCCESSOR      3+0  outer_ipv6_multicast_star_g
+outer_rmac                 2 SUCCESSOR      3+0  _condition_16
+_condition_16              2 SUCCESSOR      3+0  ipv4_src_vtep
+ipv4_src_vtep              2 SUCCESSOR      3+0  ipv4_dest_vtep
+_condition_16              2 SUCCESSOR      3+0  _condition_17
+_condition_17              2 SUCCESSOR      3+0  _condition_18
+native_packet_over_fabric  3 ACTION         3+1  mpls
+_condition_17              2 SUCCESSOR      3+0  ipv6_src_vtep
 _condition_14              2 SUCCESSOR      3+0  outer_ipv4_multicast
 outer_ipv4_multicast       2 SUCCESSOR      3+0  outer_ipv4_multicast_star_g
 ipv6_src_vtep              2 SUCCESSOR      3+0  ipv6_dest_vtep
-ipv4_src_vtep              2 SUCCESSOR      3+0  ipv4_dest_vtep
-_condition_15              2 SUCCESSOR      3+0  outer_ipv6_multicast
-outer_ipv6_multicast       2 SUCCESSOR      3+0  outer_ipv6_multicast_star_g
 mpls                       4 MATCH          4+1  _condition_19
 _condition_19              2 SUCCESSOR      5+0  tunnel
 tunnel                     2 SUCCESSOR      5+0  tunnel_lookup_miss
@@ -157,13 +157,13 @@ tunnel_lookup_miss         4 MATCH          5+1  smac
 _condition_22              2 SUCCESSOR      5+0  _condition_25
 tunnel_lookup_miss         4 MATCH          5+1  dmac
 tunnel                     4 MATCH          5+1  _condition_26
-_condition_26              2 SUCCESSOR      6+0  _condition_27
-_condition_27              2 SUCCESSOR      6+0  mac_acl
 _condition_26              2 SUCCESSOR      6+0  _condition_28
 _condition_28              2 SUCCESSOR      6+0  _condition_29
 ingress_l4_src_port        4 MATCH          6+1  ip_acl
 _condition_29              2 SUCCESSOR      6+0  _condition_30
 ingress_l4_src_port        4 MATCH          6+1  ipv6_acl
+_condition_26              2 SUCCESSOR      6+0  _condition_27
+_condition_27              2 SUCCESSOR      6+0  mac_acl
 tunnel_lookup_miss         4 MATCH          5+1  rmac
 rmac                       2 SUCCESSOR      6+0  _condition_31
 _condition_31              2 SUCCESSOR      6+0  _condition_32
@@ -185,13 +185,13 @@ ip_acl                     3 ACTION         7+1  ipv4_racl
 _condition_38              2 SUCCESSOR      6+0  _condition_39
 _condition_39              2 SUCCESSOR      6+0  ipv4_urpf
 ipv4_urpf                  2 SUCCESSOR      6+0  ipv4_urpf_lpm
+_condition_38              2 SUCCESSOR      6+0  ipv4_fib
 _condition_38              2 SUCCESSOR      6+0  _condition_40
 ip_acl                     3 ACTION         7+1  ipv6_racl
 _condition_40              2 SUCCESSOR      6+0  _condition_41
 _condition_41              2 SUCCESSOR      6+0  ipv6_urpf
 ipv6_urpf                  2 SUCCESSOR      6+0  ipv6_urpf_lpm
 _condition_40              2 SUCCESSOR      6+0  ipv6_fib
-_condition_38              2 SUCCESSOR      6+0  ipv4_fib
 ipv4_fib                   2 SUCCESSOR      6+0  ipv4_fib_lpm
 ipv6_fib                   2 SUCCESSOR      6+0  ipv6_fib_lpm
 ipv4_urpf_lpm              4 MATCH          6+1  _condition_42
@@ -220,8 +220,8 @@ fwd_result                 4 MATCH          9+1  _condition_49
 _condition_49              2 SUCCESSOR     10+0  nexthop
 _condition_49              2 SUCCESSOR     10+0  ecmp_group
 nexthop                    4 MATCH         10+1  _condition_50
-_condition_50              2 SUCCESSOR     11+0  lag_group
 _condition_50              2 SUCCESSOR     11+0  bd_flood
+_condition_50              2 SUCCESSOR     11+0  lag_group
 port_vlan_mapping          4 MATCH          1+1  _condition_51
 smac                       4 MATCH          6+1  learn_notify
 lag_group                  4 MATCH         11+1  fabric_lag
@@ -392,10 +392,10 @@ tunnel_rewrite             4 MATCH          8+1  tunnel_dst_rewrite
 tunnel_rewrite             4 MATCH          8+1  tunnel_smac_rewrite
 tunnel_rewrite             4 MATCH          8+1  tunnel_dmac_rewrite
 tunnel_encap_process_outer 4 MATCH          7+1  _condition_68
-tunnel_src_rewrite         4 MATCH          9+1  egress_ip_acl
 _condition_68              2 SUCCESSOR      8+0  _condition_69
 tunnel_src_rewrite         4 MATCH          9+1  egress_ipv6_acl
 tunnel_smac_rewrite        4 MATCH          9+1  egress_mac_acl
+tunnel_src_rewrite         4 MATCH          9+1  egress_ip_acl
 int_insert                 4 MATCH          1+1  _condition_70
 tunnel_encap_process_outer 4 MATCH          7+1  int_outer_encap
 egress_port_mapping        4 MATCH          1+1  _condition_71
@@ -405,7 +405,7 @@ rid                        4 MATCH          0+1  _condition_72
 egress_filter              4 MATCH          9+1  _condition_73
 _condition_73              2 SUCCESSOR     10+0  egress_filter_drop
 (none)                     0 unknown       -1+1  _condition_74
-egress_ip_acl              4 MATCH         10+1  egress_system_acl
+egress_ipv6_acl            4 MATCH         10+1  egress_system_acl
 ------------------------------
       search
       key    result

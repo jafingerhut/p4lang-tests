@@ -29,4 +29,14 @@ OPTS="$OPTS --deps-debug-count-min-stages"
 # To skip calculation of transitive reduction of deps
 #OPTS="$OPTS --deps-skip-transitive-reduction"
 
+set -x
 p4-graphs $OPTS ../mtag-edge.p4 > stdout.txt
+
+# Also generate png format graphs from the same .dot files without
+# rerunning p4-graphs.  Useful for linking to on Github with graphic
+# rendering, which eps files do not give.
+BASENAME="mtag-edge"
+for CHART in parser tables ingress.tables_dep egress.tables_dep
+do
+    dot -Tpng ${BASENAME}.${CHART}.dot > ${BASENAME}.${CHART}.png
+done

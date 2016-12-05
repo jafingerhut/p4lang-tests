@@ -29,4 +29,8 @@ OPTS="$OPTS --deps-debug-count-min-stages"
 # To skip calculation of transitive reduction of deps
 #OPTS="$OPTS --deps-skip-transitive-reduction"
 
+# To avoid drawing control flow dependencies in the graph
+#OPTS="$OPTS --deps-no-control-flow-edges"
+
+set -x
 p4-graphs $OPTS --primitives ../primitives.json ../switch.p4 > stdout.txt

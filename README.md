@@ -10,13 +10,16 @@ documentation to aid in interpreting the output files of that program.
 
 ## Related repositories
 
-* https://github.com/p4lang/p4-hlir - Python source code for
+* https://github.com/p4lang/p4-hlir and fork
+      https://github.com/jafingerhut/p4-hlir - Python source code for
       `p4-validate` and `p4-graphs` programs that parse P4 source code
       and produce HLIR (High Level Intermediate Representation) of the
       program.  This is a collection of Python data structures
       representing things in the program like headers, tables,
       actions, conditional expressions, etc. plus dependencies and
-      relationships between them.
+      relationships between them.  My forked version has some
+      additional command line options for `p4-graphs` that are used in
+      this repository.
 
 * https://github.com/p4lang/switch - source for switch.p4, copied into
       this repository in directory
@@ -32,15 +35,16 @@ This command:
 produces several output files, if it successfully parses the input
 file, and the p4 program passes several semantic checks:
 
-* _Parse graph_ in files: <basename>.parser.*
-* _Table control flow graph_ in files: <basename>.tables.*
+* _Parse graph_ in files: `<basename>.parser.*`
+* _Table control flow graph_ in files: `<basename>.tables.*`
 * _Table dependency graphs_ in files:
-  <basename>.ingress.tables_dep.* for ingress pipeline, and
-  <basename>.egress.tables_dep.* for egress pipeline.
+  `<basename>.ingress.tables_dep.*` for ingress pipeline, and
+  `<basename>.egress.tables_dep.*` for egress pipeline.
 
 The `.dot` files are input files in the syntax expected by the `dot`
-program in the GraphViz package.  They are used to generate the
-corresponding `.png` files.
+program in the [GraphViz](http://www.graphviz.org) package.  They are
+used to generate the corresponding drawings of graphs in files in
+formats like `.eps` or `.png`.
 
 More details about each of these graphs is given below.
 
@@ -48,7 +52,7 @@ More details about each of these graphs is given below.
 
 ### Parse graph
 
-Files: <basename>.parser.*
+Files: `<basename>.parser.*`
 
 Command line option: --parser
 
@@ -76,7 +80,7 @@ TBD: Link to example, calling out pieces of it and what they mean.
 
 ### Table control flow graph
 
-Files: <basename>.tables.*
+Files: `<basename>.tables.*`
 
 Command line option: --table
 
@@ -134,8 +138,8 @@ Legend:
 
 ### Table dependency graph
 
-Files: <basename>.ingress.tables_dep.* for ingress pipeline, and
-<basename>.egress.tables_dep.* for egress pipeline.  Also a table of
+Files: `<basename>.ingress.tables_dep.*` for ingress pipeline, and
+`<basename>.egress.tables_dep.*` for egress pipeline.  Also a table of
 schedule accesses obeying the dependencies in the p4 program, and
 requiring the fewest number of stages possible, is given in the
 standard output.
@@ -400,7 +404,7 @@ show up in standard output as possibly concurrent.
 
 Table 'meter_policy' access depends upon hit/miss result of table
 'egress_meter', so is dependent upon it.  From examining the graph
-<basename>.egress.tables_dep.png, it shows that the key of table
+`<basename>.egress.tables_dep.png`, it shows that the key of table
 meter_policy includes field local_metadata.color, which is modified by
 an action of table egress_meter.
 
