@@ -1,6 +1,6 @@
 This output was produced by running this command:
 
-    p4-graphs --primitives ../primitives.json ../switch.p4 > stdout.txt
+    ./run.sh
 
 
 To load switch.p4 HLIR in an interactive Python session:
