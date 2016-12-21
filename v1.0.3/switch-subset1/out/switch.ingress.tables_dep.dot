@@ -1,0 +1,13 @@
+digraph ingress {
+_condition_0 [shape=box label="_condition_0\n((l3_metadata.lkp_ip_type == 1) and
+(ipv4_metadata.ipv4_unicast_enabled == 1))"];
+_condition_1 [shape=box label="_condition_1\n((l3_metadata.lkp_ip_type == 2) and
+(ipv6_metadata.ipv6_unicast_enabled == 1))"];
+_condition_0 -> _condition_1 [color=green  label="False" arrowhead = diamond];
+_condition_0 -> ipv4_fib_lpm [color=green  label="True"];
+_condition_1 -> ipv6_fib_lpm [color=green  label="True"];
+dmac -> fwd_result [color=red ];
+ipv4_fib_lpm -> fwd_result [color=red ];
+ipv6_fib_lpm -> fwd_result [color=red ];
+rmac -> fwd_result [color=red ];
+}
