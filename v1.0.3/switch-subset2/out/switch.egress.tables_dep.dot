@@ -1,0 +1,35 @@
+digraph egress {
+_condition_10 [shape=box label="_condition_10\n(egress_metadata.routed == 1)"];
+_condition_11 [shape=box label="_condition_11\n(multicast_metadata.inner_replica == 1)"];
+_condition_12 [shape=box label="_condition_12\n(((((tunnel_metadata.ingress_tunnel_type == 0) and
+(tunnel_metadata.egress_tunnel_type == 0)) and
+(egress_filter_metadata.bd == 0)) and
+(egress_filter_metadata.ifindex_check == 0)) or
+(((tunnel_metadata.ingress_tunnel_type != 0) and
+(tunnel_metadata.egress_tunnel_type != 0)) and
+(egress_filter_metadata.inner_bd == 0)))"];
+_condition_13 [shape=box label="_condition_13\n(egress_metadata.bypass == 0)"];
+_condition_8 [shape=box label="_condition_8\n(intrinsic_metadata.egress_rid != 0)"];
+_condition_9 [shape=box label="_condition_9\n((egress_metadata.routed == 0) or
+(l3_metadata.nexthop_index != 0))"];
+_condition_10 -> l3_rewrite [color=green  label="True"];
+_condition_10 -> smac_rewrite [color=green  label="True"];
+_condition_11 -> _condition_12 [color=green  label="True"];
+_condition_12 -> egress_filter_drop [color=green  label="True"];
+_condition_13 -> egress_system_acl [color=green  label="True"];
+_condition_8 -> rid [color=green  label="True"];
+_condition_9 -> rewrite [color=green  label="True"];
+_condition_9 -> rewrite_multicast [color=green  label="False" arrowhead = diamond];
+egress_filter -> _condition_12 [color=red ];
+egress_port_mapping -> _condition_9 [color=green  label="egress_port_type_normal"];
+egress_port_mapping -> vlan_decap [color=green  label="egress_port_type_normal"];
+mtu -> egress_system_acl [color=red ];
+replica_type -> _condition_9 [color=red ];
+rewrite -> _condition_10 [color=red ];
+rewrite -> egress_filter [color=blue ];
+rewrite -> mtu [color=red ];
+rewrite_multicast -> l3_rewrite [color=blue ];
+rid -> _condition_11 [color=red ];
+rid -> egress_port_mapping [color=blue ];
+rid -> replica_type [color=red ];
+}

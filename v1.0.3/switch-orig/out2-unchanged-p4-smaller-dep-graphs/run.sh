@@ -37,6 +37,10 @@ OPTS="$OPTS --deps-no-condition-labels --deps-no-fields-on-edges"
 # To avoid drawing control flow dependencies in the graph
 OPTS="$OPTS --deps-no-control-flow-edges"
 
+# Use new code for splitting match and action events for a table into
+# two nodes, scheduled independently from each other.
+OPTS="$OPTS --split-match-action-events --deps-skip-transitive-reduction"
+
 set -x
 p4-graphs $OPTS --primitives ../primitives.json ../switch.p4 > stdout.txt
 
@@ -45,6 +49,7 @@ p4-graphs $OPTS --primitives ../primitives.json ../switch.p4 > stdout.txt
 # to on Github with graphic rendering, which eps files do not give.
 # Normally I do not want to do this, because of the extra time, so
 # comment out the 'exit 0' if you want it.
+exit 0
 BASENAME="switch"
 for CHART in parser tables ingress.tables_dep egress.tables_dep
 do

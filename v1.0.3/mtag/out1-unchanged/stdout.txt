@@ -1,56 +1,67 @@
 parsing successful
 semantic checking successful
 Header type standard_metadata_t not byte-aligned, adding padding
-transitive reduction on ingress dependency graph took 0.0 sec
-transitive reduction on egress dependency graph took 0.0 sec
+skipping transitive reduction on ingress dependency graph
+skipping transitive reduction on egress dependency graph
 Generating files in directory /Users/jafinger/Documents/p4-docs/p4lang-tests/v1.0.3/mtag/out1-unchanged
 
 TABLE DEPENDENCIES...
 
 INGRESS PIPELINE
-------------------------------
-Debug count_min_stages
-from table/condition       dependency type stage to table/condition
--------------------------- --------------- ----- ------------------
-(none)                     0 unknown       -1+1  strip_mtag
-(none)                     0 unknown       -1+1  identify_port
-identify_port              4 MATCH          0+1  _condition_0
-_condition_0               2 SUCCESSOR      1+0  local_switching
-local_switching            4 MATCH          1+1  _condition_1
-_condition_1               2 SUCCESSOR      2+0  mTag_table
-------------------------------
-      search
-      key    result
-stage width  width  table/condition name
------ ------ ------ --------------------
---- stage 1 of 3 total search key width 10 result width 22
-    1      9     20 identify_port
-    1      1      2 strip_mtag
---- stage 2 of 3 total search key width 60 result width 11
-    2     60     11 local_switching
---- stage 3 of 3 total search key width 60 result width 35
-    3     60     35 mTag_table
-For all stages, total search key width 130 result width 68
-pipeline ingress requires at least 3 stages
+
+
+direction forward
+
+(no predecessor)                    -               0  identify_port_MATCH
+(no predecessor)                    -               0  local_switching_MATCH
+(no predecessor)                    -               0  mTag_table_MATCH
+(no predecessor)                    -               0  strip_mtag_MATCH
+identify_port_MATCH                 MAT    0+ 9 =   9  identify_port_ACTION
+strip_mtag_MATCH                    MAT    0+ 9 =   9  strip_mtag_ACTION
+identify_port_ACTION                MAT    9+ 1 =  10  _condition_0
+_condition_0                        SUC   10+ 0 =  10  local_switching_ACTION
+local_switching_ACTION              MAT   10+ 1 =  11  _condition_1
+_condition_1                        SUC   11+ 0 =  11  mTag_table_ACTION
+local_switching_ACTION              ACT   10+ 1 =  11  mTag_table_ACTION
+
+
+direction backward
+
+identify_port_ACTION                MAT    9- 9 =   0  identify_port_MATCH
+local_switching_ACTION              MAT   10- 9 =   1  local_switching_MATCH
+strip_mtag_ACTION                   MAT   10- 9 =   1  strip_mtag_MATCH
+mTag_table_ACTION                   MAT   11- 9 =   2  mTag_table_MATCH
+_condition_0                        MAT   10- 1 =   9  identify_port_ACTION
+local_switching_ACTION              SUC   10- 0 =  10  _condition_0
+_condition_1                        MAT   11- 1 =  10  local_switching_ACTION
+mTag_table_ACTION                   ACT   11- 1 =  10  local_switching_ACTION
+mTag_table_ACTION                   ACT   11- 1 =  10  strip_mtag_ACTION
+mTag_table_ACTION                   SUC   11- 0 =  11  _condition_1
+(no predecessor)                    -              11  mTag_table_ACTION
+pipeline ingress requires at least 11 stages
+dbg: only_crit_and_near_crit_edges=True
 
 EGRESS PIPELINE
-------------------------------
-Debug count_min_stages
-from table/condition       dependency type stage to table/condition
--------------------------- --------------- ----- ------------------
-(none)                     0 unknown       -1+1  egress_check
-(none)                     0 unknown       -1+1  egress_meter
-egress_meter               4 MATCH          0+1  meter_policy
-------------------------------
-      search
-      key    result
-stage width  width  table/condition name
------ ------ ------ --------------------
---- stage 1 of 2 total search key width 27 result width 54
-    1     10     20 egress_check
-    1     17     34 egress_meter
---- stage 2 of 2 total search key width 17 result width 2
-    2     17      2 meter_policy
-For all stages, total search key width 44 result width 56
-pipeline egress requires at least 2 stages
+
+
+direction forward
+
+(no predecessor)                    -               0  egress_check_MATCH
+(no predecessor)                    -               0  egress_meter_MATCH
+egress_check_MATCH                  MAT    0+ 9 =   9  egress_check_ACTION
+egress_meter_MATCH                  MAT    0+ 9 =   9  egress_meter_ACTION
+egress_meter_ACTION                 MAT    9+ 1 =  10  meter_policy_MATCH
+meter_policy_MATCH                  MAT   10+ 9 =  19  meter_policy_ACTION
+
+
+direction backward
+
+egress_meter_ACTION                 MAT    9- 9 =   0  egress_meter_MATCH
+meter_policy_MATCH                  MAT   10- 1 =   9  egress_meter_ACTION
+egress_check_ACTION                 MAT   19- 9 =  10  egress_check_MATCH
+meter_policy_ACTION                 MAT   19- 9 =  10  meter_policy_MATCH
+(no predecessor)                    -              19  egress_check_ACTION
+(no predecessor)                    -              19  meter_policy_ACTION
+pipeline egress requires at least 19 stages
+dbg: only_crit_and_near_crit_edges=True
 

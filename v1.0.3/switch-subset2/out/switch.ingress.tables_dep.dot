@@ -1,0 +1,32 @@
+digraph ingress {
+_condition_0 [shape=box label="_condition_0\n((ingress_metadata.bypass_lookups & 1) == 0)"];
+_condition_1 [shape=box label="_condition_1\n((ingress_metadata.bypass_lookups & 2) == 0)"];
+_condition_2 [shape=box label="_condition_2\n((l3_metadata.lkp_ip_type == 1) and
+(ipv4_metadata.ipv4_unicast_enabled == 1))"];
+_condition_3 [shape=box label="_condition_3\n((l3_metadata.lkp_ip_type == 2) and
+(ipv6_metadata.ipv6_unicast_enabled == 1))"];
+_condition_4 [shape=box label="_condition_4\n(not (ingress_metadata.bypass_lookups == 65535))"];
+_condition_5 [shape=box label="_condition_5\n(nexthop_metadata.nexthop_type == 1)"];
+_condition_6 [shape=box label="_condition_6\n((ingress_metadata.bypass_lookups & 32) == 0)"];
+_condition_7 [shape=box label="_condition_7\n(ingress_metadata.drop_flag == 1)"];
+_condition_0 -> dmac [color=green  label="True"];
+_condition_1 -> _condition_2 [color=green  label="True"];
+_condition_2 -> _condition_3 [color=green  label="False" arrowhead = diamond];
+_condition_2 -> ipv4_fib_lpm [color=green  label="True"];
+_condition_3 -> ipv6_fib_lpm [color=green  label="True"];
+_condition_4 -> fwd_result [color=green  label="True"];
+_condition_5 -> ecmp_group [color=green  label="True"];
+_condition_5 -> nexthop [color=green  label="False" arrowhead = diamond];
+_condition_6 -> _condition_7 [color=green  label="True"];
+_condition_6 -> system_acl [color=green  label="True"];
+_condition_7 -> drop_stats [color=green  label="True"];
+dmac -> fwd_result [color=red ];
+ecmp_group -> lag_group [color=red ];
+fwd_result -> _condition_5 [color=red ];
+fwd_result -> _condition_7 [color=red ];
+ipv4_fib_lpm -> fwd_result [color=red ];
+ipv6_fib_lpm -> fwd_result [color=red ];
+lag_group -> system_acl [color=blue ];
+nexthop -> lag_group [color=red ];
+rmac -> fwd_result [color=red ];
+}
