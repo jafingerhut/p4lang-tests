@@ -1,0 +1,8 @@
+digraph ingress {
+table1 -> table2 [color=red label="l2_metadata.lkp_pkt_type" decorate=true];
+table1 -> table3 [color=red label="l2_metadata.lkp_mac_type" decorate=true];
+table1 -> table4 [color=red label="ingress_metadata.drop_reason" decorate=true];
+table2 -> table5 [color=red label="example_metadata.fldB" decorate=true];
+table3 -> table5 [color=red label="example_metadata.fldC" decorate=true];
+table4 -> table5 [color=red label="example_metadata.fldD" decorate=true];
+}

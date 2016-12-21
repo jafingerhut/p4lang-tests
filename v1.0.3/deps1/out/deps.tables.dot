@@ -1,0 +1,20 @@
+digraph g {
+   buffer [shape=doublecircle];
+   egress [shape=doublecircle];
+   table1 [shape=ellipse];
+   table1 -> table2 [arrowhead=normal label="malformed_outer_ethernet_packet"];
+   table2 [shape=ellipse];
+   table2 -> table3 [arrowhead=normal label="nop"];
+   table3 [shape=ellipse];
+   table3 -> table4 [arrowhead=normal label="do_something3"];
+   table4 [shape=ellipse];
+   table4 -> table5 [arrowhead=normal label="do_something4"];
+   table5 [shape=ellipse];
+   table5 -> buffer [arrowhead=normal label="nop"];
+   table2 -> table3 [arrowhead=normal label="do_something2"];
+   table1 -> table2 [arrowhead=normal label="set_valid_outer_unicast_packet_untagged"];
+   table1 -> table2 [arrowhead=normal label="set_valid_outer_broadcast_packet_untagged"];
+   buffer -> dummy_egress_table
+   dummy_egress_table [shape=ellipse];
+   dummy_egress_table -> egress [arrowhead=normal label="nop"];
+}
