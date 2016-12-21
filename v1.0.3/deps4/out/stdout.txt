@@ -1,0 +1,135 @@
+parsing successful
+Semantic warning: header type 'ieee802_1ah_t' is not reachable and will be removed
+Semantic warning: header type 'ipsec_esp_t' is not reachable and will be removed
+Semantic warning: header type 'ipsec_ah_t' is not reachable and will be removed
+Semantic warning: header type 'arp_rarp_t' is not reachable and will be removed
+Semantic warning: header type 'arp_rarp_ipv4_t' is not reachable and will be removed
+Semantic warning: header type 'vxlan_gpe_t' is not reachable and will be removed
+Semantic warning: header type 'vxlan_gpe_int_header_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_A_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_B_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_C_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_hdr_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_sample_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_raw_hdr_record_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_sample_cpu_t' is not reachable and will be removed
+Semantic warning: header type 'int_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_switch_id_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_ingress_port_id_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_hop_latency_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_q_occupancy_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_ingress_tstamp_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_egress_port_id_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_q_congestion_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_egress_port_tx_utilization_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_value_t' is not reachable and will be removed
+Semantic warning: parser function 'parse_roce' is not reachable and will be removed
+Semantic warning: parser function 'parse_fcoe' is not reachable and will be removed
+Semantic warning: parser function 'parse_vpls' is not reachable and will be removed
+Semantic warning: parser function 'parse_pw' is not reachable and will be removed
+Semantic warning: parser function 'parse_udp_v6' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre_v6' is not reachable and will be removed
+Semantic warning: parser function 'parse_roce_v2' is not reachable and will be removed
+Semantic warning: parser function 'parse_sctp' is not reachable and will be removed
+Semantic warning: header instance 'outer_udp' is not reachable and will be removed
+Semantic warning: header instance 'eompls' is not reachable and will be removed
+Semantic warning: parser function 'parse_nsh' is not reachable and will be removed
+Semantic warning: parser function 'parse_lisp' is not reachable and will be removed
+Semantic warning: parser function 'parse_inner_sctp' is not reachable and will be removed
+Semantic warning: parser function 'parse_trill' is not reachable and will be removed
+Semantic warning: parser function 'parse_vntag' is not reachable and will be removed
+Semantic warning: parser function 'parse_bfd' is not reachable and will be removed
+Semantic warning: header instance 'fabric_header_sflow' is not reachable and will be removed
+Semantic warning: parser function 'parse_fabric_header_unicast' is not reachable and will be removed
+Semantic warning: parser function 'parse_fabric_header_multicast' is not reachable and will be removed
+Semantic warning: parser function 'parse_fabric_header_mirror' is not reachable and will be removed
+Semantic warning: header instance 'egress_metadata' is not reachable and will be removed
+Semantic warning: header type 'eompls_t' is not reachable and will be removed
+Semantic warning: header type 'fabric_header_sflow_t' is not reachable and will be removed
+Semantic warning: header instance 'roce' is not reachable and will be removed
+Semantic warning: header instance 'fcoe' is not reachable and will be removed
+Semantic warning: header instance 'roce_v2' is not reachable and will be removed
+Semantic warning: header instance 'sctp' is not reachable and will be removed
+Semantic warning: header instance 'nsh' is not reachable and will be removed
+Semantic warning: header instance 'nsh_context' is not reachable and will be removed
+Semantic warning: header instance 'lisp' is not reachable and will be removed
+Semantic warning: header instance 'inner_sctp' is not reachable and will be removed
+Semantic warning: header instance 'trill' is not reachable and will be removed
+Semantic warning: header instance 'vntag' is not reachable and will be removed
+Semantic warning: header instance 'bfd' is not reachable and will be removed
+Semantic warning: header instance 'fabric_header_unicast' is not reachable and will be removed
+Semantic warning: header instance 'fabric_header_multicast' is not reachable and will be removed
+Semantic warning: header instance 'fabric_header_mirror' is not reachable and will be removed
+Semantic warning: parser function 'parse_set_prio_max' is not reachable and will be removed
+Semantic warning: header type 'egress_metadata_t' is not reachable and will be removed
+Semantic warning: header type 'roce_header_t' is not reachable and will be removed
+Semantic warning: header type 'roce_v2_header_t' is not reachable and will be removed
+Semantic warning: header type 'fcoe_header_t' is not reachable and will be removed
+Semantic warning: header type 'sctp_t' is not reachable and will be removed
+Semantic warning: header type 'nsh_t' is not reachable and will be removed
+Semantic warning: header type 'nsh_context_t' is not reachable and will be removed
+Semantic warning: header type 'trill_t' is not reachable and will be removed
+Semantic warning: header type 'lisp_t' is not reachable and will be removed
+Semantic warning: header type 'vntag_t' is not reachable and will be removed
+Semantic warning: header type 'bfd_t' is not reachable and will be removed
+Semantic warning: header type 'fabric_header_unicast_t' is not reachable and will be removed
+Semantic warning: header type 'fabric_header_multicast_t' is not reachable and will be removed
+Semantic warning: header type 'fabric_header_mirror_t' is not reachable and will be removed
+semantic checking successful
+Header type standard_metadata_t not byte-aligned, adding padding
+Header type ingress_intrinsic_metadata_t not byte-aligned, adding padding
+Header type l2_metadata_t not byte-aligned, adding padding
+Header type l3_metadata_t not byte-aligned, adding padding
+Header type ipv4_metadata_t not byte-aligned, adding padding
+Header type ipv6_metadata_t not byte-aligned, adding padding
+Header type tunnel_metadata_t not byte-aligned, adding padding
+Header type ingress_metadata_t not byte-aligned, adding padding
+transitive reduction on ingress dependency graph took 0.0 sec
+transitive reduction on egress dependency graph took 0.0 sec
+Generating files in directory /Users/jafinger/Documents/p4-docs/p4lang-tests/v1.0.3/deps4/out
+
+TABLE DEPENDENCIES...
+
+INGRESS PIPELINE
+------------------------------
+Debug count_min_stages
+from table/condition       dependency type stage to table/condition
+-------------------------- --------------- ----- ------------------
+(none)                     0 unknown       -1+1  table1
+table1                     4 MATCH          0+1  _condition_0
+_condition_0               2 SUCCESSOR      1+0  table3
+_condition_0               2 SUCCESSOR      1+0  table4
+_condition_0               2 SUCCESSOR      1+0  table2
+table3                     4 MATCH          1+1  table5
+------------------------------
+      search
+      key    result
+stage width  width  table/condition name
+----- ------ ------ --------------------
+--- stage 1 of 3 total search key width 48 result width 10
+    1     48     10 table1
+--- stage 2 of 3 total search key width 72 result width 28
+    2     48     10 table2
+    2     16      9 table3
+    2      8      9 table4
+--- stage 3 of 3 total search key width 32 result width 1
+    3     32      1 table5
+For all stages, total search key width 152 result width 39
+pipeline ingress requires at least 3 stages
+
+EGRESS PIPELINE
+------------------------------
+Debug count_min_stages
+from table/condition       dependency type stage to table/condition
+-------------------------- --------------- ----- ------------------
+(none)                     0 unknown       -1+1  dummy_egress_table
+------------------------------
+      search
+      key    result
+stage width  width  table/condition name
+----- ------ ------ --------------------
+--- stage 1 of 1 total search key width 0 result width 0
+    1      0      0 dummy_egress_table
+For all stages, total search key width 0 result width 0
+pipeline egress requires at least 1 stages
+
