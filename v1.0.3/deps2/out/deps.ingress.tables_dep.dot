@@ -1,0 +1,6 @@
+digraph ingress {
+table1 -> table5 [color=red label="example_metadata.fldE" decorate=true];
+table2 -> table5 [color=red label="example_metadata.fldB" decorate=true];
+table3 -> table5 [color=red label="example_metadata.fldC" decorate=true];
+table4 -> table5 [color=red label="example_metadata.fldD" decorate=true];
+}
