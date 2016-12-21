@@ -50,7 +50,7 @@ p4-graphs $OPTS --primitives ../primitives.json ../switch.p4 > stdout.txt
 # to on Github with graphic rendering, which eps files do not give.
 # Normally I do not want to do this, because of the extra time, so
 # comment out the 'exit 0' if you want it.
-exit 0
+#exit 0
 BASENAME="switch"
 for CHART in parser tables ingress.tables_dep egress.tables_dep
 do
