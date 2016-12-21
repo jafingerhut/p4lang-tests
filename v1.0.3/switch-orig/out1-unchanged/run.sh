@@ -29,8 +29,18 @@ OPTS="$OPTS --deps-debug-count-min-stages"
 # To skip calculation of transitive reduction of deps
 #OPTS="$OPTS --deps-skip-transitive-reduction"
 
+# To make smaller graphs, but with less information in them.  Good for
+# printing and seeing the overall flow of things, but not the reasons
+# for that flow.
+OPTS="$OPTS --deps-no-condition-labels --deps-no-fields-on-edges"
+#OPTS="$OPTS --deps-no-fields-on-edges"
+
 # To avoid drawing control flow dependencies in the graph
-#OPTS="$OPTS --deps-no-control-flow-edges"
+OPTS="$OPTS --deps-no-control-flow-edges"
+
+# Use new code for splitting match and action events for a table into
+# two nodes, scheduled independently from each other.
+#OPTS="$OPTS --split-match-action-events --deps-skip-transitive-reduction"
 
 set -x
 p4-graphs $OPTS --primitives ../primitives.json ../switch.p4 > stdout.txt
