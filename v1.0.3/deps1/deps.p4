@@ -34,9 +34,10 @@ action set_valid_outer_unicast_packet_untagged() {
     modify_field(l2_metadata.lkp_mac_type, ethernet.etherType);
 }
 
-action set_valid_outer_broadcast_packet_untagged() {
+action set_valid_outer_broadcast_packet_untagged(table_result_field1) {
     modify_field(l2_metadata.lkp_pkt_type, L2_BROADCAST);
     modify_field(l2_metadata.lkp_mac_type, ethernet.etherType);
+    modify_field(example_metadata.fldE, table_result_field1);
 }
 
 
