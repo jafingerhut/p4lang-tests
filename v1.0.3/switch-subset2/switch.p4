@@ -139,32 +139,6 @@ control ingress {
 }
 
 control egress {
-    /* multi-destination replication */
-    process_replication();
-
-    /* determine egress port properties */
-    apply(egress_port_mapping) {
-        egress_port_type_normal {
-            /* strip vlan header */
-            process_vlan_decap();
-
-            /* perform tunnel decap */
-            process_tunnel_decap();
-
-            /* apply nexthop_index based packet rewrites */
-            process_rewrite();
-
-            /* rewrite source/destination mac if needed */
-            process_mac_rewrite();
-
-            /* egress mtu checks */
-            process_mtu();
-        }
-    }
-
-    /* egress filter */
-    process_egress_filter();
-
     /* apply egress acl */
     process_egress_system_acl();
 }

@@ -1,35 +1,4 @@
 digraph egress {
-_condition_14 [shape=box label="_condition_14\n(intrinsic_metadata.egress_rid != 0)"];
-_condition_15 [shape=box label="_condition_15\n((egress_metadata.routed == 0) or
-(l3_metadata.nexthop_index != 0))"];
-_condition_16 [shape=box label="_condition_16\n(egress_metadata.routed == 1)"];
-_condition_17 [shape=box label="_condition_17\n(multicast_metadata.inner_replica == 1)"];
-_condition_18 [shape=box label="_condition_18\n(((((tunnel_metadata.ingress_tunnel_type == 0) and
-(tunnel_metadata.egress_tunnel_type == 0)) and
-(egress_filter_metadata.bd == 0)) and
-(egress_filter_metadata.ifindex_check == 0)) or
-(((tunnel_metadata.ingress_tunnel_type != 0) and
-(tunnel_metadata.egress_tunnel_type != 0)) and
-(egress_filter_metadata.inner_bd == 0)))"];
-_condition_19 [shape=box label="_condition_19\n(egress_metadata.bypass == 0)"];
-_condition_14 -> rid [color=green  label="True"];
-_condition_15 -> rewrite [color=green  label="True"];
-_condition_15 -> rewrite_multicast [color=green  label="False" arrowhead = diamond];
-_condition_16 -> l3_rewrite [color=green  label="True"];
-_condition_16 -> smac_rewrite [color=green  label="True"];
-_condition_17 -> _condition_18 [color=green  label="True"];
-_condition_18 -> egress_filter_drop [color=green  label="True"];
-_condition_19 -> egress_system_acl [color=green  label="True"];
-egress_filter -> _condition_18 [color=red ];
-egress_port_mapping -> _condition_15 [color=green  label="egress_port_type_normal"];
-egress_port_mapping -> vlan_decap [color=green  label="egress_port_type_normal"];
-mtu -> egress_system_acl [color=red ];
-replica_type -> _condition_15 [color=red ];
-rewrite -> _condition_16 [color=red ];
-rewrite -> egress_filter [color=blue ];
-rewrite -> mtu [color=red ];
-rewrite_multicast -> l3_rewrite [color=blue ];
-rid -> _condition_17 [color=red ];
-rid -> egress_port_mapping [color=blue ];
-rid -> replica_type [color=red ];
+_condition_14 [shape=box label="_condition_14\n(egress_metadata.bypass == 0)"];
+_condition_14 -> egress_system_acl [color=green  label="True"];
 }
