@@ -1,6 +1,4 @@
 digraph egress {
-egress_check_MATCH -> egress_check_ACTION [color=red style=bold label="" decorate=true];
-egress_meter_ACTION -> meter_policy_MATCH [color=red style=bold label="local_metadata.color" decorate=true];
-egress_meter_MATCH -> egress_meter_ACTION [color=red style=bold label="" decorate=true];
-meter_policy_MATCH -> meter_policy_ACTION [color=red style=bold label="" decorate=true];
+egress_check -> egress_meter [style=dotted ];
+egress_meter -> meter_policy [color=red label="local_metadata.color" decorate=true];
 }

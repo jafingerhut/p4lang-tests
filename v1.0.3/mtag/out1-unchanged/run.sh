@@ -31,7 +31,7 @@ OPTS="$OPTS --deps-debug-count-min-stages"
 
 # Use new code for splitting match and action events for a table into
 # two nodes, scheduled independently from each other.
-OPTS="$OPTS --split-match-action-events --deps-skip-transitive-reduction"
+#OPTS="$OPTS --split-match-action-events --deps-skip-transitive-reduction"
 
 set -x
 p4-graphs $OPTS ../mtag-edge.p4 > stdout.txt

@@ -1,11 +1,15 @@
 digraph ingress {
 _condition_0 [shape=box label="_condition_0\n(local_metadata.ingress_error == 0)"];
 _condition_1 [shape=box label="_condition_1\n(standard_metadata.egress_spec == 0)"];
-_condition_0 -> local_switching_ACTION [color=green style=bold label="" decorate=true arrowhead = dot];
-_condition_1 -> mTag_table_ACTION [color=green style=bold label="" decorate=true arrowhead = dot];
-identify_port_ACTION -> _condition_0 [color=red style=bold label="local_metadata.ingress_error" decorate=true];
-identify_port_MATCH -> identify_port_ACTION [color=red style=bold label="" decorate=true];
-local_switching_ACTION -> _condition_1 [color=red style=bold label="standard_metadata.egress_spec" decorate=true];
-local_switching_ACTION -> mTag_table_ACTION [color=blue style=bold label="standard_metadata.egress_spec" decorate=true];
-strip_mtag_MATCH -> strip_mtag_ACTION [color=red style=bold label="" decorate=true];
+_condition_0 -> local_switching [color=green label="" decorate=true label="True"];
+_condition_1 -> mTag_table [color=green label="" decorate=true label="True"];
+identify_port -> _condition_0 [color=red label="local_metadata.ingress_error" decorate=true];
+local_switching -> _condition_1 [color=red label="standard_metadata.egress_spec" decorate=true];
+strip_mtag -> identify_port [style=dotted ];
+strip_mtag -> mTag_table [color=blue label="mtag._valid,
+mtag.down1,
+mtag.down2,
+mtag.ethertype,
+mtag.up1,
+mtag.up2" decorate=true];
 }
