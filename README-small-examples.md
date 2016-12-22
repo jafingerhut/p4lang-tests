@@ -57,9 +57,9 @@ What changes is the table dependency graph, because now the search
 keys for table2, table3, and table4 can be constructed without first
 performing the action for table1.
 
-Table control flow graph: [v1.0.3/deps2/out/deps.tables.png](v1.0.3/deps2/out/deps.tables.png)
+Ingress table dependency graph: [v1.0.3/deps2/out/deps.ingress.tables_dep.png](v1.0.3/deps2/out/deps.ingress.tables_dep.png)
 
-![v1.0.3/deps2/out/deps.tables.png](v1.0.3/deps2/out/deps.tables.png)
+![Ingress table dependency graph](v1.0.3/deps2/out/deps.ingress.tables_dep.png)
 
 As for `deps1`, all 5 table matches and actions must be performed for
 every packet.
