@@ -8,11 +8,9 @@ lookup.
 
 Ingress control block simply does 5 table apply actions sequentially.
 
-Ingress control block source code: [v1.0.3/deps1/deps.p4#L117-L123)(https://github.com/jafingerhut/p4lang-tests/blob/master/v1.0.3/deps1/deps.p4#L117-L123)
+Ingress control block source code: [v1.0.3/deps1/deps.p4#L117-L123](https://github.com/jafingerhut/p4lang-tests/blob/master/v1.0.3/deps1/deps.p4#L117-L123)
 
-Table control flow graph drawing: https://github.com/jafingerhut/p4lang-tests/blob/master/v1.0.3/deps1/out/deps.tables.png
-
-Table control flow graph:
+Table control flow graph: [v1.0.3/deps1/out/deps.tables.png](v1.0.3/deps1/out/deps.tables.png)
 
 ![v1.0.3/deps1/out/deps.tables.png](v1.0.3/deps1/out/deps.tables.png)
 
