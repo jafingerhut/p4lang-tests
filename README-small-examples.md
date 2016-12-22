@@ -290,19 +290,19 @@ dependency graphs.
 more.
 
 
-Ingress table dependency graph: [v1.0.3/switch-subset2/out/switch.ingress.tables_dep.png](v1.0.3/switch-subset2/out/switch.ingress.tables_dep.png)
+Ingress table dependency graph: [v1.0.3/switch-subset3/out/switch.ingress.tables_dep.png](v1.0.3/switch-subset3/out/switch.ingress.tables_dep.png)
 
-![Ingress table dependency graph](v1.0.3/switch-subset2/out/switch.ingress.tables_dep.png)
+![Ingress table dependency graph](v1.0.3/switch-subset3/out/switch.ingress.tables_dep.png)
 
 Note that there are green SUCCESSOR dependency edges out of table rmac
 at the top.  The labels `rmac_miss` and `rmac_hit` are 2 different
 result types that the table rmac can return as a search result.  These
-are just like if conditions with the conditions `(table rmac returned
-result type == rmac_miss)` and `(table rmac returned result type ==
-rmac_hit)`.  Like the True and False branches of an if condition, they
-are mutually exclusive -- only the branch side effects of the taken
-branch should be performed, although table matches that have no side
-effects may be done speculatively, as for if conditions.
+are like `if` conditions `(table rmac returned result type ==
+rmac_miss)` and `(table rmac returned result type == rmac_hit)`.  Like
+the True and False branches of an `if` condition, they are mutually
+exclusive -- only the side effects of the taken branch should be
+performed.  Table matches that have no side effects may be done
+speculatively, as for `if` conditions.
 
 From the beginning up to table fwd_result, there are the following
 distinct paths possible:
