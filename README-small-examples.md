@@ -121,7 +121,7 @@ Note that as for `deps2`, table3 and table4 can be executed
 simultaneously.
 
 There is still no dependency out of table1, except to table5, because
-table1 does cannot modify the field read in the condition.
+table1 cannot modify the field in the condition.
 
 With condition nodes, we get into an extra level of detail on what
 execution orders are possible.
@@ -147,9 +147,11 @@ hardware, this might increase the latency from start to finish for
 processing a packet.
 
 Aside: P4 allows one to create tables that have side effects that
-should happen simply due to matches being performed, e.g.  counters
-with the P4 `direct` keyword, for tables that count the number of
-times each entry was matched.
+should happen simply due to matches being performed, e.g. you may
+create a `counter` or `meter` object with the P4 `direct` keyword,
+naming a table to which those counters are meters have a one-for-one
+relationship, and are automatically updated when a search of the table
+results in a match of an entry.
 
 If we added per-entry match counters to table2, for example, then
 there would only be 2 correct ways to implement this that I can think
@@ -160,11 +162,11 @@ of:
   occur as a side effect, in addition to returning the match result.
 
 * Speculatively launch table2's search key before evaluating the
-  condition, which requires doing some separate action to update the
-  appropriate match counter, and that separate action must only be
-  done if the condition is evaluated as True.  This separate action to
-  update the match counter might require 'launching' a separate table
-  update command to the counter table, for example.
+  condition.  Later, after evaluating the condition, if it is True and
+  thus table2's action should be performed, cause the appropriate
+  match counter to be updated.  This separate action to update the
+  match counter might require 'launching' a separate table update
+  command to a counter table, for example.
 
 That feature is not used in this `deps3` source code, so this issue
 does not arise, but it is worth keeping in mind for a fully featured
