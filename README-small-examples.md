@@ -196,6 +196,10 @@ the contents of the condition, of course.
 The table dependency graph changes so there is a red MATCH dependency
 from table1 to the condition.
 
+Ingress table dependency graph: [v1.0.3/deps4/out/deps.ingress.tables_dep.png](v1.0.3/deps4/out/deps.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/deps4/out/deps.ingress.tables_dep.png)
+
 We could still simultaneously launch search keys for table1 through
 table4 if the hardware can support it, as long as only the side
 effects of table2's action is performed if the condition evaluates to
@@ -207,3 +211,126 @@ will assign to the field `example_metadata.fldE`).
 
 
 # `switch-subset` - small subsets of switch.p4
+
+
+## `switch-subset1`
+
+`switch-subset1` has an ingress control block that is a very small
+subset of switch.p4's.
+
+```
+control ingress {
+    process_mac();  /* control block congaining only apply(dmac) */
+    apply(rmac) {
+        default {
+            if ((l3_metadata.lkp_ip_type == IPTYPE_IPV4) and
+                (ipv4_metadata.ipv4_unicast_enabled == TRUE)) {
+                process_ipv4_fib();   /* only does apply(ipv4_fib_lpm) */
+            } else {
+                if ((l3_metadata.lkp_ip_type == IPTYPE_IPV6) and
+                    (ipv6_metadata.ipv6_unicast_enabled == TRUE)) {
+                    process_ipv6_fib();  /* only does apply(ipv6_fib_lpm) */
+                }
+            }
+        }
+    }
+    process_fwd_results();  /* only does apply(fwd_result) */
+}
+```
+
+The table dependency graph of this small subset is fairly similar to
+`deps4`.
+
+Ingress table dependency graph: [v1.0.3/switch-subset1/out/switch.ingress.tables_dep.png](v1.0.3/switch-subset1/out/switch.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/switch-subset1/out/switch.ingress.tables_dep.png)
+
+
+## `switch-subset2`
+
+`switch-subset2` includes everything that `switch-subset1` does, plus
+more conditions and tables after table `fwd_result`, which depend upon
+the actions of `fwd_result`.
+
+Ingress table dependency graph: [v1.0.3/switch-subset2/out/switch.ingress.tables_dep.png](v1.0.3/switch-subset2/out/switch.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/switch-subset2/out/switch.ingress.tables_dep.png)
+
+
+This is the first example to demonstrate a conditional branching
+behavior which is not uncommon within switch.p4, and I suspect most
+useful P4 programs.  Note that there is an early branch where at most
+one of tables ipv4_fib_lpm and ipv6_fib_lpm need to be done (as
+mentioned earlier, both matches could be done speculatively, as long
+as only the side effects of the taken branch are performed).
+
+After that, both paths should apply table fwd_result.  Then there is
+another conditional branch that depends upon a field modified by the
+action of fwd_result.  The table ecmp_group is applied in one branch,
+table nexthop in the other.
+
+The direction taken by the second branch is _independent_ of the
+direction taken by the first.  The first depends on whether the packet
+is IPv4 or IPv6.  The second depends on whether the longest prefix
+match gave a route with multiple equal cost paths (ecmp_group), or
+not.
+
+Thus if one wants to minimize the matches done, there are 4
+possibilities: 1st and 2nd conditions are both true, 1st true and 2nd
+false, 1st false and 2nd true, or 1st and 2nd both false.
+
+See [this README](v1.0.3/switch-orig/README-conditions.md) for the
+meaning of many of the conditions you will see in switch.p4 table
+dependency graphs.
+
+
+## `switch-subset3`
+
+`switch-subset3` includes everything that `switch-subset2` does, plus
+more.
+
+
+Ingress table dependency graph: [v1.0.3/switch-subset2/out/switch.ingress.tables_dep.png](v1.0.3/switch-subset2/out/switch.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/switch-subset2/out/switch.ingress.tables_dep.png)
+
+Note that there are green SUCCESSOR dependency edges out of table rmac
+at the top.  The labels `rmac_miss` and `rmac_hit` are 2 different
+result types that the table rmac can return as a search result.  These
+are just like if conditions with the conditions `(table rmac returned
+result type == rmac_miss)` and `(table rmac returned result type ==
+rmac_hit)`.  Like the True and False branches of an if condition, they
+are mutually exclusive -- only the branch side effects of the taken
+branch should be performed, although table matches that have no side
+effects may be done speculatively, as for if conditions.
+
+From the beginning up to table fwd_result, there are the following
+distinct paths possible:
+
+* rmac_miss, condition_1 True causes both tables ipv4_multicast_bridge
+  and ipv4_multicast_route to be applied (at least possibly, depending
+  on other conditions)
+
+* rmac_miss, condition_1 False may cause both tables
+  ipv6_multicast_bridge and ipv6_multicast_route to be applied.
+
+* rmac_hit, condition_8 True may cause ipv4_fib_lpm
+
+* rmac_hit, condition_8 False may cause ipv6_fib_lpm
+
+Those 4 possible paths are multiplied by 2 because of the 2 paths
+possible out of condition_11.
+
+
+## `switch-orig`
+
+I have not tried to count the number of possible mutually exclusive
+paths through the full switch.p4 ingress control block, but you can
+look at it here.  This graph has been generated leaving out the
+contents of the conditions, to keep it somewhat more readable.  Some
+of the conditions are identical to each other, or contain common
+sub-conditions, and thus not independent of each other.
+
+Ingress table dependency graph: [v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png](v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/switch-orig/out1-unchanged/switch.ingress.tables_dep.png)
