@@ -1,0 +1,7 @@
+digraph egress {
+_condition_8 [ shape=box label="_condition_8\n(egress_metadata.bypass == 0)\n0,9" style=dashed];
+egress_system_acl_ACTION [ label="egress_system_acl_ACTION\n9,9" style=bold];
+egress_system_acl_MATCH [ label="egress_system_acl_MATCH\n0,0" style=bold];
+_condition_8 -> egress_system_acl_ACTION [color=green label="True" decorate=true ];
+egress_system_acl_MATCH -> egress_system_acl_ACTION [color=red  style=bold];
+}

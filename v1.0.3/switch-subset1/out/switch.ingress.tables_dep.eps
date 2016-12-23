@@ -247,6 +247,13 @@ closepath stroke
 0 0 0 edgecolor
 14 /Times-Roman set_font
 195 255.8 moveto 30 (False) alignedtext
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 225 252 moveto
+195 252 lineto
+199.55 270.41 lineto
+stroke
 grestore
 % ipv4_fib_lpm
 gsave
@@ -280,6 +287,13 @@ closepath stroke
 0 0 0 edgecolor
 14 /Times-Roman set_font
 272 255.8 moveto 27 (True) alignedtext
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 299 252 moveto
+272 252 lineto
+270.92 254.13 lineto
+stroke
 grestore
 % ipv6_fib_lpm
 gsave
@@ -312,6 +326,22 @@ closepath stroke
 0 0 0 edgecolor
 14 /Times-Roman set_font
 147 141.3 moveto 27 (True) alignedtext
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 174 137.5 moveto
+147 137.5 lineto
+144.07 142.45 lineto
+stroke
+grestore
+% dmac
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+301 91 30.59 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+285.5 87.3 moveto 31 (dmac) alignedtext
 grestore
 % fwd_result
 gsave
@@ -321,6 +351,26 @@ gsave
 0 0 0 nodecolor
 14 /Times-Roman set_font
 241 14.3 moveto 60 (fwd_result) alignedtext
+grestore
+% dmac->fwd_result
+gsave
+1 setlinewidth
+0 1 1 edgecolor
+newpath 293.89 73.17 moveto
+290.39 64.9 286.09 54.72 282.17 45.44 curveto
+stroke
+0 1 1 edgecolor
+newpath 285.38 44.05 moveto
+278.27 36.2 lineto
+278.94 46.77 lineto
+closepath fill
+1 setlinewidth
+solid
+0 1 1 edgecolor
+newpath 285.38 44.05 moveto
+278.27 36.2 lineto
+278.94 46.77 lineto
+closepath stroke
 grestore
 % ipv4_fib_lpm->fwd_result
 gsave
@@ -361,35 +411,6 @@ solid
 newpath 239.65 41.78 moveto
 246.45 33.65 lineto
 236.07 35.77 lineto
-closepath stroke
-grestore
-% dmac
-gsave
-1 setlinewidth
-0 0 0 nodecolor
-301 91 30.59 18 ellipse_path stroke
-0 0 0 nodecolor
-14 /Times-Roman set_font
-285.5 87.3 moveto 31 (dmac) alignedtext
-grestore
-% dmac->fwd_result
-gsave
-1 setlinewidth
-0 1 1 edgecolor
-newpath 293.89 73.17 moveto
-290.39 64.9 286.09 54.72 282.17 45.44 curveto
-stroke
-0 1 1 edgecolor
-newpath 285.38 44.05 moveto
-278.27 36.2 lineto
-278.94 46.77 lineto
-closepath fill
-1 setlinewidth
-solid
-0 1 1 edgecolor
-newpath 285.38 44.05 moveto
-278.27 36.2 lineto
-278.94 46.77 lineto
 closepath stroke
 grestore
 % rmac

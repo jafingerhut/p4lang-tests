@@ -1,4 +1,5 @@
 digraph egress {
-_condition_8 [shape=box label="_condition_8\n(egress_metadata.bypass == 0)"];
-_condition_8 -> egress_system_acl [color=green  label="True"];
+_condition_8 [ shape=box label="_condition_8\n(egress_metadata.bypass == 0)"];
+egress_system_acl [ label="egress_system_acl"];
+_condition_8 -> egress_system_acl [color=green label="True" decorate=true ];
 }

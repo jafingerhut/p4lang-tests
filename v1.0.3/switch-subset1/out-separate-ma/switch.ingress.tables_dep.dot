@@ -1,0 +1,28 @@
+digraph ingress {
+_condition_0 [ shape=box label="_condition_0\n((l3_metadata.lkp_ip_type == 1) and
+(ipv4_metadata.ipv4_unicast_enabled == 1))\n0,9" style=dashed];
+_condition_1 [ shape=box label="_condition_1\n((l3_metadata.lkp_ip_type == 2) and
+(ipv6_metadata.ipv6_unicast_enabled == 1))\n0,9" style=dashed];
+dmac_ACTION [ label="dmac_ACTION\n9,9" style=bold];
+dmac_MATCH [ label="dmac_MATCH\n0,0" style=bold];
+fwd_result_ACTION [ label="fwd_result_ACTION\n19,19" style=bold];
+fwd_result_MATCH [ label="fwd_result_MATCH\n10,10" style=bold];
+ipv4_fib_lpm_ACTION [ label="ipv4_fib_lpm_ACTION\n9,9" style=bold];
+ipv4_fib_lpm_MATCH [ label="ipv4_fib_lpm_MATCH\n0,0" style=bold];
+ipv6_fib_lpm_ACTION [ label="ipv6_fib_lpm_ACTION\n9,9" style=bold];
+ipv6_fib_lpm_MATCH [ label="ipv6_fib_lpm_MATCH\n0,0" style=bold];
+rmac_ACTION [ label="rmac_ACTION\n9,9" style=bold];
+rmac_MATCH [ label="rmac_MATCH\n0,0" style=bold];
+_condition_0 -> _condition_1 [color=green label="False" decorate=true  arrowhead = diamond style=bold];
+_condition_0 -> ipv4_fib_lpm_ACTION [color=green label="True" decorate=true ];
+_condition_1 -> ipv6_fib_lpm_ACTION [color=green label="True" decorate=true ];
+dmac_ACTION -> fwd_result_MATCH [color=red  style=bold];
+dmac_MATCH -> dmac_ACTION [color=red  style=bold];
+fwd_result_MATCH -> fwd_result_ACTION [color=red  style=bold];
+ipv4_fib_lpm_ACTION -> fwd_result_MATCH [color=red  style=bold];
+ipv4_fib_lpm_MATCH -> ipv4_fib_lpm_ACTION [color=red  style=bold];
+ipv6_fib_lpm_ACTION -> fwd_result_MATCH [color=red  style=bold];
+ipv6_fib_lpm_MATCH -> ipv6_fib_lpm_ACTION [color=red  style=bold];
+rmac_ACTION -> fwd_result_MATCH [color=red  style=bold];
+rmac_MATCH -> rmac_ACTION [color=red  style=bold];
+}

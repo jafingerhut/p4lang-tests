@@ -1,2 +1,3 @@
 digraph egress {
+dummy_egress_table [ label="dummy_egress_table"];
 }

@@ -1,0 +1,5 @@
+digraph egress {
+dummy_egress_table_ACTION [ label="dummy_egress_table_ACTION\n9,9" style=bold];
+dummy_egress_table_MATCH [ label="dummy_egress_table_MATCH\n0,0" style=bold];
+dummy_egress_table_MATCH -> dummy_egress_table_ACTION [color=red  style=bold];
+}

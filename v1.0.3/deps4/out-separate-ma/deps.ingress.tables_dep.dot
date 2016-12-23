@@ -1,0 +1,26 @@
+digraph ingress {
+_condition_0 [ shape=box label="_condition_0\n((ethernet.etherType == 1) and
+(example_metadata.fldE == 2))\n10,10" style=bold];
+table1_ACTION [ label="table1_ACTION\n9,9" style=bold];
+table1_MATCH [ label="table1_MATCH\n0,0" style=bold];
+table2_ACTION [ label="table2_ACTION\n10,10" style=bold];
+table2_MATCH [ label="table2_MATCH\n0,1" style=dashed];
+table3_ACTION [ label="table3_ACTION\n10,10" style=bold];
+table3_MATCH [ label="table3_MATCH\n0,1" style=dashed];
+table4_ACTION [ label="table4_ACTION\n10,10" style=bold];
+table4_MATCH [ label="table4_MATCH\n0,1" style=dashed];
+table5_ACTION [ label="table5_ACTION\n20,20" style=bold];
+table5_MATCH [ label="table5_MATCH\n11,11" style=bold];
+_condition_0 -> table2_ACTION [color=green label="True" decorate=true  style=bold];
+_condition_0 -> table3_ACTION [color=green label="False" decorate=true  arrowhead = diamond style=bold];
+_condition_0 -> table4_ACTION [color=green label="False" decorate=true  arrowhead = diamond style=bold];
+table1_ACTION -> _condition_0 [color=red label="example_metadata.fldE" decorate=true  style=bold];
+table1_MATCH -> table1_ACTION [color=red  style=bold];
+table2_ACTION -> table5_MATCH [color=red label="example_metadata.fldB" decorate=true  style=bold];
+table2_MATCH -> table2_ACTION [color=red ];
+table3_ACTION -> table5_MATCH [color=red label="example_metadata.fldC" decorate=true  style=bold];
+table3_MATCH -> table3_ACTION [color=red ];
+table4_ACTION -> table5_MATCH [color=red label="example_metadata.fldD" decorate=true  style=bold];
+table4_MATCH -> table4_ACTION [color=red ];
+table5_MATCH -> table5_ACTION [color=red  style=bold];
+}

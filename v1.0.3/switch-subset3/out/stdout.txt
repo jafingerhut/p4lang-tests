@@ -539,8 +539,8 @@ _condition_1               2 SUCCESSOR      0+0  _condition_4
 _condition_4               2 SUCCESSOR      0+0  _condition_5
 rmac                       2 SUCCESSOR      0+0  _condition_7
 _condition_7               2 SUCCESSOR      0+0  _condition_8
-_condition_8               2 SUCCESSOR      0+0  _condition_9
 _condition_8               2 SUCCESSOR      0+0  ipv4_fib_lpm
+_condition_8               2 SUCCESSOR      0+0  _condition_9
 _condition_9               2 SUCCESSOR      0+0  ipv6_fib_lpm
 _condition_5               2 SUCCESSOR      0+0  ipv6_multicast_bridge
 _condition_4               2 SUCCESSOR      0+0  _condition_6
