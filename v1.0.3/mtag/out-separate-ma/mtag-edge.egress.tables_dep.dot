@@ -1,0 +1,12 @@
+digraph egress {
+egress_check_ACTION [ label="egress_check_ACTION\n9,19" style=dashed];
+egress_check_MATCH [ label="egress_check_MATCH\n0,10" style=dashed];
+egress_meter_ACTION [ label="egress_meter_ACTION\n9,9" style=bold];
+egress_meter_MATCH [ label="egress_meter_MATCH\n0,0" style=bold];
+meter_policy_ACTION [ label="meter_policy_ACTION\n19,19" style=bold];
+meter_policy_MATCH [ label="meter_policy_MATCH\n10,10" style=bold];
+egress_check_MATCH -> egress_check_ACTION [color=red  style=bold];
+egress_meter_ACTION -> meter_policy_MATCH [color=red label="local_metadata.color" decorate=true  style=bold];
+egress_meter_MATCH -> egress_meter_ACTION [color=red  style=bold];
+meter_policy_MATCH -> meter_policy_ACTION [color=red  style=bold];
+}

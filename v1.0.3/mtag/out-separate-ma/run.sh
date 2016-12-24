@@ -29,12 +29,15 @@ OPTS="$OPTS --deps-debug-count-min-stages"
 # To show all dependency edges, not only the ones on critical path
 #OPTS="$OPTS --deps-show-all"
 
+# To avoid drawing control flow dependencies in the graph
+OPTS="$OPTS --deps-no-control-flow-edges"
+
 # Use new code for splitting match and action events for a table into
 # two nodes, scheduled independently from each other.
-#OPTS="$OPTS --split-match-action-events"
+OPTS="$OPTS --split-match-action-events"
 
 set -x
-p4-graphs -DEXTRA_TEST_TABLE $OPTS ../mtag-edge.p4 > stdout.txt
+p4-graphs $OPTS ../mtag-edge.p4 > stdout.txt
 
 # Also generate png format graphs from the same .dot files without
 # rerunning p4-graphs.  Useful for linking to on Github with graphic

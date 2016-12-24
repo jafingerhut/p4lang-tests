@@ -112,9 +112,9 @@ table5_MATCH                        MAT   20+ 9 =  29  table5_ACTION
 direction backward
 
 table1_ACTION                       MAT    9- 9 =   0  table1_MATCH
+table2_MATCH                        MAT   10- 1 =   9  table1_ACTION
 table3_MATCH                        MAT   10- 1 =   9  table1_ACTION
 table4_MATCH                        MAT   10- 1 =   9  table1_ACTION
-table2_MATCH                        MAT   10- 1 =   9  table1_ACTION
 table2_ACTION                       MAT   19- 9 =  10  table2_MATCH
 table3_ACTION                       MAT   19- 9 =  10  table3_MATCH
 table4_ACTION                       MAT   19- 9 =  10  table4_MATCH

@@ -105,9 +105,9 @@ table2_MATCH                        MAT    0+ 9 =   9  table2_ACTION
 table3_MATCH                        MAT    0+ 9 =   9  table3_ACTION
 table4_MATCH                        MAT    0+ 9 =   9  table4_ACTION
 table1_ACTION                       MAT    9+ 1 =  10  table5_MATCH
-table2_ACTION                       MAT    9+ 1 =  10  table5_MATCH
-table3_ACTION                       MAT    9+ 1 =  10  table5_MATCH
 table4_ACTION                       MAT    9+ 1 =  10  table5_MATCH
+table3_ACTION                       MAT    9+ 1 =  10  table5_MATCH
+table2_ACTION                       MAT    9+ 1 =  10  table5_MATCH
 table5_MATCH                        MAT   10+ 9 =  19  table5_ACTION
 
 

@@ -1,16 +1,21 @@
 digraph ingress {
-_condition_0 [shape=box label="_condition_0\n(local_metadata.ingress_error == 0)"];
-_condition_1 [shape=box label="_condition_1\n(standard_metadata.egress_spec == 0)"];
-_condition_0 -> extra_test_table [color=green label="" decorate=true arrowhead = diamond];
-_condition_0 -> local_switching [color=green label="" decorate=true arrowhead = dot];
-_condition_1 -> mTag_table [color=green label="" decorate=true arrowhead = dot];
-identify_port -> _condition_0 [color=red label="local_metadata.ingress_error" decorate=true];
-local_switching -> _condition_1 [color=red label="standard_metadata.egress_spec" decorate=true];
+_condition_0 [ shape=box label="_condition_0\n(local_metadata.ingress_error == 0)"];
+_condition_1 [ shape=box label="_condition_1\n(standard_metadata.egress_spec == 0)"];
+extra_test_table [ label="extra_test_table"];
+identify_port [ label="identify_port"];
+local_switching [ label="local_switching"];
+mTag_table [ label="mTag_table"];
+strip_mtag [ label="strip_mtag"];
+_condition_0 -> extra_test_table [color=green label="False" decorate=true  arrowhead = diamond];
+_condition_0 -> local_switching [color=green label="True" decorate=true ];
+_condition_1 -> mTag_table [color=green label="True" decorate=true ];
+identify_port -> _condition_0 [color=red label="local_metadata.ingress_error" decorate=true ];
+local_switching -> _condition_1 [color=red label="standard_metadata.egress_spec" decorate=true ];
 strip_mtag -> identify_port [style=dotted ];
 strip_mtag -> mTag_table [color=blue label="mtag._valid,
 mtag.down1,
 mtag.down2,
 mtag.ethertype,
 mtag.up1,
-mtag.up2" decorate=true];
+mtag.up2" decorate=true ];
 }

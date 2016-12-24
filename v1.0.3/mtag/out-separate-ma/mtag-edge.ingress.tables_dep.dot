@@ -1,0 +1,27 @@
+digraph ingress {
+_condition_0 [ shape=box label="_condition_0\n(local_metadata.ingress_error == 0)\n10,10" style=bold];
+_condition_1 [ shape=box label="_condition_1\n(standard_metadata.egress_spec == 0)\n11,11" style=bold];
+identify_port_ACTION [ label="identify_port_ACTION\n9,9" style=bold];
+identify_port_MATCH [ label="identify_port_MATCH\n0,0" style=bold];
+local_switching_ACTION [ label="local_switching_ACTION\n10,10" style=bold];
+local_switching_MATCH [ label="local_switching_MATCH\n0,1" style=dashed];
+mTag_table_ACTION [ label="mTag_table_ACTION\n11,11" style=bold];
+mTag_table_MATCH [ label="mTag_table_MATCH\n0,2" style=dashed];
+strip_mtag_ACTION [ label="strip_mtag_ACTION\n9,10" style=dashed];
+strip_mtag_MATCH [ label="strip_mtag_MATCH\n0,1" style=dashed];
+_condition_0 -> local_switching_ACTION [color=green label="True" decorate=true  style=bold];
+_condition_1 -> mTag_table_ACTION [color=green label="True" decorate=true  style=bold];
+identify_port_ACTION -> _condition_0 [color=red label="local_metadata.ingress_error" decorate=true  style=bold];
+identify_port_MATCH -> identify_port_ACTION [color=red  style=bold];
+local_switching_ACTION -> _condition_1 [color=red label="standard_metadata.egress_spec" decorate=true  style=bold];
+local_switching_ACTION -> mTag_table_ACTION [color=blue label="standard_metadata.egress_spec" decorate=true  style=bold];
+local_switching_MATCH -> local_switching_ACTION [color=red ];
+mTag_table_MATCH -> mTag_table_ACTION [color=red ];
+strip_mtag_ACTION -> mTag_table_ACTION [color=blue label="mtag._valid,
+mtag.down1,
+mtag.down2,
+mtag.ethertype,
+mtag.up1,
+mtag.up2" decorate=true ];
+strip_mtag_MATCH -> strip_mtag_ACTION [color=red  style=bold];
+}

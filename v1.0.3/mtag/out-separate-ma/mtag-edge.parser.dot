@@ -1,0 +1,20 @@
+digraph g {
+   wire [shape=doublecircle];
+   __table_strip_mtag [label=strip_mtag shape=doublecircle];
+   wire -> start
+   start [shape=record label="{start}"];
+   start -> ethernet [label="default"];
+   ethernet [shape=record label="{ethernet | {ethernet.ethertype}}"];
+   ethernet -> vlan [label="0x8100"];
+   vlan [shape=record label="{vlan | {vlan.ethertype}}"];
+   vlan -> mtag [label="0xaaaa"];
+   mtag [shape=record label="{mtag | {mtag.ethertype}}"];
+   mtag -> ipv4 [label="0x800"];
+   ipv4 [shape=record label="{ipv4}"];
+   ipv4 -> __table_strip_mtag [label="default"];
+   mtag -> __table_strip_mtag [label="default"];
+   vlan -> ipv4 [label="0x800"];
+   vlan -> __table_strip_mtag [label="default"];
+   ethernet -> ipv4 [label="0x800"];
+   ethernet -> __table_strip_mtag [label="default"];
+}

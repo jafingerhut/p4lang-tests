@@ -539,8 +539,8 @@ _condition_1               2 SUCCESSOR      0+0  _condition_4
 _condition_4               2 SUCCESSOR      0+0  _condition_5
 rmac                       2 SUCCESSOR      0+0  _condition_7
 _condition_7               2 SUCCESSOR      0+0  _condition_8
-_condition_8               2 SUCCESSOR      0+0  ipv4_fib_lpm
 _condition_8               2 SUCCESSOR      0+0  _condition_9
+_condition_8               2 SUCCESSOR      0+0  ipv4_fib_lpm
 _condition_9               2 SUCCESSOR      0+0  ipv6_fib_lpm
 _condition_5               2 SUCCESSOR      0+0  ipv6_multicast_bridge
 _condition_4               2 SUCCESSOR      0+0  _condition_6
@@ -548,9 +548,9 @@ _condition_6               2 SUCCESSOR      0+0  ipv6_multicast_route
 (none)                     0 unknown       -1+1  _condition_10
 dmac                       4 MATCH          0+1  fwd_result
 fwd_result                 4 MATCH          1+1  _condition_11
-_condition_11              2 SUCCESSOR      2+0  ecmp_group
 _condition_11              2 SUCCESSOR      2+0  nexthop
-ecmp_group                 4 MATCH          2+1  lag_group
+_condition_11              2 SUCCESSOR      2+0  ecmp_group
+nexthop                    4 MATCH          2+1  lag_group
 (none)                     0 unknown       -1+1  _condition_12
 lag_group                  3 ACTION         3+1  system_acl
 fwd_result                 4 MATCH          1+1  _condition_13

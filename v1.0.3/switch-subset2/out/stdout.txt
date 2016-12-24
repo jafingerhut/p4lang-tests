@@ -550,9 +550,9 @@ _condition_2               2 SUCCESSOR      0+0  ipv4_fib_lpm
 (none)                     0 unknown       -1+1  _condition_4
 dmac                       4 MATCH          0+1  fwd_result
 fwd_result                 4 MATCH          1+1  _condition_5
-_condition_5               2 SUCCESSOR      2+0  nexthop
 _condition_5               2 SUCCESSOR      2+0  ecmp_group
-nexthop                    4 MATCH          2+1  lag_group
+_condition_5               2 SUCCESSOR      2+0  nexthop
+ecmp_group                 4 MATCH          2+1  lag_group
 (none)                     0 unknown       -1+1  _condition_6
 lag_group                  3 ACTION         3+1  system_acl
 fwd_result                 4 MATCH          1+1  _condition_7

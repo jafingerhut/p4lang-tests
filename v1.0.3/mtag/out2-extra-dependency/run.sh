@@ -26,8 +26,12 @@ OPTS="$OPTS --deps-debug-count-min-stages"
 # widths are calculated.
 #OPTS="$OPTS --debug-key-result-widths"
 
-# To skip calculation of transitive reduction of deps
-#OPTS="$OPTS --deps-skip-transitive-reduction"
+# To show all dependency edges, not only the ones on critical path
+#OPTS="$OPTS --deps-show-all"
+
+# Use new code for splitting match and action events for a table into
+# two nodes, scheduled independently from each other.
+#OPTS="$OPTS --split-match-action-events"
 
 set -x
 p4-graphs -DFORCE_DEPENDENCY_AFTER_STRIP_MTAG $OPTS ../mtag-edge.p4 > stdout.txt

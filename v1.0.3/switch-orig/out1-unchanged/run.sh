@@ -26,8 +26,8 @@ OPTS="$OPTS --deps-debug-count-min-stages"
 # widths are calculated.
 #OPTS="$OPTS --debug-key-result-widths"
 
-# To skip calculation of transitive reduction of deps
-#OPTS="$OPTS --deps-skip-transitive-reduction"
+# To show all dependency edges, not only the ones on critical path
+#OPTS="$OPTS --deps-show-all"
 
 # To make smaller graphs, but with less information in them.  Good for
 # printing and seeing the overall flow of things, but not the reasons
@@ -40,7 +40,7 @@ OPTS="$OPTS --deps-no-control-flow-edges"
 
 # Use new code for splitting match and action events for a table into
 # two nodes, scheduled independently from each other.
-#OPTS="$OPTS --split-match-action-events --deps-skip-transitive-reduction"
+#OPTS="$OPTS --split-match-action-events"
 
 set -x
 p4-graphs $OPTS --primitives ../primitives.json ../switch.p4 > stdout.txt
