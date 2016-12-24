@@ -52,6 +52,43 @@ total number of search key bits is not too large, the total number of
 result bits is not too large, the actions are simple enough that they
 can all be done at the same time, etc.).
 
+Here is the 'refined' table dependency graph for the same program.
+
+Ingress 'refined' table dependency graph: [v1.0.3/deps1/out-separate-ma/deps.ingress.tables_dep.png](v1.0.3/deps1/out-separate-ma/deps.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/deps1/out-separate-ma/deps.ingress.tables_dep.png)
+
+It splits each table node into a separate MATCH and ACTION node, with
+a new dependency from the MATCH node to the ACTION node (since a
+table's ACTION cannot start until its corresponding MATCH completes).
+
+In this case, all dependencies between tables are match dependencies,
+meaning the previous table's action must complete before the next
+table's match begins (because the next table's match includes a field
+written by one of the previous table's actions).  Thus all edges
+between tables are from the earlier table's ACTION node to the next
+table's MATCH node.
+
+Every edge out of a MATCH node means that the node at the head of the
+arrow cannot be scheduled until 9 cycles after the MATCH node is
+scheduled (when the result of the match event will return from the
+table back to the processor).
+
+Every edge out of an ACTION node means a 1 cycle delay (for the action
+to complete).
+
+The two comma-separated numbers labeling each node are the earliest
+and latest clock cycle that it can be scheduled for execution, without
+increasing the length of the critical path.  Any nodes with the same
+number before and after the comma are on the critical path -- delaying
+their execution will increase the latency for processing the packet.
+
+Nodes off the critical path are shown with dashed edges for their
+bounding shape, to emphasize the nodes that are on the critical path.
+
+See `deps3` below for notes on condition nodes in the refined table
+dependency graphs.
+
 
 ## `deps2`
 
@@ -171,6 +208,30 @@ of:
 That feature is not used in this `deps3` source code, so this issue
 does not arise, but it is worth keeping in mind for a fully featured
 correct P4 compiler.
+
+End of aside.
+
+Here is the 'refined' table dependency graph for the same program.
+
+Ingress 'refined' table dependency graph: [v1.0.3/deps3/out-separate-ma/deps.ingress.tables_dep.png](v1.0.3/deps3/out-separate-ma/deps.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/deps3/out-separate-ma/deps.ingress.tables_dep.png)
+
+Every edge out of a condition node is placed to a table's ACTION node
+only, not to its MATCH node, under the assumption that it is safe to
+perform the table's match speculatively (i.e. even when the `if`
+condition of a sequentially executed P4 program would not execute the
+`apply(table)` line at all).  If the condition is false, the side
+effects of ACTION nodes that depend upon the condition should
+definitely not occur.
+
+In these graphs, it is assumed that the evaluation of the condition
+can be 'rolled into' any actions that depend upon them, thus occurring
+in the same cycle.  Whether any particular hardware implementation can
+do this in a single cycle depends on the details of that
+implementation.
+
+
 
 
 ## `deps4`
@@ -322,6 +383,19 @@ distinct paths possible:
 
 Those 4 possible paths are multiplied by 2 because of the 2 paths
 possible out of condition_11.
+
+Here is the 'refined' table dependency graph for the same program.
+
+Ingress table dependency graph: [v1.0.3/switch-subset3/out-separate-ma/switch.ingress.tables_dep.png](v1.0.3/switch-subset3/out-separate-ma/switch.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/switch-subset3/out-separate-ma/switch.ingress.tables_dep.png)
+
+Note that the green successor edges out of table rmac at the top,
+labeled `rmac_miss` and `rmac_hit`, have a 'cost' of 9 cycles, causing
+the node at their heads to be scheduled 9 cycles later.  This is
+unlike all the other green successor edges out of condition nodes, for
+a good reason: the condition can only be evaluated _after_ the table
+result has returned back from the table search.
 
 
 ## `switch-orig`
