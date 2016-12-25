@@ -1,0 +1,16 @@
+digraph ingress {
+_condition_0 [ shape=box label="_condition_0\n((ethernet.etherType == 1) and
+(example_metadata.fldE == 2))"];
+table1 [ label="table1"];
+table2 [ label="table2"];
+table3 [ label="table3"];
+table4 [ label="table4"];
+table5 [ label="table5"];
+_condition_0 -> table2 [color=green label="True" decorate=true ];
+_condition_0 -> table3 [color=green label="False" decorate=true  arrowhead = diamond];
+_condition_0 -> table4 [color=green label="False" decorate=true  arrowhead = diamond];
+table1 -> _condition_0 [color=red label="example_metadata.fldE" decorate=true ];
+table2 -> table5 [color=orange label="example_metadata.fldB" decorate=true ];
+table3 -> table5 [color=red label="example_metadata.fldC" decorate=true ];
+table4 -> table5 [color=blue label="ingress_metadata.egress_ifindex" decorate=true ];
+}
