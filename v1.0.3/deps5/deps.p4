@@ -100,9 +100,8 @@ table table4 {
     size : 16;
 }
 
-action do_something5(table_result_field1, table_result_field2) {
-    modify_field(ingress_metadata.egress_ifindex, table_result_field1);
-    modify_field(example_metadata.fldB, table_result_field2);
+action do_something5() {
+    modify_field(example_metadata.fldB, ingress_metadata.egress_ifindex);
 }
 
 table table5 {

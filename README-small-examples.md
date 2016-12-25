@@ -273,6 +273,79 @@ action is finished (or finished enough that you know what value it
 will assign to the field `example_metadata.fldE`).
 
 
+## `deps5`
+
+The only changes from `deps4` to `deps5` are small in the number of
+lines, but they do modify the actions of table2, table4, and table5 in
+such a way that the kinds of dependencies between pairs of those
+tables is changed.
+
+The table control flow graph is similar to that for `deps4`, except
+for the types of dependencies from table2 to table5, and from table4
+to table5.
+
+Ingress table dependency graph: [v1.0.3/deps5/out/deps.ingress.tables_dep.png](v1.0.3/deps5/out/deps.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/deps5/out/deps.ingress.tables_dep.png)
+
+Where `deps4` has a red MATCH dependency from table4 to table5,
+`deps5` has a blue ACTION dependency there.  An ACTION dependency
+exists here because:
+
+* table5's search key does not contain any fields written by an action
+  of table4, so there is no MATCH dependency, and
+
+* table5's actions do read or write a field that is written by an
+  action of table4, so there is an ACTION dependency (field
+  `ingress_metadata.egress_ifindex` is written by an action of table4,
+  and read by an action of table5).
+
+In the original p4-graphs program, this dependency causes table5 to be
+scheduled in a stage at least 1 later than table4.  See below for
+details of restrictions on scheduling in the more refined table
+dependency graph.
+
+Where `deps4` has a red MATCH dependency from table2 to table5,
+`deps5` has an orange REVERSE_READ dependency there.  A REVERSE_READ
+dependency exists because
+
+* table5's search key does not contain any fields written by an action
+  of table2, so there is no MATCH dependency, and
+
+* table5's actions do not read or write any field that is written by
+  an action of table2, so there is no ACTION dependency, and
+
+* table5's actions do write a field that is read by an action of
+  table2, so there is a REVERSE_READ dependency (field
+  `example_metadata.fldB` is read by an action of table2, and written
+  by an action of table5).
+
+This dependency simply means that because table2's action must read
+the value of the field before table5's action modifies it, table2's
+action cannot be scheduled later than table5's action.  It could be
+scheduled earlier, or if the hardware supports it, they could be
+scheduled at the same time.
+
+Here is the 'refined' table dependency graph for the same program.
+
+Ingress 'refined' table dependency graph: [v1.0.3/deps5/out-separate-ma/deps.ingress.tables_dep.png](v1.0.3/deps5/out-separate-ma/deps.ingress.tables_dep.png)
+
+![Ingress table dependency graph](v1.0.3/deps5/out-separate-ma/deps.ingress.tables_dep.png)
+
+Note that the blue ACTION dependency is from table4's ACTION node to
+table5's ACTION node, not to table5's MATCH node, because table5's
+MATCH event can be scheduled before table4's ACTION without any
+problems.  Also note that the 'cost' of this edge is 1 cycle, since it
+would be incorrect to schedule these two actions at the same time --
+table5 needs to read the value written by table4's action.
+
+Also note that the orange REVERSE_READ dependency is from table2's
+ACTION node to table5's ACTION node, not to table5's MATCH node, for
+the same reason.  Here the 'cost' of the edge is 0 cycles, because it
+is acceptable to schedule these actions simultaneously.
+
+
+
 # `switch-subset` - small subsets of switch.p4
 
 

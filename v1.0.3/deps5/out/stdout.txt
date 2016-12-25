@@ -112,9 +112,9 @@ stage width  width  table/condition name
     2     48      2 table2
     2     16      9 table3
     2      8     17 table4
---- stage 3 of 3 total search key width 24 result width 25
-    3     24     25 table5
-For all stages, total search key width 144 result width 63
+--- stage 3 of 3 total search key width 24 result width 1
+    3     24      1 table5
+For all stages, total search key width 144 result width 39
 pipeline ingress requires at least 3 stages
 
 EGRESS PIPELINE
