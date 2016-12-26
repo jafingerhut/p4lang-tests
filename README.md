@@ -172,10 +172,11 @@ labels on edges, no code of conditions in condition nodes):
 
 Legend for nodes:
 
-* ellipse - table node, most likely always corresponding with a single
-  'table' definition in the source code.  TBD: Can a table appear more
-  than once in a graph if it is apply'ed in multiple conditional
-  branches?
+* ellipse - table node, corresponding with a single 'table' definition
+  in the source code.  With recent versions of p4-hlir, a table can
+  appear more than once in a graph if it is apply'ed in disjoint
+  conditional branches.  See
+  [v1.0.3/table-twice-exclusive/README.md](v1.0.3/table-twice-exclusive/README.md).
 * rectangle - condition node, most likely always corresponding with a
   single 'if' statement's condition in the source code.
 
