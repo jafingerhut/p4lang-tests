@@ -471,6 +471,19 @@ a good reason: the condition can only be evaluated _after_ the table
 result has returned back from the table search.
 
 
+## `switch-subset4`
+
+This one was created primarily to demonstrate what the successor
+dependencies look like for 2 different kinds of conditional execution:
+
+* explicit if statements in the P4 source code
+* conditional execution of blocks after apply(table) statement, where
+  the condition is based upon the type of action the control plane
+  installed in the matching table entry.
+
+
+
+
 ## `switch-subset5`
 
 This is not intended as a tiny example where you will want to look
@@ -490,16 +503,16 @@ and can be described as disabling these features:
 Quick comparison between 'size' of `switch-orig` vs. `switch-subset5`:
 
 * ingress
-** number of tables: 83 vs. 53
-** critical path with separate match/action (latencies 9/1): 101 vs. 90
-** critical path with RMT pipeline: 13 stages vs. 11 stages
-** total primitive actions in all tables: about 725 vs. about 425
+  * number of tables: 83 vs. 53
+  * critical path with separate match/action (latencies 9/1): 101 vs. 90
+  * critical path with RMT pipeline: 13 stages vs. 11 stages
+  * total primitive actions in all tables: about 725 vs. about 425
 
 * ingress
-** number of tables: 41 vs. 16
-** critical path with separate match/action (latencies 9/1): 82 vs. 40
-** critical path with RMT pipeline: 12 stages vs. 5 stages
-** total primitive actions in all tables: about 750 vs. about 125
+  * number of tables: 41 vs. 16
+  * critical path with separate match/action (latencies 9/1): 82 vs. 40
+  * critical path with RMT pipeline: 12 stages vs. 5 stages
+  * total primitive actions in all tables: about 750 vs. about 125
 
 
 
