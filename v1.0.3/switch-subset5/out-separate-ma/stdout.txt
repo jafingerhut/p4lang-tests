@@ -1,0 +1,1080 @@
+parsing successful
+Semantic warning: Parameter fabric_mgid of action set_fabric_multicast defined in file /Users/jafinger/Documents/p4-docs/p4lang-tests/v1.0.3/switch-subset5/out-separate-ma/../fabric.p4 at line 211 is not being used and will be removed
+Semantic warning: header type 'ieee802_1ah_t' is not reachable and will be removed
+Semantic warning: header type 'ipsec_esp_t' is not reachable and will be removed
+Semantic warning: header type 'ipsec_ah_t' is not reachable and will be removed
+Semantic warning: header type 'arp_rarp_t' is not reachable and will be removed
+Semantic warning: header type 'arp_rarp_ipv4_t' is not reachable and will be removed
+Semantic warning: header type 'vxlan_gpe_t' is not reachable and will be removed
+Semantic warning: header type 'vxlan_gpe_int_header_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_A_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_B_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_C_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_hdr_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_sample_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_raw_hdr_record_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_sample_cpu_t' is not reachable and will be removed
+Semantic warning: header type 'int_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_switch_id_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_ingress_port_id_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_hop_latency_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_q_occupancy_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_ingress_tstamp_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_egress_port_id_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_q_congestion_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_egress_port_tx_utilization_header_t' is not reachable and will be removed
+Semantic warning: header type 'int_value_t' is not reachable and will be removed
+Semantic warning: parser function 'parse_roce' is not reachable and will be removed
+Semantic warning: parser function 'parse_fcoe' is not reachable and will be removed
+Semantic warning: parser function 'parse_mpls_bos' is not reachable and will be removed
+Semantic warning: parser function 'parse_mpls_inner_ipv4' is not reachable and will be removed
+Semantic warning: parser function 'parse_mpls_inner_ipv6' is not reachable and will be removed
+Semantic warning: parser function 'parse_vpls' is not reachable and will be removed
+Semantic warning: parser function 'parse_pw' is not reachable and will be removed
+Semantic warning: parser function 'parse_ipv6_in_ip' is not reachable and will be removed
+Semantic warning: parser function 'parse_udp_v6' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre_v6' is not reachable and will be removed
+Semantic warning: parser function 'parse_roce_v2' is not reachable and will be removed
+Semantic warning: parser function 'parse_sctp' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre' is not reachable and will be removed
+Semantic warning: header instance 'outer_udp' is not reachable and will be removed
+Semantic warning: header instance 'eompls' is not reachable and will be removed
+Semantic warning: parser function 'parse_vxlan' is not reachable and will be removed
+Semantic warning: parser function 'parse_geneve' is not reachable and will be removed
+Semantic warning: parser function 'parse_nsh' is not reachable and will be removed
+Semantic warning: parser function 'parse_lisp' is not reachable and will be removed
+Semantic warning: parser function 'parse_inner_sctp' is not reachable and will be removed
+Semantic warning: parser function 'parse_trill' is not reachable and will be removed
+Semantic warning: parser function 'parse_vntag' is not reachable and will be removed
+Semantic warning: parser function 'parse_bfd' is not reachable and will be removed
+Semantic warning: header instance 'fabric_header_sflow' is not reachable and will be removed
+Semantic warning: header instance 'global_config_metadata' is not reachable and will be removed
+Semantic warning: action 'ipv6_unicast_rewrite' is not reachable and will be removed
+Semantic warning: action 'ipv6_multicast_rewrite' is not reachable and will be removed
+Semantic warning: action 'mpls_rewrite' is not reachable and will be removed
+Semantic warning: control function 'process_ipv4_vtep' is not reachable and will be removed
+Semantic warning: control function 'process_ipv6_vtep' is not reachable and will be removed
+Semantic warning: action 'ipv6_lkp' is not reachable and will be removed
+Semantic warning: table 'tunnel_lookup_miss' is not reachable and will be removed
+Semantic warning: control function 'validate_mpls_header' is not reachable and will be removed
+Semantic warning: control function 'process_mpls' is not reachable and will be removed
+Semantic warning: table 'tunnel_encap_process_outer' is not reachable and will be removed
+Semantic warning: table 'tunnel_rewrite' is not reachable and will be removed
+Semantic warning: table 'tunnel_mtu' is not reachable and will be removed
+Semantic warning: table 'tunnel_src_rewrite' is not reachable and will be removed
+Semantic warning: table 'tunnel_dst_rewrite' is not reachable and will be removed
+Semantic warning: table 'tunnel_smac_rewrite' is not reachable and will be removed
+Semantic warning: table 'tunnel_dmac_rewrite' is not reachable and will be removed
+Semantic warning: control function 'process_outer_multicast_rpf' is not reachable and will be removed
+Semantic warning: control function 'process_outer_ipv4_multicast' is not reachable and will be removed
+Semantic warning: control function 'process_outer_ipv6_multicast' is not reachable and will be removed
+Semantic warning: control function 'process_outer_multicast' is not reachable and will be removed
+Semantic warning: table 'multicast_rpf' is not reachable and will be removed
+Semantic warning: action 'rewrite_ipv6_multicast' is not reachable and will be removed
+Semantic warning: action 'ipv6_over_fabric' is not reachable and will be removed
+Semantic warning: control function 'process_mirroring' is not reachable and will be removed
+Semantic warning: table 'compute_ipv6_hashes' is not reachable and will be removed
+Semantic warning: header type 'eompls_t' is not reachable and will be removed
+Semantic warning: header type 'fabric_header_sflow_t' is not reachable and will be removed
+Semantic warning: header instance 'roce' is not reachable and will be removed
+Semantic warning: header instance 'fcoe' is not reachable and will be removed
+Semantic warning: header instance 'mpls' is not reachable and will be removed
+Semantic warning: header instance 'roce_v2' is not reachable and will be removed
+Semantic warning: header instance 'sctp' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre_ipv4' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre_ipv6' is not reachable and will be removed
+Semantic warning: parser function 'parse_nvgre' is not reachable and will be removed
+Semantic warning: parser function 'parse_erspan_t3' is not reachable and will be removed
+Semantic warning: parser function 'parse_eompls' is not reachable and will be removed
+Semantic warning: header instance 'vxlan' is not reachable and will be removed
+Semantic warning: header instance 'genv' is not reachable and will be removed
+Semantic warning: header instance 'nsh' is not reachable and will be removed
+Semantic warning: header instance 'nsh_context' is not reachable and will be removed
+Semantic warning: header instance 'lisp' is not reachable and will be removed
+Semantic warning: header instance 'inner_sctp' is not reachable and will be removed
+Semantic warning: header instance 'trill' is not reachable and will be removed
+Semantic warning: header instance 'vntag' is not reachable and will be removed
+Semantic warning: header instance 'bfd' is not reachable and will be removed
+Semantic warning: parser function 'parse_set_prio_max' is not reachable and will be removed
+Semantic warning: header type 'global_config_metadata_t' is not reachable and will be removed
+Semantic warning: action 'ipv4_erspan_t3_rewrite' is not reachable and will be removed
+Semantic warning: action 'ipv6_erspan_t3_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_tunnel_rewrite_details' is not reachable and will be removed
+Semantic warning: action 'tunnel_mtu_check' is not reachable and will be removed
+Semantic warning: action 'tunnel_mtu_miss' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_ipv4_src' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_ipv4_dst' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_smac' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_dmac' is not reachable and will be removed
+Semantic warning: action 'multicast_rpf_check_pass' is not reachable and will be removed
+Semantic warning: action 'multicast_rpf_check_fail' is not reachable and will be removed
+Semantic warning: action 'cpu_rx_rewrite' is not reachable and will be removed
+Semantic warning: action 'fabric_rewrite' is not reachable and will be removed
+Semantic warning: action 'fabric_unicast_rewrite' is not reachable and will be removed
+Semantic warning: action 'fabric_multicast_rewrite' is not reachable and will be removed
+Semantic warning: action 'compute_lkp_ipv6_hash' is not reachable and will be removed
+Semantic warning: header type 'roce_header_t' is not reachable and will be removed
+Semantic warning: header type 'roce_v2_header_t' is not reachable and will be removed
+Semantic warning: header type 'fcoe_header_t' is not reachable and will be removed
+Semantic warning: header type 'mpls_t' is not reachable and will be removed
+Semantic warning: header type 'sctp_t' is not reachable and will be removed
+Semantic warning: header type 'vxlan_t' is not reachable and will be removed
+Semantic warning: header type 'nsh_t' is not reachable and will be removed
+Semantic warning: header type 'nsh_context_t' is not reachable and will be removed
+Semantic warning: header type 'genv_t' is not reachable and will be removed
+Semantic warning: header type 'trill_t' is not reachable and will be removed
+Semantic warning: header type 'lisp_t' is not reachable and will be removed
+Semantic warning: header type 'vntag_t' is not reachable and will be removed
+Semantic warning: header type 'bfd_t' is not reachable and will be removed
+Semantic warning: header instance 'nvgre' is not reachable and will be removed
+Semantic warning: parser function 'parse_inner_ethernet' is not reachable and will be removed
+Semantic warning: action 'f_insert_ipv4_header' is not reachable and will be removed
+Semantic warning: action 'f_insert_ipv6_header' is not reachable and will be removed
+Semantic warning: action 'f_insert_erspan_t3_header' is not reachable and will be removed
+Semantic warning: field list calculation 'lkp_ipv6_hash1' is not reachable and will be removed
+Semantic warning: field list calculation 'lkp_ipv6_hash2' is not reachable and will be removed
+Semantic warning: header type 'nvgre_t' is not reachable and will be removed
+Semantic warning: parser function 'parse_inner_ipv6' is not reachable and will be removed
+Semantic warning: action 'f_insert_erspan_common_header' is not reachable and will be removed
+Semantic warning: field list 'lkp_ipv6_hash1_fields' is not reachable and will be removed
+Semantic warning: field list 'lkp_ipv6_hash2_fields' is not reachable and will be removed
+Semantic warning: header instance 'gre' is not reachable and will be removed
+Semantic warning: header instance 'inner_ethernet' is not reachable and will be removed
+Semantic warning: header instance 'inner_ipv6' is not reachable and will be removed
+Semantic warning: header instance 'erspan_t3_header' is not reachable and will be removed
+Semantic warning: header type 'gre_t' is not reachable and will be removed
+Semantic warning: header type 'erspan_header_t3_t' is not reachable and will be removed
+semantic checking successful
+Header type standard_metadata_t not byte-aligned, adding padding
+Header type ingress_intrinsic_metadata_t not byte-aligned, adding padding
+Header type ingress_metadata_t not byte-aligned, adding padding
+Header type egress_metadata_t not byte-aligned, adding padding
+Header type l2_metadata_t not byte-aligned, adding padding
+Header type l3_metadata_t not byte-aligned, adding padding
+Header type ipv4_metadata_t not byte-aligned, adding padding
+Header type ipv6_metadata_t not byte-aligned, adding padding
+Header type tunnel_metadata_t not byte-aligned, adding padding
+Header type acl_metadata_t not byte-aligned, adding padding
+Header type nat_metadata_t not byte-aligned, adding padding
+Header type multicast_metadata_t not byte-aligned, adding padding
+Header type nexthop_metadata_t not byte-aligned, adding padding
+Header type security_metadata_t not byte-aligned, adding padding
+Header type fabric_metadata_t not byte-aligned, adding padding
+Header type meter_metadata_t not byte-aligned, adding padding
+Header type qos_metadata_t not byte-aligned, adding padding
+removing useless condition: p4_conditional_node._condition_20
+removing useless condition: p4_conditional_node._condition_28
+removing useless condition: p4_conditional_node._condition_1
+removing useless condition: p4_conditional_node._condition_24
+p4_conditional_node._condition_1 is unused, removing it
+p4_conditional_node._condition_20 is unused, removing it
+p4_conditional_node._condition_24 is unused, removing it
+p4_conditional_node._condition_28 is unused, removing it
+skipping transitive reduction on ingress dependency graph
+skipping transitive reduction on egress dependency graph
+Generating files in directory /Users/jafinger/Documents/p4-docs/p4lang-tests/v1.0.3/switch-subset5/out-separate-ma
+
+TABLE DEPENDENCIES...
+
+INGRESS PIPELINE
+
+
+direction forward
+
+(no predecessor)                    -               0  _condition_3
+(no predecessor)                    -               0  _condition_30
+(no predecessor)                    -               0  _condition_32
+(no predecessor)                    -               0  acl_stats_MATCH
+(no predecessor)                    -               0  adjust_lkp_fields_MATCH
+(no predecessor)                    -               0  drop_stats_MATCH
+(no predecessor)                    -               0  fabric_ingress_dst_lkp_MATCH
+(no predecessor)                    -               0  ingress_bd_stats_MATCH
+(no predecessor)                    -               0  ingress_port_mapping_MATCH
+(no predecessor)                    -               0  ingress_port_properties_MATCH
+(no predecessor)                    -               0  native_packet_over_fabric_MATCH
+(no predecessor)                    -               0  switch_config_params_MATCH
+(no predecessor)                    -               0  validate_outer_ethernet_MATCH
+(no predecessor)                    -               0  validate_outer_ipv4_packet_MATCH
+validate_outer_ethernet_MATCH       SUC    0+ 9 =   9  _condition_0
+adjust_lkp_fields_MATCH             MAT    0+ 9 =   9  adjust_lkp_fields_ACTION
+ingress_port_mapping_MATCH          MAT    0+ 9 =   9  ingress_port_mapping_ACTION
+ingress_port_properties_MATCH       MAT    0+ 9 =   9  ingress_port_properties_ACTION
+validate_outer_ethernet_MATCH       MAT    0+ 9 =   9  validate_outer_ethernet_ACTION
+_condition_0                        SUC    9+ 0 =   9  validate_outer_ipv4_packet_ACTION
+validate_outer_ipv4_packet_MATCH    MAT    0+ 9 =   9  validate_outer_ipv4_packet_ACTION
+ingress_port_mapping_ACTION         MAT    9+ 1 =  10  _condition_11
+ingress_port_mapping_ACTION         MAT    9+ 1 =  10  _condition_12
+_condition_12                       SUC   10+ 0 =  10  _condition_13
+validate_outer_ethernet_ACTION      MAT    9+ 1 =  10  _condition_13
+validate_outer_ipv4_packet_ACTION   MAT    9+ 1 =  10  _condition_13
+_condition_12                       SUC   10+ 0 =  10  _condition_14
+ingress_port_mapping_ACTION         MAT    9+ 1 =  10  _condition_14
+_condition_12                       SUC   10+ 0 =  10  _condition_15
+_condition_12                       SUC   10+ 0 =  10  _condition_16
+validate_outer_ipv4_packet_ACTION   MAT    9+ 1 =  10  _condition_16
+_condition_16                       SUC   10+ 0 =  10  _condition_17
+_condition_16                       SUC   10+ 0 =  10  _condition_18
+_condition_18                       SUC   10+ 0 =  10  _condition_19
+validate_outer_ipv4_packet_ACTION   MAT    9+ 1 =  10  _condition_19
+ingress_port_mapping_ACTION         MAT    9+ 1 =  10  _condition_33
+_condition_33                       SUC   10+ 0 =  10  _condition_34
+ingress_port_mapping_ACTION         MAT    9+ 1 =  10  _condition_38
+_condition_38                       SUC   10+ 0 =  10  _condition_39
+ingress_port_properties_ACTION      MAT    9+ 1 =  10  _condition_4
+_condition_4                        SUC   10+ 0 =  10  _condition_5
+ingress_port_properties_ACTION      MAT    9+ 1 =  10  _condition_5
+ingress_port_mapping_ACTION         MAT    9+ 1 =  10  _condition_6
+ingress_port_mapping_ACTION         MAT    9+ 1 =  10  _condition_7
+_condition_7                        SUC   10+ 0 =  10  _condition_8
+ingress_port_mapping_ACTION         MAT    9+ 1 =  10  _condition_8
+ingress_port_properties_ACTION      MAT    9+ 1 =  10  ingress_qos_map_dscp_MATCH
+validate_outer_ipv4_packet_ACTION   MAT    9+ 1 =  10  ingress_qos_map_dscp_MATCH
+ingress_port_properties_ACTION      MAT    9+ 1 =  10  ingress_qos_map_pcp_MATCH
+validate_outer_ethernet_ACTION      MAT    9+ 1 =  10  ingress_qos_map_pcp_MATCH
+adjust_lkp_fields_ACTION            MAT    9+ 1 =  10  ipsg_permit_special_MATCH
+ingress_port_mapping_ACTION         MAT    9+ 1 =  10  port_vlan_mapping_MATCH
+validate_outer_ethernet_ACTION      MAT    9+ 1 =  10  storm_control_MATCH
+ingress_port_mapping_ACTION         ACT    9+ 1 =  10  switch_config_params_ACTION
+switch_config_params_ACTION         ACT   10+ 1 =  11  fabric_ingress_dst_lkp_ACTION
+fabric_ingress_dst_lkp_ACTION       MAT   11+ 1 =  12  _condition_10
+fabric_ingress_dst_lkp_ACTION       MAT   11+ 1 =  12  _condition_31
+fabric_ingress_dst_lkp_ACTION       MAT   11+ 1 =  12  _condition_9
+fabric_ingress_dst_lkp_ACTION       MAT   11+ 1 =  12  fabric_ingress_src_lkp_MATCH
+ingress_qos_map_dscp_MATCH          MAT   10+ 9 =  19  ingress_qos_map_dscp_ACTION
+ingress_qos_map_pcp_MATCH           MAT   10+ 9 =  19  ingress_qos_map_pcp_ACTION
+ipsg_permit_special_MATCH           MAT   10+ 9 =  19  ipsg_permit_special_ACTION
+port_vlan_mapping_MATCH             MAT   10+ 9 =  19  port_vlan_mapping_ACTION
+port_vlan_mapping_ACTION            MAT   19+ 1 =  20  _condition_2
+port_vlan_mapping_ACTION            MAT   19+ 1 =  20  _condition_37
+port_vlan_mapping_ACTION            MAT   19+ 1 =  20  ipsg_MATCH
+port_vlan_mapping_ACTION            MAT   19+ 1 =  20  spanning_tree_MATCH
+ingress_qos_map_dscp_ACTION         ACT   19+ 1 =  20  storm_control_ACTION
+ingress_qos_map_pcp_ACTION          ACT   19+ 1 =  20  storm_control_ACTION
+fabric_ingress_src_lkp_MATCH        MAT   12+ 9 =  21  fabric_ingress_src_lkp_ACTION
+ipsg_MATCH                          MAT   20+ 9 =  29  ipsg_ACTION
+ipsg_ACTION                         REV   29+ 0 =  29  native_packet_over_fabric_ACTION
+spanning_tree_MATCH                 MAT   20+ 9 =  29  spanning_tree_ACTION
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  dmac_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ingress_l4_dst_port_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ingress_l4_src_port_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ipv4_fib_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ipv4_fib_lpm_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ipv4_multicast_bridge_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ipv4_multicast_bridge_star_g_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ipv4_multicast_route_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ipv4_multicast_route_star_g_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ipv4_urpf_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  ipv4_urpf_lpm_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  mac_acl_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  nat_dst_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  nat_flow_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  nat_src_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  nat_twice_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  rmac_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  smac_MATCH
+native_packet_over_fabric_ACTION    MAT   29+ 1 =  30  validate_packet_MATCH
+rmac_MATCH                          SUC   30+ 9 =  39  _condition_21
+_condition_21                       SUC   39+ 0 =  39  _condition_22
+_condition_21                       SUC   39+ 0 =  39  _condition_23
+rmac_MATCH                          SUC   30+ 9 =  39  _condition_25
+_condition_25                       SUC   39+ 0 =  39  _condition_26
+_condition_26                       SUC   39+ 0 =  39  _condition_27
+dmac_MATCH                          MAT   30+ 9 =  39  dmac_ACTION
+ingress_l4_dst_port_MATCH           MAT   30+ 9 =  39  ingress_l4_dst_port_ACTION
+ingress_l4_src_port_MATCH           MAT   30+ 9 =  39  ingress_l4_src_port_ACTION
+_condition_26                       SUC   39+ 0 =  39  ipv4_fib_ACTION
+ipv4_fib_MATCH                      MAT   30+ 9 =  39  ipv4_fib_ACTION
+ipv4_fib_MATCH                      SUC   30+ 9 =  39  ipv4_fib_lpm_ACTION
+ipv4_fib_lpm_MATCH                  MAT   30+ 9 =  39  ipv4_fib_lpm_ACTION
+_condition_22                       SUC   39+ 0 =  39  ipv4_multicast_bridge_ACTION
+ipv4_multicast_bridge_MATCH         MAT   30+ 9 =  39  ipv4_multicast_bridge_ACTION
+ipv4_multicast_bridge_MATCH         SUC   30+ 9 =  39  ipv4_multicast_bridge_star_g_ACTION
+ipv4_multicast_bridge_star_g_MATCH  MAT   30+ 9 =  39  ipv4_multicast_bridge_star_g_ACTION
+_condition_23                       SUC   39+ 0 =  39  ipv4_multicast_route_ACTION
+ipv4_multicast_route_MATCH          MAT   30+ 9 =  39  ipv4_multicast_route_ACTION
+ipv4_multicast_route_MATCH          SUC   30+ 9 =  39  ipv4_multicast_route_star_g_ACTION
+ipv4_multicast_route_star_g_MATCH   MAT   30+ 9 =  39  ipv4_multicast_route_star_g_ACTION
+_condition_27                       SUC   39+ 0 =  39  ipv4_urpf_ACTION
+ipv4_urpf_MATCH                     MAT   30+ 9 =  39  ipv4_urpf_ACTION
+ipv4_urpf_MATCH                     SUC   30+ 9 =  39  ipv4_urpf_lpm_ACTION
+ipv4_urpf_lpm_MATCH                 MAT   30+ 9 =  39  ipv4_urpf_lpm_ACTION
+mac_acl_MATCH                       MAT   30+ 9 =  39  mac_acl_ACTION
+nat_dst_MATCH                       MAT   30+ 9 =  39  nat_dst_ACTION
+nat_twice_MATCH                     SUC   30+ 9 =  39  nat_dst_ACTION
+nat_flow_MATCH                      MAT   30+ 9 =  39  nat_flow_ACTION
+nat_src_MATCH                       SUC   30+ 9 =  39  nat_flow_ACTION
+nat_dst_MATCH                       SUC   30+ 9 =  39  nat_src_ACTION
+nat_src_MATCH                       MAT   30+ 9 =  39  nat_src_ACTION
+nat_twice_MATCH                     MAT   30+ 9 =  39  nat_twice_ACTION
+rmac_MATCH                          MAT   30+ 9 =  39  rmac_ACTION
+smac_MATCH                          MAT   30+ 9 =  39  smac_ACTION
+validate_packet_MATCH               MAT   30+ 9 =  39  validate_packet_ACTION
+ipv4_urpf_ACTION                    MAT   39+ 1 =  40  _condition_29
+ipv4_urpf_lpm_ACTION                MAT   39+ 1 =  40  _condition_29
+validate_packet_ACTION              MAT   39+ 1 =  40  bd_flood_MATCH
+validate_packet_ACTION              MAT   39+ 1 =  40  compute_ipv4_hashes_MATCH
+validate_packet_ACTION              MAT   39+ 1 =  40  compute_non_ip_hashes_MATCH
+validate_packet_ACTION              ACT   39+ 1 =  40  ingress_bd_stats_ACTION
+ingress_l4_dst_port_ACTION          MAT   39+ 1 =  40  ip_acl_MATCH
+ingress_l4_src_port_ACTION          MAT   39+ 1 =  40  ip_acl_MATCH
+ingress_l4_dst_port_ACTION          MAT   39+ 1 =  40  ipv4_racl_MATCH
+ingress_l4_src_port_ACTION          MAT   39+ 1 =  40  ipv4_racl_MATCH
+smac_ACTION                         MAT   39+ 1 =  40  learn_notify_MATCH
+ipv4_urpf_ACTION                    MAT   39+ 1 =  40  urpf_bd_MATCH
+ipv4_urpf_lpm_ACTION                MAT   39+ 1 =  40  urpf_bd_MATCH
+compute_ipv4_hashes_MATCH           MAT   40+ 9 =  49  compute_ipv4_hashes_ACTION
+compute_non_ip_hashes_MATCH         MAT   40+ 9 =  49  compute_non_ip_hashes_ACTION
+ip_acl_MATCH                        MAT   40+ 9 =  49  ip_acl_ACTION
+learn_notify_MATCH                  MAT   40+ 9 =  49  learn_notify_ACTION
+urpf_bd_MATCH                       MAT   40+ 9 =  49  urpf_bd_ACTION
+compute_ipv4_hashes_ACTION          MAT   49+ 1 =  50  compute_other_hashes_MATCH
+ip_acl_ACTION                       ACT   49+ 1 =  50  ipv4_racl_ACTION
+ip_acl_ACTION                       MAT   49+ 1 =  50  meter_index_MATCH
+ipv4_racl_ACTION                    ACT   50+ 1 =  51  acl_stats_ACTION
+ipv4_racl_ACTION                    MAT   50+ 1 =  51  fwd_result_MATCH
+ipv4_racl_ACTION                    MAT   50+ 1 =  51  traffic_class_MATCH
+compute_other_hashes_MATCH          MAT   50+ 9 =  59  compute_other_hashes_ACTION
+meter_index_MATCH                   MAT   50+ 9 =  59  meter_index_ACTION
+fwd_result_MATCH                    MAT   51+ 9 =  60  fwd_result_ACTION
+meter_index_ACTION                  MAT   59+ 1 =  60  meter_action_MATCH
+meter_index_ACTION                  MAT   59+ 1 =  60  storm_control_stats_MATCH
+traffic_class_MATCH                 MAT   51+ 9 =  60  traffic_class_ACTION
+fwd_result_ACTION                   MAT   60+ 1 =  61  _condition_35
+fwd_result_ACTION                   MAT   60+ 1 =  61  _condition_40
+_condition_40                       SUC   61+ 0 =  61  drop_stats_ACTION
+fwd_result_ACTION                   ACT   60+ 1 =  61  drop_stats_ACTION
+fwd_result_ACTION                   MAT   60+ 1 =  61  ecmp_group_MATCH
+fwd_result_ACTION                   MAT   60+ 1 =  61  nexthop_MATCH
+meter_action_MATCH                  MAT   60+ 9 =  69  meter_action_ACTION
+storm_control_stats_MATCH           MAT   60+ 9 =  69  storm_control_stats_ACTION
+ecmp_group_MATCH                    MAT   61+ 9 =  70  ecmp_group_ACTION
+nexthop_MATCH                       MAT   61+ 9 =  70  nexthop_ACTION
+ecmp_group_ACTION                   MAT   70+ 1 =  71  _condition_36
+nexthop_ACTION                      MAT   70+ 1 =  71  _condition_36
+_condition_36                       SUC   71+ 0 =  71  bd_flood_ACTION
+ecmp_group_ACTION                   ACT   70+ 1 =  71  bd_flood_ACTION
+nexthop_ACTION                      ACT   70+ 1 =  71  bd_flood_ACTION
+ecmp_group_ACTION                   MAT   70+ 1 =  71  lag_group_MATCH
+nexthop_ACTION                      MAT   70+ 1 =  71  lag_group_MATCH
+ecmp_group_ACTION                   MAT   70+ 1 =  71  system_acl_MATCH
+nexthop_ACTION                      MAT   70+ 1 =  71  system_acl_MATCH
+lag_group_MATCH                     MAT   71+ 9 =  80  lag_group_ACTION
+lag_group_ACTION                    MAT   80+ 1 =  81  fabric_lag_MATCH
+fabric_lag_MATCH                    MAT   81+ 9 =  90  fabric_lag_ACTION
+fabric_lag_ACTION                   REV   90+ 0 =  90  system_acl_ACTION
+
+
+direction backward
+
+ingress_port_mapping_ACTION         MAT    9- 9 =   0  ingress_port_mapping_MATCH
+port_vlan_mapping_MATCH             MAT   10- 1 =   9  ingress_port_mapping_ACTION
+adjust_lkp_fields_ACTION            MAT   19- 9 =  10  adjust_lkp_fields_MATCH
+port_vlan_mapping_ACTION            MAT   19- 9 =  10  port_vlan_mapping_MATCH
+switch_config_params_ACTION         MAT   27- 9 =  18  switch_config_params_MATCH
+ipsg_MATCH                          MAT   20- 1 =  19  adjust_lkp_fields_ACTION
+ipsg_permit_special_MATCH           MAT   20- 1 =  19  adjust_lkp_fields_ACTION
+fabric_ingress_dst_lkp_ACTION       MAT   28- 9 =  19  fabric_ingress_dst_lkp_MATCH
+ipsg_MATCH                          MAT   20- 1 =  19  port_vlan_mapping_ACTION
+validate_outer_ethernet_ACTION      MAT   28- 9 =  19  validate_outer_ethernet_MATCH
+ingress_port_properties_ACTION      MAT   29- 9 =  20  ingress_port_properties_MATCH
+ipsg_ACTION                         MAT   29- 9 =  20  ipsg_MATCH
+ipsg_permit_special_ACTION          MAT   29- 9 =  20  ipsg_permit_special_MATCH
+native_packet_over_fabric_ACTION    MAT   29- 9 =  20  native_packet_over_fabric_MATCH
+validate_outer_ipv4_packet_ACTION   MAT   29- 9 =  20  validate_outer_ipv4_packet_MATCH
+fabric_ingress_dst_lkp_ACTION       ACT   28- 1 =  27  switch_config_params_ACTION
+fabric_ingress_dst_lkp_ACTION       SUC   28- 0 =  28  _condition_7
+_condition_10                       MAT   29- 1 =  28  fabric_ingress_dst_lkp_ACTION
+native_packet_over_fabric_ACTION    ACT   29- 1 =  28  fabric_ingress_dst_lkp_ACTION
+fabric_ingress_dst_lkp_ACTION       REV   28- 0 =  28  validate_outer_ethernet_ACTION
+native_packet_over_fabric_ACTION    ACT   29- 1 =  28  validate_outer_ethernet_ACTION
+validate_outer_ipv4_packet_ACTION   SUC   29- 0 =  29  _condition_0
+native_packet_over_fabric_ACTION    SUC   29- 0 =  29  _condition_10
+ipsg_ACTION                         SUC   29- 0 =  29  _condition_6
+ipsg_permit_special_ACTION          SUC   29- 0 =  29  _condition_6
+_condition_10                       SUC   29- 0 =  29  _condition_8
+ingress_qos_map_dscp_MATCH          MAT   30- 1 =  29  ingress_port_properties_ACTION
+ingress_qos_map_pcp_MATCH           MAT   30- 1 =  29  ingress_port_properties_ACTION
+native_packet_over_fabric_ACTION    REV   29- 0 =  29  ipsg_ACTION
+native_packet_over_fabric_ACTION    REV   29- 0 =  29  ipsg_permit_special_ACTION
+ingress_l4_dst_port_MATCH           MAT   30- 1 =  29  native_packet_over_fabric_ACTION
+ingress_l4_src_port_MATCH           MAT   30- 1 =  29  native_packet_over_fabric_ACTION
+ingress_qos_map_dscp_MATCH          MAT   30- 1 =  29  validate_outer_ipv4_packet_ACTION
+ingress_l4_dst_port_ACTION          MAT   39- 9 =  30  ingress_l4_dst_port_MATCH
+ingress_l4_src_port_ACTION          MAT   39- 9 =  30  ingress_l4_src_port_MATCH
+ingress_qos_map_dscp_ACTION         MAT   39- 9 =  30  ingress_qos_map_dscp_MATCH
+ingress_qos_map_pcp_ACTION          MAT   39- 9 =  30  ingress_qos_map_pcp_MATCH
+storm_control_ACTION                MAT   40- 9 =  31  storm_control_MATCH
+validate_packet_ACTION              MAT   40- 9 =  31  validate_packet_MATCH
+ingress_l4_dst_port_ACTION          SUC   39- 0 =  39  _condition_12
+ingress_l4_src_port_ACTION          SUC   39- 0 =  39  _condition_12
+_condition_4                        SUC   39- 0 =  39  _condition_3
+_condition_5                        SUC   39- 0 =  39  _condition_4
+ingress_qos_map_dscp_ACTION         SUC   39- 0 =  39  _condition_4
+ingress_qos_map_pcp_ACTION          SUC   39- 0 =  39  _condition_5
+ip_acl_MATCH                        MAT   40- 1 =  39  ingress_l4_dst_port_ACTION
+ip_acl_MATCH                        MAT   40- 1 =  39  ingress_l4_src_port_ACTION
+storm_control_ACTION                ACT   40- 1 =  39  ingress_qos_map_dscp_ACTION
+storm_control_ACTION                ACT   40- 1 =  39  ingress_qos_map_pcp_ACTION
+storm_control_ACTION                SUC   40- 0 =  40  _condition_11
+validate_packet_ACTION              SUC   40- 0 =  40  _condition_13
+ip_acl_ACTION                       MAT   49- 9 =  40  ip_acl_MATCH
+mac_acl_ACTION                      MAT   49- 9 =  40  mac_acl_MATCH
+validate_packet_ACTION              REV   40- 0 =  40  storm_control_ACTION
+compute_ipv4_hashes_MATCH           MAT   41- 1 =  40  validate_packet_ACTION
+compute_ipv4_hashes_ACTION          MAT   50- 9 =  41  compute_ipv4_hashes_MATCH
+dmac_ACTION                         MAT   50- 9 =  41  dmac_MATCH
+ipv4_fib_ACTION                     MAT   50- 9 =  41  ipv4_fib_MATCH
+ipv4_fib_lpm_ACTION                 SUC   50- 9 =  41  ipv4_fib_MATCH
+ipv4_fib_lpm_ACTION                 MAT   50- 9 =  41  ipv4_fib_lpm_MATCH
+ipv4_multicast_bridge_ACTION        MAT   50- 9 =  41  ipv4_multicast_bridge_MATCH
+ipv4_multicast_bridge_star_g_ACTION SUC   50- 9 =  41  ipv4_multicast_bridge_MATCH
+ipv4_multicast_bridge_star_g_ACTION MAT   50- 9 =  41  ipv4_multicast_bridge_star_g_MATCH
+ipv4_multicast_route_ACTION         MAT   50- 9 =  41  ipv4_multicast_route_MATCH
+ipv4_multicast_route_star_g_ACTION  SUC   50- 9 =  41  ipv4_multicast_route_MATCH
+ipv4_multicast_route_star_g_ACTION  MAT   50- 9 =  41  ipv4_multicast_route_star_g_MATCH
+ipv4_racl_ACTION                    MAT   50- 9 =  41  ipv4_racl_MATCH
+nat_dst_ACTION                      MAT   50- 9 =  41  nat_dst_MATCH
+nat_flow_ACTION                     MAT   50- 9 =  41  nat_flow_MATCH
+nat_flow_ACTION                     SUC   50- 9 =  41  nat_src_MATCH
+nat_dst_ACTION                      SUC   50- 9 =  41  nat_twice_MATCH
+nat_twice_ACTION                    MAT   50- 9 =  41  nat_twice_MATCH
+_condition_21                       SUC   50- 9 =  41  rmac_MATCH
+_condition_25                       SUC   50- 9 =  41  rmac_MATCH
+rmac_ACTION                         MAT   50- 9 =  41  rmac_MATCH
+_condition_17                       SUC   49- 0 =  49  _condition_16
+_condition_18                       SUC   49- 0 =  49  _condition_16
+mac_acl_ACTION                      SUC   49- 0 =  49  _condition_17
+_condition_19                       SUC   49- 0 =  49  _condition_18
+ip_acl_ACTION                       SUC   49- 0 =  49  _condition_19
+ipv4_racl_ACTION                    ACT   50- 1 =  49  ip_acl_ACTION
+ipv4_racl_ACTION                    ACT   50- 1 =  49  mac_acl_ACTION
+dmac_ACTION                         SUC   50- 0 =  50  _condition_15
+_condition_22                       SUC   50- 0 =  50  _condition_21
+_condition_23                       SUC   50- 0 =  50  _condition_21
+ipv4_multicast_bridge_ACTION        SUC   50- 0 =  50  _condition_22
+ipv4_multicast_route_ACTION         SUC   50- 0 =  50  _condition_23
+_condition_26                       SUC   50- 0 =  50  _condition_25
+ipv4_fib_ACTION                     SUC   50- 0 =  50  _condition_26
+ipv4_racl_ACTION                    SUC   50- 0 =  50  _condition_26
+compute_ipv4_hashes_ACTION          SUC   50- 0 =  50  _condition_31
+compute_other_hashes_MATCH          MAT   51- 1 =  50  compute_ipv4_hashes_ACTION
+compute_non_ip_hashes_ACTION        MAT   59- 9 =  50  compute_non_ip_hashes_MATCH
+fwd_result_MATCH                    MAT   51- 1 =  50  dmac_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  ipv4_fib_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  ipv4_fib_lpm_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  ipv4_multicast_bridge_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  ipv4_multicast_bridge_star_g_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  ipv4_multicast_route_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  ipv4_multicast_route_star_g_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  ipv4_racl_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  nat_dst_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  nat_flow_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  nat_twice_ACTION
+fwd_result_MATCH                    MAT   51- 1 =  50  rmac_ACTION
+compute_other_hashes_ACTION         MAT   60- 9 =  51  compute_other_hashes_MATCH
+fwd_result_ACTION                   MAT   60- 9 =  51  fwd_result_MATCH
+compute_other_hashes_ACTION         ACT   60- 1 =  59  compute_non_ip_hashes_ACTION
+_condition_34                       SUC   60- 0 =  60  _condition_33
+fwd_result_ACTION                   SUC   60- 0 =  60  _condition_34
+ecmp_group_MATCH                    MAT   61- 1 =  60  compute_other_hashes_ACTION
+ecmp_group_MATCH                    MAT   61- 1 =  60  fwd_result_ACTION
+nexthop_MATCH                       MAT   61- 1 =  60  fwd_result_ACTION
+ecmp_group_ACTION                   MAT   70- 9 =  61  ecmp_group_MATCH
+ipv4_urpf_ACTION                    MAT   70- 9 =  61  ipv4_urpf_MATCH
+ipv4_urpf_lpm_ACTION                SUC   70- 9 =  61  ipv4_urpf_MATCH
+ipv4_urpf_lpm_ACTION                MAT   70- 9 =  61  ipv4_urpf_lpm_MATCH
+nexthop_ACTION                      MAT   70- 9 =  61  nexthop_MATCH
+ipv4_urpf_ACTION                    SUC   70- 0 =  70  _condition_27
+ecmp_group_ACTION                   SUC   70- 0 =  70  _condition_35
+nexthop_ACTION                      SUC   70- 0 =  70  _condition_35
+lag_group_MATCH                     MAT   71- 1 =  70  ecmp_group_ACTION
+urpf_bd_MATCH                       MAT   71- 1 =  70  ipv4_urpf_ACTION
+urpf_bd_MATCH                       MAT   71- 1 =  70  ipv4_urpf_lpm_ACTION
+lag_group_MATCH                     MAT   71- 1 =  70  nexthop_ACTION
+lag_group_ACTION                    MAT   80- 9 =  71  lag_group_MATCH
+meter_index_ACTION                  MAT   80- 9 =  71  meter_index_MATCH
+smac_ACTION                         MAT   80- 9 =  71  smac_MATCH
+spanning_tree_ACTION                MAT   80- 9 =  71  spanning_tree_MATCH
+urpf_bd_ACTION                      MAT   80- 9 =  71  urpf_bd_MATCH
+smac_ACTION                         SUC   80- 0 =  80  _condition_14
+spanning_tree_ACTION                SUC   80- 0 =  80  _condition_2
+urpf_bd_ACTION                      SUC   80- 0 =  80  _condition_29
+meter_index_ACTION                  SUC   80- 0 =  80  _condition_30
+lag_group_ACTION                    SUC   80- 0 =  80  _condition_36
+bd_flood_ACTION                     MAT   89- 9 =  80  bd_flood_MATCH
+fabric_lag_MATCH                    MAT   81- 1 =  80  lag_group_ACTION
+meter_action_MATCH                  MAT   81- 1 =  80  meter_index_ACTION
+storm_control_stats_MATCH           MAT   81- 1 =  80  meter_index_ACTION
+learn_notify_MATCH                  MAT   81- 1 =  80  smac_ACTION
+learn_notify_MATCH                  MAT   81- 1 =  80  spanning_tree_ACTION
+system_acl_MATCH                    MAT   81- 1 =  80  spanning_tree_ACTION
+traffic_class_ACTION                MAT   89- 9 =  80  traffic_class_MATCH
+system_acl_MATCH                    MAT   81- 1 =  80  urpf_bd_ACTION
+acl_stats_ACTION                    MAT   90- 9 =  81  acl_stats_MATCH
+drop_stats_ACTION                   MAT   90- 9 =  81  drop_stats_MATCH
+fabric_ingress_src_lkp_ACTION       MAT   90- 9 =  81  fabric_ingress_src_lkp_MATCH
+fabric_lag_ACTION                   MAT   90- 9 =  81  fabric_lag_MATCH
+ingress_bd_stats_ACTION             MAT   90- 9 =  81  ingress_bd_stats_MATCH
+learn_notify_ACTION                 MAT   90- 9 =  81  learn_notify_MATCH
+meter_action_ACTION                 MAT   90- 9 =  81  meter_action_MATCH
+storm_control_stats_ACTION          MAT   90- 9 =  81  storm_control_stats_MATCH
+system_acl_ACTION                   MAT   90- 9 =  81  system_acl_MATCH
+fabric_lag_ACTION                   ACT   90- 1 =  89  bd_flood_ACTION
+system_acl_ACTION                   ACT   90- 1 =  89  traffic_class_ACTION
+meter_action_ACTION                 SUC   90- 0 =  90  _condition_32
+learn_notify_ACTION                 SUC   90- 0 =  90  _condition_37
+_condition_39                       SUC   90- 0 =  90  _condition_38
+_condition_40                       SUC   90- 0 =  90  _condition_39
+system_acl_ACTION                   SUC   90- 0 =  90  _condition_39
+drop_stats_ACTION                   SUC   90- 0 =  90  _condition_40
+fabric_ingress_src_lkp_ACTION       SUC   90- 0 =  90  _condition_9
+(no predecessor)                    -              90  acl_stats_ACTION
+(no predecessor)                    -              90  drop_stats_ACTION
+(no predecessor)                    -              90  fabric_ingress_src_lkp_ACTION
+system_acl_ACTION                   REV   90- 0 =  90  fabric_lag_ACTION
+(no predecessor)                    -              90  ingress_bd_stats_ACTION
+(no predecessor)                    -              90  learn_notify_ACTION
+(no predecessor)                    -              90  meter_action_ACTION
+(no predecessor)                    -              90  nat_src_ACTION
+(no predecessor)                    -              90  storm_control_stats_ACTION
+(no predecessor)                    -              90  system_acl_ACTION
+pipeline ingress requires at least 90 stages
+
+ingress action details
+
+table adjust_lkp_fields search_bits 2 res_bits 2 num_act 2 max_prim_acts 8
+  0: 8 m48 m48 m32 m32 m8 m8 m16 m16
+  1: 2 m48 m48
+table ingress_port_mapping search_bits 9 res_bits 19 num_act 1 max_prim_acts 2
+  0: 2 m16 m2
+table ingress_port_properties search_bits 9 res_bits 39 num_act 1 max_prim_acts 7
+  0: 7 m16 m5 m5 m8 m2 m1 m1
+table validate_outer_ethernet search_bits 98 res_bits 12 num_act 13 max_prim_acts 3
+  0: 2 m1 m8
+  1: 3 m3 m16 m3
+  2: 3 m3 m16 m3
+  3: 3 m3 m16 m3
+  4: 2 m3 m16
+  5: 3 m3 m16 m3
+  6: 3 m3 m16 m3
+  7: 3 m3 m16 m3
+  8: 2 m3 m16
+  9: 3 m3 m16 m3
+  10: 3 m3 m16 m3
+  11: 3 m3 m16 m3
+  12: 2 m3 m16
+table validate_outer_ipv4_packet search_bits 20 res_bits 10 num_act 2 max_prim_acts 3
+  0: 2 m1 m8
+  1: 3 m2 m8 m4
+table switch_config_params search_bits 0 res_bits 1 num_act 1 max_prim_acts 5
+  0: 5 m1 m(32,48) m9 m16 m9
+table fabric_ingress_dst_lkp search_bits 8 res_bits 3 num_act 6 max_prim_acts 10
+  0: 0 
+  1: 2 m1 m16
+  2: 3 m1 m8 m16
+  3: 7 m(9,16) m1 m16 m16 rm_hdr(40) rm_hdr(88) rm_hdr(16)
+  4: 10 m1 m5 m16 m1 m1 m16 m16 rm_hdr(40) rm_hdr(56) rm_hdr(16)
+  5: 10 m(9,16) m1 m5 m16 m1 m1 m16 rm_hdr(40) rm_hdr(24) rm_hdr(16)
+table ingress_qos_map_dscp search_bits 13 res_bits 13 num_act 4 max_prim_acts 2
+  0: 0 
+  1: 1 m2
+  2: 1 m8
+  3: 2 m8 m2
+table ingress_qos_map_pcp search_bits 8 res_bits 13 num_act 4 max_prim_acts 2
+  0: 0 
+  1: 1 m2
+  2: 1 m8
+  3: 2 m8 m2
+table ipsg_permit_special search_bits 56 res_bits 1 num_act 1 max_prim_acts 1
+  0: 1 m1
+table port_vlan_mapping search_bits 42 res_bits 147 num_act 2 max_prim_acts 21
+  0: 1 m1
+  1: 21 m16 m16 m16 m10 m16 m1 m16 m1 m1 m2 m2 m10 m1 m1 m1 m1 m16 m1 m16 m1 m16
+table storm_control search_bits 12 res_bits 34 num_act 2 max_prim_acts 2
+  0: 0 
+  1: 2 meter(32,bytes,2) m(16,32)
+table fabric_ingress_src_lkp search_bits 16 res_bits 2 num_act 2 max_prim_acts 0
+  0: 0 
+  1: 0 
+table ipsg search_bits 112 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table native_packet_over_fabric search_bits 2 res_bits 2 num_act 2 max_prim_acts 7
+  0: 7 m48 m48 m32 m32 m8 m16 m16
+  1: 3 m48 m48 m16
+table spanning_tree search_bits 26 res_bits 4 num_act 1 max_prim_acts 1
+  0: 1 m3
+table dmac search_bits 64 res_bits 19 num_act 7 max_prim_acts 3
+  0: 1 drop
+  1: 2 m16 xor(16)
+  2: 2 m16 m8
+  3: 2 m16 m8
+  4: 3 m1 m16 m2
+  5: 3 m1 m16 m2
+  6: 0 
+table ingress_l4_dst_port search_bits 16 res_bits 10 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m8
+table ingress_l4_src_port search_bits 16 res_bits 10 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m8
+table ipv4_fib search_bits 48 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table ipv4_fib_lpm search_bits 48 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table ipv4_multicast_bridge search_bits 80 res_bits 18 num_act 2 max_prim_acts 2
+  0: 2 m16 m1
+  1: 0 
+table ipv4_multicast_bridge_star_g search_bits 48 res_bits 18 num_act 2 max_prim_acts 2
+  0: 2 m16 m1
+  1: 0 
+table ipv4_multicast_route search_bits 80 res_bits 34 num_act 2 max_prim_acts 4
+  0: 4 m16 m2 m1 xor(16)
+  1: 0 
+table ipv4_multicast_route_star_g search_bits 48 res_bits 34 num_act 3 max_prim_acts 4
+  0: 4 m2 m16 m1 or(16)
+  1: 4 m2 m16 m1 xor(16)
+  2: 1 m1
+table ipv4_urpf search_bits 48 res_bits 18 num_act 2 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 0 
+table ipv4_urpf_lpm search_bits 48 res_bits 18 num_act 2 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 1 m1
+table mac_acl search_bits 144 res_bits 80 num_act 6 max_prim_acts 10
+  0: 8 m1 m14 m16 m16 m2 m3 m8 m2
+  1: 8 m(16,32) clone_i2e(32,16) m14 m16 m2 m3 m8 m2
+  2: 7 m14 m16 m16 m2 m3 m8 m2
+  3: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  4: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  5: 0 
+table nat_dst search_bits 72 res_bits 34 num_act 2 max_prim_acts 4
+  0: 0 
+  1: 4 m16 m2 m14 m1
+table nat_flow search_bits 120 res_bits 35 num_act 4 max_prim_acts 4
+  0: 0 
+  1: 4 m16 m2 m14 m1
+  2: 1 m14
+  3: 4 m16 m2 m14 m1
+table nat_src search_bits 72 res_bits 16 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m14
+table nat_twice search_bits 120 res_bits 34 num_act 2 max_prim_acts 4
+  0: 0 
+  1: 4 m16 m2 m14 m1
+table rmac search_bits 58 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 m1
+  1: 1 m1
+table smac search_bits 64 res_bits 18 num_act 3 max_prim_acts 1
+  0: 0 
+  1: 1 xor(16)
+  2: 1 m1
+table validate_packet search_bits 118 res_bits 11 num_act 7 max_prim_acts 3
+  0: 0 
+  1: 2 m3 add_fld(16)
+  2: 2 m1 m8
+  3: 2 m3 add_fld(16)
+  4: 3 m3 m1 add_fld(16)
+  5: 1 m3
+  6: 2 m3 m1
+table ingress_bd_stats search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 count(16,packets_and_bytes)
+table compute_ipv4_hashes search_bits 1 res_bits 1 num_act 1 max_prim_acts 2
+  0: 2 m_hash(16,16,16,104,32 32 8 16 16) m_hash(16,16,16,200,48 48 32 32 8 16 16)
+table compute_non_ip_hashes search_bits 1 res_bits 1 num_act 1 max_prim_acts 1
+  0: 1 m_hash(16,16,16,128,16 48 48 16)
+table ip_acl search_bits 136 res_bits 80 num_act 6 max_prim_acts 10
+  0: 8 m1 m14 m16 m16 m2 m3 m8 m2
+  1: 8 m(16,32) clone_i2e(32,16) m14 m16 m2 m3 m8 m2
+  2: 7 m14 m16 m16 m2 m3 m8 m2
+  3: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  4: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  5: 0 
+table learn_notify search_bits 20 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 digest(16,48,16)
+  1: 0 
+table urpf_bd search_bits 32 res_bits 2 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m1
+table ipv4_racl search_bits 104 res_bits 62 num_act 5 max_prim_acts 8
+  0: 0 
+  1: 6 m1 m14 m16 m3 m8 m2
+  2: 5 m14 m16 m3 m8 m2
+  3: 8 m1 m16 m2 m14 m16 m3 m8 m2
+  4: 8 m1 m16 m2 m14 m16 m3 m8 m2
+table acl_stats search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 count(14,packets_and_bytes)
+table compute_other_hashes search_bits 16 res_bits 2 num_act 2 max_prim_acts 3
+  0: 3 m16 m(13,16) m16
+  1: 2 m(13,16) m16
+table meter_index search_bits 16 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table fwd_result search_bits 33 res_bits 4 num_act 11 max_prim_acts 6
+  0: 0 
+  1: 5 m16 m2 m16 m16 m8
+  2: 5 m1 m16 m9 m16 m8
+  3: 6 m16 m2 m1 m16 m16 m8
+  4: 5 m16 m2 m16 m16 m8
+  5: 3 m8 m16 m16
+  6: 2 m1 m8
+  7: 2 m8 m16
+  8: 5 m8 m16 m16 m1 m16
+  9: 5 m16 m2 m1 m16 m8
+  10: 6 m16 m2 m1 m16 m16 m8
+table traffic_class search_bits 13 res_bits 11 num_act 4 max_prim_acts 2
+  0: 0 
+  1: 1 m3
+  2: 2 m3 m5
+  3: 1 m5
+table drop_stats search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 count(8,packets)
+table meter_action search_bits 18 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 drop
+  1: 0 
+table storm_control_stats search_bits 11 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table ecmp_group search_bits 16 res_bits 51 num_act 3 max_prim_acts 5
+  0: 0 
+  1: 5 m16 m16 xor(16) xor(16) xor(1)
+  2: 5 m16 m16 m16 xor(16) m8
+table nexthop search_bits 16 res_bits 35 num_act 3 max_prim_acts 4
+  0: 0 
+  1: 4 m16 xor(16) xor(16) xor(1)
+  2: 4 m16 m16 xor(16) m8
+table bd_flood search_bits 19 res_bits 18 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m16
+table lag_group search_bits 16 res_bits 26 num_act 3 max_prim_acts 2
+  0: 0 
+  1: 1 m9
+  2: 2 m8 m16
+table fabric_lag search_bits 8 res_bits 11 num_act 3 max_prim_acts 1
+  0: 0 
+  1: 1 m9
+  2: 1 m16
+table system_acl search_bits 153 res_bits 60 num_act 8 max_prim_acts 7
+  0: 4 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2)
+  1: 5 m16 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2)
+  2: 1 drop
+  3: 2 count(32,packets) drop
+  4: 2 clone_i2e(16,8) drop
+  5: 0 
+  6: 6 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2) drop m8
+  7: 7 m16 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2) drop m8
+
+ingress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+ 399  89.1% m         modify_field
+  12   2.7% xor       bit_xor
+   9   2.0% rm_hdr    remove_header
+   7   1.6% drop      drop
+   7   1.6% clone_i2e clone_ingress_pkt_to_egress
+   5   1.1% meter     execute_meter
+   3   0.7% m_hash    modify_field_with_hash_based_offset
+   3   0.7% add_fld   add_to_field
+   1   0.2% digest    generate_digest
+   1   0.2% count     count
+   1   0.2% or        bit_or
+
+Number of ingress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   0      4      4   7.5%
+   1     13     17  32.1%
+   2      9     26  49.1%
+   3      9     35  66.0%
+   4      6     41  77.4%
+   5      2     43  81.1%
+   6      1     44  83.0%
+   7      3     47  88.7%
+   8      2     49  92.5%
+  10      3     52  98.1%
+  21      1     53 100.0%
+
+ingress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   3 100.0% count     count
+
+Number of ingress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   1      3      3 100.0%
+
+EGRESS PIPELINE
+
+
+direction forward
+
+(no predecessor)                    -               0  _condition_41
+_condition_41                       SUC    0+ 0 =   0  _condition_42
+_condition_42                       SUC    0+ 0 =   0  _condition_43
+(no predecessor)                    -               0  _condition_52
+(no predecessor)                    -               0  egress_filter_MATCH
+(no predecessor)                    -               0  egress_filter_drop_MATCH
+(no predecessor)                    -               0  egress_nat_MATCH
+(no predecessor)                    -               0  egress_port_mapping_MATCH
+(no predecessor)                    -               0  l3_rewrite_MATCH
+(no predecessor)                    -               0  mirror_MATCH
+(no predecessor)                    -               0  rewrite_multicast_MATCH
+(no predecessor)                    -               0  rid_MATCH
+(no predecessor)                    -               0  vlan_decap_MATCH
+egress_port_mapping_MATCH           SUC    0+ 9 =   9  _condition_44
+egress_port_mapping_MATCH           SUC    0+ 9 =   9  _condition_46
+mirror_MATCH                        MAT    0+ 9 =   9  mirror_ACTION
+rid_MATCH                           MAT    0+ 9 =   9  rid_ACTION
+_condition_44                       SUC    9+ 0 =   9  vlan_decap_ACTION
+vlan_decap_MATCH                    MAT    0+ 9 =   9  vlan_decap_ACTION
+rid_ACTION                          MAT    9+ 1 =  10  _condition_50
+rid_ACTION                          ACT    9+ 1 =  10  egress_port_mapping_ACTION
+rid_ACTION                          MAT    9+ 1 =  10  replica_type_MATCH
+mirror_ACTION                       MAT    9+ 1 =  10  rewrite_MATCH
+egress_port_mapping_ACTION          MAT   10+ 1 =  11  _condition_49
+egress_port_mapping_ACTION          MAT   10+ 1 =  11  egress_qos_map_MATCH
+replica_type_MATCH                  MAT   10+ 9 =  19  replica_type_ACTION
+replica_type_ACTION                 MAT   19+ 1 =  20  _condition_45
+egress_qos_map_MATCH                MAT   11+ 9 =  20  egress_qos_map_ACTION
+_condition_45                       SUC   20+ 0 =  20  rewrite_ACTION
+replica_type_ACTION                 ACT   19+ 1 =  20  rewrite_ACTION
+_condition_45                       SUC   20+ 0 =  20  rewrite_multicast_ACTION
+rewrite_ACTION                      MAT   20+ 1 =  21  _condition_47
+rewrite_ACTION                      MAT   20+ 1 =  21  egress_bd_map_MATCH
+rewrite_ACTION                      MAT   20+ 1 =  21  egress_bd_stats_MATCH
+rewrite_ACTION                      ACT   20+ 1 =  21  egress_filter_ACTION
+rewrite_ACTION                      MAT   20+ 1 =  21  egress_vlan_xlate_MATCH
+_condition_47                       SUC   21+ 0 =  21  l3_rewrite_ACTION
+egress_qos_map_ACTION               ACT   20+ 1 =  21  l3_rewrite_ACTION
+rewrite_ACTION                      ACT   20+ 1 =  21  l3_rewrite_ACTION
+rewrite_multicast_ACTION            ACT   20+ 1 =  21  l3_rewrite_ACTION
+rewrite_ACTION                      MAT   20+ 1 =  21  mtu_MATCH
+egress_filter_ACTION                MAT   21+ 1 =  22  _condition_51
+_condition_51                       SUC   22+ 0 =  22  egress_filter_drop_ACTION
+egress_bd_map_MATCH                 MAT   21+ 9 =  30  egress_bd_map_ACTION
+egress_bd_stats_MATCH               MAT   21+ 9 =  30  egress_bd_stats_ACTION
+egress_vlan_xlate_MATCH             MAT   21+ 9 =  30  egress_vlan_xlate_ACTION
+mtu_MATCH                           MAT   21+ 9 =  30  mtu_ACTION
+egress_bd_map_ACTION                MAT   30+ 1 =  31  _condition_48
+_condition_48                       SUC   31+ 0 =  31  egress_nat_ACTION
+mtu_ACTION                          MAT   30+ 1 =  31  egress_system_acl_MATCH
+egress_bd_map_ACTION                MAT   30+ 1 =  31  smac_rewrite_MATCH
+egress_system_acl_MATCH             MAT   31+ 9 =  40  egress_system_acl_ACTION
+smac_rewrite_MATCH                  MAT   31+ 9 =  40  smac_rewrite_ACTION
+
+
+direction backward
+
+rid_ACTION                          MAT    9- 9 =   0  rid_MATCH
+mirror_ACTION                       MAT   10- 9 =   1  mirror_MATCH
+_condition_42                       SUC    9- 0 =   9  _condition_41
+_condition_43                       SUC    9- 0 =   9  _condition_42
+rid_ACTION                          SUC    9- 0 =   9  _condition_43
+replica_type_MATCH                  MAT   10- 1 =   9  rid_ACTION
+rewrite_MATCH                       MAT   11- 1 =  10  mirror_ACTION
+replica_type_ACTION                 MAT   19- 9 =  10  replica_type_MATCH
+_condition_45                       SUC   20- 9 =  11  egress_port_mapping_MATCH
+rewrite_ACTION                      MAT   20- 9 =  11  rewrite_MATCH
+_condition_45                       MAT   20- 1 =  19  replica_type_ACTION
+rewrite_ACTION                      ACT   20- 1 =  19  replica_type_ACTION
+rewrite_ACTION                      SUC   20- 0 =  20  _condition_45
+egress_bd_map_MATCH                 MAT   21- 1 =  20  rewrite_ACTION
+mtu_MATCH                           MAT   21- 1 =  20  rewrite_ACTION
+egress_bd_map_ACTION                MAT   30- 9 =  21  egress_bd_map_MATCH
+mtu_ACTION                          MAT   30- 9 =  21  mtu_MATCH
+egress_qos_map_MATCH                MAT   30- 1 =  29  egress_port_mapping_ACTION
+smac_rewrite_MATCH                  MAT   31- 1 =  30  egress_bd_map_ACTION
+egress_filter_ACTION                MAT   39- 9 =  30  egress_filter_MATCH
+egress_qos_map_ACTION               MAT   39- 9 =  30  egress_qos_map_MATCH
+egress_system_acl_MATCH             MAT   31- 1 =  30  mtu_ACTION
+rewrite_multicast_ACTION            MAT   39- 9 =  30  rewrite_multicast_MATCH
+vlan_decap_ACTION                   MAT   39- 9 =  30  vlan_decap_MATCH
+egress_bd_stats_ACTION              MAT   40- 9 =  31  egress_bd_stats_MATCH
+egress_filter_drop_ACTION           MAT   40- 9 =  31  egress_filter_drop_MATCH
+egress_nat_ACTION                   MAT   40- 9 =  31  egress_nat_MATCH
+egress_system_acl_ACTION            MAT   40- 9 =  31  egress_system_acl_MATCH
+egress_vlan_xlate_ACTION            MAT   40- 9 =  31  egress_vlan_xlate_MATCH
+l3_rewrite_ACTION                   MAT   40- 9 =  31  l3_rewrite_MATCH
+smac_rewrite_ACTION                 MAT   40- 9 =  31  smac_rewrite_MATCH
+vlan_decap_ACTION                   SUC   39- 0 =  39  _condition_44
+egress_qos_map_ACTION               SUC   39- 0 =  39  _condition_46
+_condition_51                       MAT   40- 1 =  39  egress_filter_ACTION
+l3_rewrite_ACTION                   ACT   40- 1 =  39  egress_qos_map_ACTION
+l3_rewrite_ACTION                   ACT   40- 1 =  39  rewrite_multicast_ACTION
+egress_vlan_xlate_ACTION            ACT   40- 1 =  39  vlan_decap_ACTION
+l3_rewrite_ACTION                   SUC   40- 0 =  40  _condition_47
+smac_rewrite_ACTION                 SUC   40- 0 =  40  _condition_47
+egress_nat_ACTION                   SUC   40- 0 =  40  _condition_48
+egress_vlan_xlate_ACTION            SUC   40- 0 =  40  _condition_49
+_condition_51                       SUC   40- 0 =  40  _condition_50
+egress_filter_drop_ACTION           SUC   40- 0 =  40  _condition_51
+egress_system_acl_ACTION            SUC   40- 0 =  40  _condition_52
+(no predecessor)                    -              40  egress_bd_stats_ACTION
+(no predecessor)                    -              40  egress_filter_drop_ACTION
+(no predecessor)                    -              40  egress_nat_ACTION
+(no predecessor)                    -              40  egress_system_acl_ACTION
+(no predecessor)                    -              40  egress_vlan_xlate_ACTION
+egress_nat_ACTION                   REV   40- 0 =  40  l3_rewrite_ACTION
+(no predecessor)                    -              40  smac_rewrite_ACTION
+pipeline egress requires at least 40 stages
+
+egress action details
+
+table mirror search_bits 16 res_bits 18 num_act 3 max_prim_acts 1
+  0: 0 
+  1: 1 m16
+  2: 1 m16
+table rid search_bits 16 res_bits 41 num_act 3 max_prim_acts 8
+  0: 8 m16 m1 m1 m1 xor(16) m14 m5 m4
+  1: 0 
+  2: 8 m16 m1 m1 m1 xor(16) m14 m5 m4
+table vlan_decap search_bits 2 res_bits 2 num_act 3 max_prim_acts 3
+  0: 0 
+  1: 3 m16 rm_hdr(32) rm_hdr(32)
+  2: 2 m16 rm_hdr(32)
+table egress_port_mapping search_bits 9 res_bits 39 num_act 3 max_prim_acts 4
+  0: 3 m2 m16 m5
+  1: 3 m2 m16 m5
+  2: 4 m2 m16 m5 m16
+table replica_type search_bits 17 res_bits 2 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m1
+table egress_qos_map search_bits 13 res_bits 11 num_act 4 max_prim_acts 1
+  0: 0 
+  1: 1 m8
+  2: 1 m8
+  3: 1 m3
+table rewrite search_bits 16 res_bits 86 num_act 5 max_prim_acts 6
+  0: 0 
+  1: 3 m1 m16 m16
+  2: 5 m1 m16 m16 m14 m5
+  3: 5 m1 m48 m16 m16 m8
+  4: 6 m1 m48 m16 m16 m14 m5
+table rewrite_multicast search_bits 6 res_bits 2 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 mmsk(48,32,48)
+table egress_filter search_bits 0 res_bits 0 num_act 1 max_prim_acts 3
+  0: 3 xor(16) xor(16) xor(16)
+table l3_rewrite search_bits 5 res_bits 2 num_act 3 max_prim_acts 3
+  0: 3 or(48) add_fld(8) m8
+  1: 3 m48 add_fld(8) m8
+  2: 0 
+table egress_filter_drop search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 drop
+table egress_bd_map search_bits 16 res_bits 29 num_act 2 max_prim_acts 3
+  0: 0 
+  1: 3 m9 m2 m16
+table egress_bd_stats search_bits 19 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table egress_vlan_xlate search_bits 32 res_bits 26 num_act 3 max_prim_acts 7
+  0: 7 add_hdr(32) add_hdr(32) m16 m12 m16 m12 m16
+  1: 4 add_hdr(32) m16 m12 m16
+  2: 0 
+table mtu search_bits 10 res_bits 18 num_act 3 max_prim_acts 1
+  0: 1 sub(16)
+  1: 1 sub(16)
+  2: 1 m16
+table egress_nat search_bits 14 res_bits 100 num_act 10 max_prim_acts 6
+  0: 0 
+  1: 3 m32 m1 add(16)
+  2: 4 m32 m16 m1 add(16)
+  3: 4 m32 m16 m1 add(16)
+  4: 4 m32 m32 m1 add(16)
+  5: 6 m32 m32 m16 m16 m1 add(16)
+  6: 6 m32 m32 m16 m16 m1 add(16)
+  7: 3 m32 m1 add(16)
+  8: 4 m32 m16 m1 add(16)
+  9: 4 m32 m16 m1 add(16)
+table egress_system_acl search_bits 43 res_bits 36 num_act 8 max_prim_acts 3
+  0: 1 drop
+  1: 1 clone_e2e(16,16,16,9)
+  2: 2 m16 clone_e2e(16,16,16,9)
+  3: 2 m(16,32) clone_e2e(32,16)
+  4: 3 m(16,32) clone_e2e(32,16) drop
+  5: 2 clone_e2e(16,16,16,9) drop
+  6: 3 m16 clone_e2e(16,16,16,9) drop
+  7: 0 
+table smac_rewrite search_bits 9 res_bits 49 num_act 1 max_prim_acts 1
+  0: 1 m48
+
+egress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+ 101  75.9% m         modify_field
+   9   6.8% add       add
+   6   4.5% clone_e2e clone_egress_pkt_to_egress
+   4   3.0% drop      drop
+   3   2.3% rm_hdr    remove_header
+   3   2.3% add_hdr   add_header
+   2   1.5% sub       subtract
+   2   1.5% xor       bit_xor
+   2   1.5% add_fld   add_to_field
+   1   0.8% or        bit_or
+
+Number of egress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   0      1      1   6.2%
+   1      6      7  43.8%
+   3      4     11  68.8%
+   4      1     12  75.0%
+   6      2     14  87.5%
+   7      1     15  93.8%
+   8      1     16 100.0%
+
+egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   3  75.0% xor       bit_xor
+   1  25.0% drop      drop
+
+Number of egress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   1      1      1  50.0%
+   3      1      2 100.0%
+
+ingress plus egress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+ 500  86.1% m         modify_field
+  14   2.4% xor       bit_xor
+  12   2.1% rm_hdr    remove_header
+  11   1.9% drop      drop
+   9   1.5% add       add
+   7   1.2% clone_i2e clone_ingress_pkt_to_egress
+   6   1.0% clone_e2e clone_egress_pkt_to_egress
+   5   0.9% meter     execute_meter
+   5   0.9% add_fld   add_to_field
+   3   0.5% m_hash    modify_field_with_hash_based_offset
+   3   0.5% add_hdr   add_header
+   2   0.3% sub       subtract
+   2   0.3% or        bit_or
+   1   0.2% digest    generate_digest
+   1   0.2% count     count
+
+ingress plus egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   3  42.9% count     count
+   3  42.9% xor       bit_xor
+   1  14.3% drop      drop
+
+ingress plus egress action count
+# of primitive actions used in actions, from most to least often used:
+ 500  85.0% m         modify_field
+  17   2.9% xor       bit_xor
+  12   2.0% rm_hdr    remove_header
+  12   2.0% drop      drop
+   9   1.5% add       add
+   7   1.2% clone_i2e clone_ingress_pkt_to_egress
+   6   1.0% clone_e2e clone_egress_pkt_to_egress
+   5   0.9% meter     execute_meter
+   5   0.9% add_fld   add_to_field
+   4   0.7% count     count
+   3   0.5% m_hash    modify_field_with_hash_based_offset
+   3   0.5% add_hdr   add_header
+   2   0.3% sub       subtract
+   2   0.3% or        bit_or
+   1   0.2% digest    generate_digest
+

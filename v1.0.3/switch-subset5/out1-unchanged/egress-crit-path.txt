@@ -1,0 +1,121 @@
+
+
+start at the last stage and work backwards:
+
+   12     43     36 egress_system_acl
+
+Table access above depends on following table with match dep (from
+following line in debug output of count_min_stages:
+
+egress_mac_acl             4 MATCH         10+1  egress_system_acl
+
+Note that 10+1 is a stage number that is 0-based, whereas the 1
+through 12 stage numbers printed in later output starts at 1.
+Probably should make those numberings consistent with each other if we
+do this much.)
+
+   11    144     18 egress_mac_acl
+tunnel_smac_rewrite        4 MATCH          9+1  egress_mac_acl
+   10      9     50 tunnel_smac_rewrite
+tunnel_rewrite             4 MATCH          8+1  tunnel_smac_rewrite
+    9     14    120 tunnel_rewrite
+tunnel_encap_process_outer 4 MATCH          7+1  tunnel_rewrite
+    8     10     19 tunnel_encap_process_outer
+egress_l4_src_port         1 REVERSE_READ   7+0  tunnel_encap_process_outer
+    8     16     10 egress_l4_src_port
+egress_l4port_fields       4 MATCH          6+1  egress_l4_src_port
+    7      3      3 egress_l4port_fields
+egress_nat                 3 ACTION         5+1  egress_l4port_fields
+    6     14    100 egress_nat
+_condition_65              2 SUCCESSOR      5+0  egress_nat
+egress_bd_map              4 MATCH          4+1  _condition_65
+rewrite                    4 MATCH          3+1  egress_bd_map
+tunnel_decap_process_outer 4 MATCH          2+1  rewrite_multicast
+vlan_decap                 3 ACTION         1+1  tunnel_decap_process_outer
+_condition_58              2 SUCCESSOR      1+0  vlan_decap
+egress_port_mapping        2 SUCCESSOR      1+0  _condition_58
+rid                        3 ACTION         0+1  egress_port_mapping
+_condition_57              2 SUCCESSOR      0+0  rid
+_condition_56              2 SUCCESSOR      0+0  _condition_57
+_condition_55              2 SUCCESSOR      0+0  _condition_56
+(none)                     0 unknown       -1+1  _condition_55
+
+
+Now reversing them to show them in forward direction:
+
+(none)                     0 unknown       -1+1  _condition_55
+_condition_55              2 SUCCESSOR      0+0  _condition_56
+    in switch.p4 'control egress'
+    ((intrinsic_metadata.deflection_flag == 0) and
+     (egress_metadata.bypass == 0))
+    // code below is true branch of this if condition,
+    // which appears to be the common case of packet not 'deflected',
+    // and not bypassing the majority of the egress processing.
+    // Packets that have bypass==1 are probably Sup-transmitted packets.
+_condition_56              2 SUCCESSOR      0+0  _condition_57
+    in switch.p4 'control egress'.  Original code line 'if (pkt_is_mirrored) {'
+    // which is #define'd as:
+    // #define pkt_is_mirrored \
+    //     ((standard_metadata.instance_type != PKT_INSTANCE_TYPE_NORMAL) and \
+    //      (standard_metadata.instance_type != PKT_INSTANCE_TYPE_REPLICATION))
+    ((standard_metadata.instance_type != 0) and
+     (standard_metadata.instance_type != 5))
+    // code below is in false branch of the if statement, so
+    // packet _not_ mirrored, which sounds like the common case.
+_condition_57              2 SUCCESSOR      0+0  rid
+    (intrinsic_metadata.egress_rid != 0)
+    // table lookups below are in true branch of this condition
+    // I am not sure what the 'egress_rid' field means, but perhaps it
+    // is for a packet that is a multicast replication?
+rid                        3 ACTION         0+1  egress_port_mapping
+    // dependency is on field tunnel_metadata.egress_tunnel_type
+    in multicast.p4
+egress_port_mapping        2 SUCCESSOR      1+0  _condition_58
+    in port.p4
+    reads {
+	    standard_metadata.egress_port : exact;
+    }
+    actions {
+        egress_port_type_normal;
+        egress_port_type_fabric;
+        egress_port_type_cpu;
+    }
+    // Here ends the false branch for _condition_57 started above
+_condition_58              2 SUCCESSOR      1+0  vlan_decap
+    in switch.p4 'control egress', source line "if (pkt_is_not_mirrored) {"
+    ((standard_metadata.instance_type == 0) or
+     (standard_metadata.instance_type == 5))
+    // code below is for true branch of this condition, so packet
+    // is _not_ mirrored
+vlan_decap                 3 ACTION         1+1  tunnel_decap_process_outer
+    // dependency is on field ethernet.etherType
+tunnel_decap_process_outer 3 ACTION         2+1  rewrite
+    // dependency is on field mpls[0].label
+rewrite                    4 MATCH          3+1  egress_bd_map
+    // dependency is on field egress_metadata.bd
+egress_bd_map              4 MATCH          4+1  _condition_65
+    // dependency is on field nat_metadata.egress_nat_node,
+    // a field written by table egress_bd_map's only action (other than nop)
+_condition_65              2 SUCCESSOR      5+0  egress_nat
+    in nat.p4 'control process_egress_nat'
+    ((nat_metadata.ingress_nat_mode != 0) and
+     (nat_metadata.ingress_nat_mode != nat_metadata.egress_nat_mode))
+    // Path below is for condition above being true
+    // which appears to be that egress NAT is enabled for this packet,
+    // and it modifies the L4 source and dest port of the header.
+    // Looks like 1 stage could be eliminated for packets with egress
+    // NAT disabled.
+egress_nat                 3 ACTION         5+1  egress_l4port_fields
+    // dependency is on fields tcp.dstPort, tcp.srcPort, udp.srcPort, udp.dstPort
+egress_l4port_fields       4 MATCH          6+1  egress_l4_src_port
+    // dependency is on field l3_metadata.egress_l4_sport
+egress_l4_src_port         1 REVERSE_READ   7+0  tunnel_encap_process_outer
+    // dependency is on field l3_metadata.egress_l4_sport
+tunnel_encap_process_outer 4 MATCH          7+1  tunnel_rewrite
+    // dependency is on field tunnel_metadata.tunnel_index
+tunnel_rewrite             4 MATCH          8+1  tunnel_smac_rewrite
+    // dependency is on field tunnel_metadata.tunnel_dmac_index
+tunnel_smac_rewrite        4 MATCH          9+1  egress_mac_acl
+    // dependency is on field ethernet.srcAddr
+egress_mac_acl             4 MATCH         10+1  egress_system_acl
+    // dependency is on fields acl_metadata.acl_deny, fabric_metadata.reason_code
