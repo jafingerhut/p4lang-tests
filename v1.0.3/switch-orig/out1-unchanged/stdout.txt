@@ -79,7 +79,7 @@ Header type fabric_metadata_t not byte-aligned, adding padding
 Header type int_metadata_i2e_t not byte-aligned, adding padding
 Header type meter_metadata_t not byte-aligned, adding padding
 Header type qos_metadata_t not byte-aligned, adding padding
-transitive reduction on ingress dependency graph took 4.6 sec
+transitive reduction on ingress dependency graph took 4.9 sec
 transitive reduction on egress dependency graph took 0.1 sec
 Generating files in directory /Users/jafinger/Documents/p4-docs/p4lang-tests/v1.0.3/switch-orig/out1-unchanged
 
@@ -112,9 +112,9 @@ ingress_port_mapping       4 MATCH          0+1  _condition_7
 port_vlan_mapping          4 MATCH          1+1  ipsg
 _condition_7               2 SUCCESSOR      1+0  ipsg_permit_special
 (none)                     0 unknown       -1+1  _condition_8
-_condition_8               2 SUCCESSOR      0+0  int_source
 _condition_8               2 SUCCESSOR      0+0  int_terminate
 int_terminate              4 MATCH          0+1  int_sink_update_outer
+_condition_8               2 SUCCESSOR      0+0  int_source
 switch_config_params       3 ACTION         1+1  sflow_ingress
 sflow_ingress              4 MATCH          2+1  sflow_ing_take_sample
 ingress_port_mapping       4 MATCH          0+1  _condition_9
@@ -126,20 +126,20 @@ fabric_ingress_dst_lkp     4 MATCH          2+1  _condition_12
 _condition_12              2 SUCCESSOR      3+0  native_packet_over_fabric
 fabric_ingress_dst_lkp     4 MATCH          2+1  _condition_13
 _condition_13              2 SUCCESSOR      3+0  outer_rmac
-outer_rmac                 2 SUCCESSOR      3+0  _condition_16
-_condition_16              2 SUCCESSOR      3+0  ipv4_src_vtep
-_condition_16              2 SUCCESSOR      3+0  _condition_17
-_condition_17              2 SUCCESSOR      3+0  ipv6_src_vtep
-_condition_17              2 SUCCESSOR      3+0  _condition_18
-native_packet_over_fabric  3 ACTION         3+1  mpls
 outer_rmac                 2 SUCCESSOR      3+0  _condition_14
 _condition_14              2 SUCCESSOR      3+0  _condition_15
 _condition_15              2 SUCCESSOR      3+0  outer_ipv6_multicast
 outer_ipv6_multicast       2 SUCCESSOR      3+0  outer_ipv6_multicast_star_g
 _condition_14              2 SUCCESSOR      3+0  outer_ipv4_multicast
 outer_ipv4_multicast       2 SUCCESSOR      3+0  outer_ipv4_multicast_star_g
+outer_rmac                 2 SUCCESSOR      3+0  _condition_16
+_condition_16              2 SUCCESSOR      3+0  ipv4_src_vtep
 ipv4_src_vtep              2 SUCCESSOR      3+0  ipv4_dest_vtep
+_condition_16              2 SUCCESSOR      3+0  _condition_17
+_condition_17              2 SUCCESSOR      3+0  ipv6_src_vtep
 ipv6_src_vtep              2 SUCCESSOR      3+0  ipv6_dest_vtep
+_condition_17              2 SUCCESSOR      3+0  _condition_18
+native_packet_over_fabric  3 ACTION         3+1  mpls
 mpls                       4 MATCH          4+1  _condition_19
 _condition_19              2 SUCCESSOR      5+0  adjust_lkp_fields
 _condition_19              2 SUCCESSOR      5+0  tunnel
@@ -167,7 +167,14 @@ ingress_l4_src_port        4 MATCH          6+1  ipv6_acl
 adjust_lkp_fields          4 MATCH          5+1  rmac
 rmac                       2 SUCCESSOR      6+0  _condition_37
 _condition_37              2 SUCCESSOR      6+0  _condition_38
+ip_acl                     3 ACTION         7+1  ipv4_racl
+_condition_38              2 SUCCESSOR      6+0  _condition_39
 _condition_38              2 SUCCESSOR      6+0  _condition_40
+ip_acl                     3 ACTION         7+1  ipv6_racl
+_condition_40              2 SUCCESSOR      6+0  _condition_41
+_condition_41              2 SUCCESSOR      6+0  ipv6_urpf
+ipv6_urpf                  2 SUCCESSOR      6+0  ipv6_urpf_lpm
+_condition_40              2 SUCCESSOR      6+0  ipv6_fib
 rmac                       2 SUCCESSOR      6+0  _condition_31
 _condition_31              2 SUCCESSOR      6+0  _condition_32
 _condition_32              2 SUCCESSOR      6+0  ipv4_multicast_bridge
@@ -182,13 +189,6 @@ ipv6_multicast_route       2 SUCCESSOR      6+0  ipv6_multicast_route_star_g
 _condition_31              2 SUCCESSOR      6+0  _condition_33
 _condition_33              2 SUCCESSOR      6+0  ipv4_multicast_route
 ipv4_multicast_route       2 SUCCESSOR      6+0  ipv4_multicast_route_star_g
-ip_acl                     3 ACTION         7+1  ipv6_racl
-_condition_40              2 SUCCESSOR      6+0  _condition_41
-_condition_41              2 SUCCESSOR      6+0  ipv6_urpf
-ipv6_urpf                  2 SUCCESSOR      6+0  ipv6_urpf_lpm
-_condition_40              2 SUCCESSOR      6+0  ipv6_fib
-ip_acl                     3 ACTION         7+1  ipv4_racl
-_condition_38              2 SUCCESSOR      6+0  _condition_39
 _condition_39              2 SUCCESSOR      6+0  ipv4_urpf
 ipv4_urpf                  2 SUCCESSOR      6+0  ipv4_urpf_lpm
 _condition_38              2 SUCCESSOR      6+0  ipv4_fib
@@ -201,7 +201,7 @@ nat_twice                  2 SUCCESSOR      6+0  nat_dst
 nat_dst                    2 SUCCESSOR      6+0  nat_src
 nat_src                    2 SUCCESSOR      6+0  nat_flow
 (none)                     0 unknown       -1+1  _condition_43
-ipv6_racl                  3 ACTION         8+1  meter_index
+ipv4_racl                  3 ACTION         8+1  meter_index
 tunnel                     4 MATCH          5+1  _condition_44
 _condition_44              2 SUCCESSOR      6+0  _condition_45
 validate_packet            4 MATCH          6+1  compute_ipv6_hashes
@@ -212,20 +212,20 @@ compute_ipv6_hashes        4 MATCH          7+1  compute_other_hashes
 meter_index                4 MATCH          9+1  meter_action
 ingress_port_mapping       4 MATCH          0+1  _condition_47
 validate_packet            3 ACTION         6+1  ingress_bd_stats
-ipv6_racl                  3 ACTION         8+1  acl_stats
+ipv4_racl                  3 ACTION         8+1  acl_stats
 meter_index                4 MATCH          9+1  storm_control_stats
 _condition_47              2 SUCCESSOR      1+0  _condition_48
-ipv6_racl                  4 MATCH          8+1  fwd_result
+ipv4_racl                  4 MATCH          8+1  fwd_result
 fwd_result                 4 MATCH          9+1  _condition_49
-_condition_49              2 SUCCESSOR     10+0  nexthop
 _condition_49              2 SUCCESSOR     10+0  ecmp_group
-nexthop                    4 MATCH         10+1  _condition_50
+_condition_49              2 SUCCESSOR     10+0  nexthop
+ecmp_group                 4 MATCH         10+1  _condition_50
 _condition_50              2 SUCCESSOR     11+0  bd_flood
 _condition_50              2 SUCCESSOR     11+0  lag_group
 port_vlan_mapping          4 MATCH          1+1  _condition_51
 smac                       4 MATCH          6+1  learn_notify
 lag_group                  4 MATCH         11+1  fabric_lag
-ipv6_racl                  4 MATCH          8+1  traffic_class
+ipv4_racl                  4 MATCH          8+1  traffic_class
 ingress_port_mapping       4 MATCH          0+1  _condition_52
 _condition_52              2 SUCCESSOR      1+0  _condition_53
 fabric_lag                 1 REVERSE_READ  12+0  system_acl
@@ -337,6 +337,399 @@ stage width  width  table/condition name
    13    153     60 system_acl
 For all stages, total search key width 5913 result width 1925
 pipeline ingress requires at least 13 stages
+
+ingress action details
+
+table ingress_port_mapping search_bits 9 res_bits 19 num_act 1 max_prim_acts 2
+  0: 2 m16 m2
+table ingress_port_properties search_bits 9 res_bits 39 num_act 1 max_prim_acts 7
+  0: 7 m16 m5 m5 m8 m2 m1 m1
+table int_source search_bits 131 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 m1
+  1: 1 m1
+table int_terminate search_bits 68 res_bits 34 num_act 2 max_prim_acts 29
+  0: 1 m1
+  1: 29 sh_lf(16) m1 m(16,32) clone_i2e(1,16) rm_hdr(64) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32) rm_hdr(32)
+table validate_mpls_packet search_bits 66 res_bits 2 num_act 3 max_prim_acts 2
+  0: 2 m20 m3
+  1: 2 m20 m3
+  2: 2 m20 m3
+table validate_outer_ethernet search_bits 98 res_bits 12 num_act 13 max_prim_acts 3
+  0: 2 m1 m8
+  1: 3 m3 m16 m3
+  2: 3 m3 m16 m3
+  3: 3 m3 m16 m3
+  4: 2 m3 m16
+  5: 3 m3 m16 m3
+  6: 3 m3 m16 m3
+  7: 3 m3 m16 m3
+  8: 2 m3 m16
+  9: 3 m3 m16 m3
+  10: 3 m3 m16 m3
+  11: 3 m3 m16 m3
+  12: 2 m3 m16
+table validate_outer_ipv4_packet search_bits 20 res_bits 10 num_act 2 max_prim_acts 3
+  0: 2 m1 m8
+  1: 3 m2 m8 m4
+table validate_outer_ipv6_packet search_bits 28 res_bits 10 num_act 2 max_prim_acts 3
+  0: 2 m1 m8
+  1: 3 m2 m8 m4
+table ingress_qos_map_dscp search_bits 13 res_bits 13 num_act 4 max_prim_acts 2
+  0: 0 
+  1: 1 m2
+  2: 1 m8
+  3: 2 m8 m2
+table ingress_qos_map_pcp search_bits 8 res_bits 13 num_act 4 max_prim_acts 2
+  0: 0 
+  1: 1 m2
+  2: 1 m8
+  3: 2 m8 m2
+table int_sink_update_outer search_bits 3 res_bits 2 num_act 2 max_prim_acts 4
+  0: 4 m8 rm_hdr(32) sub(16) sub(16)
+  1: 0 
+table ipsg_permit_special search_bits 56 res_bits 1 num_act 1 max_prim_acts 1
+  0: 1 m1
+table port_vlan_mapping search_bits 42 res_bits 147 num_act 2 max_prim_acts 21
+  0: 1 m1
+  1: 21 m16 m16 m16 m10 m16 m1 m16 m1 m1 m2 m2 m10 m1 m1 m1 m1 m16 m1 m16 m1 m16
+table switch_config_params search_bits 0 res_bits 1 num_act 1 max_prim_acts 6
+  0: 6 m1 m(32,48) m9 m16 m9 m_rng(32)
+table fabric_ingress_dst_lkp search_bits 8 res_bits 3 num_act 6 max_prim_acts 10
+  0: 0 
+  1: 2 m1 m16
+  2: 3 m1 m8 m16
+  3: 7 m(9,16) m1 m16 m16 rm_hdr(40) rm_hdr(88) rm_hdr(16)
+  4: 10 m1 m5 m16 m1 m1 m16 m16 rm_hdr(40) rm_hdr(56) rm_hdr(16)
+  5: 10 m(9,16) m1 m5 m16 m1 m1 m16 rm_hdr(40) rm_hdr(24) rm_hdr(16)
+table ipsg search_bits 112 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table sflow_ingress search_bits 81 res_bits 50 num_act 2 max_prim_acts 2
+  0: 0 
+  1: 2 add(32) m16
+table spanning_tree search_bits 26 res_bits 4 num_act 1 max_prim_acts 1
+  0: 1 m3
+table storm_control search_bits 12 res_bits 34 num_act 2 max_prim_acts 2
+  0: 0 
+  1: 2 meter(32,bytes,2) m(16,32)
+table fabric_ingress_src_lkp search_bits 16 res_bits 2 num_act 2 max_prim_acts 0
+  0: 0 
+  1: 0 
+table ipv4_dest_vtep search_bits 53 res_bits 26 num_act 3 max_prim_acts 2
+  0: 0 
+  1: 1 m1
+  2: 2 m24 m1
+table ipv4_src_vtep search_bits 53 res_bits 18 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m16
+table ipv6_dest_vtep search_bits 149 res_bits 26 num_act 3 max_prim_acts 2
+  0: 0 
+  1: 1 m1
+  2: 2 m24 m1
+table ipv6_src_vtep search_bits 149 res_bits 18 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m16
+table native_packet_over_fabric search_bits 2 res_bits 2 num_act 3 max_prim_acts 7
+  0: 7 m48 m48 m32 m32 m8 m16 m16
+  1: 7 m48 m48 m128 m128 m8 m16 m16
+  2: 3 m48 m48 m16
+table outer_ipv4_multicast search_bits 81 res_bits 35 num_act 4 max_prim_acts 4
+  0: 0 
+  1: 0 
+  2: 3 m16 m1 m8
+  3: 4 m16 m1 xor(16) m8
+table outer_ipv4_multicast_star_g search_bits 49 res_bits 35 num_act 4 max_prim_acts 5
+  0: 0 
+  1: 3 m16 m1 m8
+  2: 5 m2 m16 m1 or(16) m8
+  3: 5 m2 m16 m1 xor(16) m8
+table outer_ipv6_multicast search_bits 273 res_bits 35 num_act 4 max_prim_acts 4
+  0: 0 
+  1: 0 
+  2: 3 m16 m1 m8
+  3: 4 m16 m1 xor(16) m8
+table outer_ipv6_multicast_star_g search_bits 145 res_bits 35 num_act 4 max_prim_acts 5
+  0: 0 
+  1: 3 m16 m1 m8
+  2: 5 m2 m16 m1 or(16) m8
+  3: 5 m2 m16 m1 xor(16) m8
+table outer_rmac search_bits 58 res_bits 2 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m1
+table sflow_ing_take_sample search_bits 48 res_bits 34 num_act 2 max_prim_acts 2
+  0: 0 
+  1: 2 m(16,32) clone_i2e(16,16,16,9,16,16,16)
+table mpls search_bits 22 res_bits 24 num_act 6 max_prim_acts 8
+  0: 5 m16 m2 m1 m48 m48
+  1: 4 m1 m5 m16 m16
+  2: 8 m1 m5 m16 m48 m48 m2 m16 m4
+  3: 8 m1 m5 m16 m48 m48 m2 m16 m4
+  4: 3 m16 m48 m48
+  5: 4 m1 m5 m16 m16
+table adjust_lkp_fields search_bits 2 res_bits 2 num_act 3 max_prim_acts 8
+  0: 8 m48 m48 m32 m32 m8 m8 m16 m16
+  1: 8 m48 m48 m128 m128 m8 m8 m16 m16
+  2: 2 m48 m48
+table tunnel search_bits 31 res_bits 98 num_act 7 max_prim_acts 14
+  0: 0 
+  1: 14 m1 m16 m16 m1 m2 m10 m16 m16 m2 m16 m4 m1 m1 m16
+  2: 14 m1 m16 m16 m1 m2 m10 m16 m16 m2 m16 m4 m16 m1 m1
+  3: 11 m1 m16 m1 m2 m10 m48 m48 m2 m4 m16 m1
+  4: 11 m1 m16 m1 m2 m10 m48 m48 m2 m4 m16 m1
+  5: 6 m1 m16 m16 m16 m2 m16
+  6: 0 
+table tunnel_lookup_miss search_bits 2 res_bits 2 num_act 3 max_prim_acts 8
+  0: 8 m48 m48 m32 m32 m8 m8 m16 m16
+  1: 8 m48 m48 m128 m128 m8 m8 m16 m16
+  2: 2 m48 m48
+table dmac search_bits 64 res_bits 19 num_act 7 max_prim_acts 3
+  0: 1 drop
+  1: 2 m16 xor(16)
+  2: 2 m16 m8
+  3: 2 m16 m8
+  4: 3 m1 m16 m2
+  5: 3 m1 m16 m2
+  6: 0 
+table ingress_l4_dst_port search_bits 16 res_bits 10 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m8
+table ingress_l4_src_port search_bits 16 res_bits 10 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m8
+table ipv4_fib search_bits 48 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table ipv4_fib_lpm search_bits 48 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table ipv4_multicast_bridge search_bits 80 res_bits 18 num_act 2 max_prim_acts 2
+  0: 2 m16 m1
+  1: 0 
+table ipv4_multicast_bridge_star_g search_bits 48 res_bits 18 num_act 2 max_prim_acts 2
+  0: 2 m16 m1
+  1: 0 
+table ipv4_multicast_route search_bits 80 res_bits 34 num_act 2 max_prim_acts 4
+  0: 4 m16 m2 m1 xor(16)
+  1: 0 
+table ipv4_multicast_route_star_g search_bits 48 res_bits 34 num_act 3 max_prim_acts 4
+  0: 4 m2 m16 m1 or(16)
+  1: 4 m2 m16 m1 xor(16)
+  2: 1 m1
+table ipv4_urpf search_bits 48 res_bits 18 num_act 2 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 0 
+table ipv4_urpf_lpm search_bits 48 res_bits 18 num_act 2 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 1 m1
+table ipv6_fib search_bits 144 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table ipv6_fib_lpm search_bits 144 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table ipv6_multicast_bridge search_bits 272 res_bits 18 num_act 2 max_prim_acts 2
+  0: 2 m16 m1
+  1: 0 
+table ipv6_multicast_bridge_star_g search_bits 144 res_bits 18 num_act 2 max_prim_acts 2
+  0: 2 m16 m1
+  1: 0 
+table ipv6_multicast_route search_bits 272 res_bits 34 num_act 2 max_prim_acts 4
+  0: 4 m16 m2 m1 xor(16)
+  1: 0 
+table ipv6_multicast_route_star_g search_bits 144 res_bits 34 num_act 3 max_prim_acts 4
+  0: 4 m2 m16 m1 or(16)
+  1: 4 m2 m16 m1 xor(16)
+  2: 1 m1
+table ipv6_urpf search_bits 144 res_bits 18 num_act 2 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 0 
+table ipv6_urpf_lpm search_bits 144 res_bits 18 num_act 2 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 1 m1
+table mac_acl search_bits 144 res_bits 80 num_act 6 max_prim_acts 10
+  0: 8 m1 m14 m16 m16 m2 m3 m8 m2
+  1: 8 m(16,32) clone_i2e(32,16) m14 m16 m2 m3 m8 m2
+  2: 7 m14 m16 m16 m2 m3 m8 m2
+  3: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  4: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  5: 0 
+table nat_dst search_bits 72 res_bits 34 num_act 2 max_prim_acts 4
+  0: 0 
+  1: 4 m16 m2 m14 m1
+table nat_flow search_bits 120 res_bits 35 num_act 4 max_prim_acts 4
+  0: 0 
+  1: 4 m16 m2 m14 m1
+  2: 1 m14
+  3: 4 m16 m2 m14 m1
+table nat_src search_bits 72 res_bits 16 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m14
+table nat_twice search_bits 120 res_bits 34 num_act 2 max_prim_acts 4
+  0: 0 
+  1: 4 m16 m2 m14 m1
+table rmac search_bits 58 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 m1
+  1: 1 m1
+table smac search_bits 64 res_bits 18 num_act 3 max_prim_acts 1
+  0: 0 
+  1: 1 xor(16)
+  2: 1 m1
+table validate_packet search_bits 134 res_bits 11 num_act 7 max_prim_acts 3
+  0: 0 
+  1: 2 m3 add_fld(16)
+  2: 2 m1 m8
+  3: 2 m3 add_fld(16)
+  4: 3 m3 m1 add_fld(16)
+  5: 1 m3
+  6: 2 m3 m1
+table compute_ipv4_hashes search_bits 1 res_bits 1 num_act 1 max_prim_acts 2
+  0: 2 m_hash(16,16,16,104,32 32 8 16 16) m_hash(16,16,16,200,48 48 32 32 8 16 16)
+table compute_ipv6_hashes search_bits 1 res_bits 1 num_act 1 max_prim_acts 2
+  0: 2 m_hash(16,16,16,296,128 128 8 16 16) m_hash(16,16,16,392,48 48 128 128 8 16 16)
+table compute_non_ip_hashes search_bits 1 res_bits 1 num_act 1 max_prim_acts 1
+  0: 1 m_hash(16,16,16,128,16 48 48 16)
+table ingress_bd_stats search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 count(16,packets_and_bytes)
+table ip_acl search_bits 136 res_bits 80 num_act 6 max_prim_acts 10
+  0: 8 m1 m14 m16 m16 m2 m3 m8 m2
+  1: 8 m(16,32) clone_i2e(32,16) m14 m16 m2 m3 m8 m2
+  2: 7 m14 m16 m16 m2 m3 m8 m2
+  3: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  4: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  5: 0 
+table ipv6_acl search_bits 328 res_bits 80 num_act 6 max_prim_acts 10
+  0: 8 m1 m14 m16 m16 m2 m3 m8 m2
+  1: 8 m(16,32) clone_i2e(32,16) m14 m16 m2 m3 m8 m2
+  2: 7 m14 m16 m16 m2 m3 m8 m2
+  3: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  4: 10 m1 m16 m2 m14 m16 m16 m2 m3 m8 m2
+  5: 0 
+table learn_notify search_bits 20 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 digest(16,48,16)
+  1: 0 
+table urpf_bd search_bits 32 res_bits 2 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m1
+table compute_other_hashes search_bits 16 res_bits 2 num_act 2 max_prim_acts 3
+  0: 3 m16 m(13,16) m16
+  1: 2 m(13,16) m16
+table ipv4_racl search_bits 104 res_bits 62 num_act 5 max_prim_acts 8
+  0: 0 
+  1: 6 m1 m14 m16 m3 m8 m2
+  2: 5 m14 m16 m3 m8 m2
+  3: 8 m1 m16 m2 m14 m16 m3 m8 m2
+  4: 8 m1 m16 m2 m14 m16 m3 m8 m2
+table ipv6_racl search_bits 296 res_bits 62 num_act 5 max_prim_acts 8
+  0: 0 
+  1: 6 m1 m14 m16 m3 m8 m2
+  2: 5 m14 m16 m3 m8 m2
+  3: 8 m1 m16 m2 m14 m16 m3 m8 m2
+  4: 8 m1 m16 m2 m14 m16 m3 m8 m2
+table acl_stats search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 count(14,packets_and_bytes)
+table fwd_result search_bits 33 res_bits 4 num_act 11 max_prim_acts 6
+  0: 0 
+  1: 5 m16 m2 m16 m16 m8
+  2: 5 m1 m16 m9 m16 m8
+  3: 6 m16 m2 m1 m16 m16 m8
+  4: 5 m16 m2 m16 m16 m8
+  5: 3 m8 m16 m16
+  6: 2 m1 m8
+  7: 2 m8 m16
+  8: 5 m8 m16 m16 m1 m16
+  9: 5 m16 m2 m1 m16 m8
+  10: 6 m16 m2 m1 m16 m16 m8
+table meter_index search_bits 16 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table traffic_class search_bits 13 res_bits 11 num_act 4 max_prim_acts 2
+  0: 0 
+  1: 1 m3
+  2: 2 m3 m5
+  3: 1 m5
+table drop_stats search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 count(8,packets)
+table ecmp_group search_bits 16 res_bits 51 num_act 3 max_prim_acts 5
+  0: 0 
+  1: 5 m16 m16 xor(16) xor(16) xor(1)
+  2: 5 m16 m16 m16 xor(16) m8
+table meter_action search_bits 18 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 drop
+  1: 0 
+table nexthop search_bits 16 res_bits 35 num_act 3 max_prim_acts 4
+  0: 0 
+  1: 4 m16 xor(16) xor(16) xor(1)
+  2: 4 m16 m16 xor(16) m8
+table storm_control_stats search_bits 11 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table bd_flood search_bits 19 res_bits 18 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m16
+table lag_group search_bits 16 res_bits 26 num_act 3 max_prim_acts 2
+  0: 0 
+  1: 1 m9
+  2: 2 m8 m16
+table fabric_lag search_bits 8 res_bits 11 num_act 3 max_prim_acts 1
+  0: 0 
+  1: 1 m9
+  2: 1 m16
+table system_acl search_bits 153 res_bits 60 num_act 8 max_prim_acts 7
+  0: 4 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2)
+  1: 5 m16 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2)
+  2: 1 drop
+  3: 2 count(32,packets) drop
+  4: 2 clone_i2e(16,8) drop
+  5: 0 
+  6: 6 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2) drop m8
+  7: 7 m16 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2) drop m8
+
+ingress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+ 684  87.9% m         modify_field
+  35   4.5% rm_hdr    remove_header
+  18   2.3% xor       bit_xor
+  10   1.3% clone_i2e clone_ingress_pkt_to_egress
+   7   0.9% drop      drop
+   5   0.6% m_hash    modify_field_with_hash_based_offset
+   5   0.6% meter     execute_meter
+   4   0.5% or        bit_or
+   3   0.4% add_fld   add_to_field
+   2   0.3% sub       subtract
+   1   0.1% sh_lf     shift_left
+   1   0.1% m_rng     modify_field_rng_uniform
+   1   0.1% digest    generate_digest
+   1   0.1% count     count
+   1   0.1% add       add
+
+Number of ingress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   0      4      4   4.8%
+   1     17     21  25.3%
+   2     17     38  45.8%
+   3     14     52  62.7%
+   4     11     63  75.9%
+   5      3     66  79.5%
+   6      2     68  81.9%
+   7      3     71  85.5%
+   8      5     76  91.6%
+  10      4     80  96.4%
+  14      1     81  97.6%
+  21      1     82  98.8%
+  29      1     83 100.0%
+
+ingress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   3 100.0% count     count
+
+Number of ingress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   1      3      3 100.0%
 
 EGRESS PIPELINE
 ------------------------------
@@ -468,4 +861,364 @@ stage width  width  table/condition name
    12     43     36 egress_system_acl
 For all stages, total search key width 1051 result width 1215
 pipeline egress requires at least 12 stages
+
+egress action details
+
+table mirror search_bits 16 res_bits 19 num_act 4 max_prim_acts 4
+  0: 0 
+  1: 1 m16
+  2: 1 m16
+  3: 4 add_hdr(32) m16 m16 m16
+table rid search_bits 16 res_bits 41 num_act 3 max_prim_acts 8
+  0: 8 m16 m1 m1 m1 xor(16) m14 m5 m4
+  1: 0 
+  2: 8 m16 m1 m1 m1 xor(16) m14 m5 m4
+table egress_port_mapping search_bits 9 res_bits 39 num_act 3 max_prim_acts 4
+  0: 3 m2 m16 m5
+  1: 3 m2 m16 m5
+  2: 4 m2 m16 m5 m16
+table int_insert search_bits 3 res_bits 79 num_act 3 max_prim_acts 18
+  0: 6 m32 m16 m8 m8 m16 m16
+  1: 18 m8 m32 m16 m8 add_hdr(64) m2 m2 m1 m1 m5 m5 m8 m8 m4 m4 m4 m4 m16
+  2: 4 sub(8) m32 sh_lf(16) m(8,5)
+table replica_type search_bits 17 res_bits 2 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m1
+table tunnel_decap_process_inner search_bits 3 res_bits 3 num_act 4 max_prim_acts 3
+  0: 3 cp_hdr(32) rm_hdr(32) rm_hdr(64)
+  1: 3 cp_hdr(160) rm_hdr(160) rm_hdr(64)
+  2: 2 cp_hdr(64) rm_hdr(64)
+  3: 1 rm_hdr(64)
+table vlan_decap search_bits 2 res_bits 2 num_act 3 max_prim_acts 3
+  0: 0 
+  1: 3 m16 rm_hdr(32) rm_hdr(32)
+  2: 2 m16 rm_hdr(32)
+table egress_qos_map search_bits 13 res_bits 11 num_act 4 max_prim_acts 1
+  0: 0 
+  1: 1 m8
+  2: 1 m8
+  3: 1 m3
+table int_inst_0003 search_bits 4 res_bits 5 num_act 16 max_prim_acts 10
+  0: 0 
+  1: 3 add_hdr(32) m7 m(24,19)
+  2: 4 add_hdr(32) m(31,32) add_hdr(32) m(31,32)
+  3: 7 add_hdr(32) m7 m(24,19) add_hdr(32) m(31,32) add_hdr(32) m(31,32)
+  4: 5 add_hdr(32) m15 m16 add_hdr(32) m(31,32)
+  5: 8 add_hdr(32) m7 m(24,19) add_hdr(32) m15 m16 add_hdr(32) m(31,32)
+  6: 7 add_hdr(32) m(31,32) add_hdr(32) m15 m16 add_hdr(32) m(31,32)
+  7: 10 add_hdr(32) m7 m(24,19) add_hdr(32) m(31,32) add_hdr(32) m15 m16 add_hdr(32) m(31,32)
+  8: 2 add_hdr(32) m(31,32)
+  9: 5 add_hdr(32) m7 m(24,19) add_hdr(32) m(31,32)
+  10: 3 add_hdr(32) m15 m16
+  11: 6 add_hdr(32) m7 m(24,19) add_hdr(32) m15 m16
+  12: 5 add_hdr(32) m(31,32) add_hdr(32) m15 m16
+  13: 8 add_hdr(32) m7 m(24,19) add_hdr(32) m(31,32) add_hdr(32) m15 m16
+  14: 2 add_hdr(32) m(31,32)
+  15: 5 add_hdr(32) m7 m(24,19) add_hdr(32) m(31,32)
+table int_inst_0407 search_bits 4 res_bits 5 num_act 17 max_prim_acts 8
+  0: 0 
+  1: 2 add_hdr(32) m31
+  2: 4 add_hdr(32) m31 add_hdr(32) m(31,32)
+  3: 6 add_hdr(32) m31 add_hdr(32) m31 add_hdr(32) m(31,32)
+  4: 4 add_hdr(32) m(31,9) add_hdr(32) m(31,32)
+  5: 6 add_hdr(32) m31 add_hdr(32) m(31,9) add_hdr(32) m(31,32)
+  6: 6 add_hdr(32) m31 add_hdr(32) m(31,9) add_hdr(32) m(31,32)
+  7: 8 add_hdr(32) m31 add_hdr(32) m31 add_hdr(32) m(31,9) add_hdr(32) m(31,32)
+  8: 2 add_hdr(32) m31
+  9: 4 add_hdr(32) m31 add_hdr(32) m31
+  10: 2 add_hdr(32) m(31,9)
+  11: 4 add_hdr(32) m31 add_hdr(32) m(31,9)
+  12: 4 add_hdr(32) m31 add_hdr(32) m(31,9)
+  13: 6 add_hdr(32) m31 add_hdr(32) m31 add_hdr(32) m(31,9)
+  14: 2 add_hdr(32) m(31,32)
+  15: 4 add_hdr(32) m31 add_hdr(32) m(31,32)
+  16: 0 
+table int_inst_0811 search_bits 4 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table int_inst_1215 search_bits 4 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table tunnel_decap_process_outer search_bits 7 res_bits 5 num_act 29 max_prim_acts 7
+  0: 6 cp_hdr(112) cp_hdr(160) rm_hdr(64) rm_hdr(320) rm_hdr(112) rm_hdr(160)
+  1: 6 cp_hdr(112) cp_hdr(320) rm_hdr(64) rm_hdr(160) rm_hdr(112) rm_hdr(320)
+  2: 5 cp_hdr(112) rm_hdr(64) rm_hdr(160) rm_hdr(320) rm_hdr(112)
+  3: 5 cp_hdr(160) rm_hdr(32) rm_hdr(320) rm_hdr(160) m16
+  4: 5 cp_hdr(320) rm_hdr(32) rm_hdr(160) rm_hdr(320) m16
+  5: 4 m16 rm_hdr(32) rm_hdr(160) rm_hdr(320)
+  6: 4 cp_hdr(160) rm_hdr(320) rm_hdr(160) m16
+  7: 4 cp_hdr(320) rm_hdr(160) rm_hdr(320) m16
+  8: 5 rm_hdr(32) cp_hdr(112) cp_hdr(160) rm_hdr(112) rm_hdr(160)
+  9: 6 rm_hdr(32) rm_hdr(32) cp_hdr(112) cp_hdr(160) rm_hdr(112) rm_hdr(160)
+  10: 7 rm_hdr(32) rm_hdr(32) rm_hdr(32) cp_hdr(112) cp_hdr(160) rm_hdr(112) rm_hdr(160)
+  11: 5 rm_hdr(32) cp_hdr(112) cp_hdr(320) rm_hdr(112) rm_hdr(320)
+  12: 6 rm_hdr(32) rm_hdr(32) cp_hdr(112) cp_hdr(320) rm_hdr(112) rm_hdr(320)
+  13: 7 rm_hdr(32) rm_hdr(32) rm_hdr(32) cp_hdr(112) cp_hdr(320) rm_hdr(112) rm_hdr(320)
+  14: 3 rm_hdr(32) cp_hdr(112) rm_hdr(112)
+  15: 4 rm_hdr(32) rm_hdr(32) cp_hdr(112) rm_hdr(112)
+  16: 5 rm_hdr(32) rm_hdr(32) rm_hdr(32) cp_hdr(112) rm_hdr(112)
+  17: 4 rm_hdr(32) cp_hdr(160) rm_hdr(160) m16
+  18: 5 rm_hdr(32) rm_hdr(32) cp_hdr(160) rm_hdr(160) m16
+  19: 6 rm_hdr(32) rm_hdr(32) rm_hdr(32) cp_hdr(160) rm_hdr(160) m16
+  20: 4 rm_hdr(32) cp_hdr(320) rm_hdr(320) m16
+  21: 5 rm_hdr(32) rm_hdr(32) cp_hdr(320) rm_hdr(320) m16
+  22: 6 rm_hdr(32) rm_hdr(32) rm_hdr(32) cp_hdr(320) rm_hdr(320) m16
+  23: 7 cp_hdr(112) cp_hdr(160) rm_hdr(32) rm_hdr(32) rm_hdr(320) rm_hdr(112) rm_hdr(160)
+  24: 7 cp_hdr(112) cp_hdr(320) rm_hdr(32) rm_hdr(32) rm_hdr(160) rm_hdr(112) rm_hdr(320)
+  25: 6 cp_hdr(112) rm_hdr(32) rm_hdr(32) rm_hdr(160) rm_hdr(320) rm_hdr(112)
+  26: 6 cp_hdr(112) cp_hdr(160) rm_hdr(64) rm_hdr(320) rm_hdr(112) rm_hdr(160)
+  27: 6 cp_hdr(112) cp_hdr(320) rm_hdr(64) rm_hdr(160) rm_hdr(112) rm_hdr(320)
+  28: 5 cp_hdr(112) rm_hdr(64) rm_hdr(160) rm_hdr(320) rm_hdr(112)
+table int_bos search_bits 24 res_bits 4 num_act 9 max_prim_acts 1
+  0: 1 m1
+  1: 1 m1
+  2: 1 m1
+  3: 1 m1
+  4: 1 m1
+  5: 1 m1
+  6: 1 m1
+  7: 1 m1
+  8: 0 
+table int_meta_header_update search_bits 8 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 m1
+  1: 1 add_fld(8)
+table rewrite search_bits 16 res_bits 106 num_act 9 max_prim_acts 7
+  0: 0 
+  1: 3 m1 m16 m16
+  2: 5 m1 m16 m16 m14 m5
+  3: 5 m1 m48 m16 m16 m8
+  4: 6 m1 m48 m16 m16 m14 m5
+  5: 5 m1 m16 m14 m4 m5
+  6: 6 m1 m16 m48 m14 m4 m5
+  7: 6 m1 m16 m20 m14 m4 m5
+  8: 7 m1 m16 m20 m48 m14 m4 m5
+table rewrite_multicast search_bits 14 res_bits 2 num_act 3 max_prim_acts 1
+  0: 0 
+  1: 1 mmsk(48,32,48)
+  2: 0 
+table egress_bd_map search_bits 16 res_bits 29 num_act 2 max_prim_acts 3
+  0: 0 
+  1: 3 m9 m2 m16
+table egress_bd_stats search_bits 19 res_bits 1 num_act 1 max_prim_acts 0
+  0: 0 
+table egress_vni search_bits 21 res_bits 26 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m24
+table l3_rewrite search_bits 15 res_bits 3 num_act 6 max_prim_acts 3
+  0: 3 or(48) add_fld(8) m8
+  1: 3 m48 add_fld(8) m8
+  2: 3 or(48) add_fld(8) m8
+  3: 3 m48 add_fld(8) m8
+  4: 2 m48 add_fld(8)
+  5: 0 
+table mtu search_bits 10 res_bits 18 num_act 3 max_prim_acts 1
+  0: 1 sub(16)
+  1: 1 sub(16)
+  2: 1 m16
+table egress_nat search_bits 14 res_bits 100 num_act 10 max_prim_acts 6
+  0: 0 
+  1: 3 m32 m1 add(16)
+  2: 4 m32 m16 m1 add(16)
+  3: 4 m32 m16 m1 add(16)
+  4: 4 m32 m32 m1 add(16)
+  5: 6 m32 m32 m16 m16 m1 add(16)
+  6: 6 m32 m32 m16 m16 m1 add(16)
+  7: 3 m32 m1 add(16)
+  8: 4 m32 m16 m1 add(16)
+  9: 4 m32 m16 m1 add(16)
+table smac_rewrite search_bits 9 res_bits 49 num_act 1 max_prim_acts 1
+  0: 1 m48
+table egress_l4port_fields search_bits 3 res_bits 3 num_act 4 max_prim_acts 2
+  0: 0 
+  1: 1 m16
+  2: 2 m16 m16
+  3: 2 m16 m16
+table tunnel_encap_process_inner search_bits 5 res_bits 4 num_act 9 max_prim_acts 6
+  0: 6 cp_hdr(160) cp_hdr(32) m16 rm_hdr(32) rm_hdr(160) m8
+  1: 6 cp_hdr(160) cp_hdr(160) m16 rm_hdr(160) rm_hdr(160) m8
+  2: 6 cp_hdr(160) cp_hdr(64) m16 rm_hdr(64) rm_hdr(160) m8
+  3: 4 cp_hdr(160) m16 rm_hdr(160) m8
+  4: 6 cp_hdr(320) cp_hdr(32) add(16) rm_hdr(32) rm_hdr(320) m8
+  5: 6 cp_hdr(320) cp_hdr(160) add(16) rm_hdr(160) rm_hdr(320) m8
+  6: 5 cp_hdr(320) cp_hdr(64) add(16) rm_hdr(320) m8
+  7: 4 cp_hdr(320) add(16) rm_hdr(320) m8
+  8: 1 add(16,32,16)
+table egress_l4_dst_port search_bits 16 res_bits 10 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m8
+table egress_l4_src_port search_bits 16 res_bits 10 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m8
+table tunnel_encap_process_outer search_bits 10 res_bits 19 num_act 20 max_prim_acts 25
+  0: 1 m14
+  1: 23 cp_hdr(112) add_hdr(32) add_hdr(96) m1 m1 m1 m1 m1 m3 m5 m3 m16 m32 m(10,16) m4 m16 add_hdr(160) m8 m8 m4 m4 m16 add(16)
+  2: 25 cp_hdr(112) add_hdr(64) add_hdr(64) m16 m16 m16 m16 m16 add(16) m2 m1 m1 m6 m16 m24 m6 m8 add_hdr(160) m8 m8 m4 m4 m16 add(16) m16
+  3: 10 add_hdr(32) m16 add_hdr(160) m8 m8 m4 m4 m16 add(16) m16
+  4: 8 add_hdr(160) m8 m8 m4 m4 m16 add(16) m16
+  5: 22 cp_hdr(112) add_hdr(32) add_hdr(32) m16 m3 m5 m3 m1 m1 m1 m1 m1 m24 mmsk(8,16,8) add_hdr(160) m8 m8 m4 m4 m16 add(16) m16
+  6: 21 cp_hdr(112) add_hdr(64) add_hdr(64) m16 m16 m16 m16 m16 add(16) m8 m24 m24 m8 add_hdr(160) m8 m8 m4 m4 m16 add(16) m16
+  7: 23 cp_hdr(112) add_hdr(32) add_hdr(96) m1 m1 m1 m1 m1 m3 m5 m3 m16 m32 m(10,16) m4 m16 add_hdr(320) m4 m8 m8 m8 m20 add(16)
+  8: 25 cp_hdr(112) add_hdr(64) add_hdr(64) m16 m16 m16 m16 m16 add(16) m2 m1 m1 m6 m16 m24 m6 m8 add_hdr(320) m4 m8 m8 m8 m20 add(16) m16
+  9: 10 add_hdr(32) m16 add_hdr(320) m4 m8 m8 m8 m20 add(16) m16
+  10: 8 add_hdr(320) m4 m8 m8 m8 m20 m16 m16
+  11: 22 cp_hdr(112) add_hdr(32) add_hdr(32) m16 m3 m5 m3 m1 m1 m1 m1 m1 m24 mmsk(8,16,8) add_hdr(320) m4 m8 m8 m8 m20 add(16) m16
+  12: 21 cp_hdr(112) add_hdr(64) add_hdr(64) m16 m16 m16 m16 m16 add(16) m8 m24 m24 m8 add_hdr(320) m4 m8 m8 m8 m20 add(16) m16
+  13: 3 cp_hdr(112) push(4,1) m16
+  14: 3 cp_hdr(112) push(4,2) m16
+  15: 3 cp_hdr(112) push(4,3) m16
+  16: 2 push(4,1) m16
+  17: 2 push(4,2) m16
+  18: 2 push(4,3) m16
+  19: 0 
+table int_outer_encap search_bits 8 res_bits 2 num_act 3 max_prim_acts 7
+  0: 7 add_hdr(32) m8 m8 m8 m8 add_fld(16) add_fld(16)
+  1: 3 add_fld(16) add_fld(16) add_fld(8)
+  2: 0 
+table tunnel_mtu search_bits 14 res_bits 18 num_act 2 max_prim_acts 1
+  0: 1 sub(16)
+  1: 1 m16
+table tunnel_rewrite search_bits 14 res_bits 120 num_act 8 max_prim_acts 18
+  0: 13 add_hdr(40) m2 m2 m1 m3 add_hdr(88) m(16,9) m16 m16 m16 add_hdr(16) m16 m16
+  1: 18 add_hdr(40) m2 m2 m1 m3 m8 m16 m16 m16 add_hdr(56) m1 m1 m1 m5 m16 add_hdr(16) m16 m16
+  2: 16 add_hdr(40) m2 m2 m1 m3 m8 m16 add_hdr(24) m1 m1 m1 m5 m16 add_hdr(16) m16 m16
+  3: 0 
+  4: 6 m20 m3 m1 m8 m9 m14
+  5: 10 m20 m3 m8 m1 m20 m3 m8 m1 m9 m14
+  6: 14 m20 m3 m8 m1 m20 m3 m8 m1 m20 m3 m8 m1 m9 m14
+  7: 5 m16 m9 m14 m9 m14
+table egress_filter search_bits 0 res_bits 0 num_act 1 max_prim_acts 3
+  0: 3 xor(16) xor(16) xor(16)
+table tunnel_dmac_rewrite search_bits 14 res_bits 50 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m48
+table tunnel_dst_rewrite search_bits 14 res_bits 130 num_act 3 max_prim_acts 1
+  0: 0 
+  1: 1 m32
+  2: 1 m128
+table tunnel_smac_rewrite search_bits 9 res_bits 50 num_act 2 max_prim_acts 1
+  0: 0 
+  1: 1 m48
+table tunnel_src_rewrite search_bits 9 res_bits 130 num_act 3 max_prim_acts 1
+  0: 0 
+  1: 1 m32
+  2: 1 m128
+table egress_filter_drop search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 drop
+table egress_ip_acl search_bits 120 res_bits 18 num_act 3 max_prim_acts 2
+  0: 2 m1 m16
+  1: 1 m16
+  2: 0 
+table egress_ipv6_acl search_bits 312 res_bits 18 num_act 3 max_prim_acts 2
+  0: 2 m1 m16
+  1: 1 m16
+  2: 0 
+table egress_mac_acl search_bits 144 res_bits 18 num_act 3 max_prim_acts 2
+  0: 2 m1 m16
+  1: 1 m16
+  2: 0 
+table egress_vlan_xlate search_bits 32 res_bits 26 num_act 3 max_prim_acts 7
+  0: 7 add_hdr(32) add_hdr(32) m16 m12 m16 m12 m16
+  1: 4 add_hdr(32) m16 m12 m16
+  2: 0 
+table egress_system_acl search_bits 43 res_bits 36 num_act 8 max_prim_acts 3
+  0: 1 drop
+  1: 1 clone_e2e(16,16,16,9)
+  2: 2 m16 clone_e2e(16,16,16,9)
+  3: 2 m(16,32) clone_e2e(32,16)
+  4: 3 m(16,32) clone_e2e(32,16) drop
+  5: 2 clone_e2e(16,16,16,9) drop
+  6: 3 m16 clone_e2e(16,16,16,9) drop
+  7: 0 
+
+egress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+ 542  59.6% m         modify_field
+ 125  13.8% rm_hdr    remove_header
+ 109  12.0% add_hdr   add_header
+  68   7.5% cp_hdr    copy_header
+  29   3.2% add       add
+  11   1.2% add_fld   add_to_field
+   6   0.7% push      push
+   6   0.7% clone_e2e clone_egress_pkt_to_egress
+   4   0.4% sub       subtract
+   4   0.4% drop      drop
+   2   0.2% xor       bit_xor
+   2   0.2% or        bit_or
+   1   0.1% sh_lf     shift_left
+
+Number of egress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   0      3      3   7.3%
+   1     15     18  43.9%
+   2      4     22  53.7%
+   3      5     27  65.9%
+   4      2     29  70.7%
+   6      2     31  75.6%
+   7      4     35  85.4%
+   8      2     37  90.2%
+  10      1     38  92.7%
+  18      2     40  97.6%
+  25      1     41 100.0%
+
+egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   3  75.0% xor       bit_xor
+   1  25.0% drop      drop
+
+Number of egress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   1      1      1  50.0%
+   3      1      2 100.0%
+
+ingress plus egress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+1226  72.7% m         modify_field
+ 160   9.5% rm_hdr    remove_header
+ 109   6.5% add_hdr   add_header
+  68   4.0% cp_hdr    copy_header
+  30   1.8% add       add
+  20   1.2% xor       bit_xor
+  14   0.8% add_fld   add_to_field
+  11   0.7% drop      drop
+  10   0.6% clone_i2e clone_ingress_pkt_to_egress
+   6   0.4% sub       subtract
+   6   0.4% push      push
+   6   0.4% clone_e2e clone_egress_pkt_to_egress
+   6   0.4% or        bit_or
+   5   0.3% m_hash    modify_field_with_hash_based_offset
+   5   0.3% meter     execute_meter
+   2   0.1% sh_lf     shift_left
+   1   0.1% m_rng     modify_field_rng_uniform
+   1   0.1% digest    generate_digest
+   1   0.1% count     count
+
+ingress plus egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   3  42.9% count     count
+   3  42.9% xor       bit_xor
+   1  14.3% drop      drop
+
+ingress plus egress action count
+# of primitive actions used in actions, from most to least often used:
+1226  72.4% m         modify_field
+ 160   9.4% rm_hdr    remove_header
+ 109   6.4% add_hdr   add_header
+  68   4.0% cp_hdr    copy_header
+  30   1.8% add       add
+  23   1.4% xor       bit_xor
+  14   0.8% add_fld   add_to_field
+  12   0.7% drop      drop
+  10   0.6% clone_i2e clone_ingress_pkt_to_egress
+   6   0.4% sub       subtract
+   6   0.4% push      push
+   6   0.4% clone_e2e clone_egress_pkt_to_egress
+   6   0.4% or        bit_or
+   5   0.3% m_hash    modify_field_with_hash_based_offset
+   5   0.3% meter     execute_meter
+   4   0.2% count     count
+   2   0.1% sh_lf     shift_left
+   1   0.1% m_rng     modify_field_rng_uniform
+   1   0.1% digest    generate_digest
 
