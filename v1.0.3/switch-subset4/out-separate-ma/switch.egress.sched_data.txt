@@ -1,0 +1,8 @@
+nodes = \
+{'_condition_2': {'num_fields': 0, 'type': 'condition'},
+ 'egress_system_acl_ACTION': {'num_fields': 3, 'type': 'action'},
+ 'egress_system_acl_MATCH': {'key_width': 43, 'type': 'match'}}
+
+edges = \
+{('_condition_2', 'egress_system_acl_ACTION'): {'delay': 0},
+ ('egress_system_acl_MATCH', 'egress_system_acl_ACTION'): {'delay': 9}}

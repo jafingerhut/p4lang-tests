@@ -1,0 +1,736 @@
+parsing successful
+Semantic warning: Parameter fabric_mgid of action set_fabric_multicast defined in file /Users/jafinger/Documents/p4-docs/p4lang-tests/v1.0.3/switch-subset4/out-separate-ma/../fabric.p4 at line 211 is not being used and will be removed
+Semantic warning: header type 'ieee802_1ah_t' is not reachable and will be removed
+Semantic warning: header type 'ipsec_esp_t' is not reachable and will be removed
+Semantic warning: header type 'ipsec_ah_t' is not reachable and will be removed
+Semantic warning: header type 'arp_rarp_t' is not reachable and will be removed
+Semantic warning: header type 'arp_rarp_ipv4_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_A_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_B_t' is not reachable and will be removed
+Semantic warning: header type 'genv_opt_C_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_sample_cpu_t' is not reachable and will be removed
+Semantic warning: parser function 'parse_roce' is not reachable and will be removed
+Semantic warning: parser function 'parse_fcoe' is not reachable and will be removed
+Semantic warning: parser function 'parse_vpls' is not reachable and will be removed
+Semantic warning: parser function 'parse_pw' is not reachable and will be removed
+Semantic warning: parser function 'parse_ipv6_in_ip' is not reachable and will be removed
+Semantic warning: parser function 'parse_udp_v6' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre_v6' is not reachable and will be removed
+Semantic warning: parser function 'parse_roce_v2' is not reachable and will be removed
+Semantic warning: parser function 'parse_sctp' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre' is not reachable and will be removed
+Semantic warning: header instance 'outer_udp' is not reachable and will be removed
+Semantic warning: header instance 'eompls' is not reachable and will be removed
+Semantic warning: parser function 'parse_vxlan' is not reachable and will be removed
+Semantic warning: parser function 'parse_geneve' is not reachable and will be removed
+Semantic warning: parser function 'parse_nsh' is not reachable and will be removed
+Semantic warning: parser function 'parse_lisp' is not reachable and will be removed
+Semantic warning: parser function 'parse_inner_sctp' is not reachable and will be removed
+Semantic warning: parser function 'parse_trill' is not reachable and will be removed
+Semantic warning: parser function 'parse_vntag' is not reachable and will be removed
+Semantic warning: parser function 'parse_bfd' is not reachable and will be removed
+Semantic warning: header instance 'sflow_sample' is not reachable and will be removed
+Semantic warning: header instance 'sflow_raw_hdr_record' is not reachable and will be removed
+Semantic warning: header instance 'global_config_metadata' is not reachable and will be removed
+Semantic warning: control function 'process_global_params' is not reachable and will be removed
+Semantic warning: control function 'process_validate_outer_header' is not reachable and will be removed
+Semantic warning: control function 'process_ingress_port_mapping' is not reachable and will be removed
+Semantic warning: control function 'process_port_vlan_mapping' is not reachable and will be removed
+Semantic warning: control function 'process_ingress_bd_stats' is not reachable and will be removed
+Semantic warning: control function 'process_lag' is not reachable and will be removed
+Semantic warning: table 'egress_port_mapping' is not reachable and will be removed
+Semantic warning: control function 'process_vlan_xlate' is not reachable and will be removed
+Semantic warning: control function 'process_spanning_tree' is not reachable and will be removed
+Semantic warning: table 'smac' is not reachable and will be removed
+Semantic warning: control function 'process_mac' is not reachable and will be removed
+Semantic warning: control function 'process_mac_learning' is not reachable and will be removed
+Semantic warning: control function 'process_validate_packet' is not reachable and will be removed
+Semantic warning: control function 'process_egress_bd_stats' is not reachable and will be removed
+Semantic warning: control function 'process_egress_bd' is not reachable and will be removed
+Semantic warning: control function 'process_vlan_decap' is not reachable and will be removed
+Semantic warning: control function 'process_urpf_bd' is not reachable and will be removed
+Semantic warning: control function 'process_mac_rewrite' is not reachable and will be removed
+Semantic warning: control function 'process_mtu' is not reachable and will be removed
+Semantic warning: table 'ipv4_fib' is not reachable and will be removed
+Semantic warning: control function 'process_ipv4_fib' is not reachable and will be removed
+Semantic warning: control function 'process_ipv4_urpf' is not reachable and will be removed
+Semantic warning: table 'ipv6_fib' is not reachable and will be removed
+Semantic warning: control function 'process_ipv6_fib' is not reachable and will be removed
+Semantic warning: control function 'process_ipv6_urpf' is not reachable and will be removed
+Semantic warning: control function 'process_ipv4_vtep' is not reachable and will be removed
+Semantic warning: control function 'process_ipv6_vtep' is not reachable and will be removed
+Semantic warning: table 'tunnel_lookup_miss' is not reachable and will be removed
+Semantic warning: control function 'process_tunnel' is not reachable and will be removed
+Semantic warning: control function 'process_mpls' is not reachable and will be removed
+Semantic warning: control function 'process_tunnel_decap' is not reachable and will be removed
+Semantic warning: table 'tunnel_encap_process_outer' is not reachable and will be removed
+Semantic warning: table 'tunnel_rewrite' is not reachable and will be removed
+Semantic warning: table 'tunnel_mtu' is not reachable and will be removed
+Semantic warning: table 'tunnel_src_rewrite' is not reachable and will be removed
+Semantic warning: table 'tunnel_dst_rewrite' is not reachable and will be removed
+Semantic warning: table 'tunnel_smac_rewrite' is not reachable and will be removed
+Semantic warning: table 'tunnel_dmac_rewrite' is not reachable and will be removed
+Semantic warning: control function 'process_tunnel_encap' is not reachable and will be removed
+Semantic warning: control function 'process_egress_l4port' is not reachable and will be removed
+Semantic warning: control function 'process_ingress_l4port' is not reachable and will be removed
+Semantic warning: control function 'process_mac_acl' is not reachable and will be removed
+Semantic warning: control function 'process_ip_acl' is not reachable and will be removed
+Semantic warning: control function 'process_ipv4_racl' is not reachable and will be removed
+Semantic warning: control function 'process_ipv6_racl' is not reachable and will be removed
+Semantic warning: control function 'process_ingress_acl_stats' is not reachable and will be removed
+Semantic warning: control function 'process_system_acl' is not reachable and will be removed
+Semantic warning: control function 'process_egress_acl' is not reachable and will be removed
+Semantic warning: control function 'process_ingress_nat' is not reachable and will be removed
+Semantic warning: control function 'process_egress_nat' is not reachable and will be removed
+Semantic warning: control function 'process_outer_multicast_rpf' is not reachable and will be removed
+Semantic warning: control function 'process_outer_ipv4_multicast' is not reachable and will be removed
+Semantic warning: control function 'process_outer_ipv6_multicast' is not reachable and will be removed
+Semantic warning: control function 'process_outer_multicast' is not reachable and will be removed
+Semantic warning: table 'multicast_rpf' is not reachable and will be removed
+Semantic warning: table 'ipv4_multicast_bridge_star_g' is not reachable and will be removed
+Semantic warning: counter 'ipv4_multicast_route_star_g_stats' is not reachable and will be removed
+Semantic warning: table 'ipv4_multicast_route_star_g' is not reachable and will be removed
+Semantic warning: table 'ipv6_multicast_bridge_star_g' is not reachable and will be removed
+Semantic warning: counter 'ipv6_multicast_route_star_g_stats' is not reachable and will be removed
+Semantic warning: table 'ipv6_multicast_route_star_g' is not reachable and will be removed
+Semantic warning: control function 'process_multicast' is not reachable and will be removed
+Semantic warning: control function 'process_multicast_flooding' is not reachable and will be removed
+Semantic warning: control function 'process_replication' is not reachable and will be removed
+Semantic warning: control function 'process_fwd_results' is not reachable and will be removed
+Semantic warning: control function 'process_nexthop' is not reachable and will be removed
+Semantic warning: control function 'process_rewrite' is not reachable and will be removed
+Semantic warning: control function 'process_storm_control' is not reachable and will be removed
+Semantic warning: control function 'process_storm_control_stats' is not reachable and will be removed
+Semantic warning: control function 'process_ip_sourceguard' is not reachable and will be removed
+Semantic warning: control function 'process_fabric_lag' is not reachable and will be removed
+Semantic warning: control function 'process_egress_filter' is not reachable and will be removed
+Semantic warning: control function 'process_mirroring' is not reachable and will be removed
+Semantic warning: control function 'process_int_endpoint' is not reachable and will be removed
+Semantic warning: control function 'process_int_insertion' is not reachable and will be removed
+Semantic warning: control function 'process_int_outer_encap' is not reachable and will be removed
+Semantic warning: control function 'process_hashes' is not reachable and will be removed
+Semantic warning: control function 'process_meter_index' is not reachable and will be removed
+Semantic warning: control function 'process_meter_action' is not reachable and will be removed
+Semantic warning: control function 'process_ingress_sflow' is not reachable and will be removed
+Semantic warning: control function 'process_ingress_qos_map' is not reachable and will be removed
+Semantic warning: control function 'process_traffic_class' is not reachable and will be removed
+Semantic warning: control function 'process_egress_qos_map' is not reachable and will be removed
+Semantic warning: header type 'eompls_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_sample_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_raw_hdr_record_t' is not reachable and will be removed
+Semantic warning: header instance 'roce' is not reachable and will be removed
+Semantic warning: header instance 'fcoe' is not reachable and will be removed
+Semantic warning: header instance 'roce_v2' is not reachable and will be removed
+Semantic warning: header instance 'sctp' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre_ipv4' is not reachable and will be removed
+Semantic warning: parser function 'parse_gre_ipv6' is not reachable and will be removed
+Semantic warning: parser function 'parse_nvgre' is not reachable and will be removed
+Semantic warning: parser function 'parse_erspan_t3' is not reachable and will be removed
+Semantic warning: header instance 'vxlan' is not reachable and will be removed
+Semantic warning: header instance 'genv' is not reachable and will be removed
+Semantic warning: header instance 'nsh' is not reachable and will be removed
+Semantic warning: header instance 'nsh_context' is not reachable and will be removed
+Semantic warning: header instance 'lisp' is not reachable and will be removed
+Semantic warning: header instance 'inner_sctp' is not reachable and will be removed
+Semantic warning: header instance 'trill' is not reachable and will be removed
+Semantic warning: header instance 'vntag' is not reachable and will be removed
+Semantic warning: header instance 'bfd' is not reachable and will be removed
+Semantic warning: parser function 'parse_set_prio_max' is not reachable and will be removed
+Semantic warning: header type 'global_config_metadata_t' is not reachable and will be removed
+Semantic warning: table 'switch_config_params' is not reachable and will be removed
+Semantic warning: table 'ingress_port_mapping' is not reachable and will be removed
+Semantic warning: table 'ingress_port_properties' is not reachable and will be removed
+Semantic warning: table 'port_vlan_mapping' is not reachable and will be removed
+Semantic warning: table 'ingress_bd_stats' is not reachable and will be removed
+Semantic warning: table 'lag_group' is not reachable and will be removed
+Semantic warning: action 'egress_port_type_normal' is not reachable and will be removed
+Semantic warning: action 'egress_port_type_fabric' is not reachable and will be removed
+Semantic warning: action 'egress_port_type_cpu' is not reachable and will be removed
+Semantic warning: table 'egress_vlan_xlate' is not reachable and will be removed
+Semantic warning: table 'spanning_tree' is not reachable and will be removed
+Semantic warning: action 'smac_miss' is not reachable and will be removed
+Semantic warning: action 'smac_hit' is not reachable and will be removed
+Semantic warning: table 'learn_notify' is not reachable and will be removed
+Semantic warning: table 'validate_packet' is not reachable and will be removed
+Semantic warning: counter 'egress_bd_stats' is not reachable and will be removed
+Semantic warning: table 'egress_bd_stats' is not reachable and will be removed
+Semantic warning: table 'egress_bd_map' is not reachable and will be removed
+Semantic warning: table 'vlan_decap' is not reachable and will be removed
+Semantic warning: table 'urpf_bd' is not reachable and will be removed
+Semantic warning: table 'smac_rewrite' is not reachable and will be removed
+Semantic warning: table 'l3_rewrite' is not reachable and will be removed
+Semantic warning: table 'mtu' is not reachable and will be removed
+Semantic warning: control function 'validate_outer_ipv4_header' is not reachable and will be removed
+Semantic warning: table 'ipv4_urpf_lpm' is not reachable and will be removed
+Semantic warning: table 'ipv4_urpf' is not reachable and will be removed
+Semantic warning: control function 'validate_outer_ipv6_header' is not reachable and will be removed
+Semantic warning: table 'ipv6_fib_lpm' is not reachable and will be removed
+Semantic warning: table 'ipv6_urpf_lpm' is not reachable and will be removed
+Semantic warning: table 'ipv6_urpf' is not reachable and will be removed
+Semantic warning: table 'adjust_lkp_fields' is not reachable and will be removed
+Semantic warning: control function 'validate_mpls_header' is not reachable and will be removed
+Semantic warning: action 'ipv4_erspan_t3_rewrite' is not reachable and will be removed
+Semantic warning: action 'ipv6_erspan_t3_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_tunnel_rewrite_details' is not reachable and will be removed
+Semantic warning: action 'set_mpls_rewrite_push1' is not reachable and will be removed
+Semantic warning: action 'set_mpls_rewrite_push2' is not reachable and will be removed
+Semantic warning: action 'set_mpls_rewrite_push3' is not reachable and will be removed
+Semantic warning: action 'tunnel_mtu_check' is not reachable and will be removed
+Semantic warning: action 'tunnel_mtu_miss' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_ipv4_src' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_ipv6_src' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_ipv4_dst' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_ipv6_dst' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_smac' is not reachable and will be removed
+Semantic warning: action 'rewrite_tunnel_dmac' is not reachable and will be removed
+Semantic warning: table 'egress_l4port_fields' is not reachable and will be removed
+Semantic warning: table 'egress_l4_src_port' is not reachable and will be removed
+Semantic warning: table 'egress_l4_dst_port' is not reachable and will be removed
+Semantic warning: table 'ingress_l4_src_port' is not reachable and will be removed
+Semantic warning: table 'ingress_l4_dst_port' is not reachable and will be removed
+Semantic warning: table 'mac_acl' is not reachable and will be removed
+Semantic warning: table 'ip_acl' is not reachable and will be removed
+Semantic warning: table 'ipv6_acl' is not reachable and will be removed
+Semantic warning: table 'ipv4_racl' is not reachable and will be removed
+Semantic warning: table 'ipv6_racl' is not reachable and will be removed
+Semantic warning: table 'acl_stats' is not reachable and will be removed
+Semantic warning: table 'system_acl' is not reachable and will be removed
+Semantic warning: table 'drop_stats' is not reachable and will be removed
+Semantic warning: table 'egress_mac_acl' is not reachable and will be removed
+Semantic warning: table 'egress_ip_acl' is not reachable and will be removed
+Semantic warning: table 'egress_ipv6_acl' is not reachable and will be removed
+Semantic warning: table 'nat_src' is not reachable and will be removed
+Semantic warning: table 'nat_dst' is not reachable and will be removed
+Semantic warning: table 'nat_twice' is not reachable and will be removed
+Semantic warning: table 'nat_flow' is not reachable and will be removed
+Semantic warning: table 'egress_nat' is not reachable and will be removed
+Semantic warning: action 'multicast_rpf_check_pass' is not reachable and will be removed
+Semantic warning: action 'multicast_rpf_check_fail' is not reachable and will be removed
+Semantic warning: control function 'process_multicast_rpf' is not reachable and will be removed
+Semantic warning: action 'multicast_bridge_star_g_hit' is not reachable and will be removed
+Semantic warning: action 'multicast_route_star_g_miss' is not reachable and will be removed
+Semantic warning: action 'multicast_route_sm_star_g_hit' is not reachable and will be removed
+Semantic warning: action 'multicast_route_bidir_star_g_hit' is not reachable and will be removed
+Semantic warning: control function 'process_ipv4_multicast' is not reachable and will be removed
+Semantic warning: control function 'process_ipv6_multicast' is not reachable and will be removed
+Semantic warning: table 'bd_flood' is not reachable and will be removed
+Semantic warning: table 'rid' is not reachable and will be removed
+Semantic warning: table 'replica_type' is not reachable and will be removed
+Semantic warning: table 'ecmp_group' is not reachable and will be removed
+Semantic warning: table 'nexthop' is not reachable and will be removed
+Semantic warning: table 'rewrite' is not reachable and will be removed
+Semantic warning: table 'rewrite_multicast' is not reachable and will be removed
+Semantic warning: counter 'storm_control_stats' is not reachable and will be removed
+Semantic warning: table 'storm_control_stats' is not reachable and will be removed
+Semantic warning: table 'storm_control' is not reachable and will be removed
+Semantic warning: table 'ipsg_permit_special' is not reachable and will be removed
+Semantic warning: table 'ipsg' is not reachable and will be removed
+Semantic warning: control function 'process_ingress_fabric' is not reachable and will be removed
+Semantic warning: table 'fabric_lag' is not reachable and will be removed
+Semantic warning: action 'cpu_rx_rewrite' is not reachable and will be removed
+Semantic warning: action 'fabric_rewrite' is not reachable and will be removed
+Semantic warning: action 'fabric_unicast_rewrite' is not reachable and will be removed
+Semantic warning: action 'fabric_multicast_rewrite' is not reachable and will be removed
+Semantic warning: table 'egress_filter_drop' is not reachable and will be removed
+Semantic warning: table 'egress_filter' is not reachable and will be removed
+Semantic warning: table 'mirror' is not reachable and will be removed
+Semantic warning: table 'int_inst_0003' is not reachable and will be removed
+Semantic warning: table 'int_inst_0407' is not reachable and will be removed
+Semantic warning: table 'int_inst_0811' is not reachable and will be removed
+Semantic warning: table 'int_inst_1215' is not reachable and will be removed
+Semantic warning: table 'int_bos' is not reachable and will be removed
+Semantic warning: table 'int_meta_header_update' is not reachable and will be removed
+Semantic warning: table 'int_source' is not reachable and will be removed
+Semantic warning: table 'int_terminate' is not reachable and will be removed
+Semantic warning: table 'int_sink_update_outer' is not reachable and will be removed
+Semantic warning: table 'int_insert' is not reachable and will be removed
+Semantic warning: table 'int_outer_encap' is not reachable and will be removed
+Semantic warning: table 'compute_ipv4_hashes' is not reachable and will be removed
+Semantic warning: table 'compute_ipv6_hashes' is not reachable and will be removed
+Semantic warning: table 'compute_non_ip_hashes' is not reachable and will be removed
+Semantic warning: table 'compute_other_hashes' is not reachable and will be removed
+Semantic warning: counter 'meter_stats' is not reachable and will be removed
+Semantic warning: table 'meter_action' is not reachable and will be removed
+Semantic warning: meter 'meter_index' is not reachable and will be removed
+Semantic warning: table 'meter_index' is not reachable and will be removed
+Semantic warning: counter 'sflow_ingress_session_pkt_counter' is not reachable and will be removed
+Semantic warning: table 'sflow_ingress' is not reachable and will be removed
+Semantic warning: table 'sflow_ing_take_sample' is not reachable and will be removed
+Semantic warning: table 'ingress_qos_map_dscp' is not reachable and will be removed
+Semantic warning: table 'ingress_qos_map_pcp' is not reachable and will be removed
+Semantic warning: table 'traffic_class' is not reachable and will be removed
+Semantic warning: table 'egress_qos_map' is not reachable and will be removed
+Semantic warning: header type 'roce_header_t' is not reachable and will be removed
+Semantic warning: header type 'roce_v2_header_t' is not reachable and will be removed
+Semantic warning: header type 'fcoe_header_t' is not reachable and will be removed
+Semantic warning: header type 'sctp_t' is not reachable and will be removed
+Semantic warning: header type 'vxlan_t' is not reachable and will be removed
+Semantic warning: header type 'nsh_t' is not reachable and will be removed
+Semantic warning: header type 'nsh_context_t' is not reachable and will be removed
+Semantic warning: header type 'genv_t' is not reachable and will be removed
+Semantic warning: header type 'trill_t' is not reachable and will be removed
+Semantic warning: header type 'lisp_t' is not reachable and will be removed
+Semantic warning: header type 'vntag_t' is not reachable and will be removed
+Semantic warning: header type 'bfd_t' is not reachable and will be removed
+Semantic warning: header instance 'nvgre' is not reachable and will be removed
+Semantic warning: action 'set_config_parameters' is not reachable and will be removed
+Semantic warning: action 'set_ifindex' is not reachable and will be removed
+Semantic warning: action 'set_ingress_port_properties' is not reachable and will be removed
+Semantic warning: action_profile 'bd_action_profile' is not reachable and will be removed
+Semantic warning: action 'update_ingress_bd_stats' is not reachable and will be removed
+Semantic warning: action_profile 'lag_action_profile' is not reachable and will be removed
+Semantic warning: action 'set_egress_packet_vlan_double_tagged' is not reachable and will be removed
+Semantic warning: action 'set_egress_packet_vlan_tagged' is not reachable and will be removed
+Semantic warning: action 'set_egress_packet_vlan_untagged' is not reachable and will be removed
+Semantic warning: action 'set_stp_state' is not reachable and will be removed
+Semantic warning: action 'generate_learn_notify' is not reachable and will be removed
+Semantic warning: action 'set_unicast' is not reachable and will be removed
+Semantic warning: action 'set_unicast_and_ipv6_src_is_link_local' is not reachable and will be removed
+Semantic warning: action 'set_multicast' is not reachable and will be removed
+Semantic warning: action 'set_multicast_and_ipv6_src_is_link_local' is not reachable and will be removed
+Semantic warning: action 'set_broadcast' is not reachable and will be removed
+Semantic warning: action 'set_malformed_packet' is not reachable and will be removed
+Semantic warning: action 'set_egress_bd_properties' is not reachable and will be removed
+Semantic warning: action 'remove_vlan_single_tagged' is not reachable and will be removed
+Semantic warning: action 'remove_vlan_double_tagged' is not reachable and will be removed
+Semantic warning: action 'urpf_bd_miss' is not reachable and will be removed
+Semantic warning: action 'urpf_miss' is not reachable and will be removed
+Semantic warning: action 'rewrite_smac' is not reachable and will be removed
+Semantic warning: action 'ipv4_unicast_rewrite' is not reachable and will be removed
+Semantic warning: action 'ipv4_multicast_rewrite' is not reachable and will be removed
+Semantic warning: action 'ipv6_unicast_rewrite' is not reachable and will be removed
+Semantic warning: action 'ipv6_multicast_rewrite' is not reachable and will be removed
+Semantic warning: action 'mpls_rewrite' is not reachable and will be removed
+Semantic warning: action 'ipv4_mtu_check' is not reachable and will be removed
+Semantic warning: action 'ipv6_mtu_check' is not reachable and will be removed
+Semantic warning: action 'mtu_miss' is not reachable and will be removed
+Semantic warning: action 'ipv4_urpf_hit' is not reachable and will be removed
+Semantic warning: table 'validate_outer_ipv6_packet' is not reachable and will be removed
+Semantic warning: action 'ipv6_urpf_hit' is not reachable and will be removed
+Semantic warning: action 'ipv4_lkp' is not reachable and will be removed
+Semantic warning: action 'ipv6_lkp' is not reachable and will be removed
+Semantic warning: action 'non_ip_lkp' is not reachable and will be removed
+Semantic warning: action 'f_insert_ipv4_header' is not reachable and will be removed
+Semantic warning: action 'f_insert_ipv6_header' is not reachable and will be removed
+Semantic warning: action 'f_insert_erspan_t3_header' is not reachable and will be removed
+Semantic warning: action 'set_egress_tcp_port_fields' is not reachable and will be removed
+Semantic warning: action 'set_egress_udp_port_fields' is not reachable and will be removed
+Semantic warning: action 'set_egress_icmp_port_fields' is not reachable and will be removed
+Semantic warning: action 'set_egress_src_port_range_id' is not reachable and will be removed
+Semantic warning: action 'set_egress_dst_port_range_id' is not reachable and will be removed
+Semantic warning: action 'set_ingress_src_port_range_id' is not reachable and will be removed
+Semantic warning: action 'set_ingress_dst_port_range_id' is not reachable and will be removed
+Semantic warning: action 'acl_deny' is not reachable and will be removed
+Semantic warning: action 'acl_permit' is not reachable and will be removed
+Semantic warning: action 'acl_mirror' is not reachable and will be removed
+Semantic warning: action 'acl_redirect_nexthop' is not reachable and will be removed
+Semantic warning: action 'acl_redirect_ecmp' is not reachable and will be removed
+Semantic warning: action 'racl_deny' is not reachable and will be removed
+Semantic warning: action 'racl_permit' is not reachable and will be removed
+Semantic warning: action 'racl_redirect_nexthop' is not reachable and will be removed
+Semantic warning: action 'racl_redirect_ecmp' is not reachable and will be removed
+Semantic warning: action 'acl_stats_update' is not reachable and will be removed
+Semantic warning: action 'negative_mirror' is not reachable and will be removed
+Semantic warning: action 'redirect_to_cpu_with_reason' is not reachable and will be removed
+Semantic warning: action 'redirect_to_cpu' is not reachable and will be removed
+Semantic warning: action 'drop_packet_with_reason' is not reachable and will be removed
+Semantic warning: action 'drop_stats_update' is not reachable and will be removed
+Semantic warning: action 'egress_acl_deny' is not reachable and will be removed
+Semantic warning: action 'egress_acl_permit' is not reachable and will be removed
+Semantic warning: action 'set_src_nat_rewrite_index' is not reachable and will be removed
+Semantic warning: action 'set_dst_nat_nexthop_index' is not reachable and will be removed
+Semantic warning: action 'set_twice_nat_nexthop_index' is not reachable and will be removed
+Semantic warning: action 'set_nat_src_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_nat_dst_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_nat_src_dst_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_nat_src_udp_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_nat_dst_udp_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_nat_src_dst_udp_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_nat_src_tcp_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_nat_dst_tcp_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_nat_src_dst_tcp_rewrite' is not reachable and will be removed
+Semantic warning: table 'ipv4_multicast_bridge' is not reachable and will be removed
+Semantic warning: counter 'ipv4_multicast_route_s_g_stats' is not reachable and will be removed
+Semantic warning: table 'ipv4_multicast_route' is not reachable and will be removed
+Semantic warning: table 'ipv6_multicast_bridge' is not reachable and will be removed
+Semantic warning: counter 'ipv6_multicast_route_s_g_stats' is not reachable and will be removed
+Semantic warning: table 'ipv6_multicast_route' is not reachable and will be removed
+Semantic warning: action 'set_bd_flood_mc_index' is not reachable and will be removed
+Semantic warning: action 'outer_replica_from_rid' is not reachable and will be removed
+Semantic warning: action 'inner_replica_from_rid' is not reachable and will be removed
+Semantic warning: action 'set_replica_copy_bridged' is not reachable and will be removed
+Semantic warning: action_profile 'ecmp_action_profile' is not reachable and will be removed
+Semantic warning: action 'set_nexthop_details_for_post_routed_flood' is not reachable and will be removed
+Semantic warning: action 'set_nexthop_details' is not reachable and will be removed
+Semantic warning: action 'set_l2_rewrite_with_tunnel' is not reachable and will be removed
+Semantic warning: action 'set_l2_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_l3_rewrite_with_tunnel' is not reachable and will be removed
+Semantic warning: action 'set_l3_rewrite' is not reachable and will be removed
+Semantic warning: action 'set_mpls_swap_push_rewrite_l2' is not reachable and will be removed
+Semantic warning: action 'set_mpls_push_rewrite_l2' is not reachable and will be removed
+Semantic warning: action 'set_mpls_swap_push_rewrite_l3' is not reachable and will be removed
+Semantic warning: action 'set_mpls_push_rewrite_l3' is not reachable and will be removed
+Semantic warning: action 'rewrite_ipv4_multicast' is not reachable and will be removed
+Semantic warning: action 'rewrite_ipv6_multicast' is not reachable and will be removed
+Semantic warning: action 'set_storm_control_meter' is not reachable and will be removed
+Semantic warning: action 'ipsg_miss' is not reachable and will be removed
+Semantic warning: table 'fabric_ingress_dst_lkp' is not reachable and will be removed
+Semantic warning: table 'fabric_ingress_src_lkp' is not reachable and will be removed
+Semantic warning: table 'native_packet_over_fabric' is not reachable and will be removed
+Semantic warning: action_profile 'fabric_lag_action_profile' is not reachable and will be removed
+Semantic warning: action 'egress_filter_check' is not reachable and will be removed
+Semantic warning: action 'set_egress_filter_drop' is not reachable and will be removed
+Semantic warning: action 'set_mirror_nhop' is not reachable and will be removed
+Semantic warning: action 'set_mirror_bd' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i0' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i1' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i2' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i3' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i4' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i5' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i6' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i7' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i8' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i9' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i10' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i11' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i12' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i13' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i14' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0003_i15' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i0' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i1' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i2' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i3' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i4' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i5' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i6' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i7' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i8' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i9' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i10' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i11' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i12' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i13' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i14' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0407_i15' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0_bos' is not reachable and will be removed
+Semantic warning: action 'int_set_header_1_bos' is not reachable and will be removed
+Semantic warning: action 'int_set_header_2_bos' is not reachable and will be removed
+Semantic warning: action 'int_set_header_3_bos' is not reachable and will be removed
+Semantic warning: action 'int_set_header_4_bos' is not reachable and will be removed
+Semantic warning: action 'int_set_header_5_bos' is not reachable and will be removed
+Semantic warning: action 'int_set_header_6_bos' is not reachable and will be removed
+Semantic warning: action 'int_set_header_7_bos' is not reachable and will be removed
+Semantic warning: action 'int_set_e_bit' is not reachable and will be removed
+Semantic warning: action 'int_update_total_hop_cnt' is not reachable and will be removed
+Semantic warning: action 'int_set_src' is not reachable and will be removed
+Semantic warning: action 'int_set_no_src' is not reachable and will be removed
+Semantic warning: action 'int_sink_gpe' is not reachable and will be removed
+Semantic warning: action 'int_no_sink' is not reachable and will be removed
+Semantic warning: action 'int_sink_update_vxlan_gpe_v4' is not reachable and will be removed
+Semantic warning: action 'int_transit' is not reachable and will be removed
+Semantic warning: action 'int_reset' is not reachable and will be removed
+Semantic warning: action 'int_src' is not reachable and will be removed
+Semantic warning: action 'int_update_vxlan_gpe_ipv4' is not reachable and will be removed
+Semantic warning: action 'int_add_update_vxlan_gpe_ipv4' is not reachable and will be removed
+Semantic warning: action 'compute_lkp_ipv4_hash' is not reachable and will be removed
+Semantic warning: action 'compute_lkp_ipv6_hash' is not reachable and will be removed
+Semantic warning: action 'compute_lkp_non_ip_hash' is not reachable and will be removed
+Semantic warning: action 'computed_two_hashes' is not reachable and will be removed
+Semantic warning: action 'computed_one_hash' is not reachable and will be removed
+Semantic warning: action 'meter_deny' is not reachable and will be removed
+Semantic warning: action 'meter_permit' is not reachable and will be removed
+Semantic warning: action 'sflow_ing_session_enable' is not reachable and will be removed
+Semantic warning: action 'sflow_ing_pkt_to_cpu' is not reachable and will be removed
+Semantic warning: action 'sflow_pkt_to_cpu' is not reachable and will be removed
+Semantic warning: action 'set_ingress_tc_and_color' is not reachable and will be removed
+Semantic warning: action 'set_ingress_tc' is not reachable and will be removed
+Semantic warning: action 'set_ingress_color' is not reachable and will be removed
+Semantic warning: action 'set_icos' is not reachable and will be removed
+Semantic warning: action 'set_queue' is not reachable and will be removed
+Semantic warning: action 'set_icos_and_queue' is not reachable and will be removed
+Semantic warning: action 'set_mpls_exp_marking' is not reachable and will be removed
+Semantic warning: action 'set_ip_dscp_marking' is not reachable and will be removed
+Semantic warning: action 'set_vlan_pcp_marking' is not reachable and will be removed
+Semantic warning: header type 'nvgre_t' is not reachable and will be removed
+Semantic warning: action 'deflect_on_drop' is not reachable and will be removed
+Semantic warning: action 'set_bd_properties' is not reachable and will be removed
+Semantic warning: action 'port_vlan_mapping_miss' is not reachable and will be removed
+Semantic warning: counter 'ingress_bd_stats' is not reachable and will be removed
+Semantic warning: action_selector 'lag_selector' is not reachable and will be removed
+Semantic warning: action 'set_lag_remote_port' is not reachable and will be removed
+Semantic warning: action 'set_lag_port' is not reachable and will be removed
+Semantic warning: action 'set_lag_miss' is not reachable and will be removed
+Semantic warning: field list 'mac_learn_digest' is not reachable and will be removed
+Semantic warning: action 'set_valid_outer_ipv6_packet' is not reachable and will be removed
+Semantic warning: action 'set_malformed_outer_ipv6_packet' is not reachable and will be removed
+Semantic warning: action 'f_insert_erspan_common_header' is not reachable and will be removed
+Semantic warning: field list 'i2e_mirror_info' is not reachable and will be removed
+Semantic warning: counter 'acl_stats' is not reachable and will be removed
+Semantic warning: counter 'drop_stats' is not reachable and will be removed
+Semantic warning: counter 'drop_stats_2' is not reachable and will be removed
+Semantic warning: field list 'mirror_info' is not reachable and will be removed
+Semantic warning: action 'copy_to_cpu_with_reason' is not reachable and will be removed
+Semantic warning: action 'nat_update_l4_checksum' is not reachable and will be removed
+Semantic warning: action 'multicast_bridge_s_g_hit' is not reachable and will be removed
+Semantic warning: action 'multicast_route_s_g_hit' is not reachable and will be removed
+Semantic warning: action 'set_ecmp_nexthop_details_for_post_routed_flood' is not reachable and will be removed
+Semantic warning: action 'set_ecmp_nexthop_details' is not reachable and will be removed
+Semantic warning: action_selector 'ecmp_selector' is not reachable and will be removed
+Semantic warning: header instance 'security_metadata' is not reachable and will be removed
+Semantic warning: meter 'storm_control_meter' is not reachable and will be removed
+Semantic warning: action 'terminate_cpu_packet' is not reachable and will be removed
+Semantic warning: action 'terminate_fabric_unicast_packet' is not reachable and will be removed
+Semantic warning: action 'switch_fabric_unicast_packet' is not reachable and will be removed
+Semantic warning: action 'terminate_fabric_multicast_packet' is not reachable and will be removed
+Semantic warning: action 'switch_fabric_multicast_packet' is not reachable and will be removed
+Semantic warning: action 'set_ingress_ifindex_properties' is not reachable and will be removed
+Semantic warning: action 'non_ip_over_fabric' is not reachable and will be removed
+Semantic warning: action 'ipv4_over_fabric' is not reachable and will be removed
+Semantic warning: action 'ipv6_over_fabric' is not reachable and will be removed
+Semantic warning: action 'set_fabric_lag_port' is not reachable and will be removed
+Semantic warning: action 'set_fabric_multicast' is not reachable and will be removed
+Semantic warning: action_selector 'fabric_lag_selector' is not reachable and will be removed
+Semantic warning: header instance 'egress_filter_metadata' is not reachable and will be removed
+Semantic warning: action 'int_set_header_0' is not reachable and will be removed
+Semantic warning: action 'int_set_header_1' is not reachable and will be removed
+Semantic warning: action 'int_set_header_2' is not reachable and will be removed
+Semantic warning: action 'int_set_header_3' is not reachable and will be removed
+Semantic warning: action 'int_set_header_4' is not reachable and will be removed
+Semantic warning: action 'int_set_header_5' is not reachable and will be removed
+Semantic warning: action 'int_set_header_6' is not reachable and will be removed
+Semantic warning: action 'int_set_header_7' is not reachable and will be removed
+Semantic warning: action 'int_sink' is not reachable and will be removed
+Semantic warning: field list calculation 'lkp_ipv4_hash1' is not reachable and will be removed
+Semantic warning: field list calculation 'lkp_ipv4_hash2' is not reachable and will be removed
+Semantic warning: field list calculation 'lkp_ipv6_hash1' is not reachable and will be removed
+Semantic warning: field list calculation 'lkp_ipv6_hash2' is not reachable and will be removed
+Semantic warning: field list calculation 'lkp_non_ip_hash2' is not reachable and will be removed
+Semantic warning: field list 'sflow_cpu_info' is not reachable and will be removed
+Semantic warning: header instance 'qos_metadata' is not reachable and will be removed
+Semantic warning: header instance 'gre' is not reachable and will be removed
+Semantic warning: header instance 'erspan_t3_header' is not reachable and will be removed
+Semantic warning: field list calculation 'lag_hash' is not reachable and will be removed
+Semantic warning: action 'copy_to_cpu' is not reachable and will be removed
+Semantic warning: field list calculation 'ecmp_hash' is not reachable and will be removed
+Semantic warning: header type 'security_metadata_t' is not reachable and will be removed
+Semantic warning: field list calculation 'fabric_lag_hash' is not reachable and will be removed
+Semantic warning: header type 'egress_filter_metadata_t' is not reachable and will be removed
+Semantic warning: field list 'int_i2e_mirror_info' is not reachable and will be removed
+Semantic warning: field list 'lkp_ipv4_hash1_fields' is not reachable and will be removed
+Semantic warning: field list 'lkp_ipv4_hash2_fields' is not reachable and will be removed
+Semantic warning: field list 'lkp_ipv6_hash1_fields' is not reachable and will be removed
+Semantic warning: field list 'lkp_ipv6_hash2_fields' is not reachable and will be removed
+Semantic warning: field list 'lkp_non_ip_hash2_fields' is not reachable and will be removed
+Semantic warning: header instance 'meter_metadata' is not reachable and will be removed
+Semantic warning: header instance 'sflow_metadata' is not reachable and will be removed
+Semantic warning: header type 'qos_metadata_t' is not reachable and will be removed
+Semantic warning: header type 'gre_t' is not reachable and will be removed
+Semantic warning: header type 'erspan_header_t3_t' is not reachable and will be removed
+Semantic warning: field list 'lag_hash_fields' is not reachable and will be removed
+Semantic warning: meter 'copp' is not reachable and will be removed
+Semantic warning: field list 'l3_hash_fields' is not reachable and will be removed
+Semantic warning: field list 'fabric_lag_hash_fields' is not reachable and will be removed
+Semantic warning: header instance 'int_metadata_i2e' is not reachable and will be removed
+Semantic warning: header type 'meter_metadata_t' is not reachable and will be removed
+Semantic warning: header type 'sflow_meta_t' is not reachable and will be removed
+Semantic warning: header type 'int_metadata_i2e_t' is not reachable and will be removed
+Semantic warning: header instance 'hash_metadata' is not reachable and will be removed
+Semantic warning: header type 'hash_metadata_t' is not reachable and will be removed
+semantic checking successful
+Header type standard_metadata_t not byte-aligned, adding padding
+Header type ingress_intrinsic_metadata_t not byte-aligned, adding padding
+Header type ingress_metadata_t not byte-aligned, adding padding
+Header type egress_metadata_t not byte-aligned, adding padding
+Header type l2_metadata_t not byte-aligned, adding padding
+Header type l3_metadata_t not byte-aligned, adding padding
+Header type ipv4_metadata_t not byte-aligned, adding padding
+Header type ipv6_metadata_t not byte-aligned, adding padding
+Header type tunnel_metadata_t not byte-aligned, adding padding
+Header type acl_metadata_t not byte-aligned, adding padding
+Header type nat_metadata_t not byte-aligned, adding padding
+Header type multicast_metadata_t not byte-aligned, adding padding
+Header type nexthop_metadata_t not byte-aligned, adding padding
+Header type fabric_metadata_t not byte-aligned, adding padding
+skipping transitive reduction on ingress dependency graph
+skipping transitive reduction on egress dependency graph
+Generating files in directory /Users/jafinger/Documents/p4-docs/p4lang-tests/v1.0.3/switch-subset4/out-separate-ma
+
+TABLE DEPENDENCIES...
+
+INGRESS PIPELINE
+
+
+direction forward
+
+(no predecessor)                    -               0  _condition_0
+(no predecessor)                    -               0  dmac_MATCH
+(no predecessor)                    -               0  ipv4_fib_lpm_MATCH
+(no predecessor)                    -               0  rmac_MATCH
+(no predecessor)                    -               0  validate_outer_ethernet_MATCH
+(no predecessor)                    -               0  validate_outer_ipv4_packet_MATCH
+dmac_MATCH                          MAT    0+ 9 =   9  dmac_ACTION
+rmac_MATCH                          MAT    0+ 9 =   9  rmac_ACTION
+validate_outer_ethernet_MATCH       MAT    0+ 9 =   9  validate_outer_ethernet_ACTION
+validate_outer_ethernet_ACTION      ACT    9+ 1 =  10  validate_outer_ipv4_packet_ACTION
+validate_outer_ipv4_packet_ACTION   MAT   10+ 1 =  11  _condition_1
+_condition_1                        SUC   11+ 0 =  11  ipv4_fib_lpm_ACTION
+ipv4_fib_lpm_ACTION                 MAT   11+ 1 =  12  fwd_result_MATCH
+fwd_result_MATCH                    MAT   12+ 9 =  21  fwd_result_ACTION
+
+
+direction backward
+
+validate_outer_ethernet_ACTION      MAT    9- 9 =   0  validate_outer_ethernet_MATCH
+validate_outer_ipv4_packet_ACTION   MAT   10- 9 =   1  validate_outer_ipv4_packet_MATCH
+dmac_ACTION                         MAT   11- 9 =   2  dmac_MATCH
+ipv4_fib_lpm_ACTION                 MAT   11- 9 =   2  ipv4_fib_lpm_MATCH
+_condition_1                        SUC   11- 9 =   2  rmac_MATCH
+rmac_ACTION                         MAT   11- 9 =   2  rmac_MATCH
+validate_outer_ipv4_packet_ACTION   ACT   10- 1 =   9  validate_outer_ethernet_ACTION
+validate_outer_ipv4_packet_ACTION   SUC   10- 0 =  10  _condition_0
+_condition_1                        MAT   11- 1 =  10  validate_outer_ipv4_packet_ACTION
+ipv4_fib_lpm_ACTION                 SUC   11- 0 =  11  _condition_1
+fwd_result_MATCH                    MAT   12- 1 =  11  dmac_ACTION
+fwd_result_MATCH                    MAT   12- 1 =  11  ipv4_fib_lpm_ACTION
+fwd_result_MATCH                    MAT   12- 1 =  11  rmac_ACTION
+fwd_result_ACTION                   MAT   21- 9 =  12  fwd_result_MATCH
+(no predecessor)                    -              21  fwd_result_ACTION
+pipeline ingress requires at least 21 stages
+
+ingress action details
+
+table dmac search_bits 64 res_bits 19 num_act 7 max_prim_acts 3
+  0: 1 drop
+  1: 2 m16 xor(16)
+  2: 2 m16 m8
+  3: 2 m16 m8
+  4: 3 m1 m16 m2
+  5: 3 m1 m16 m2
+  6: 0 
+table rmac search_bits 58 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 m1
+  1: 1 m1
+table validate_outer_ethernet search_bits 98 res_bits 12 num_act 13 max_prim_acts 3
+  0: 2 m1 m8
+  1: 3 m3 m16 m3
+  2: 3 m3 m16 m3
+  3: 3 m3 m16 m3
+  4: 2 m3 m16
+  5: 3 m3 m16 m3
+  6: 3 m3 m16 m3
+  7: 3 m3 m16 m3
+  8: 2 m3 m16
+  9: 3 m3 m16 m3
+  10: 3 m3 m16 m3
+  11: 3 m3 m16 m3
+  12: 2 m3 m16
+table validate_outer_ipv4_packet search_bits 20 res_bits 10 num_act 2 max_prim_acts 3
+  0: 2 m1 m8
+  1: 3 m2 m8 m4
+table ipv4_fib_lpm search_bits 48 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table fwd_result search_bits 33 res_bits 4 num_act 11 max_prim_acts 6
+  0: 0 
+  1: 5 m16 m2 m16 m16 m8
+  2: 5 m1 m16 m9 m16 m8
+  3: 6 m16 m2 m1 m16 m16 m8
+  4: 5 m16 m2 m16 m16 m8
+  5: 3 m8 m16 m16
+  6: 2 m1 m8
+  7: 2 m8 m16
+  8: 5 m8 m16 m16 m1 m16
+  9: 5 m16 m2 m1 m16 m8
+  10: 6 m16 m2 m1 m16 m16 m8
+
+ingress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+ 103  98.1% m         modify_field
+   1   1.0% drop      drop
+   1   1.0% xor       bit_xor
+
+Number of ingress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   1      1      1  16.7%
+   3      4      5  83.3%
+   6      1      6 100.0%
+
+ingress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+
+Number of ingress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+
+EGRESS PIPELINE
+
+
+direction forward
+
+(no predecessor)                    -               0  _condition_2
+(no predecessor)                    -               0  egress_system_acl_MATCH
+egress_system_acl_MATCH             MAT    0+ 9 =   9  egress_system_acl_ACTION
+
+
+direction backward
+
+egress_system_acl_ACTION            MAT    9- 9 =   0  egress_system_acl_MATCH
+egress_system_acl_ACTION            SUC    9- 0 =   9  _condition_2
+(no predecessor)                    -               9  egress_system_acl_ACTION
+pipeline egress requires at least 9 stages
+
+egress action details
+
+table egress_system_acl search_bits 43 res_bits 36 num_act 8 max_prim_acts 3
+  0: 1 drop
+  1: 1 clone_e2e(16,16,16,9)
+  2: 2 m16 clone_e2e(16,16,16,9)
+  3: 2 m(16,32) clone_e2e(32,16)
+  4: 3 m(16,32) clone_e2e(32,16) drop
+  5: 2 clone_e2e(16,16,16,9) drop
+  6: 3 m16 clone_e2e(16,16,16,9) drop
+  7: 0 
+
+egress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+   6  42.9% clone_e2e clone_egress_pkt_to_egress
+   4  28.6% m         modify_field
+   4  28.6% drop      drop
+
+Number of egress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   3      1      1 100.0%
+
+egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+
+Number of egress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+
+ingress plus egress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+ 107  89.9% m         modify_field
+   6   5.0% clone_e2e clone_egress_pkt_to_egress
+   5   4.2% drop      drop
+   1   0.8% xor       bit_xor
+
+ingress plus egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+
+ingress plus egress action count
+# of primitive actions used in actions, from most to least often used:
+ 107  89.9% m         modify_field
+   6   5.0% clone_e2e clone_egress_pkt_to_egress
+   5   4.2% drop      drop
+   1   0.8% xor       bit_xor
+

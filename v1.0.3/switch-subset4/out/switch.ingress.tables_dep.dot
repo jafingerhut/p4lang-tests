@@ -1,0 +1,21 @@
+digraph ingress {
+_condition_0 [ shape=box label="_condition_0\n(valid ipv4)"];
+_condition_1 [ shape=box label="_condition_1\n((l3_metadata.lkp_ip_type == 1) and
+(ipv4_metadata.ipv4_unicast_enabled == 1))"];
+dmac [ label="dmac"];
+fwd_result [ label="fwd_result"];
+ipv4_fib_lpm [ label="ipv4_fib_lpm"];
+rmac [ label="rmac"];
+validate_outer_ethernet [ label="validate_outer_ethernet"];
+validate_outer_ipv4_packet [ label="validate_outer_ipv4_packet"];
+_condition_0 -> validate_outer_ipv4_packet [color=green label="True" decorate=true ];
+_condition_1 -> ipv4_fib_lpm [color=green label="True" decorate=true ];
+dmac -> fwd_result [color=red ];
+ipv4_fib_lpm -> fwd_result [color=red ];
+rmac -> _condition_1 [color=green label="rmac_hit" decorate=true ];
+rmac -> fwd_result [color=red ];
+validate_outer_ethernet -> fwd_result [color=red ];
+validate_outer_ethernet -> validate_outer_ipv4_packet [color=blue ];
+validate_outer_ipv4_packet -> _condition_1 [color=red ];
+validate_outer_ipv4_packet -> fwd_result [color=red ];
+}

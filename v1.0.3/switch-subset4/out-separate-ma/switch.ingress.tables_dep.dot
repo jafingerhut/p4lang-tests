@@ -1,0 +1,33 @@
+digraph ingress {
+_condition_0 [ shape=box label="_condition_0\n(valid ipv4)\n0,10" style=dashed];
+_condition_1 [ shape=box label="_condition_1\n((l3_metadata.lkp_ip_type == 1) and
+(ipv4_metadata.ipv4_unicast_enabled == 1))\n11,11" style=bold];
+dmac_ACTION [ label="dmac_ACTION\n9,11" style=dashed];
+dmac_MATCH [ label="dmac_MATCH\n0,2" style=dashed];
+fwd_result_ACTION [ label="fwd_result_ACTION\n21,21" style=bold];
+fwd_result_MATCH [ label="fwd_result_MATCH\n12,12" style=bold];
+ipv4_fib_lpm_ACTION [ label="ipv4_fib_lpm_ACTION\n11,11" style=bold];
+ipv4_fib_lpm_MATCH [ label="ipv4_fib_lpm_MATCH\n0,2" style=dashed];
+rmac_ACTION [ label="rmac_ACTION\n9,11" style=dashed];
+rmac_MATCH [ label="rmac_MATCH\n0,2" style=dashed];
+validate_outer_ethernet_ACTION [ label="validate_outer_ethernet_ACTION\n9,9" style=bold];
+validate_outer_ethernet_MATCH [ label="validate_outer_ethernet_MATCH\n0,0" style=bold];
+validate_outer_ipv4_packet_ACTION [ label="validate_outer_ipv4_packet_ACTION\n10,10" style=bold];
+validate_outer_ipv4_packet_MATCH [ label="validate_outer_ipv4_packet_MATCH\n0,1" style=dashed];
+_condition_0 -> validate_outer_ipv4_packet_ACTION [color=green label="True" decorate=true ];
+_condition_1 -> ipv4_fib_lpm_ACTION [color=green label="True" decorate=true ];
+dmac_ACTION -> fwd_result_MATCH [color=red ];
+dmac_MATCH -> dmac_ACTION [color=red ];
+fwd_result_MATCH -> fwd_result_ACTION [color=red ];
+ipv4_fib_lpm_ACTION -> fwd_result_MATCH [color=red ];
+ipv4_fib_lpm_MATCH -> ipv4_fib_lpm_ACTION [color=red ];
+rmac_ACTION -> fwd_result_MATCH [color=red ];
+rmac_MATCH -> _condition_1 [color=green label="rmac_hit" decorate=true ];
+rmac_MATCH -> rmac_ACTION [color=red ];
+validate_outer_ethernet_ACTION -> fwd_result_MATCH [color=red ];
+validate_outer_ethernet_ACTION -> validate_outer_ipv4_packet_ACTION [color=blue ];
+validate_outer_ethernet_MATCH -> validate_outer_ethernet_ACTION [color=red ];
+validate_outer_ipv4_packet_ACTION -> _condition_1 [color=red ];
+validate_outer_ipv4_packet_ACTION -> fwd_result_MATCH [color=red ];
+validate_outer_ipv4_packet_MATCH -> validate_outer_ipv4_packet_ACTION [color=red ];
+}

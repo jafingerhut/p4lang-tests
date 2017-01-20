@@ -1,0 +1,33 @@
+nodes = \
+{'_condition_0': {'num_fields': 0, 'type': 'condition'},
+ '_condition_1': {'num_fields': 0, 'type': 'condition'},
+ 'dmac_ACTION': {'num_fields': 3, 'type': 'action'},
+ 'dmac_MATCH': {'key_width': 64, 'type': 'match'},
+ 'fwd_result_ACTION': {'num_fields': 6, 'type': 'action'},
+ 'fwd_result_MATCH': {'key_width': 33, 'type': 'match'},
+ 'ipv4_fib_lpm_ACTION': {'num_fields': 3, 'type': 'action'},
+ 'ipv4_fib_lpm_MATCH': {'key_width': 48, 'type': 'match'},
+ 'rmac_ACTION': {'num_fields': 1, 'type': 'action'},
+ 'rmac_MATCH': {'key_width': 58, 'type': 'match'},
+ 'validate_outer_ethernet_ACTION': {'num_fields': 3, 'type': 'action'},
+ 'validate_outer_ethernet_MATCH': {'key_width': 98, 'type': 'match'},
+ 'validate_outer_ipv4_packet_ACTION': {'num_fields': 3, 'type': 'action'},
+ 'validate_outer_ipv4_packet_MATCH': {'key_width': 20, 'type': 'match'}}
+
+edges = \
+{('_condition_0', 'validate_outer_ipv4_packet_ACTION'): {'delay': 0},
+ ('_condition_1', 'ipv4_fib_lpm_ACTION'): {'delay': 0},
+ ('dmac_ACTION', 'fwd_result_MATCH'): {'delay': 1},
+ ('dmac_MATCH', 'dmac_ACTION'): {'delay': 9},
+ ('fwd_result_MATCH', 'fwd_result_ACTION'): {'delay': 9},
+ ('ipv4_fib_lpm_ACTION', 'fwd_result_MATCH'): {'delay': 1},
+ ('ipv4_fib_lpm_MATCH', 'ipv4_fib_lpm_ACTION'): {'delay': 9},
+ ('rmac_ACTION', 'fwd_result_MATCH'): {'delay': 1},
+ ('rmac_MATCH', '_condition_1'): {'delay': 9},
+ ('rmac_MATCH', 'rmac_ACTION'): {'delay': 9},
+ ('validate_outer_ethernet_ACTION', 'fwd_result_MATCH'): {'delay': 1},
+ ('validate_outer_ethernet_ACTION', 'validate_outer_ipv4_packet_ACTION'): {'delay': 1},
+ ('validate_outer_ethernet_MATCH', 'validate_outer_ethernet_ACTION'): {'delay': 9},
+ ('validate_outer_ipv4_packet_ACTION', '_condition_1'): {'delay': 1},
+ ('validate_outer_ipv4_packet_ACTION', 'fwd_result_MATCH'): {'delay': 1},
+ ('validate_outer_ipv4_packet_MATCH', 'validate_outer_ipv4_packet_ACTION'): {'delay': 9}}
