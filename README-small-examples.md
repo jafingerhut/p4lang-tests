@@ -508,7 +508,7 @@ Quick comparison between 'size' of `switch-orig` vs. `switch-subset5`:
   * critical path with RMT pipeline: 13 stages vs. 11 stages
   * total primitive actions in all tables: about 725 vs. about 425
 
-* ingress
+* egress
   * number of tables: 41 vs. 16
   * critical path with separate match/action (latencies 9/1): 82 vs. 40
   * critical path with RMT pipeline: 12 stages vs. 5 stages
