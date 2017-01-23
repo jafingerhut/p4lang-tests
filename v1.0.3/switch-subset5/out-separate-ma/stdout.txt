@@ -162,8 +162,8 @@ Header type security_metadata_t not byte-aligned, adding padding
 Header type fabric_metadata_t not byte-aligned, adding padding
 Header type meter_metadata_t not byte-aligned, adding padding
 Header type qos_metadata_t not byte-aligned, adding padding
-removing useless condition: p4_conditional_node._condition_20
 removing useless condition: p4_conditional_node._condition_28
+removing useless condition: p4_conditional_node._condition_20
 removing useless condition: p4_conditional_node._condition_1
 removing useless condition: p4_conditional_node._condition_24
 p4_conditional_node._condition_1 is unused, removing it
