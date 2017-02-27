@@ -1,0 +1,13 @@
+nodes = \
+{'_condition_14': {'condition': '(egress_metadata.bypass == 0)',
+                   'num_fields': 0,
+                   'type': 'condition'},
+ 'egress_system_acl_ACTION': {'num_fields': 3, 'type': 'action'},
+ 'egress_system_acl_MATCH': {'key_width': 43, 'type': 'match'}}
+
+edges = \
+{('_condition_14', 'egress_system_acl_ACTION'): {'condition': True,
+                                                 'delay': 0,
+                                                 'dep_type': 'rmt_successor'},
+ ('egress_system_acl_MATCH', 'egress_system_acl_ACTION'): {'delay': 9,
+                                                           'dep_type': 'new_match_to_action'}}

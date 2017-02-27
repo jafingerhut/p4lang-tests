@@ -554,23 +554,23 @@ dmac_MATCH                          MAT    0+ 9 =   9  dmac_ACTION
 ipv4_fib_lpm_MATCH                  MAT    0+ 9 =   9  ipv4_fib_lpm_ACTION
 ipv6_fib_lpm_MATCH                  MAT    0+ 9 =   9  ipv6_fib_lpm_ACTION
 rmac_MATCH                          MAT    0+ 9 =   9  rmac_ACTION
-ipv4_fib_lpm_ACTION                 MAT    9+ 1 =  10  fwd_result_MATCH
 dmac_ACTION                         MAT    9+ 1 =  10  fwd_result_MATCH
+ipv4_fib_lpm_ACTION                 MAT    9+ 1 =  10  fwd_result_MATCH
 ipv6_fib_lpm_ACTION                 MAT    9+ 1 =  10  fwd_result_MATCH
 rmac_ACTION                         MAT    9+ 1 =  10  fwd_result_MATCH
 fwd_result_MATCH                    MAT   10+ 9 =  19  fwd_result_ACTION
 fwd_result_ACTION                   MAT   19+ 1 =  20  _condition_5
 fwd_result_ACTION                   MAT   19+ 1 =  20  _condition_7
-fwd_result_ACTION                   ACT   19+ 1 =  20  drop_stats_ACTION
 _condition_7                        SUC   20+ 0 =  20  drop_stats_ACTION
+fwd_result_ACTION                   ACT   19+ 1 =  20  drop_stats_ACTION
 fwd_result_ACTION                   MAT   19+ 1 =  20  ecmp_group_MATCH
 fwd_result_ACTION                   MAT   19+ 1 =  20  nexthop_MATCH
 ecmp_group_MATCH                    MAT   20+ 9 =  29  ecmp_group_ACTION
 nexthop_MATCH                       MAT   20+ 9 =  29  nexthop_ACTION
-nexthop_ACTION                      MAT   29+ 1 =  30  lag_group_MATCH
 ecmp_group_ACTION                   MAT   29+ 1 =  30  lag_group_MATCH
-nexthop_ACTION                      MAT   29+ 1 =  30  system_acl_MATCH
+nexthop_ACTION                      MAT   29+ 1 =  30  lag_group_MATCH
 ecmp_group_ACTION                   MAT   29+ 1 =  30  system_acl_MATCH
+nexthop_ACTION                      MAT   29+ 1 =  30  system_acl_MATCH
 lag_group_MATCH                     MAT   30+ 9 =  39  lag_group_ACTION
 lag_group_ACTION                    ACT   39+ 1 =  40  system_acl_ACTION
 
@@ -583,8 +583,8 @@ ipv6_fib_lpm_ACTION                 MAT    9- 9 =   0  ipv6_fib_lpm_MATCH
 rmac_ACTION                         MAT    9- 9 =   0  rmac_MATCH
 dmac_ACTION                         SUC    9- 0 =   9  _condition_0
 _condition_2                        SUC    9- 0 =   9  _condition_1
-ipv4_fib_lpm_ACTION                 SUC    9- 0 =   9  _condition_2
 _condition_3                        SUC    9- 0 =   9  _condition_2
+ipv4_fib_lpm_ACTION                 SUC    9- 0 =   9  _condition_2
 ipv6_fib_lpm_ACTION                 SUC    9- 0 =   9  _condition_3
 fwd_result_MATCH                    MAT   10- 1 =   9  dmac_ACTION
 fwd_result_MATCH                    MAT   10- 1 =   9  ipv4_fib_lpm_ACTION
@@ -596,20 +596,108 @@ ecmp_group_MATCH                    MAT   20- 1 =  19  fwd_result_ACTION
 nexthop_MATCH                       MAT   20- 1 =  19  fwd_result_ACTION
 ecmp_group_ACTION                   MAT   29- 9 =  20  ecmp_group_MATCH
 nexthop_ACTION                      MAT   29- 9 =  20  nexthop_MATCH
-nexthop_ACTION                      SUC   29- 0 =  29  _condition_5
 ecmp_group_ACTION                   SUC   29- 0 =  29  _condition_5
+nexthop_ACTION                      SUC   29- 0 =  29  _condition_5
 lag_group_MATCH                     MAT   30- 1 =  29  ecmp_group_ACTION
 lag_group_MATCH                     MAT   30- 1 =  29  nexthop_ACTION
 lag_group_ACTION                    MAT   39- 9 =  30  lag_group_MATCH
 drop_stats_ACTION                   MAT   40- 9 =  31  drop_stats_MATCH
 system_acl_ACTION                   MAT   40- 9 =  31  system_acl_MATCH
 system_acl_ACTION                   ACT   40- 1 =  39  lag_group_ACTION
-system_acl_ACTION                   SUC   40- 0 =  40  _condition_6
 _condition_7                        SUC   40- 0 =  40  _condition_6
+system_acl_ACTION                   SUC   40- 0 =  40  _condition_6
 drop_stats_ACTION                   SUC   40- 0 =  40  _condition_7
 (no predecessor)                    -              40  drop_stats_ACTION
 (no predecessor)                    -              40  system_acl_ACTION
 pipeline ingress requires at least 40 stages
+
+ingress action details
+
+table dmac search_bits 64 res_bits 19 num_act 7 max_prim_acts 3
+  0: 1 drop
+  1: 2 m16 xor(16)
+  2: 2 m16 m8
+  3: 2 m16 m8
+  4: 3 m1 m16 m2
+  5: 3 m1 m16 m2
+  6: 0 
+table ipv4_fib_lpm search_bits 48 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table ipv6_fib_lpm search_bits 144 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table rmac search_bits 58 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 m1
+  1: 1 m1
+table fwd_result search_bits 33 res_bits 4 num_act 11 max_prim_acts 6
+  0: 0 
+  1: 5 m16 m2 m16 m16 m8
+  2: 5 m1 m16 m9 m16 m8
+  3: 6 m16 m2 m1 m16 m16 m8
+  4: 5 m16 m2 m16 m16 m8
+  5: 3 m8 m16 m16
+  6: 2 m1 m8
+  7: 2 m8 m16
+  8: 5 m8 m16 m16 m1 m16
+  9: 5 m16 m2 m1 m16 m8
+  10: 6 m16 m2 m1 m16 m16 m8
+table drop_stats search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 count(8,packets)
+table ecmp_group search_bits 16 res_bits 51 num_act 3 max_prim_acts 5
+  0: 0 
+  1: 5 m16 m16 xor(16) xor(16) xor(1)
+  2: 5 m16 m16 m16 xor(16) m8
+table nexthop search_bits 16 res_bits 35 num_act 3 max_prim_acts 4
+  0: 0 
+  1: 4 m16 xor(16) xor(16) xor(1)
+  2: 4 m16 m16 xor(16) m8
+table lag_group search_bits 16 res_bits 26 num_act 3 max_prim_acts 2
+  0: 0 
+  1: 1 m9
+  2: 2 m8 m16
+table system_acl search_bits 153 res_bits 60 num_act 8 max_prim_acts 7
+  0: 4 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2)
+  1: 5 m16 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2)
+  2: 1 drop
+  3: 2 count(32,packets) drop
+  4: 2 clone_i2e(16,8) drop
+  5: 0 
+  6: 6 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2) drop m8
+  7: 7 m16 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2) drop m8
+
+ingress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+  94  79.0% m         modify_field
+   9   7.6% xor       bit_xor
+   6   5.0% drop      drop
+   5   4.2% clone_i2e clone_ingress_pkt_to_egress
+   4   3.4% meter     execute_meter
+   1   0.8% count     count
+
+Number of ingress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   1      1      1  11.1%
+   2      1      2  22.2%
+   3      3      5  55.6%
+   4      1      6  66.7%
+   5      1      7  77.8%
+   6      1      8  88.9%
+   7      1      9 100.0%
+
+ingress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   1 100.0% count     count
+
+Number of ingress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   1      1      1 100.0%
 
 EGRESS PIPELINE
 
@@ -627,4 +715,60 @@ egress_system_acl_ACTION            MAT    9- 9 =   0  egress_system_acl_MATCH
 egress_system_acl_ACTION            SUC    9- 0 =   9  _condition_8
 (no predecessor)                    -               9  egress_system_acl_ACTION
 pipeline egress requires at least 9 stages
+
+egress action details
+
+table egress_system_acl search_bits 43 res_bits 36 num_act 8 max_prim_acts 3
+  0: 1 drop
+  1: 1 clone_e2e(16,16,16,9)
+  2: 2 m16 clone_e2e(16,16,16,9)
+  3: 2 m(16,32) clone_e2e(32,16)
+  4: 3 m(16,32) clone_e2e(32,16) drop
+  5: 2 clone_e2e(16,16,16,9) drop
+  6: 3 m16 clone_e2e(16,16,16,9) drop
+  7: 0 
+
+egress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+   6  42.9% clone_e2e clone_egress_pkt_to_egress
+   4  28.6% m         modify_field
+   4  28.6% drop      drop
+
+Number of egress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   3      1      1 100.0%
+
+egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+
+Number of egress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+
+ingress plus egress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+  98  73.7% m         modify_field
+  10   7.5% drop      drop
+   9   6.8% xor       bit_xor
+   6   4.5% clone_e2e clone_egress_pkt_to_egress
+   5   3.8% clone_i2e clone_ingress_pkt_to_egress
+   4   3.0% meter     execute_meter
+   1   0.8% count     count
+
+ingress plus egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   1 100.0% count     count
+
+ingress plus egress action count
+# of primitive actions used in actions, from most to least often used:
+  98  73.1% m         modify_field
+  10   7.5% drop      drop
+   9   6.7% xor       bit_xor
+   6   4.5% clone_e2e clone_egress_pkt_to_egress
+   5   3.7% clone_i2e clone_ingress_pkt_to_egress
+   4   3.0% meter     execute_meter
+   2   1.5% count     count
 

@@ -1,0 +1,5 @@
+nodes = \
+{'dummy_egress_table_ACTION': {'num_fields': 0, 'type': 'action'}}
+
+edges = \
+{}

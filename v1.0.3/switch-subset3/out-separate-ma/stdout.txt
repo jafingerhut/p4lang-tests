@@ -549,27 +549,27 @@ rmac_MATCH                          SUC    0+ 9 =   9  _condition_7
 _condition_7                        SUC    9+ 0 =   9  _condition_8
 _condition_8                        SUC    9+ 0 =   9  _condition_9
 dmac_MATCH                          MAT    0+ 9 =   9  dmac_ACTION
-ipv4_fib_lpm_MATCH                  MAT    0+ 9 =   9  ipv4_fib_lpm_ACTION
 _condition_8                        SUC    9+ 0 =   9  ipv4_fib_lpm_ACTION
-ipv4_multicast_bridge_MATCH         MAT    0+ 9 =   9  ipv4_multicast_bridge_ACTION
+ipv4_fib_lpm_MATCH                  MAT    0+ 9 =   9  ipv4_fib_lpm_ACTION
 _condition_2                        SUC    9+ 0 =   9  ipv4_multicast_bridge_ACTION
+ipv4_multicast_bridge_MATCH         MAT    0+ 9 =   9  ipv4_multicast_bridge_ACTION
 _condition_3                        SUC    9+ 0 =   9  ipv4_multicast_route_ACTION
 ipv4_multicast_route_MATCH          MAT    0+ 9 =   9  ipv4_multicast_route_ACTION
-ipv6_fib_lpm_MATCH                  MAT    0+ 9 =   9  ipv6_fib_lpm_ACTION
 _condition_9                        SUC    9+ 0 =   9  ipv6_fib_lpm_ACTION
+ipv6_fib_lpm_MATCH                  MAT    0+ 9 =   9  ipv6_fib_lpm_ACTION
 _condition_5                        SUC    9+ 0 =   9  ipv6_multicast_bridge_ACTION
 ipv6_multicast_bridge_MATCH         MAT    0+ 9 =   9  ipv6_multicast_bridge_ACTION
-ipv6_multicast_route_MATCH          MAT    0+ 9 =   9  ipv6_multicast_route_ACTION
 _condition_6                        SUC    9+ 0 =   9  ipv6_multicast_route_ACTION
+ipv6_multicast_route_MATCH          MAT    0+ 9 =   9  ipv6_multicast_route_ACTION
 rmac_MATCH                          MAT    0+ 9 =   9  rmac_ACTION
 dmac_ACTION                         MAT    9+ 1 =  10  fwd_result_MATCH
-ipv4_multicast_bridge_ACTION        MAT    9+ 1 =  10  fwd_result_MATCH
-ipv6_multicast_route_ACTION         MAT    9+ 1 =  10  fwd_result_MATCH
-ipv6_multicast_bridge_ACTION        MAT    9+ 1 =  10  fwd_result_MATCH
-rmac_ACTION                         MAT    9+ 1 =  10  fwd_result_MATCH
-ipv6_fib_lpm_ACTION                 MAT    9+ 1 =  10  fwd_result_MATCH
 ipv4_fib_lpm_ACTION                 MAT    9+ 1 =  10  fwd_result_MATCH
+ipv4_multicast_bridge_ACTION        MAT    9+ 1 =  10  fwd_result_MATCH
 ipv4_multicast_route_ACTION         MAT    9+ 1 =  10  fwd_result_MATCH
+ipv6_fib_lpm_ACTION                 MAT    9+ 1 =  10  fwd_result_MATCH
+ipv6_multicast_bridge_ACTION        MAT    9+ 1 =  10  fwd_result_MATCH
+ipv6_multicast_route_ACTION         MAT    9+ 1 =  10  fwd_result_MATCH
+rmac_ACTION                         MAT    9+ 1 =  10  fwd_result_MATCH
 fwd_result_MATCH                    MAT   10+ 9 =  19  fwd_result_ACTION
 fwd_result_ACTION                   MAT   19+ 1 =  20  _condition_11
 fwd_result_ACTION                   MAT   19+ 1 =  20  _condition_13
@@ -579,10 +579,10 @@ fwd_result_ACTION                   MAT   19+ 1 =  20  ecmp_group_MATCH
 fwd_result_ACTION                   MAT   19+ 1 =  20  nexthop_MATCH
 ecmp_group_MATCH                    MAT   20+ 9 =  29  ecmp_group_ACTION
 nexthop_MATCH                       MAT   20+ 9 =  29  nexthop_ACTION
-nexthop_ACTION                      MAT   29+ 1 =  30  lag_group_MATCH
 ecmp_group_ACTION                   MAT   29+ 1 =  30  lag_group_MATCH
-nexthop_ACTION                      MAT   29+ 1 =  30  system_acl_MATCH
+nexthop_ACTION                      MAT   29+ 1 =  30  lag_group_MATCH
 ecmp_group_ACTION                   MAT   29+ 1 =  30  system_acl_MATCH
+nexthop_ACTION                      MAT   29+ 1 =  30  system_acl_MATCH
 lag_group_MATCH                     MAT   30+ 9 =  39  lag_group_ACTION
 lag_group_ACTION                    ACT   39+ 1 =  40  system_acl_ACTION
 
@@ -596,12 +596,12 @@ ipv4_multicast_route_ACTION         MAT    9- 9 =   0  ipv4_multicast_route_MATC
 ipv6_fib_lpm_ACTION                 MAT    9- 9 =   0  ipv6_fib_lpm_MATCH
 ipv6_multicast_bridge_ACTION        MAT    9- 9 =   0  ipv6_multicast_bridge_MATCH
 ipv6_multicast_route_ACTION         MAT    9- 9 =   0  ipv6_multicast_route_MATCH
-rmac_ACTION                         MAT    9- 9 =   0  rmac_MATCH
-_condition_7                        SUC    9- 9 =   0  rmac_MATCH
 _condition_1                        SUC    9- 9 =   0  rmac_MATCH
+_condition_7                        SUC    9- 9 =   0  rmac_MATCH
+rmac_ACTION                         MAT    9- 9 =   0  rmac_MATCH
 dmac_ACTION                         SUC    9- 0 =   9  _condition_0
-_condition_3                        SUC    9- 0 =   9  _condition_1
 _condition_2                        SUC    9- 0 =   9  _condition_1
+_condition_3                        SUC    9- 0 =   9  _condition_1
 _condition_4                        SUC    9- 0 =   9  _condition_1
 ipv4_multicast_bridge_ACTION        SUC    9- 0 =   9  _condition_2
 ipv4_multicast_route_ACTION         SUC    9- 0 =   9  _condition_3
@@ -627,1360 +627,120 @@ ecmp_group_MATCH                    MAT   20- 1 =  19  fwd_result_ACTION
 nexthop_MATCH                       MAT   20- 1 =  19  fwd_result_ACTION
 ecmp_group_ACTION                   MAT   29- 9 =  20  ecmp_group_MATCH
 nexthop_ACTION                      MAT   29- 9 =  20  nexthop_MATCH
-nexthop_ACTION                      SUC   29- 0 =  29  _condition_11
 ecmp_group_ACTION                   SUC   29- 0 =  29  _condition_11
+nexthop_ACTION                      SUC   29- 0 =  29  _condition_11
 lag_group_MATCH                     MAT   30- 1 =  29  ecmp_group_ACTION
 lag_group_MATCH                     MAT   30- 1 =  29  nexthop_ACTION
 lag_group_ACTION                    MAT   39- 9 =  30  lag_group_MATCH
 drop_stats_ACTION                   MAT   40- 9 =  31  drop_stats_MATCH
 system_acl_ACTION                   MAT   40- 9 =  31  system_acl_MATCH
 system_acl_ACTION                   ACT   40- 1 =  39  lag_group_ACTION
-system_acl_ACTION                   SUC   40- 0 =  40  _condition_12
 _condition_13                       SUC   40- 0 =  40  _condition_12
+system_acl_ACTION                   SUC   40- 0 =  40  _condition_12
 drop_stats_ACTION                   SUC   40- 0 =  40  _condition_13
 (no predecessor)                    -              40  drop_stats_ACTION
 (no predecessor)                    -              40  system_acl_ACTION
 pipeline ingress requires at least 40 stages
-dbg action_info table.name=rmac # actions=2
-    act.name=rmac_hit # primitive actions=1
 
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.rmac_hit
-        1 int value 0x1
-    act.name=rmac_miss # primitive actions=1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.rmac_hit
-        1 int value 0x0
-{'action_descriptions': [['m1'], ['m1']],
- 'num_actions': 2,
- 'table_name': 'rmac'}
-dbg action_info table.name=ipv4_fib_lpm # actions=3
-    act.name=on_miss # primitive actions=0
-    act.name=fib_hit_nexthop # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.fib_hit
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.fib_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l3_metadata.fib_nexthop_type
-        1 int value 0x0
-    act.name=fib_hit_ecmp # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.fib_hit
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.fib_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l3_metadata.fib_nexthop_type
-        1 int value 0x1
-{'action_descriptions': [[], ['m1', 'm16', 'm2'], ['m1', 'm16', 'm2']],
- 'num_actions': 3,
- 'table_name': 'ipv4_fib_lpm'}
-dbg action_info table.name=ipv6_multicast_bridge # actions=2
-    act.name=on_miss # primitive actions=0
-    act.name=multicast_bridge_s_g_hit # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name multicast_metadata.multicast_bridge_mc_index
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name multicast_metadata.mcast_bridge_hit
-        1 int value 0x1
-{'action_descriptions': [[], ['m16', 'm1']],
- 'num_actions': 2,
- 'table_name': 'ipv6_multicast_bridge'}
-dbg action_info table.name=ipv4_multicast_route # actions=2
-    act.name=on_miss # primitive actions=0
-    act.name=multicast_route_s_g_hit # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name multicast_metadata.multicast_route_mc_index
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name multicast_metadata.mcast_mode
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name multicast_metadata.mcast_route_hit
-        1 int value 0x1
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name multicast_metadata.mcast_rpf_group
-        1 p4_signature_ref width 16 idx 1
-        2 p4_field width 16 name multicast_metadata.bd_mrpf_group
-{'action_descriptions': [[], ['m16', 'm2', 'm1', '(unk)']],
- 'num_actions': 2,
- 'table_name': 'ipv4_multicast_route'}
-dbg action_info table.name=ipv6_fib_lpm # actions=3
-    act.name=on_miss # primitive actions=0
-    act.name=fib_hit_nexthop # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.fib_hit
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.fib_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l3_metadata.fib_nexthop_type
-        1 int value 0x0
-    act.name=fib_hit_ecmp # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.fib_hit
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.fib_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l3_metadata.fib_nexthop_type
-        1 int value 0x1
-{'action_descriptions': [[], ['m1', 'm16', 'm2'], ['m1', 'm16', 'm2']],
- 'num_actions': 3,
- 'table_name': 'ipv6_fib_lpm'}
-dbg action_info table.name=ipv6_multicast_route # actions=2
-    act.name=on_miss # primitive actions=0
-    act.name=multicast_route_s_g_hit # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name multicast_metadata.multicast_route_mc_index
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name multicast_metadata.mcast_mode
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name multicast_metadata.mcast_route_hit
-        1 int value 0x1
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name multicast_metadata.mcast_rpf_group
-        1 p4_signature_ref width 16 idx 1
-        2 p4_field width 16 name multicast_metadata.bd_mrpf_group
-{'action_descriptions': [[], ['m16', 'm2', 'm1', '(unk)']],
- 'num_actions': 2,
- 'table_name': 'ipv6_multicast_route'}
-dbg action_info table.name=drop_stats # actions=1
-    act.name=drop_stats_update # primitive actions=1
-
-        prim_act_kind count num_args 2
-        0 p4_counter name drop_stats_2 type packets
-        1 p4_field width 8 name ingress_metadata.drop_reason
-{'action_descriptions': [['(unk)']],
- 'num_actions': 1,
- 'table_name': 'drop_stats'}
-dbg action_info table.name=ipv4_multicast_bridge # actions=2
-    act.name=on_miss # primitive actions=0
-    act.name=multicast_bridge_s_g_hit # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name multicast_metadata.multicast_bridge_mc_index
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name multicast_metadata.mcast_bridge_hit
-        1 int value 0x1
-{'action_descriptions': [[], ['m16', 'm1']],
- 'num_actions': 2,
- 'table_name': 'ipv4_multicast_bridge'}
-dbg action_info table.name=dmac # actions=7
-    act.name=nop # primitive actions=0
-    act.name=dmac_hit # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l2_metadata.same_if_check
-        1 p4_field width 16 name l2_metadata.same_if_check
-        2 p4_signature_ref width 16 idx 0
-    act.name=dmac_multicast_hit # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-    act.name=dmac_miss # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0xffff
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-    act.name=dmac_redirect_nexthop # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l2_metadata.l2_redirect
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l2_metadata.l2_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l2_metadata.l2_nexthop_type
-        1 int value 0x0
-    act.name=dmac_redirect_ecmp # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l2_metadata.l2_redirect
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l2_metadata.l2_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l2_metadata.l2_nexthop_type
-        1 int value 0x1
-    act.name=dmac_drop # primitive actions=1
-
-        prim_act_kind drop num_args 0
-{'action_descriptions': [[],
-                         ['m16', '(unk)'],
-                         ['m16', 'm8'],
-                         ['m16', 'm8'],
-                         ['m1', 'm16', 'm2'],
-                         ['m1', 'm16', 'm2'],
-                         ['(unk)']],
- 'num_actions': 7,
- 'table_name': 'dmac'}
-dbg action_info table.name=dmac # actions=7
-    act.name=nop # primitive actions=0
-    act.name=dmac_hit # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l2_metadata.same_if_check
-        1 p4_field width 16 name l2_metadata.same_if_check
-        2 p4_signature_ref width 16 idx 0
-    act.name=dmac_multicast_hit # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-    act.name=dmac_miss # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0xffff
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-    act.name=dmac_redirect_nexthop # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l2_metadata.l2_redirect
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l2_metadata.l2_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l2_metadata.l2_nexthop_type
-        1 int value 0x0
-    act.name=dmac_redirect_ecmp # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l2_metadata.l2_redirect
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l2_metadata.l2_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l2_metadata.l2_nexthop_type
-        1 int value 0x1
-    act.name=dmac_drop # primitive actions=1
-
-        prim_act_kind drop num_args 0
-{'action_descriptions': [[],
-                         ['m16', '(unk)'],
-                         ['m16', 'm8'],
-                         ['m16', 'm8'],
-                         ['m1', 'm16', 'm2'],
-                         ['m1', 'm16', 'm2'],
-                         ['(unk)']],
- 'num_actions': 7,
- 'table_name': 'dmac'}
-dbg action_info table.name=ipv4_multicast_bridge # actions=2
-    act.name=on_miss # primitive actions=0
-    act.name=multicast_bridge_s_g_hit # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name multicast_metadata.multicast_bridge_mc_index
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name multicast_metadata.mcast_bridge_hit
-        1 int value 0x1
-{'action_descriptions': [[], ['m16', 'm1']],
- 'num_actions': 2,
- 'table_name': 'ipv4_multicast_bridge'}
-dbg action_info table.name=rmac # actions=2
-    act.name=rmac_hit # primitive actions=1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.rmac_hit
-        1 int value 0x1
-    act.name=rmac_miss # primitive actions=1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.rmac_hit
-        1 int value 0x0
-{'action_descriptions': [['m1'], ['m1']],
- 'num_actions': 2,
- 'table_name': 'rmac'}
-dbg action_info table.name=ipv4_fib_lpm # actions=3
-    act.name=on_miss # primitive actions=0
-    act.name=fib_hit_nexthop # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.fib_hit
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.fib_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l3_metadata.fib_nexthop_type
-        1 int value 0x0
-    act.name=fib_hit_ecmp # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.fib_hit
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.fib_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l3_metadata.fib_nexthop_type
-        1 int value 0x1
-{'action_descriptions': [[], ['m1', 'm16', 'm2'], ['m1', 'm16', 'm2']],
- 'num_actions': 3,
- 'table_name': 'ipv4_fib_lpm'}
-dbg action_info table.name=ipv6_multicast_bridge # actions=2
-    act.name=on_miss # primitive actions=0
-    act.name=multicast_bridge_s_g_hit # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name multicast_metadata.multicast_bridge_mc_index
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name multicast_metadata.mcast_bridge_hit
-        1 int value 0x1
-{'action_descriptions': [[], ['m16', 'm1']],
- 'num_actions': 2,
- 'table_name': 'ipv6_multicast_bridge'}
-dbg action_info table.name=ipv4_multicast_route # actions=2
-    act.name=on_miss # primitive actions=0
-    act.name=multicast_route_s_g_hit # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name multicast_metadata.multicast_route_mc_index
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name multicast_metadata.mcast_mode
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name multicast_metadata.mcast_route_hit
-        1 int value 0x1
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name multicast_metadata.mcast_rpf_group
-        1 p4_signature_ref width 16 idx 1
-        2 p4_field width 16 name multicast_metadata.bd_mrpf_group
-{'action_descriptions': [[], ['m16', 'm2', 'm1', '(unk)']],
- 'num_actions': 2,
- 'table_name': 'ipv4_multicast_route'}
-dbg action_info table.name=ipv6_fib_lpm # actions=3
-    act.name=on_miss # primitive actions=0
-    act.name=fib_hit_nexthop # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.fib_hit
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.fib_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l3_metadata.fib_nexthop_type
-        1 int value 0x0
-    act.name=fib_hit_ecmp # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.fib_hit
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.fib_nexthop
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name l3_metadata.fib_nexthop_type
-        1 int value 0x1
-{'action_descriptions': [[], ['m1', 'm16', 'm2'], ['m1', 'm16', 'm2']],
- 'num_actions': 3,
- 'table_name': 'ipv6_fib_lpm'}
-dbg action_info table.name=ipv6_multicast_route # actions=2
-    act.name=on_miss # primitive actions=0
-    act.name=multicast_route_s_g_hit # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name multicast_metadata.multicast_route_mc_index
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name multicast_metadata.mcast_mode
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name multicast_metadata.mcast_route_hit
-        1 int value 0x1
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name multicast_metadata.mcast_rpf_group
-        1 p4_signature_ref width 16 idx 1
-        2 p4_field width 16 name multicast_metadata.bd_mrpf_group
-{'action_descriptions': [[], ['m16', 'm2', 'm1', '(unk)']],
- 'num_actions': 2,
- 'table_name': 'ipv6_multicast_route'}
-dbg action_info table.name=fwd_result # actions=11
-    act.name=nop # primitive actions=0
-    act.name=set_l2_redirect_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name l2_metadata.l2_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name l2_metadata.l2_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_fib_redirect_action # primitive actions=6
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name l3_metadata.fib_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name l3_metadata.fib_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 int value 0x217
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_cpu_redirect_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 9 name standard_metadata.egress_spec
-        1 int value 0x40
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_acl_redirect_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name acl_metadata.acl_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name acl_metadata.acl_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_racl_redirect_action # primitive actions=6
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name acl_metadata.racl_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name acl_metadata.racl_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_nat_redirect_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name nat_metadata.nat_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name nat_metadata.nat_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_multicast_route_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_field width 16 name multicast_metadata.multicast_route_mc_index
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 int value 0xffff
-    act.name=set_multicast_bridge_action # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_field width 16 name multicast_metadata.multicast_bridge_mc_index
-    act.name=set_multicast_flood # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0xffff
-    act.name=set_multicast_drop # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name ingress_metadata.drop_flag
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name ingress_metadata.drop_reason
-        1 int value 0x2c
-{'action_descriptions': [[],
-                         ['m16', 'm2', 'm16', 'm16', 'm8'],
-                         ['m16', 'm2', 'm1', 'm16', 'm16', 'm8'],
-                         ['m1', 'm16', 'm9', 'm16', 'm8'],
-                         ['m16', 'm2', 'm16', 'm16', 'm8'],
-                         ['m16', 'm2', 'm1', 'm16', 'm16', 'm8'],
-                         ['m16', 'm2', 'm1', 'm16', 'm8'],
-                         ['m8', 'm16', 'm16', 'm1', 'm16'],
-                         ['m8', 'm16', 'm16'],
-                         ['m8', 'm16'],
-                         ['m1', 'm8']],
- 'num_actions': 11,
- 'table_name': 'fwd_result'}
-dbg action_info table.name=fwd_result # actions=11
-    act.name=nop # primitive actions=0
-    act.name=set_l2_redirect_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name l2_metadata.l2_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name l2_metadata.l2_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_fib_redirect_action # primitive actions=6
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name l3_metadata.fib_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name l3_metadata.fib_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 int value 0x217
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_cpu_redirect_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 9 name standard_metadata.egress_spec
-        1 int value 0x40
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_acl_redirect_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name acl_metadata.acl_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name acl_metadata.acl_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_racl_redirect_action # primitive actions=6
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name acl_metadata.racl_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name acl_metadata.racl_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_nat_redirect_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_field width 16 name nat_metadata.nat_nexthop
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 2 name nexthop_metadata.nexthop_type
-        1 p4_field width 2 name nat_metadata.nat_nexthop_type
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=set_multicast_route_action # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_field width 16 name multicast_metadata.multicast_route_mc_index
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name l3_metadata.routed
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 int value 0xffff
-    act.name=set_multicast_bridge_action # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_field width 16 name multicast_metadata.multicast_bridge_mc_index
-    act.name=set_multicast_flood # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0xffff
-    act.name=set_multicast_drop # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 1 name ingress_metadata.drop_flag
-        1 int value 0x1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name ingress_metadata.drop_reason
-        1 int value 0x2c
-{'action_descriptions': [[],
-                         ['m16', 'm2', 'm16', 'm16', 'm8'],
-                         ['m16', 'm2', 'm1', 'm16', 'm16', 'm8'],
-                         ['m1', 'm16', 'm9', 'm16', 'm8'],
-                         ['m16', 'm2', 'm16', 'm16', 'm8'],
-                         ['m16', 'm2', 'm1', 'm16', 'm16', 'm8'],
-                         ['m16', 'm2', 'm1', 'm16', 'm8'],
-                         ['m8', 'm16', 'm16', 'm1', 'm16'],
-                         ['m8', 'm16', 'm16'],
-                         ['m8', 'm16'],
-                         ['m1', 'm8']],
- 'num_actions': 11,
- 'table_name': 'fwd_result'}
-dbg action_info table.name=ecmp_group # actions=3
-    act.name=nop # primitive actions=0
-    act.name=set_ecmp_nexthop_details # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_signature_ref width 16 idx 2
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 p4_field width 16 name ingress_metadata.bd
-        2 p4_signature_ref width 16 idx 1
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l2_metadata.same_if_check
-        1 p4_field width 16 name l2_metadata.same_if_check
-        2 p4_signature_ref width 16 idx 0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 1 name tunnel_metadata.tunnel_if_check
-        1 p4_field width 1 name tunnel_metadata.tunnel_terminate
-        2 p4_signature_ref width 1 idx 3
-    act.name=set_ecmp_nexthop_details_for_post_routed_flood # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_signature_ref width 16 idx 1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_signature_ref width 16 idx 2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 p4_field width 16 name ingress_metadata.bd
-        2 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-{'action_descriptions': [[],
-                         ['m16', 'm16', '(unk)', '(unk)', '(unk)'],
-                         ['m16', 'm16', 'm16', '(unk)', 'm8']],
- 'num_actions': 3,
- 'table_name': 'ecmp_group'}
-dbg action_info table.name=nexthop # actions=3
-    act.name=nop # primitive actions=0
-    act.name=set_nexthop_details # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 p4_field width 16 name ingress_metadata.bd
-        2 p4_signature_ref width 16 idx 1
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l2_metadata.same_if_check
-        1 p4_field width 16 name l2_metadata.same_if_check
-        2 p4_signature_ref width 16 idx 0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 1 name tunnel_metadata.tunnel_if_check
-        1 p4_field width 1 name tunnel_metadata.tunnel_terminate
-        2 p4_signature_ref width 1 idx 2
-    act.name=set_nexthop_details_for_post_routed_flood # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_signature_ref width 16 idx 1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 p4_field width 16 name ingress_metadata.bd
-        2 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-{'action_descriptions': [[],
-                         ['m16', '(unk)', '(unk)', '(unk)'],
-                         ['m16', 'm16', '(unk)', 'm8']],
- 'num_actions': 3,
- 'table_name': 'nexthop'}
-dbg action_info table.name=drop_stats # actions=1
-    act.name=drop_stats_update # primitive actions=1
-
-        prim_act_kind count num_args 2
-        0 p4_counter name drop_stats_2 type packets
-        1 p4_field width 8 name ingress_metadata.drop_reason
-{'action_descriptions': [['(unk)']],
- 'num_actions': 1,
- 'table_name': 'drop_stats'}
-dbg action_info table.name=ecmp_group # actions=3
-    act.name=nop # primitive actions=0
-    act.name=set_ecmp_nexthop_details # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_signature_ref width 16 idx 2
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 p4_field width 16 name ingress_metadata.bd
-        2 p4_signature_ref width 16 idx 1
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l2_metadata.same_if_check
-        1 p4_field width 16 name l2_metadata.same_if_check
-        2 p4_signature_ref width 16 idx 0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 1 name tunnel_metadata.tunnel_if_check
-        1 p4_field width 1 name tunnel_metadata.tunnel_terminate
-        2 p4_signature_ref width 1 idx 3
-    act.name=set_ecmp_nexthop_details_for_post_routed_flood # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_signature_ref width 16 idx 1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name l3_metadata.nexthop_index
-        1 p4_signature_ref width 16 idx 2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 p4_field width 16 name ingress_metadata.bd
-        2 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-{'action_descriptions': [[],
-                         ['m16', 'm16', '(unk)', '(unk)', '(unk)'],
-                         ['m16', 'm16', 'm16', '(unk)', 'm8']],
- 'num_actions': 3,
- 'table_name': 'ecmp_group'}
-dbg action_info table.name=nexthop # actions=3
-    act.name=nop # primitive actions=0
-    act.name=set_nexthop_details # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 p4_field width 16 name ingress_metadata.bd
-        2 p4_signature_ref width 16 idx 1
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l2_metadata.same_if_check
-        1 p4_field width 16 name l2_metadata.same_if_check
-        2 p4_signature_ref width 16 idx 0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 1 name tunnel_metadata.tunnel_if_check
-        1 p4_field width 1 name tunnel_metadata.tunnel_terminate
-        2 p4_signature_ref width 1 idx 2
-    act.name=set_nexthop_details_for_post_routed_flood # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name intrinsic_metadata.mcast_grp
-        1 p4_signature_ref width 16 idx 1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name ingress_metadata.egress_ifindex
-        1 int value 0x0
-
-        prim_act_kind bit_xor num_args 3
-        0 p4_field width 16 name l3_metadata.same_bd_check
-        1 p4_field width 16 name ingress_metadata.bd
-        2 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x7f
-{'action_descriptions': [[],
-                         ['m16', '(unk)', '(unk)', '(unk)'],
-                         ['m16', 'm16', '(unk)', 'm8']],
- 'num_actions': 3,
- 'table_name': 'nexthop'}
-dbg action_info table.name=system_acl # actions=8
-    act.name=nop # primitive actions=0
-    act.name=redirect_to_cpu # primitive actions=6
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 5 name intrinsic_metadata.qid
-        1 p4_signature_ref width 5 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 3 name intrinsic_metadata.ingress_cos
-        1 p4_signature_ref width 3 idx 2
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind execute_meter num_args 3
-        0 p4_meter name copp type bytes
-        1 p4_signature_ref width 32 idx 1
-        2 p4_field width 2 name intrinsic_metadata.packet_color
-
-        prim_act_kind drop num_args 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=redirect_to_cpu_with_reason # primitive actions=7
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 5 name intrinsic_metadata.qid
-        1 p4_signature_ref width 5 idx 1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 3 name intrinsic_metadata.ingress_cos
-        1 p4_signature_ref width 3 idx 3
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind execute_meter num_args 3
-        0 p4_meter name copp type bytes
-        1 p4_signature_ref width 32 idx 2
-        2 p4_field width 2 name intrinsic_metadata.packet_color
-
-        prim_act_kind drop num_args 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=copy_to_cpu # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 5 name intrinsic_metadata.qid
-        1 p4_signature_ref width 5 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 3 name intrinsic_metadata.ingress_cos
-        1 p4_signature_ref width 3 idx 2
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind execute_meter num_args 3
-        0 p4_meter name copp type bytes
-        1 p4_signature_ref width 32 idx 1
-        2 p4_field width 2 name intrinsic_metadata.packet_color
-    act.name=copy_to_cpu_with_reason # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 5 name intrinsic_metadata.qid
-        1 p4_signature_ref width 5 idx 1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 3 name intrinsic_metadata.ingress_cos
-        1 p4_signature_ref width 3 idx 3
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind execute_meter num_args 3
-        0 p4_meter name copp type bytes
-        1 p4_signature_ref width 32 idx 2
-        2 p4_field width 2 name intrinsic_metadata.packet_color
-    act.name=drop_packet # primitive actions=1
-
-        prim_act_kind drop num_args 0
-    act.name=drop_packet_with_reason # primitive actions=2
-
-        prim_act_kind count num_args 2
-        0 p4_counter name drop_stats type packets
-        1 p4_signature_ref width 32 idx 0
-
-        prim_act_kind drop num_args 0
-    act.name=negative_mirror # primitive actions=2
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 p4_signature_ref width 32 idx 0
-        1 p4_field_list mirror_info num_fs 2 width 24 widths 16,8
-
-        prim_act_kind drop num_args 0
-{'action_descriptions': [[],
-                         ['m5', 'm3', '(unk)', '(unk)', '(unk)', 'm8'],
-                         ['m16', 'm5', 'm3', '(unk)', '(unk)', '(unk)', 'm8'],
-                         ['m5', 'm3', '(unk)', '(unk)'],
-                         ['m16', 'm5', 'm3', '(unk)', '(unk)'],
-                         ['(unk)'],
-                         ['(unk)', '(unk)'],
-                         ['(unk)', '(unk)']],
- 'num_actions': 8,
- 'table_name': 'system_acl'}
-dbg action_info table.name=lag_group # actions=3
-    act.name=set_lag_miss # primitive actions=0
-    act.name=set_lag_port # primitive actions=1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 9 name standard_metadata.egress_spec
-        1 p4_signature_ref width 9 idx 0
-    act.name=set_lag_remote_port # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 p4_signature_ref width 8 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.dst_port
-        1 p4_signature_ref width 16 idx 1
-{'action_descriptions': [[], ['m9'], ['m8', 'm16']],
- 'num_actions': 3,
- 'table_name': 'lag_group'}
-dbg action_info table.name=lag_group # actions=3
-    act.name=set_lag_miss # primitive actions=0
-    act.name=set_lag_port # primitive actions=1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 9 name standard_metadata.egress_spec
-        1 p4_signature_ref width 9 idx 0
-    act.name=set_lag_remote_port # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 p4_signature_ref width 8 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.dst_port
-        1 p4_signature_ref width 16 idx 1
-{'action_descriptions': [[], ['m9'], ['m8', 'm16']],
- 'num_actions': 3,
- 'table_name': 'lag_group'}
-dbg action_info table.name=system_acl # actions=8
-    act.name=nop # primitive actions=0
-    act.name=redirect_to_cpu # primitive actions=6
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 5 name intrinsic_metadata.qid
-        1 p4_signature_ref width 5 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 3 name intrinsic_metadata.ingress_cos
-        1 p4_signature_ref width 3 idx 2
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind execute_meter num_args 3
-        0 p4_meter name copp type bytes
-        1 p4_signature_ref width 32 idx 1
-        2 p4_field width 2 name intrinsic_metadata.packet_color
-
-        prim_act_kind drop num_args 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=redirect_to_cpu_with_reason # primitive actions=7
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 5 name intrinsic_metadata.qid
-        1 p4_signature_ref width 5 idx 1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 3 name intrinsic_metadata.ingress_cos
-        1 p4_signature_ref width 3 idx 3
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind execute_meter num_args 3
-        0 p4_meter name copp type bytes
-        1 p4_signature_ref width 32 idx 2
-        2 p4_field width 2 name intrinsic_metadata.packet_color
-
-        prim_act_kind drop num_args 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 8 name fabric_metadata.dst_device
-        1 int value 0x0
-    act.name=copy_to_cpu # primitive actions=4
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 5 name intrinsic_metadata.qid
-        1 p4_signature_ref width 5 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 3 name intrinsic_metadata.ingress_cos
-        1 p4_signature_ref width 3 idx 2
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind execute_meter num_args 3
-        0 p4_meter name copp type bytes
-        1 p4_signature_ref width 32 idx 1
-        2 p4_field width 2 name intrinsic_metadata.packet_color
-    act.name=copy_to_cpu_with_reason # primitive actions=5
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 5 name intrinsic_metadata.qid
-        1 p4_signature_ref width 5 idx 1
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 3 name intrinsic_metadata.ingress_cos
-        1 p4_signature_ref width 3 idx 3
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind execute_meter num_args 3
-        0 p4_meter name copp type bytes
-        1 p4_signature_ref width 32 idx 2
-        2 p4_field width 2 name intrinsic_metadata.packet_color
-    act.name=drop_packet # primitive actions=1
-
-        prim_act_kind drop num_args 0
-    act.name=drop_packet_with_reason # primitive actions=2
-
-        prim_act_kind count num_args 2
-        0 p4_counter name drop_stats type packets
-        1 p4_signature_ref width 32 idx 0
-
-        prim_act_kind drop num_args 0
-    act.name=negative_mirror # primitive actions=2
-
-        prim_act_kind clone_ingress_pkt_to_egress num_args 2
-        0 p4_signature_ref width 32 idx 0
-        1 p4_field_list mirror_info num_fs 2 width 24 widths 16,8
-
-        prim_act_kind drop num_args 0
-{'action_descriptions': [[],
-                         ['m5', 'm3', '(unk)', '(unk)', '(unk)', 'm8'],
-                         ['m16', 'm5', 'm3', '(unk)', '(unk)', '(unk)', 'm8'],
-                         ['m5', 'm3', '(unk)', '(unk)'],
-                         ['m16', 'm5', 'm3', '(unk)', '(unk)'],
-                         ['(unk)'],
-                         ['(unk)', '(unk)'],
-                         ['(unk)', '(unk)']],
- 'num_actions': 8,
- 'table_name': 'system_acl'}
-
+ingress action details
+
+table dmac search_bits 64 res_bits 19 num_act 7 max_prim_acts 3
+  0: 1 drop
+  1: 2 m16 xor(16)
+  2: 2 m16 m8
+  3: 2 m16 m8
+  4: 3 m1 m16 m2
+  5: 3 m1 m16 m2
+  6: 0 
+table ipv4_fib_lpm search_bits 48 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table ipv4_multicast_bridge search_bits 80 res_bits 18 num_act 2 max_prim_acts 2
+  0: 2 m16 m1
+  1: 0 
+table ipv4_multicast_route search_bits 80 res_bits 34 num_act 2 max_prim_acts 4
+  0: 4 m16 m2 m1 xor(16)
+  1: 0 
+table ipv6_fib_lpm search_bits 144 res_bits 18 num_act 3 max_prim_acts 3
+  0: 3 m1 m16 m2
+  1: 3 m1 m16 m2
+  2: 0 
+table ipv6_multicast_bridge search_bits 272 res_bits 18 num_act 2 max_prim_acts 2
+  0: 2 m16 m1
+  1: 0 
+table ipv6_multicast_route search_bits 272 res_bits 34 num_act 2 max_prim_acts 4
+  0: 4 m16 m2 m1 xor(16)
+  1: 0 
+table rmac search_bits 58 res_bits 2 num_act 2 max_prim_acts 1
+  0: 1 m1
+  1: 1 m1
+table fwd_result search_bits 33 res_bits 4 num_act 11 max_prim_acts 6
+  0: 0 
+  1: 5 m16 m2 m16 m16 m8
+  2: 5 m1 m16 m9 m16 m8
+  3: 6 m16 m2 m1 m16 m16 m8
+  4: 5 m16 m2 m16 m16 m8
+  5: 3 m8 m16 m16
+  6: 2 m1 m8
+  7: 2 m8 m16
+  8: 5 m8 m16 m16 m1 m16
+  9: 5 m16 m2 m1 m16 m8
+  10: 6 m16 m2 m1 m16 m16 m8
+table drop_stats search_bits 0 res_bits 0 num_act 1 max_prim_acts 1
+  0: 1 count(8,packets)
+table ecmp_group search_bits 16 res_bits 51 num_act 3 max_prim_acts 5
+  0: 0 
+  1: 5 m16 m16 xor(16) xor(16) xor(1)
+  2: 5 m16 m16 m16 xor(16) m8
+table nexthop search_bits 16 res_bits 35 num_act 3 max_prim_acts 4
+  0: 0 
+  1: 4 m16 xor(16) xor(16) xor(1)
+  2: 4 m16 m16 xor(16) m8
+table lag_group search_bits 16 res_bits 26 num_act 3 max_prim_acts 2
+  0: 0 
+  1: 1 m9
+  2: 2 m8 m16
+table system_acl search_bits 153 res_bits 60 num_act 8 max_prim_acts 7
+  0: 4 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2)
+  1: 5 m16 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2)
+  2: 1 drop
+  3: 2 count(32,packets) drop
+  4: 2 clone_i2e(16,8) drop
+  5: 0 
+  6: 6 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2) drop m8
+  7: 7 m16 m5 m3 clone_i2e(16,16,16,9) meter(32,bytes,2) drop m8
+
+ingress action count for regular tables
 # of primitive actions used in actions, from most to least often used:
- 208 modify_field
-  22 bit_xor
-  12 drop
-  10 clone_ingress_pkt_to_egress
-   8 execute_meter
-   4 count
+ 104  79.4% m         modify_field
+  11   8.4% xor       bit_xor
+   6   4.6% drop      drop
+   5   3.8% clone_i2e clone_ingress_pkt_to_egress
+   4   3.1% meter     execute_meter
+   1   0.8% count     count
+
+Number of ingress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   1      1      1   7.7%
+   2      3      4  30.8%
+   3      3      7  53.8%
+   4      3     10  76.9%
+   5      1     11  84.6%
+   6      1     12  92.3%
+   7      1     13 100.0%
+
+ingress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   1 100.0% count     count
+
+Number of ingress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   1      1      1 100.0%
 
 EGRESS PIPELINE
 
@@ -1998,143 +758,60 @@ egress_system_acl_ACTION            MAT    9- 9 =   0  egress_system_acl_MATCH
 egress_system_acl_ACTION            SUC    9- 0 =   9  _condition_14
 (no predecessor)                    -               9  egress_system_acl_ACTION
 pipeline egress requires at least 9 stages
-dbg action_info table.name=egress_system_acl # actions=8
-    act.name=nop # primitive actions=0
-    act.name=drop_packet # primitive actions=1
 
-        prim_act_kind drop num_args 0
-    act.name=egress_copy_to_cpu # primitive actions=1
+egress action details
 
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-    act.name=egress_redirect_to_cpu # primitive actions=2
+table egress_system_acl search_bits 43 res_bits 36 num_act 8 max_prim_acts 3
+  0: 1 drop
+  1: 1 clone_e2e(16,16,16,9)
+  2: 2 m16 clone_e2e(16,16,16,9)
+  3: 2 m(16,32) clone_e2e(32,16)
+  4: 3 m(16,32) clone_e2e(32,16) drop
+  5: 2 clone_e2e(16,16,16,9) drop
+  6: 3 m16 clone_e2e(16,16,16,9) drop
+  7: 0 
 
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind drop num_args 0
-    act.name=egress_copy_to_cpu_with_reason # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-    act.name=egress_redirect_to_cpu_with_reason # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind drop num_args 0
-    act.name=egress_mirror # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name i2e_metadata.mirror_session_id
-        1 p4_signature_ref width 32 idx 0
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 p4_signature_ref width 32 idx 0
-        1 p4_field_list e2e_mirror_info num_fs 2 width 48 widths 32,16
-    act.name=egress_mirror_drop # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name i2e_metadata.mirror_session_id
-        1 p4_signature_ref width 32 idx 0
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 p4_signature_ref width 32 idx 0
-        1 p4_field_list e2e_mirror_info num_fs 2 width 48 widths 32,16
-
-        prim_act_kind drop num_args 0
-{'action_descriptions': [[],
-                         ['(unk)'],
-                         ['(unk)'],
-                         ['(unk)', '(unk)'],
-                         ['m16', '(unk)'],
-                         ['m16', '(unk)', '(unk)'],
-                         ['m(16,32)', '(unk)'],
-                         ['m(16,32)', '(unk)', '(unk)']],
- 'num_actions': 8,
- 'table_name': 'egress_system_acl'}
-dbg action_info table.name=egress_system_acl # actions=8
-    act.name=nop # primitive actions=0
-    act.name=drop_packet # primitive actions=1
-
-        prim_act_kind drop num_args 0
-    act.name=egress_copy_to_cpu # primitive actions=1
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-    act.name=egress_redirect_to_cpu # primitive actions=2
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind drop num_args 0
-    act.name=egress_copy_to_cpu_with_reason # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-    act.name=egress_redirect_to_cpu_with_reason # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name fabric_metadata.reason_code
-        1 p4_signature_ref width 16 idx 0
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 int value 0xfa
-        1 p4_field_list cpu_info num_fs 4 width 57 widths 16,16,16,9
-
-        prim_act_kind drop num_args 0
-    act.name=egress_mirror # primitive actions=2
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name i2e_metadata.mirror_session_id
-        1 p4_signature_ref width 32 idx 0
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 p4_signature_ref width 32 idx 0
-        1 p4_field_list e2e_mirror_info num_fs 2 width 48 widths 32,16
-    act.name=egress_mirror_drop # primitive actions=3
-
-        prim_act_kind modify_field num_args 2
-        0 p4_field width 16 name i2e_metadata.mirror_session_id
-        1 p4_signature_ref width 32 idx 0
-
-        prim_act_kind clone_egress_pkt_to_egress num_args 2
-        0 p4_signature_ref width 32 idx 0
-        1 p4_field_list e2e_mirror_info num_fs 2 width 48 widths 32,16
-
-        prim_act_kind drop num_args 0
-{'action_descriptions': [[],
-                         ['(unk)'],
-                         ['(unk)'],
-                         ['(unk)', '(unk)'],
-                         ['m16', '(unk)'],
-                         ['m16', '(unk)', '(unk)'],
-                         ['m(16,32)', '(unk)'],
-                         ['m(16,32)', '(unk)', '(unk)']],
- 'num_actions': 8,
- 'table_name': 'egress_system_acl'}
-
+egress action count for regular tables
 # of primitive actions used in actions, from most to least often used:
-  12 clone_egress_pkt_to_egress
-   8 drop
-   8 modify_field
+   6  42.9% clone_e2e clone_egress_pkt_to_egress
+   4  28.6% m         modify_field
+   4  28.6% drop      drop
+
+Number of egress regular tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+   3      1      1 100.0%
+
+egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+
+Number of egress pure action tables with given max number of primitive actions for any of its actions:
+max  # of   cum. # cum.
+acts tables tables fract
+---- ------ ------ -----
+
+ingress plus egress action count for regular tables
+# of primitive actions used in actions, from most to least often used:
+ 108  74.5% m         modify_field
+  11   7.6% xor       bit_xor
+  10   6.9% drop      drop
+   6   4.1% clone_e2e clone_egress_pkt_to_egress
+   5   3.4% clone_i2e clone_ingress_pkt_to_egress
+   4   2.8% meter     execute_meter
+   1   0.7% count     count
+
+ingress plus egress action count for pure action tables
+# of primitive actions used in actions, from most to least often used:
+   1 100.0% count     count
+
+ingress plus egress action count
+# of primitive actions used in actions, from most to least often used:
+ 108  74.0% m         modify_field
+  11   7.5% xor       bit_xor
+  10   6.8% drop      drop
+   6   4.1% clone_e2e clone_egress_pkt_to_egress
+   5   3.4% clone_i2e clone_ingress_pkt_to_egress
+   4   2.7% meter     execute_meter
+   2   1.4% count     count
 
