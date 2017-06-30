@@ -4,4 +4,4 @@ Command used to generate output files here:
 
     p4test --p4v 14 --pp switch-translated-to-p4-16.p4 ../switch.p4
 
-I used latest version of p4c as of 2017-Jun-09.
+I used latest version of p4c as of 2017-Jun-30.

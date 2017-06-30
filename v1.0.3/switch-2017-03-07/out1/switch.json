@@ -1,30 +1,27 @@
 {
   "program" : "../switch.p4",
-  "__meta__" : null,
+  "__meta__" : {
+    "version" : [2, 7],
+    "compiler" : "https://github.com/p4lang/p4c"
+  },
   "header_types" : [
     {
-      "name" : "scalars",
+      "name" : "scalars_0",
       "id" : 0,
       "fields" : [
         ["tmp_0", 4, false],
         ["tmp", 4, false],
         ["tmp_3", 32, false],
         ["tmp_6", 32, false],
-        ["tmp_9", 32, false],
-        ["tmp_10", 16, false],
-        ["tmp_11", 48, false],
-        ["tmp_12", 16, false],
-        ["tmp_13", 32, false],
-        ["tmp_14", 32, false],
-        ["tmp_15", 32, false],
-        ["tmp_16", 32, false],
-        ["tmp_17", 32, false],
-        ["tmp_18", 32, false],
-        ["process_hashes_tmp_9", 16, false],
-        ["process_hashes_tmp_11", 16, false],
-        ["process_hashes_tmp_13", 16, false],
-        ["process_hashes_tmp_15", 16, false],
-        ["process_hashes_tmp_17", 16, false],
+        ["tmp_9", 16, false],
+        ["tmp_10", 48, false],
+        ["tmp_11", 16, false],
+        ["tmp_12", 32, false],
+        ["_process_hashes_tmp_9", 16, false],
+        ["_process_hashes_tmp_11", 16, false],
+        ["_process_hashes_tmp_13", 16, false],
+        ["_process_hashes_tmp_15", 16, false],
+        ["_process_hashes_tmp_17", 16, false],
         ["tmp_1", 1, false],
         ["tmp_2", 16, false],
         ["tmp_4", 1, false],
@@ -1006,35 +1003,35 @@
   ],
   "headers" : [
     {
-      "name" : "process_hashes_tmp_10",
+      "name" : "_process_hashes_tmp_10",
       "id" : 0,
       "header_type" : "tuple_2",
       "metadata" : true,
       "pi_omit" : true
     },
     {
-      "name" : "process_hashes_tmp_12",
+      "name" : "_process_hashes_tmp_12",
       "id" : 1,
       "header_type" : "tuple_3",
       "metadata" : true,
       "pi_omit" : true
     },
     {
-      "name" : "process_hashes_tmp_14",
+      "name" : "_process_hashes_tmp_14",
       "id" : 2,
       "header_type" : "tuple_4",
       "metadata" : true,
       "pi_omit" : true
     },
     {
-      "name" : "process_hashes_tmp_16",
+      "name" : "_process_hashes_tmp_16",
       "id" : 3,
       "header_type" : "tuple_5",
       "metadata" : true,
       "pi_omit" : true
     },
     {
-      "name" : "process_hashes_tmp_18",
+      "name" : "_process_hashes_tmp_18",
       "id" : 4,
       "header_type" : "tuple_6",
       "metadata" : true,
@@ -1043,7 +1040,7 @@
     {
       "name" : "scalars",
       "id" : 5,
-      "header_type" : "scalars",
+      "header_type" : "scalars_0",
       "metadata" : true,
       "pi_omit" : true
     },
@@ -1820,6 +1817,9 @@
       "header_ids" : [87, 88]
     }
   ],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
   "field_lists" : [
     {
       "id" : 0,
@@ -4464,7 +4464,7 @@
   ],
   "meter_arrays" : [
     {
-      "name" : "process_storm_control.storm_control_meter",
+      "name" : "storm_control_meter",
       "id" : 0,
       "is_direct" : false,
       "size" : 1024,
@@ -4472,17 +4472,17 @@
       "type" : "bytes"
     },
     {
-      "name" : "process_meter_index.meter_index",
+      "name" : "meter_index",
       "id" : 1,
       "is_direct" : true,
       "rate_count" : 2,
       "type" : "bytes",
       "size" : 1024,
-      "binding" : "process_meter_index.meter_index",
+      "binding" : "meter_index",
       "result_target" : ["meter_metadata", "packet_color"]
     },
     {
-      "name" : "process_system_acl.copp",
+      "name" : "copp",
       "id" : 2,
       "is_direct" : false,
       "size" : 128,
@@ -4495,64 +4495,64 @@
       "name" : "sflow_ingress_session_pkt_counter",
       "id" : 0,
       "is_direct" : true,
-      "binding" : "process_ingress_sflow.sflow_ingress"
+      "binding" : "sflow_ingress"
     },
     {
       "name" : "ipv4_multicast_route_s_g_stats",
       "id" : 1,
       "is_direct" : true,
-      "binding" : "process_multicast.process_ipv4_multicast.ipv4_multicast_route"
+      "binding" : "ipv4_multicast_route"
     },
     {
       "name" : "ipv4_multicast_route_star_g_stats",
       "id" : 2,
       "is_direct" : true,
-      "binding" : "process_multicast.process_ipv4_multicast.ipv4_multicast_route_star_g"
+      "binding" : "ipv4_multicast_route_star_g"
     },
     {
       "name" : "ipv6_multicast_route_s_g_stats",
       "id" : 3,
       "is_direct" : true,
-      "binding" : "process_multicast.process_ipv6_multicast.ipv6_multicast_route"
+      "binding" : "ipv6_multicast_route"
     },
     {
       "name" : "ipv6_multicast_route_star_g_stats",
       "id" : 4,
       "is_direct" : true,
-      "binding" : "process_multicast.process_ipv6_multicast.ipv6_multicast_route_star_g"
+      "binding" : "ipv6_multicast_route_star_g"
     },
     {
       "name" : "meter_stats",
       "id" : 5,
       "is_direct" : true,
-      "binding" : "process_meter_action.meter_action"
+      "binding" : "meter_action"
     },
     {
       "name" : "storm_control_stats",
       "id" : 6,
       "is_direct" : true,
-      "binding" : "process_storm_control_stats.storm_control_stats"
+      "binding" : "storm_control_stats"
     },
     {
-      "name" : "process_ingress_bd_stats.ingress_bd_stats",
+      "name" : "ingress_bd_stats",
       "id" : 7,
       "size" : 1024,
       "is_direct" : false
     },
     {
-      "name" : "process_ingress_acl_stats.acl_stats",
+      "name" : "acl_stats",
       "id" : 8,
       "size" : 1024,
       "is_direct" : false
     },
     {
-      "name" : "process_system_acl.drop_stats",
+      "name" : "drop_stats",
       "id" : 9,
       "size" : 1024,
       "is_direct" : false
     },
     {
-      "name" : "process_system_acl.drop_stats_2",
+      "name" : "drop_stats_2",
       "id" : 10,
       "size" : 1024,
       "is_direct" : false
@@ -4561,7 +4561,7 @@
       "name" : "egress_bd_stats",
       "id" : 11,
       "is_direct" : true,
-      "binding" : "process_egress_bd_stats.egress_bd_stats"
+      "binding" : "egress_bd_stats"
     }
   ],
   "register_arrays" : [],
@@ -4573,23 +4573,23 @@
       "input" : [
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_10", "field_6"]
+          "value" : ["_process_hashes_tmp_10", "field_6"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_10", "field_7"]
+          "value" : ["_process_hashes_tmp_10", "field_7"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_10", "field_8"]
+          "value" : ["_process_hashes_tmp_10", "field_8"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_10", "field_9"]
+          "value" : ["_process_hashes_tmp_10", "field_9"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_10", "field_10"]
+          "value" : ["_process_hashes_tmp_10", "field_10"]
         }
       ]
     },
@@ -4600,31 +4600,31 @@
       "input" : [
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_12", "field_11"]
+          "value" : ["_process_hashes_tmp_12", "field_11"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_12", "field_12"]
+          "value" : ["_process_hashes_tmp_12", "field_12"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_12", "field_13"]
+          "value" : ["_process_hashes_tmp_12", "field_13"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_12", "field_14"]
+          "value" : ["_process_hashes_tmp_12", "field_14"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_12", "field_15"]
+          "value" : ["_process_hashes_tmp_12", "field_15"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_12", "field_16"]
+          "value" : ["_process_hashes_tmp_12", "field_16"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_12", "field_17"]
+          "value" : ["_process_hashes_tmp_12", "field_17"]
         }
       ]
     },
@@ -4635,23 +4635,23 @@
       "input" : [
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_14", "field_18"]
+          "value" : ["_process_hashes_tmp_14", "field_18"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_14", "field_19"]
+          "value" : ["_process_hashes_tmp_14", "field_19"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_14", "field_20"]
+          "value" : ["_process_hashes_tmp_14", "field_20"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_14", "field_21"]
+          "value" : ["_process_hashes_tmp_14", "field_21"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_14", "field_22"]
+          "value" : ["_process_hashes_tmp_14", "field_22"]
         }
       ]
     },
@@ -4662,31 +4662,31 @@
       "input" : [
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_16", "field_23"]
+          "value" : ["_process_hashes_tmp_16", "field_23"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_16", "field_24"]
+          "value" : ["_process_hashes_tmp_16", "field_24"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_16", "field_25"]
+          "value" : ["_process_hashes_tmp_16", "field_25"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_16", "field_26"]
+          "value" : ["_process_hashes_tmp_16", "field_26"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_16", "field_27"]
+          "value" : ["_process_hashes_tmp_16", "field_27"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_16", "field_28"]
+          "value" : ["_process_hashes_tmp_16", "field_28"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_16", "field_29"]
+          "value" : ["_process_hashes_tmp_16", "field_29"]
         }
       ]
     },
@@ -4697,19 +4697,19 @@
       "input" : [
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_18", "field_30"]
+          "value" : ["_process_hashes_tmp_18", "field_30"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_18", "field_31"]
+          "value" : ["_process_hashes_tmp_18", "field_31"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_18", "field_32"]
+          "value" : ["_process_hashes_tmp_18", "field_32"]
         },
         {
           "type" : "field",
-          "value" : ["process_hashes_tmp_18", "field_33"]
+          "value" : ["_process_hashes_tmp_18", "field_33"]
         }
       ]
     },
@@ -4823,15 +4823,15 @@
       "elements" : [
         {
           "type" : "field",
+          "value" : ["scalars", "tmp_9"]
+        },
+        {
+          "type" : "field",
           "value" : ["scalars", "tmp_10"]
         },
         {
           "type" : "field",
           "value" : ["scalars", "tmp_11"]
-        },
-        {
-          "type" : "field",
-          "value" : ["scalars", "tmp_12"]
         }
       ]
     }
@@ -6006,7 +6006,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6047,7 +6047,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6103,7 +6103,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6181,7 +6181,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6200,7 +6200,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6286,7 +6286,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6305,7 +6305,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6391,7 +6391,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6477,7 +6477,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6496,7 +6496,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6582,7 +6582,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6601,7 +6601,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6687,7 +6687,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6773,7 +6773,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6792,7 +6792,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6893,7 +6893,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -6912,7 +6912,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7013,7 +7013,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7114,7 +7114,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7204,7 +7204,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7365,7 +7365,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7440,7 +7440,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7530,7 +7530,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7605,7 +7605,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7680,7 +7680,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7699,7 +7699,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7770,7 +7770,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7789,7 +7789,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7860,7 +7860,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -7931,7 +7931,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8021,7 +8021,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8111,7 +8111,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8130,7 +8130,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8216,7 +8216,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8235,7 +8235,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8321,7 +8321,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8407,7 +8407,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8512,7 +8512,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8617,7 +8617,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8636,7 +8636,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8737,7 +8737,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8756,7 +8756,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -8857,7 +8857,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16398,7 +16398,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16417,7 +16417,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16511,7 +16511,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16530,7 +16530,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16624,7 +16624,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16643,7 +16643,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16737,7 +16737,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16816,7 +16816,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16835,7 +16835,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16937,7 +16937,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -16956,7 +16956,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -17073,7 +17073,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -17092,7 +17092,7 @@
           }
         },
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -17209,7 +17209,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -17401,7 +17401,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -17841,7 +17841,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -18357,7 +18357,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -19613,7 +19613,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -20112,7 +20112,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -20552,7 +20552,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -21068,7 +21068,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -21177,7 +21177,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -21286,7 +21286,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -21395,7 +21395,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -21863,7 +21863,7 @@
       "runtime_data" : [],
       "primitives" : [
         {
-          "op" : "copy_header",
+          "op" : "assign_header",
           "parameters" : [
             {
               "type" : "header",
@@ -34128,56 +34128,20 @@
       "runtime_data" : [
         {
           "name" : "meter_idx",
-          "bitwidth" : 16
+          "bitwidth" : 32
         }
       ],
       "primitives" : [
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "tmp_3"]
-            },
-            {
-              "type" : "expression",
-              "value" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "&",
-                  "left" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "&",
-                      "left" : {
-                        "type" : "local",
-                        "value" : 0
-                      },
-                      "right" : {
-                        "type" : "hexstr",
-                        "value" : "0x03ff"
-                      }
-                    }
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0xffffffff"
-                  }
-                }
-              }
-            }
-          ]
-        },
         {
           "op" : "execute_meter",
           "parameters" : [
             {
               "type" : "meter_array",
-              "value" : "process_storm_control.storm_control_meter"
+              "value" : "storm_control_meter"
             },
             {
-              "type" : "field",
-              "value" : ["scalars", "tmp_3"]
+              "type" : "runtime_data",
+              "value" : 0
             },
             {
               "type" : "field",
@@ -34199,8 +34163,21 @@
               "value" : ["meter_metadata", "meter_index"]
             },
             {
-              "type" : "runtime_data",
-              "value" : 0
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "local",
+                    "value" : 0
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
             }
           ],
           "source_info" : {
@@ -41715,7 +41692,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_10", "field_6"]
+              "value" : ["_process_hashes_tmp_10", "field_6"]
             },
             {
               "type" : "field",
@@ -41728,7 +41705,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_10", "field_7"]
+              "value" : ["_process_hashes_tmp_10", "field_7"]
             },
             {
               "type" : "field",
@@ -41741,7 +41718,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_10", "field_8"]
+              "value" : ["_process_hashes_tmp_10", "field_8"]
             },
             {
               "type" : "field",
@@ -41754,7 +41731,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_10", "field_9"]
+              "value" : ["_process_hashes_tmp_10", "field_9"]
             },
             {
               "type" : "field",
@@ -41767,7 +41744,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_10", "field_10"]
+              "value" : ["_process_hashes_tmp_10", "field_10"]
             },
             {
               "type" : "field",
@@ -41780,7 +41757,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_9"]
+              "value" : ["scalars", "_process_hashes_tmp_9"]
             },
             {
               "type" : "hexstr",
@@ -41811,7 +41788,7 @@
             },
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_9"]
+              "value" : ["scalars", "_process_hashes_tmp_9"]
             }
           ]
         },
@@ -41820,7 +41797,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_12", "field_11"]
+              "value" : ["_process_hashes_tmp_12", "field_11"]
             },
             {
               "type" : "field",
@@ -41833,7 +41810,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_12", "field_12"]
+              "value" : ["_process_hashes_tmp_12", "field_12"]
             },
             {
               "type" : "field",
@@ -41846,7 +41823,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_12", "field_13"]
+              "value" : ["_process_hashes_tmp_12", "field_13"]
             },
             {
               "type" : "field",
@@ -41859,7 +41836,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_12", "field_14"]
+              "value" : ["_process_hashes_tmp_12", "field_14"]
             },
             {
               "type" : "field",
@@ -41872,7 +41849,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_12", "field_15"]
+              "value" : ["_process_hashes_tmp_12", "field_15"]
             },
             {
               "type" : "field",
@@ -41885,7 +41862,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_12", "field_16"]
+              "value" : ["_process_hashes_tmp_12", "field_16"]
             },
             {
               "type" : "field",
@@ -41898,7 +41875,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_12", "field_17"]
+              "value" : ["_process_hashes_tmp_12", "field_17"]
             },
             {
               "type" : "field",
@@ -41911,7 +41888,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_11"]
+              "value" : ["scalars", "_process_hashes_tmp_11"]
             },
             {
               "type" : "hexstr",
@@ -41942,7 +41919,7 @@
             },
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_11"]
+              "value" : ["scalars", "_process_hashes_tmp_11"]
             }
           ]
         }
@@ -41958,7 +41935,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_14", "field_18"]
+              "value" : ["_process_hashes_tmp_14", "field_18"]
             },
             {
               "type" : "field",
@@ -41971,7 +41948,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_14", "field_19"]
+              "value" : ["_process_hashes_tmp_14", "field_19"]
             },
             {
               "type" : "field",
@@ -41984,7 +41961,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_14", "field_20"]
+              "value" : ["_process_hashes_tmp_14", "field_20"]
             },
             {
               "type" : "field",
@@ -41997,7 +41974,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_14", "field_21"]
+              "value" : ["_process_hashes_tmp_14", "field_21"]
             },
             {
               "type" : "field",
@@ -42010,7 +41987,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_14", "field_22"]
+              "value" : ["_process_hashes_tmp_14", "field_22"]
             },
             {
               "type" : "field",
@@ -42023,7 +42000,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_13"]
+              "value" : ["scalars", "_process_hashes_tmp_13"]
             },
             {
               "type" : "hexstr",
@@ -42054,7 +42031,7 @@
             },
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_13"]
+              "value" : ["scalars", "_process_hashes_tmp_13"]
             }
           ]
         },
@@ -42063,7 +42040,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_16", "field_23"]
+              "value" : ["_process_hashes_tmp_16", "field_23"]
             },
             {
               "type" : "field",
@@ -42076,7 +42053,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_16", "field_24"]
+              "value" : ["_process_hashes_tmp_16", "field_24"]
             },
             {
               "type" : "field",
@@ -42089,7 +42066,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_16", "field_25"]
+              "value" : ["_process_hashes_tmp_16", "field_25"]
             },
             {
               "type" : "field",
@@ -42102,7 +42079,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_16", "field_26"]
+              "value" : ["_process_hashes_tmp_16", "field_26"]
             },
             {
               "type" : "field",
@@ -42115,7 +42092,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_16", "field_27"]
+              "value" : ["_process_hashes_tmp_16", "field_27"]
             },
             {
               "type" : "field",
@@ -42128,7 +42105,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_16", "field_28"]
+              "value" : ["_process_hashes_tmp_16", "field_28"]
             },
             {
               "type" : "field",
@@ -42141,7 +42118,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_16", "field_29"]
+              "value" : ["_process_hashes_tmp_16", "field_29"]
             },
             {
               "type" : "field",
@@ -42154,7 +42131,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_15"]
+              "value" : ["scalars", "_process_hashes_tmp_15"]
             },
             {
               "type" : "hexstr",
@@ -42185,7 +42162,7 @@
             },
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_15"]
+              "value" : ["scalars", "_process_hashes_tmp_15"]
             }
           ]
         }
@@ -42201,7 +42178,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_18", "field_30"]
+              "value" : ["_process_hashes_tmp_18", "field_30"]
             },
             {
               "type" : "field",
@@ -42214,7 +42191,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_18", "field_31"]
+              "value" : ["_process_hashes_tmp_18", "field_31"]
             },
             {
               "type" : "field",
@@ -42227,7 +42204,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_18", "field_32"]
+              "value" : ["_process_hashes_tmp_18", "field_32"]
             },
             {
               "type" : "field",
@@ -42240,7 +42217,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["process_hashes_tmp_18", "field_33"]
+              "value" : ["_process_hashes_tmp_18", "field_33"]
             },
             {
               "type" : "field",
@@ -42253,7 +42230,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_17"]
+              "value" : ["scalars", "_process_hashes_tmp_17"]
             },
             {
               "type" : "hexstr",
@@ -42284,7 +42261,7 @@
             },
             {
               "type" : "field",
-              "value" : ["scalars", "process_hashes_tmp_17"]
+              "value" : ["scalars", "_process_hashes_tmp_17"]
             }
           ]
         }
@@ -42458,7 +42435,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_6"]
+              "value" : ["scalars", "tmp_3"]
             },
             {
               "type" : "expression",
@@ -42467,18 +42444,8 @@
                 "value" : {
                   "op" : "&",
                   "left" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "&",
-                      "left" : {
-                        "type" : "field",
-                        "value" : ["l2_metadata", "bd_stats_idx"]
-                      },
-                      "right" : {
-                        "type" : "hexstr",
-                        "value" : "0x03ff"
-                      }
-                    }
+                    "type" : "field",
+                    "value" : ["l2_metadata", "bd_stats_idx"]
                   },
                   "right" : {
                     "type" : "hexstr",
@@ -42494,11 +42461,11 @@
           "parameters" : [
             {
               "type" : "counter_array",
-              "value" : "process_ingress_bd_stats.ingress_bd_stats"
+              "value" : "ingress_bd_stats"
             },
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_6"]
+              "value" : ["scalars", "tmp_3"]
             }
           ],
           "source_info" : {
@@ -42520,7 +42487,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_9"]
+              "value" : ["scalars", "tmp_6"]
             },
             {
               "type" : "expression",
@@ -42529,18 +42496,8 @@
                 "value" : {
                   "op" : "&",
                   "left" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "&",
-                      "left" : {
-                        "type" : "field",
-                        "value" : ["acl_metadata", "acl_stats_index"]
-                      },
-                      "right" : {
-                        "type" : "hexstr",
-                        "value" : "0x03ff"
-                      }
-                    }
+                    "type" : "field",
+                    "value" : ["acl_metadata", "acl_stats_index"]
                   },
                   "right" : {
                     "type" : "hexstr",
@@ -42556,11 +42513,11 @@
           "parameters" : [
             {
               "type" : "counter_array",
-              "value" : "process_ingress_acl_stats.acl_stats"
+              "value" : "acl_stats"
             },
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_9"]
+              "value" : ["scalars", "tmp_6"]
             }
           ],
           "source_info" : {
@@ -44172,7 +44129,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_10"]
+              "value" : ["scalars", "tmp_9"]
             },
             {
               "type" : "field",
@@ -44185,7 +44142,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_11"]
+              "value" : ["scalars", "tmp_10"]
             },
             {
               "type" : "field",
@@ -44198,7 +44155,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_12"]
+              "value" : ["scalars", "tmp_11"]
             },
             {
               "type" : "field",
@@ -44261,12 +44218,7 @@
     {
       "name" : "set_fabric_multicast",
       "id" : 593,
-      "runtime_data" : [
-        {
-          "name" : "fabric_mgid",
-          "bitwidth" : 8
-        }
-      ],
+      "runtime_data" : [],
       "primitives" : [
         {
           "op" : "assign",
@@ -44421,7 +44373,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_13"]
+              "value" : ["scalars", "tmp_12"]
             },
             {
               "type" : "expression",
@@ -44430,18 +44382,8 @@
                 "value" : {
                   "op" : "&",
                   "left" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "&",
-                      "left" : {
-                        "type" : "field",
-                        "value" : ["ingress_metadata", "drop_reason"]
-                      },
-                      "right" : {
-                        "type" : "hexstr",
-                        "value" : "0x03ff"
-                      }
-                    }
+                    "type" : "field",
+                    "value" : ["ingress_metadata", "drop_reason"]
                   },
                   "right" : {
                     "type" : "hexstr",
@@ -44457,11 +44399,11 @@
           "parameters" : [
             {
               "type" : "counter_array",
-              "value" : "process_system_acl.drop_stats_2"
+              "value" : "drop_stats_2"
             },
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_13"]
+              "value" : ["scalars", "tmp_12"]
             }
           ],
           "source_info" : {
@@ -44489,7 +44431,7 @@
         },
         {
           "name" : "meter_id",
-          "bitwidth" : 7
+          "bitwidth" : 32
         },
         {
           "name" : "icos",
@@ -44549,41 +44491,15 @@
           ]
         },
         {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "tmp_14"]
-            },
-            {
-              "type" : "expression",
-              "value" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "&",
-                  "left" : {
-                    "type" : "local",
-                    "value" : 1
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0xffffffff"
-                  }
-                }
-              }
-            }
-          ]
-        },
-        {
           "op" : "execute_meter",
           "parameters" : [
             {
               "type" : "meter_array",
-              "value" : "process_system_acl.copp"
+              "value" : "copp"
             },
             {
-              "type" : "field",
-              "value" : ["scalars", "tmp_14"]
+              "type" : "runtime_data",
+              "value" : 1
             },
             {
               "type" : "field",
@@ -44609,7 +44525,7 @@
         },
         {
           "name" : "meter_id",
-          "bitwidth" : 7
+          "bitwidth" : 32
         },
         {
           "name" : "icos",
@@ -44669,41 +44585,15 @@
           ]
         },
         {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "tmp_15"]
-            },
-            {
-              "type" : "expression",
-              "value" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "&",
-                  "left" : {
-                    "type" : "local",
-                    "value" : 1
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0xffffffff"
-                  }
-                }
-              }
-            }
-          ]
-        },
-        {
           "op" : "execute_meter",
           "parameters" : [
             {
               "type" : "meter_array",
-              "value" : "process_system_acl.copp"
+              "value" : "copp"
             },
             {
-              "type" : "field",
-              "value" : ["scalars", "tmp_15"]
+              "type" : "runtime_data",
+              "value" : 1
             },
             {
               "type" : "field",
@@ -44762,7 +44652,7 @@
         },
         {
           "name" : "meter_id",
-          "bitwidth" : 7
+          "bitwidth" : 32
         },
         {
           "name" : "icos",
@@ -44841,41 +44731,15 @@
           ]
         },
         {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "tmp_16"]
-            },
-            {
-              "type" : "expression",
-              "value" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "&",
-                  "left" : {
-                    "type" : "local",
-                    "value" : 2
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0xffffffff"
-                  }
-                }
-              }
-            }
-          ]
-        },
-        {
           "op" : "execute_meter",
           "parameters" : [
             {
               "type" : "meter_array",
-              "value" : "process_system_acl.copp"
+              "value" : "copp"
             },
             {
-              "type" : "field",
-              "value" : ["scalars", "tmp_16"]
+              "type" : "runtime_data",
+              "value" : 2
             },
             {
               "type" : "field",
@@ -44905,7 +44769,7 @@
         },
         {
           "name" : "meter_id",
-          "bitwidth" : 7
+          "bitwidth" : 32
         },
         {
           "name" : "icos",
@@ -44984,41 +44848,15 @@
           ]
         },
         {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "tmp_17"]
-            },
-            {
-              "type" : "expression",
-              "value" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "&",
-                  "left" : {
-                    "type" : "local",
-                    "value" : 2
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0xffffffff"
-                  }
-                }
-              }
-            }
-          ]
-        },
-        {
           "op" : "execute_meter",
           "parameters" : [
             {
               "type" : "meter_array",
-              "value" : "process_system_acl.copp"
+              "value" : "copp"
             },
             {
-              "type" : "field",
-              "value" : ["scalars", "tmp_17"]
+              "type" : "runtime_data",
+              "value" : 2
             },
             {
               "type" : "field",
@@ -45086,46 +44924,20 @@
       "runtime_data" : [
         {
           "name" : "drop_reason",
-          "bitwidth" : 10
+          "bitwidth" : 32
         }
       ],
       "primitives" : [
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "tmp_18"]
-            },
-            {
-              "type" : "expression",
-              "value" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "&",
-                  "left" : {
-                    "type" : "local",
-                    "value" : 0
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0xffffffff"
-                  }
-                }
-              }
-            }
-          ]
-        },
         {
           "op" : "count",
           "parameters" : [
             {
               "type" : "counter_array",
-              "value" : "process_system_acl.drop_stats"
+              "value" : "drop_stats"
             },
             {
-              "type" : "field",
-              "value" : ["scalars", "tmp_18"]
+              "type" : "runtime_data",
+              "value" : 0
             }
           ],
           "source_info" : {
@@ -45150,12 +44962,7 @@
     {
       "name" : "negative_mirror",
       "id" : 606,
-      "runtime_data" : [
-        {
-          "name" : "session_id",
-          "bitwidth" : 8
-        }
-      ],
+      "runtime_data" : [],
       "primitives" : [
         {
           "op" : "drop",
@@ -45174,10 +44981,10 @@
     {
       "name" : "ingress",
       "id" : 0,
-      "init_table" : "process_ingress_port_mapping.ingress_port_mapping",
+      "init_table" : "ingress_port_mapping",
       "tables" : [
         {
-          "name" : "process_ingress_port_mapping.ingress_port_mapping",
+          "name" : "ingress_port_mapping",
           "id" : 0,
           "source_info" : {
             "filename" : "../port.p4",
@@ -45200,10 +45007,10 @@
           "direct_meters" : null,
           "action_ids" : [351, 264],
           "actions" : ["set_ifindex", "NoAction"],
-          "base_default_next" : "process_ingress_port_mapping.ingress_port_properties",
+          "base_default_next" : "ingress_port_properties",
           "next_tables" : {
-            "set_ifindex" : "process_ingress_port_mapping.ingress_port_properties",
-            "NoAction" : "process_ingress_port_mapping.ingress_port_properties"
+            "set_ifindex" : "ingress_port_properties",
+            "NoAction" : "ingress_port_properties"
           },
           "default_entry" : {
             "action_id" : 264,
@@ -45213,7 +45020,7 @@
           }
         },
         {
-          "name" : "process_ingress_port_mapping.ingress_port_properties",
+          "name" : "ingress_port_properties",
           "id" : 1,
           "source_info" : {
             "filename" : "../port.p4",
@@ -45236,10 +45043,10 @@
           "direct_meters" : null,
           "action_ids" : [352, 265],
           "actions" : ["set_ingress_port_properties", "NoAction"],
-          "base_default_next" : "process_validate_outer_header.validate_outer_ethernet",
+          "base_default_next" : "validate_outer_ethernet",
           "next_tables" : {
-            "set_ingress_port_properties" : "process_validate_outer_header.validate_outer_ethernet",
-            "NoAction" : "process_validate_outer_header.validate_outer_ethernet"
+            "set_ingress_port_properties" : "validate_outer_ethernet",
+            "NoAction" : "validate_outer_ethernet"
           },
           "default_entry" : {
             "action_id" : 265,
@@ -45249,7 +45056,7 @@
           }
         },
         {
-          "name" : "process_validate_outer_header.validate_outer_ethernet",
+          "name" : "validate_outer_ethernet",
           "id" : 2,
           "source_info" : {
             "filename" : "../port.p4",
@@ -45269,13 +45076,13 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "vlan_tag_[0]",
+              "match_type" : "exact",
+              "target" : ["vlan_tag_[0]", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "vlan_tag_[1]",
+              "match_type" : "exact",
+              "target" : ["vlan_tag_[1]", "$valid$"],
               "mask" : null
             }
           ],
@@ -45287,9 +45094,9 @@
           "direct_meters" : null,
           "action_ids" : [353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 266],
           "actions" : ["malformed_outer_ethernet_packet", "set_valid_outer_unicast_packet_untagged", "set_valid_outer_unicast_packet_single_tagged", "set_valid_outer_unicast_packet_double_tagged", "set_valid_outer_unicast_packet_qinq_tagged", "set_valid_outer_multicast_packet_untagged", "set_valid_outer_multicast_packet_single_tagged", "set_valid_outer_multicast_packet_double_tagged", "set_valid_outer_multicast_packet_qinq_tagged", "set_valid_outer_broadcast_packet_untagged", "set_valid_outer_broadcast_packet_single_tagged", "set_valid_outer_broadcast_packet_double_tagged", "set_valid_outer_broadcast_packet_qinq_tagged", "NoAction"],
-          "base_default_next" : "process_global_params.switch_config_params",
+          "base_default_next" : "switch_config_params",
           "next_tables" : {
-            "malformed_outer_ethernet_packet" : "process_global_params.switch_config_params",
+            "malformed_outer_ethernet_packet" : "switch_config_params",
             "set_valid_outer_unicast_packet_untagged" : "node_5",
             "set_valid_outer_unicast_packet_single_tagged" : "node_5",
             "set_valid_outer_unicast_packet_double_tagged" : "node_5",
@@ -45312,7 +45119,7 @@
           }
         },
         {
-          "name" : "process_validate_outer_header.validate_outer_ipv4_header.validate_outer_ipv4_packet",
+          "name" : "validate_outer_ipv4_packet",
           "id" : 3,
           "source_info" : {
             "filename" : "../ipv4.p4",
@@ -45345,11 +45152,11 @@
           "direct_meters" : null,
           "action_ids" : [366, 367, 267],
           "actions" : ["set_valid_outer_ipv4_packet", "set_malformed_outer_ipv4_packet", "NoAction"],
-          "base_default_next" : "process_global_params.switch_config_params",
+          "base_default_next" : "switch_config_params",
           "next_tables" : {
-            "set_valid_outer_ipv4_packet" : "process_global_params.switch_config_params",
-            "set_malformed_outer_ipv4_packet" : "process_global_params.switch_config_params",
-            "NoAction" : "process_global_params.switch_config_params"
+            "set_valid_outer_ipv4_packet" : "switch_config_params",
+            "set_malformed_outer_ipv4_packet" : "switch_config_params",
+            "NoAction" : "switch_config_params"
           },
           "default_entry" : {
             "action_id" : 267,
@@ -45359,7 +45166,7 @@
           }
         },
         {
-          "name" : "process_validate_outer_header.validate_outer_ipv6_header.validate_outer_ipv6_packet",
+          "name" : "validate_outer_ipv6_packet",
           "id" : 4,
           "source_info" : {
             "filename" : "../ipv6.p4",
@@ -45392,11 +45199,11 @@
           "direct_meters" : null,
           "action_ids" : [368, 369, 268],
           "actions" : ["set_valid_outer_ipv6_packet", "set_malformed_outer_ipv6_packet", "NoAction"],
-          "base_default_next" : "process_global_params.switch_config_params",
+          "base_default_next" : "switch_config_params",
           "next_tables" : {
-            "set_valid_outer_ipv6_packet" : "process_global_params.switch_config_params",
-            "set_malformed_outer_ipv6_packet" : "process_global_params.switch_config_params",
-            "NoAction" : "process_global_params.switch_config_params"
+            "set_valid_outer_ipv6_packet" : "switch_config_params",
+            "set_malformed_outer_ipv6_packet" : "switch_config_params",
+            "NoAction" : "switch_config_params"
           },
           "default_entry" : {
             "action_id" : 268,
@@ -45406,7 +45213,7 @@
           }
         },
         {
-          "name" : "process_validate_outer_header.validate_mpls_header.validate_mpls_packet",
+          "name" : "validate_mpls_packet",
           "id" : 5,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -45426,8 +45233,8 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "mpls[0]",
+              "match_type" : "exact",
+              "target" : ["mpls[0]", "$valid$"],
               "mask" : null
             },
             {
@@ -45441,8 +45248,8 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "mpls[1]",
+              "match_type" : "exact",
+              "target" : ["mpls[1]", "$valid$"],
               "mask" : null
             },
             {
@@ -45456,8 +45263,8 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "mpls[2]",
+              "match_type" : "exact",
+              "target" : ["mpls[2]", "$valid$"],
               "mask" : null
             }
           ],
@@ -45469,12 +45276,12 @@
           "direct_meters" : null,
           "action_ids" : [370, 371, 372, 269],
           "actions" : ["set_valid_mpls_label1", "set_valid_mpls_label2", "set_valid_mpls_label3", "NoAction"],
-          "base_default_next" : "process_global_params.switch_config_params",
+          "base_default_next" : "switch_config_params",
           "next_tables" : {
-            "set_valid_mpls_label1" : "process_global_params.switch_config_params",
-            "set_valid_mpls_label2" : "process_global_params.switch_config_params",
-            "set_valid_mpls_label3" : "process_global_params.switch_config_params",
-            "NoAction" : "process_global_params.switch_config_params"
+            "set_valid_mpls_label1" : "switch_config_params",
+            "set_valid_mpls_label2" : "switch_config_params",
+            "set_valid_mpls_label3" : "switch_config_params",
+            "NoAction" : "switch_config_params"
           },
           "default_entry" : {
             "action_id" : 269,
@@ -45484,7 +45291,7 @@
           }
         },
         {
-          "name" : "process_global_params.switch_config_params",
+          "name" : "switch_config_params",
           "id" : 6,
           "source_info" : {
             "filename" : "../switch_config.p4",
@@ -45501,10 +45308,10 @@
           "direct_meters" : null,
           "action_ids" : [373, 270],
           "actions" : ["set_config_parameters", "NoAction"],
-          "base_default_next" : "process_port_vlan_mapping.port_vlan_mapping",
+          "base_default_next" : "port_vlan_mapping",
           "next_tables" : {
-            "set_config_parameters" : "process_port_vlan_mapping.port_vlan_mapping",
-            "NoAction" : "process_port_vlan_mapping.port_vlan_mapping"
+            "set_config_parameters" : "port_vlan_mapping",
+            "NoAction" : "port_vlan_mapping"
           },
           "default_entry" : {
             "action_id" : 270,
@@ -45514,7 +45321,7 @@
           }
         },
         {
-          "name" : "process_port_vlan_mapping.port_vlan_mapping",
+          "name" : "port_vlan_mapping",
           "id" : 7,
           "source_info" : {
             "filename" : "../port.p4",
@@ -45529,8 +45336,8 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "vlan_tag_[0]",
+              "match_type" : "exact",
+              "target" : ["vlan_tag_[0]", "$valid$"],
               "mask" : null
             },
             {
@@ -45539,8 +45346,8 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "vlan_tag_[1]",
+              "match_type" : "exact",
+              "target" : ["vlan_tag_[1]", "$valid$"],
               "mask" : null
             },
             {
@@ -45566,7 +45373,7 @@
           }
         },
         {
-          "name" : "process_spanning_tree.spanning_tree",
+          "name" : "spanning_tree",
           "id" : 8,
           "source_info" : {
             "filename" : "../l2.p4",
@@ -45607,7 +45414,7 @@
           }
         },
         {
-          "name" : "process_ingress_qos_map.ingress_qos_map_dscp",
+          "name" : "ingress_qos_map_dscp",
           "id" : 9,
           "source_info" : {
             "filename" : "../qos.p4",
@@ -45651,7 +45458,7 @@
           }
         },
         {
-          "name" : "process_ingress_qos_map.ingress_qos_map_pcp",
+          "name" : "ingress_qos_map_pcp",
           "id" : 10,
           "source_info" : {
             "filename" : "../qos.p4",
@@ -45695,7 +45502,7 @@
           }
         },
         {
-          "name" : "process_ip_sourceguard.ipsg",
+          "name" : "ipsg",
           "id" : 11,
           "source_info" : {
             "filename" : "../security.p4",
@@ -45735,7 +45542,7 @@
           "actions" : ["on_miss", "NoAction"],
           "base_default_next" : "node_23",
           "next_tables" : {
-            "on_miss" : "process_ip_sourceguard.ipsg_permit_special",
+            "on_miss" : "ipsg_permit_special",
             "NoAction" : "node_23"
           },
           "default_entry" : {
@@ -45746,7 +45553,7 @@
           }
         },
         {
-          "name" : "process_ip_sourceguard.ipsg_permit_special",
+          "name" : "ipsg_permit_special",
           "id" : 12,
           "source_info" : {
             "filename" : "../security.p4",
@@ -45792,7 +45599,7 @@
           }
         },
         {
-          "name" : "process_int_endpoint.int_source",
+          "name" : "int_source",
           "id" : 13,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -45802,13 +45609,13 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "int_header",
+              "match_type" : "exact",
+              "target" : ["int_header", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
@@ -45822,8 +45629,8 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_ipv4",
+              "match_type" : "exact",
+              "target" : ["inner_ipv4", "$valid$"],
               "mask" : null
             },
             {
@@ -45845,11 +45652,11 @@
           "direct_meters" : null,
           "action_ids" : [389, 390, 278],
           "actions" : ["int_set_src", "int_set_no_src", "NoAction"],
-          "base_default_next" : "process_ingress_sflow.sflow_ingress",
+          "base_default_next" : "sflow_ingress",
           "next_tables" : {
-            "int_set_src" : "process_ingress_sflow.sflow_ingress",
-            "int_set_no_src" : "process_ingress_sflow.sflow_ingress",
-            "NoAction" : "process_ingress_sflow.sflow_ingress"
+            "int_set_src" : "sflow_ingress",
+            "int_set_no_src" : "sflow_ingress",
+            "NoAction" : "sflow_ingress"
           },
           "default_entry" : {
             "action_id" : 278,
@@ -45859,7 +45666,7 @@
           }
         },
         {
-          "name" : "process_int_endpoint.int_terminate",
+          "name" : "int_terminate",
           "id" : 14,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -45869,18 +45676,18 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "int_header",
+              "match_type" : "exact",
+              "target" : ["int_header", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "vxlan_gpe_int_header",
+              "match_type" : "exact",
+              "target" : ["vxlan_gpe_int_header", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
@@ -45889,8 +45696,8 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_ipv4",
+              "match_type" : "exact",
+              "target" : ["inner_ipv4", "$valid$"],
               "mask" : null
             },
             {
@@ -45907,11 +45714,11 @@
           "direct_meters" : null,
           "action_ids" : [391, 392, 279],
           "actions" : ["int_sink_gpe", "int_no_sink", "NoAction"],
-          "base_default_next" : "process_int_endpoint.int_sink_update_outer",
+          "base_default_next" : "int_sink_update_outer",
           "next_tables" : {
-            "int_sink_gpe" : "process_int_endpoint.int_sink_update_outer",
-            "int_no_sink" : "process_int_endpoint.int_sink_update_outer",
-            "NoAction" : "process_int_endpoint.int_sink_update_outer"
+            "int_sink_gpe" : "int_sink_update_outer",
+            "int_no_sink" : "int_sink_update_outer",
+            "NoAction" : "int_sink_update_outer"
           },
           "default_entry" : {
             "action_id" : 279,
@@ -45921,7 +45728,7 @@
           }
         },
         {
-          "name" : "process_int_endpoint.int_sink_update_outer",
+          "name" : "int_sink_update_outer",
           "id" : 15,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -45931,13 +45738,13 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "vxlan_gpe_int_header",
+              "match_type" : "exact",
+              "target" : ["vxlan_gpe_int_header", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
@@ -45954,11 +45761,11 @@
           "direct_meters" : null,
           "action_ids" : [387, 388, 277],
           "actions" : ["int_sink_update_vxlan_gpe_v4", "nop", "NoAction"],
-          "base_default_next" : "process_ingress_sflow.sflow_ingress",
+          "base_default_next" : "sflow_ingress",
           "next_tables" : {
-            "int_sink_update_vxlan_gpe_v4" : "process_ingress_sflow.sflow_ingress",
-            "nop" : "process_ingress_sflow.sflow_ingress",
-            "NoAction" : "process_ingress_sflow.sflow_ingress"
+            "int_sink_update_vxlan_gpe_v4" : "sflow_ingress",
+            "nop" : "sflow_ingress",
+            "NoAction" : "sflow_ingress"
           },
           "default_entry" : {
             "action_id" : 277,
@@ -45968,7 +45775,7 @@
           }
         },
         {
-          "name" : "process_ingress_sflow.sflow_ingress",
+          "name" : "sflow_ingress",
           "id" : 16,
           "source_info" : {
             "filename" : "../sflow.p4",
@@ -45993,8 +45800,8 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "sflow",
+              "match_type" : "exact",
+              "target" : ["sflow", "$valid$"],
               "mask" : null
             }
           ],
@@ -46006,11 +45813,11 @@
           "direct_meters" : null,
           "action_ids" : [395, 396, 281],
           "actions" : ["nop", "sflow_ing_session_enable", "NoAction"],
-          "base_default_next" : "process_ingress_sflow.sflow_ing_take_sample",
+          "base_default_next" : "sflow_ing_take_sample",
           "next_tables" : {
-            "nop" : "process_ingress_sflow.sflow_ing_take_sample",
-            "sflow_ing_session_enable" : "process_ingress_sflow.sflow_ing_take_sample",
-            "NoAction" : "process_ingress_sflow.sflow_ing_take_sample"
+            "nop" : "sflow_ing_take_sample",
+            "sflow_ing_session_enable" : "sflow_ing_take_sample",
+            "NoAction" : "sflow_ing_take_sample"
           },
           "default_entry" : {
             "action_id" : 281,
@@ -46020,7 +45827,7 @@
           }
         },
         {
-          "name" : "process_ingress_sflow.sflow_ing_take_sample",
+          "name" : "sflow_ing_take_sample",
           "id" : 17,
           "source_info" : {
             "filename" : "../sflow.p4",
@@ -46062,7 +45869,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_ingress_fabric.fabric_ingress_dst_lkp",
+          "name" : "fabric_ingress_dst_lkp",
           "id" : 18,
           "source_info" : {
             "filename" : "../fabric.p4",
@@ -46103,7 +45910,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_ingress_fabric.fabric_ingress_src_lkp",
+          "name" : "fabric_ingress_src_lkp",
           "id" : 19,
           "source_info" : {
             "filename" : "../fabric.p4",
@@ -46140,7 +45947,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_ingress_fabric.native_packet_over_fabric",
+          "name" : "native_packet_over_fabric",
           "id" : 20,
           "source_info" : {
             "filename" : "../fabric.p4",
@@ -46150,13 +45957,13 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv6",
+              "match_type" : "exact",
+              "target" : ["ipv6", "$valid$"],
               "mask" : null
             }
           ],
@@ -46183,7 +45990,7 @@
           }
         },
         {
-          "name" : "process_tunnel.outer_rmac",
+          "name" : "outer_rmac",
           "id" : 21,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -46225,7 +46032,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_ipv4_vtep.ipv4_src_vtep",
+          "name" : "ipv4_src_vtep",
           "id" : 22,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -46260,7 +46067,7 @@
           "actions" : ["on_miss", "src_vtep_hit", "NoAction"],
           "base_default_next" : "node_52",
           "next_tables" : {
-            "src_vtep_hit" : "process_tunnel.process_ipv4_vtep.ipv4_dest_vtep",
+            "src_vtep_hit" : "ipv4_dest_vtep",
             "on_miss" : "node_52",
             "NoAction" : "node_52"
           },
@@ -46272,7 +46079,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_ipv4_vtep.ipv4_dest_vtep",
+          "name" : "ipv4_dest_vtep",
           "id" : 23,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -46320,7 +46127,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_ipv6_vtep.ipv6_src_vtep",
+          "name" : "ipv6_src_vtep",
           "id" : 24,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -46355,7 +46162,7 @@
           "actions" : ["on_miss", "src_vtep_hit", "NoAction"],
           "base_default_next" : "node_52",
           "next_tables" : {
-            "src_vtep_hit" : "process_tunnel.process_ipv6_vtep.ipv6_dest_vtep",
+            "src_vtep_hit" : "ipv6_dest_vtep",
             "on_miss" : "node_52",
             "NoAction" : "node_52"
           },
@@ -46367,7 +46174,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_ipv6_vtep.ipv6_dest_vtep",
+          "name" : "ipv6_dest_vtep",
           "id" : 25,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -46415,7 +46222,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_mpls.mpls",
+          "name" : "mpls",
           "id" : 26,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -46430,13 +46237,13 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_ipv4",
+              "match_type" : "exact",
+              "target" : ["inner_ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_ipv6",
+              "match_type" : "exact",
+              "target" : ["inner_ipv6", "$valid$"],
               "mask" : null
             }
           ],
@@ -46466,7 +46273,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_outer_multicast.process_outer_ipv4_multicast.outer_ipv4_multicast",
+          "name" : "outer_ipv4_multicast",
           "id" : 27,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -46506,7 +46313,7 @@
           "actions" : ["nop", "on_miss", "outer_multicast_route_s_g_hit", "outer_multicast_bridge_s_g_hit", "NoAction"],
           "base_default_next" : "node_52",
           "next_tables" : {
-            "on_miss" : "process_tunnel.process_outer_multicast.process_outer_ipv4_multicast.outer_ipv4_multicast_star_g",
+            "on_miss" : "outer_ipv4_multicast_star_g",
             "nop" : "node_52",
             "outer_multicast_route_s_g_hit" : "node_52",
             "outer_multicast_bridge_s_g_hit" : "node_52",
@@ -46520,7 +46327,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_outer_multicast.process_outer_ipv4_multicast.outer_ipv4_multicast_star_g",
+          "name" : "outer_ipv4_multicast_star_g",
           "id" : 28,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -46569,7 +46376,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_outer_multicast.process_outer_ipv6_multicast.outer_ipv6_multicast",
+          "name" : "outer_ipv6_multicast",
           "id" : 29,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -46609,7 +46416,7 @@
           "actions" : ["nop", "on_miss", "outer_multicast_route_s_g_hit", "outer_multicast_bridge_s_g_hit", "NoAction"],
           "base_default_next" : "node_52",
           "next_tables" : {
-            "on_miss" : "process_tunnel.process_outer_multicast.process_outer_ipv6_multicast.outer_ipv6_multicast_star_g",
+            "on_miss" : "outer_ipv6_multicast_star_g",
             "nop" : "node_52",
             "outer_multicast_route_s_g_hit" : "node_52",
             "outer_multicast_bridge_s_g_hit" : "node_52",
@@ -46623,7 +46430,7 @@
           }
         },
         {
-          "name" : "process_tunnel.process_outer_multicast.process_outer_ipv6_multicast.outer_ipv6_multicast_star_g",
+          "name" : "outer_ipv6_multicast_star_g",
           "id" : 30,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -46672,7 +46479,7 @@
           }
         },
         {
-          "name" : "process_tunnel.tunnel",
+          "name" : "tunnel",
           "id" : 31,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -46692,13 +46499,13 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_ipv4",
+              "match_type" : "exact",
+              "target" : ["inner_ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_ipv6",
+              "match_type" : "exact",
+              "target" : ["inner_ipv6", "$valid$"],
               "mask" : null
             }
           ],
@@ -46712,7 +46519,7 @@
           "actions" : ["nop", "tunnel_lookup_miss", "terminate_tunnel_inner_non_ip", "terminate_tunnel_inner_ethernet_ipv4", "terminate_tunnel_inner_ipv4", "terminate_tunnel_inner_ethernet_ipv6", "terminate_tunnel_inner_ipv6", "NoAction"],
           "base_default_next" : "node_56",
           "next_tables" : {
-            "tunnel_lookup_miss" : "process_tunnel.tunnel_lookup_miss",
+            "tunnel_lookup_miss" : "tunnel_lookup_miss",
             "nop" : "node_56",
             "terminate_tunnel_inner_non_ip" : "node_56",
             "terminate_tunnel_inner_ethernet_ipv4" : "node_56",
@@ -46729,7 +46536,7 @@
           }
         },
         {
-          "name" : "process_tunnel.tunnel_lookup_miss",
+          "name" : "tunnel_lookup_miss",
           "id" : 32,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -46739,13 +46546,13 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv6",
+              "match_type" : "exact",
+              "target" : ["ipv6", "$valid$"],
               "mask" : null
             }
           ],
@@ -46772,7 +46579,7 @@
           }
         },
         {
-          "name" : "process_tunnel.adjust_lkp_fields",
+          "name" : "adjust_lkp_fields",
           "id" : 33,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -46782,13 +46589,13 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv6",
+              "match_type" : "exact",
+              "target" : ["ipv6", "$valid$"],
               "mask" : null
             }
           ],
@@ -46815,7 +46622,7 @@
           }
         },
         {
-          "name" : "process_storm_control.storm_control",
+          "name" : "storm_control",
           "id" : 34,
           "source_info" : {
             "filename" : "../security.p4",
@@ -46857,7 +46664,7 @@
           }
         },
         {
-          "name" : "process_validate_packet.validate_packet",
+          "name" : "validate_packet",
           "id" : 35,
           "source_info" : {
             "filename" : "../l2.p4",
@@ -46910,16 +46717,16 @@
           "direct_meters" : null,
           "action_ids" : [457, 458, 459, 460, 461, 462, 463, 299],
           "actions" : ["nop", "set_unicast", "set_unicast_and_ipv6_src_is_link_local", "set_multicast", "set_multicast_and_ipv6_src_is_link_local", "set_broadcast", "set_malformed_packet", "NoAction"],
-          "base_default_next" : "process_ingress_l4port.ingress_l4_src_port",
+          "base_default_next" : "ingress_l4_src_port",
           "next_tables" : {
-            "nop" : "process_ingress_l4port.ingress_l4_src_port",
-            "set_unicast" : "process_ingress_l4port.ingress_l4_src_port",
-            "set_unicast_and_ipv6_src_is_link_local" : "process_ingress_l4port.ingress_l4_src_port",
-            "set_multicast" : "process_ingress_l4port.ingress_l4_src_port",
-            "set_multicast_and_ipv6_src_is_link_local" : "process_ingress_l4port.ingress_l4_src_port",
-            "set_broadcast" : "process_ingress_l4port.ingress_l4_src_port",
-            "set_malformed_packet" : "process_ingress_l4port.ingress_l4_src_port",
-            "NoAction" : "process_ingress_l4port.ingress_l4_src_port"
+            "nop" : "ingress_l4_src_port",
+            "set_unicast" : "ingress_l4_src_port",
+            "set_unicast_and_ipv6_src_is_link_local" : "ingress_l4_src_port",
+            "set_multicast" : "ingress_l4_src_port",
+            "set_multicast_and_ipv6_src_is_link_local" : "ingress_l4_src_port",
+            "set_broadcast" : "ingress_l4_src_port",
+            "set_malformed_packet" : "ingress_l4_src_port",
+            "NoAction" : "ingress_l4_src_port"
           },
           "default_entry" : {
             "action_id" : 299,
@@ -46929,7 +46736,7 @@
           }
         },
         {
-          "name" : "process_ingress_l4port.ingress_l4_src_port",
+          "name" : "ingress_l4_src_port",
           "id" : 36,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -46952,11 +46759,11 @@
           "direct_meters" : null,
           "action_ids" : [465, 467, 301],
           "actions" : ["nop", "set_ingress_src_port_range_id", "NoAction"],
-          "base_default_next" : "process_ingress_l4port.ingress_l4_dst_port",
+          "base_default_next" : "ingress_l4_dst_port",
           "next_tables" : {
-            "nop" : "process_ingress_l4port.ingress_l4_dst_port",
-            "set_ingress_src_port_range_id" : "process_ingress_l4port.ingress_l4_dst_port",
-            "NoAction" : "process_ingress_l4port.ingress_l4_dst_port"
+            "nop" : "ingress_l4_dst_port",
+            "set_ingress_src_port_range_id" : "ingress_l4_dst_port",
+            "NoAction" : "ingress_l4_dst_port"
           },
           "default_entry" : {
             "action_id" : 301,
@@ -46966,7 +46773,7 @@
           }
         },
         {
-          "name" : "process_ingress_l4port.ingress_l4_dst_port",
+          "name" : "ingress_l4_dst_port",
           "id" : 37,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -47003,7 +46810,7 @@
           }
         },
         {
-          "name" : "process_mac.smac",
+          "name" : "smac",
           "id" : 38,
           "source_info" : {
             "filename" : "../l2.p4",
@@ -47046,7 +46853,7 @@
           }
         },
         {
-          "name" : "process_mac.dmac",
+          "name" : "dmac",
           "id" : 39,
           "source_info" : {
             "filename" : "../l2.p4",
@@ -47093,7 +46900,7 @@
           }
         },
         {
-          "name" : "process_mac_acl.mac_acl",
+          "name" : "mac_acl",
           "id" : 40,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -47154,7 +46961,7 @@
           }
         },
         {
-          "name" : "process_ip_acl.ip_acl",
+          "name" : "ip_acl",
           "id" : 41,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -47235,7 +47042,7 @@
           }
         },
         {
-          "name" : "process_ip_acl.ipv6_acl",
+          "name" : "ipv6_acl",
           "id" : 42,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -47344,7 +47151,7 @@
           "direct_meters" : null,
           "action_ids" : [349, 350, 263],
           "actions" : ["rmac_hit", "rmac_miss", "NoAction"],
-          "base_default_next" : "process_ingress_nat.nat_twice",
+          "base_default_next" : "nat_twice",
           "next_tables" : {
             "rmac_miss" : "node_94",
             "rmac_hit" : "node_77",
@@ -47358,7 +47165,7 @@
           }
         },
         {
-          "name" : "process_ipv4_racl.ipv4_racl",
+          "name" : "ipv4_racl",
           "id" : 44,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -47423,7 +47230,7 @@
           }
         },
         {
-          "name" : "process_ipv4_urpf.ipv4_urpf",
+          "name" : "ipv4_urpf",
           "id" : 45,
           "source_info" : {
             "filename" : "../ipv4.p4",
@@ -47451,11 +47258,11 @@
           "direct_meters" : null,
           "action_ids" : [501, 502, 308],
           "actions" : ["on_miss", "ipv4_urpf_hit", "NoAction"],
-          "base_default_next" : "process_ipv4_fib.ipv4_fib",
+          "base_default_next" : "ipv4_fib",
           "next_tables" : {
-            "on_miss" : "process_ipv4_urpf.ipv4_urpf_lpm",
-            "ipv4_urpf_hit" : "process_ipv4_fib.ipv4_fib",
-            "NoAction" : "process_ipv4_fib.ipv4_fib"
+            "on_miss" : "ipv4_urpf_lpm",
+            "ipv4_urpf_hit" : "ipv4_fib",
+            "NoAction" : "ipv4_fib"
           },
           "default_entry" : {
             "action_id" : 308,
@@ -47465,7 +47272,7 @@
           }
         },
         {
-          "name" : "process_ipv4_urpf.ipv4_urpf_lpm",
+          "name" : "ipv4_urpf_lpm",
           "id" : 46,
           "source_info" : {
             "filename" : "../ipv4.p4",
@@ -47493,11 +47300,11 @@
           "direct_meters" : null,
           "action_ids" : [503, 504, 309],
           "actions" : ["ipv4_urpf_hit", "urpf_miss", "NoAction"],
-          "base_default_next" : "process_ipv4_fib.ipv4_fib",
+          "base_default_next" : "ipv4_fib",
           "next_tables" : {
-            "ipv4_urpf_hit" : "process_ipv4_fib.ipv4_fib",
-            "urpf_miss" : "process_ipv4_fib.ipv4_fib",
-            "NoAction" : "process_ipv4_fib.ipv4_fib"
+            "ipv4_urpf_hit" : "ipv4_fib",
+            "urpf_miss" : "ipv4_fib",
+            "NoAction" : "ipv4_fib"
           },
           "default_entry" : {
             "action_id" : 309,
@@ -47507,7 +47314,7 @@
           }
         },
         {
-          "name" : "process_ipv4_fib.ipv4_fib",
+          "name" : "ipv4_fib",
           "id" : 47,
           "source_info" : {
             "filename" : "../ipv4.p4",
@@ -47537,7 +47344,7 @@
           "actions" : ["on_miss", "fib_hit_nexthop", "fib_hit_ecmp", "NoAction"],
           "base_default_next" : "node_92",
           "next_tables" : {
-            "on_miss" : "process_ipv4_fib.ipv4_fib_lpm",
+            "on_miss" : "ipv4_fib_lpm",
             "fib_hit_nexthop" : "node_92",
             "fib_hit_ecmp" : "node_92",
             "NoAction" : "node_92"
@@ -47550,7 +47357,7 @@
           }
         },
         {
-          "name" : "process_ipv4_fib.ipv4_fib_lpm",
+          "name" : "ipv4_fib_lpm",
           "id" : 48,
           "source_info" : {
             "filename" : "../ipv4.p4",
@@ -47593,7 +47400,7 @@
           }
         },
         {
-          "name" : "process_ipv6_racl.ipv6_racl",
+          "name" : "ipv6_racl",
           "id" : 49,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -47658,7 +47465,7 @@
           }
         },
         {
-          "name" : "process_ipv6_urpf.ipv6_urpf",
+          "name" : "ipv6_urpf",
           "id" : 50,
           "source_info" : {
             "filename" : "../ipv6.p4",
@@ -47686,11 +47493,11 @@
           "direct_meters" : null,
           "action_ids" : [516, 517, 313],
           "actions" : ["on_miss", "ipv6_urpf_hit", "NoAction"],
-          "base_default_next" : "process_ipv6_fib.ipv6_fib",
+          "base_default_next" : "ipv6_fib",
           "next_tables" : {
-            "on_miss" : "process_ipv6_urpf.ipv6_urpf_lpm",
-            "ipv6_urpf_hit" : "process_ipv6_fib.ipv6_fib",
-            "NoAction" : "process_ipv6_fib.ipv6_fib"
+            "on_miss" : "ipv6_urpf_lpm",
+            "ipv6_urpf_hit" : "ipv6_fib",
+            "NoAction" : "ipv6_fib"
           },
           "default_entry" : {
             "action_id" : 313,
@@ -47700,7 +47507,7 @@
           }
         },
         {
-          "name" : "process_ipv6_urpf.ipv6_urpf_lpm",
+          "name" : "ipv6_urpf_lpm",
           "id" : 51,
           "source_info" : {
             "filename" : "../ipv6.p4",
@@ -47728,11 +47535,11 @@
           "direct_meters" : null,
           "action_ids" : [518, 519, 314],
           "actions" : ["ipv6_urpf_hit", "urpf_miss", "NoAction"],
-          "base_default_next" : "process_ipv6_fib.ipv6_fib",
+          "base_default_next" : "ipv6_fib",
           "next_tables" : {
-            "ipv6_urpf_hit" : "process_ipv6_fib.ipv6_fib",
-            "urpf_miss" : "process_ipv6_fib.ipv6_fib",
-            "NoAction" : "process_ipv6_fib.ipv6_fib"
+            "ipv6_urpf_hit" : "ipv6_fib",
+            "urpf_miss" : "ipv6_fib",
+            "NoAction" : "ipv6_fib"
           },
           "default_entry" : {
             "action_id" : 314,
@@ -47742,7 +47549,7 @@
           }
         },
         {
-          "name" : "process_ipv6_fib.ipv6_fib",
+          "name" : "ipv6_fib",
           "id" : 52,
           "source_info" : {
             "filename" : "../ipv6.p4",
@@ -47772,7 +47579,7 @@
           "actions" : ["on_miss", "fib_hit_nexthop", "fib_hit_ecmp", "NoAction"],
           "base_default_next" : "node_92",
           "next_tables" : {
-            "on_miss" : "process_ipv6_fib.ipv6_fib_lpm",
+            "on_miss" : "ipv6_fib_lpm",
             "fib_hit_nexthop" : "node_92",
             "fib_hit_ecmp" : "node_92",
             "NoAction" : "node_92"
@@ -47785,7 +47592,7 @@
           }
         },
         {
-          "name" : "process_ipv6_fib.ipv6_fib_lpm",
+          "name" : "ipv6_fib_lpm",
           "id" : 53,
           "source_info" : {
             "filename" : "../ipv6.p4",
@@ -47828,7 +47635,7 @@
           }
         },
         {
-          "name" : "process_urpf_bd.urpf_bd",
+          "name" : "urpf_bd",
           "id" : 54,
           "source_info" : {
             "filename" : "../l3.p4",
@@ -47856,11 +47663,11 @@
           "direct_meters" : null,
           "action_ids" : [526, 527, 317],
           "actions" : ["nop", "urpf_bd_miss", "NoAction"],
-          "base_default_next" : "process_ingress_nat.nat_twice",
+          "base_default_next" : "nat_twice",
           "next_tables" : {
-            "nop" : "process_ingress_nat.nat_twice",
-            "urpf_bd_miss" : "process_ingress_nat.nat_twice",
-            "NoAction" : "process_ingress_nat.nat_twice"
+            "nop" : "nat_twice",
+            "urpf_bd_miss" : "nat_twice",
+            "NoAction" : "nat_twice"
           },
           "default_entry" : {
             "action_id" : 317,
@@ -47870,7 +47677,7 @@
           }
         },
         {
-          "name" : "process_multicast.process_ipv4_multicast.ipv4_multicast_bridge",
+          "name" : "ipv4_multicast_bridge",
           "id" : 55,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -47905,7 +47712,7 @@
           "actions" : ["on_miss", "multicast_bridge_s_g_hit", "NoAction"],
           "base_default_next" : "node_98",
           "next_tables" : {
-            "on_miss" : "process_multicast.process_ipv4_multicast.ipv4_multicast_bridge_star_g",
+            "on_miss" : "ipv4_multicast_bridge_star_g",
             "multicast_bridge_s_g_hit" : "node_98",
             "NoAction" : "node_98"
           },
@@ -47917,7 +47724,7 @@
           }
         },
         {
-          "name" : "process_multicast.process_ipv4_multicast.ipv4_multicast_bridge_star_g",
+          "name" : "ipv4_multicast_bridge_star_g",
           "id" : 56,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -47959,7 +47766,7 @@
           }
         },
         {
-          "name" : "process_multicast.process_ipv4_multicast.ipv4_multicast_route",
+          "name" : "ipv4_multicast_route",
           "id" : 57,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -47992,11 +47799,11 @@
           "direct_meters" : null,
           "action_ids" : [532, 533, 320],
           "actions" : ["on_miss", "multicast_route_s_g_hit", "NoAction"],
-          "base_default_next" : "process_ingress_nat.nat_twice",
+          "base_default_next" : "nat_twice",
           "next_tables" : {
-            "on_miss" : "process_multicast.process_ipv4_multicast.ipv4_multicast_route_star_g",
-            "multicast_route_s_g_hit" : "process_ingress_nat.nat_twice",
-            "NoAction" : "process_ingress_nat.nat_twice"
+            "on_miss" : "ipv4_multicast_route_star_g",
+            "multicast_route_s_g_hit" : "nat_twice",
+            "NoAction" : "nat_twice"
           },
           "default_entry" : {
             "action_id" : 320,
@@ -48006,7 +47813,7 @@
           }
         },
         {
-          "name" : "process_multicast.process_ipv4_multicast.ipv4_multicast_route_star_g",
+          "name" : "ipv4_multicast_route_star_g",
           "id" : 58,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -48034,12 +47841,12 @@
           "direct_meters" : null,
           "action_ids" : [534, 535, 536, 321],
           "actions" : ["multicast_route_star_g_miss", "multicast_route_sm_star_g_hit", "multicast_route_bidir_star_g_hit", "NoAction"],
-          "base_default_next" : "process_ingress_nat.nat_twice",
+          "base_default_next" : "nat_twice",
           "next_tables" : {
-            "multicast_route_star_g_miss" : "process_ingress_nat.nat_twice",
-            "multicast_route_sm_star_g_hit" : "process_ingress_nat.nat_twice",
-            "multicast_route_bidir_star_g_hit" : "process_ingress_nat.nat_twice",
-            "NoAction" : "process_ingress_nat.nat_twice"
+            "multicast_route_star_g_miss" : "nat_twice",
+            "multicast_route_sm_star_g_hit" : "nat_twice",
+            "multicast_route_bidir_star_g_hit" : "nat_twice",
+            "NoAction" : "nat_twice"
           },
           "default_entry" : {
             "action_id" : 321,
@@ -48049,7 +47856,7 @@
           }
         },
         {
-          "name" : "process_multicast.process_ipv6_multicast.ipv6_multicast_bridge",
+          "name" : "ipv6_multicast_bridge",
           "id" : 59,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -48084,7 +47891,7 @@
           "actions" : ["on_miss", "multicast_bridge_s_g_hit", "NoAction"],
           "base_default_next" : "node_105",
           "next_tables" : {
-            "on_miss" : "process_multicast.process_ipv6_multicast.ipv6_multicast_bridge_star_g",
+            "on_miss" : "ipv6_multicast_bridge_star_g",
             "multicast_bridge_s_g_hit" : "node_105",
             "NoAction" : "node_105"
           },
@@ -48096,7 +47903,7 @@
           }
         },
         {
-          "name" : "process_multicast.process_ipv6_multicast.ipv6_multicast_bridge_star_g",
+          "name" : "ipv6_multicast_bridge_star_g",
           "id" : 60,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -48138,7 +47945,7 @@
           }
         },
         {
-          "name" : "process_multicast.process_ipv6_multicast.ipv6_multicast_route",
+          "name" : "ipv6_multicast_route",
           "id" : 61,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -48171,11 +47978,11 @@
           "direct_meters" : null,
           "action_ids" : [541, 542, 324],
           "actions" : ["on_miss", "multicast_route_s_g_hit", "NoAction"],
-          "base_default_next" : "process_ingress_nat.nat_twice",
+          "base_default_next" : "nat_twice",
           "next_tables" : {
-            "on_miss" : "process_multicast.process_ipv6_multicast.ipv6_multicast_route_star_g",
-            "multicast_route_s_g_hit" : "process_ingress_nat.nat_twice",
-            "NoAction" : "process_ingress_nat.nat_twice"
+            "on_miss" : "ipv6_multicast_route_star_g",
+            "multicast_route_s_g_hit" : "nat_twice",
+            "NoAction" : "nat_twice"
           },
           "default_entry" : {
             "action_id" : 324,
@@ -48185,7 +47992,7 @@
           }
         },
         {
-          "name" : "process_multicast.process_ipv6_multicast.ipv6_multicast_route_star_g",
+          "name" : "ipv6_multicast_route_star_g",
           "id" : 62,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -48213,12 +48020,12 @@
           "direct_meters" : null,
           "action_ids" : [543, 544, 545, 325],
           "actions" : ["multicast_route_star_g_miss", "multicast_route_sm_star_g_hit", "multicast_route_bidir_star_g_hit", "NoAction"],
-          "base_default_next" : "process_ingress_nat.nat_twice",
+          "base_default_next" : "nat_twice",
           "next_tables" : {
-            "multicast_route_star_g_miss" : "process_ingress_nat.nat_twice",
-            "multicast_route_sm_star_g_hit" : "process_ingress_nat.nat_twice",
-            "multicast_route_bidir_star_g_hit" : "process_ingress_nat.nat_twice",
-            "NoAction" : "process_ingress_nat.nat_twice"
+            "multicast_route_star_g_miss" : "nat_twice",
+            "multicast_route_sm_star_g_hit" : "nat_twice",
+            "multicast_route_bidir_star_g_hit" : "nat_twice",
+            "NoAction" : "nat_twice"
           },
           "default_entry" : {
             "action_id" : 325,
@@ -48228,7 +48035,7 @@
           }
         },
         {
-          "name" : "process_ingress_nat.nat_twice",
+          "name" : "nat_twice",
           "id" : 63,
           "source_info" : {
             "filename" : "../nat.p4",
@@ -48278,7 +48085,7 @@
           "actions" : ["on_miss", "set_twice_nat_nexthop_index", "NoAction"],
           "base_default_next" : "node_112",
           "next_tables" : {
-            "on_miss" : "process_ingress_nat.nat_dst",
+            "on_miss" : "nat_dst",
             "set_twice_nat_nexthop_index" : "node_112",
             "NoAction" : "node_112"
           },
@@ -48290,7 +48097,7 @@
           }
         },
         {
-          "name" : "process_ingress_nat.nat_dst",
+          "name" : "nat_dst",
           "id" : 64,
           "source_info" : {
             "filename" : "../nat.p4",
@@ -48330,7 +48137,7 @@
           "actions" : ["on_miss", "set_dst_nat_nexthop_index", "NoAction"],
           "base_default_next" : "node_112",
           "next_tables" : {
-            "on_miss" : "process_ingress_nat.nat_src",
+            "on_miss" : "nat_src",
             "set_dst_nat_nexthop_index" : "node_112",
             "NoAction" : "node_112"
           },
@@ -48342,7 +48149,7 @@
           }
         },
         {
-          "name" : "process_ingress_nat.nat_src",
+          "name" : "nat_src",
           "id" : 65,
           "source_info" : {
             "filename" : "../nat.p4",
@@ -48382,7 +48189,7 @@
           "actions" : ["on_miss", "set_src_nat_rewrite_index", "NoAction"],
           "base_default_next" : "node_112",
           "next_tables" : {
-            "on_miss" : "process_ingress_nat.nat_flow",
+            "on_miss" : "nat_flow",
             "set_src_nat_rewrite_index" : "node_112",
             "NoAction" : "node_112"
           },
@@ -48394,7 +48201,7 @@
           }
         },
         {
-          "name" : "process_ingress_nat.nat_flow",
+          "name" : "nat_flow",
           "id" : 66,
           "source_info" : {
             "filename" : "../nat.p4",
@@ -48458,7 +48265,7 @@
           }
         },
         {
-          "name" : "process_meter_index.meter_index",
+          "name" : "meter_index",
           "id" : 67,
           "source_info" : {
             "filename" : "../meter.p4",
@@ -48478,7 +48285,7 @@
           "max_size" : 1024,
           "with_counters" : false,
           "support_timeout" : false,
-          "direct_meters" : "process_meter_index.meter_index",
+          "direct_meters" : "meter_index",
           "action_ids" : [556, 330],
           "actions" : ["nop", "NoAction"],
           "base_default_next" : "node_114",
@@ -48494,7 +48301,7 @@
           }
         },
         {
-          "name" : "process_hashes.compute_ipv4_hashes",
+          "name" : "compute_ipv4_hashes",
           "id" : 68,
           "source_info" : {
             "filename" : "../hashes.p4",
@@ -48517,10 +48324,10 @@
           "direct_meters" : null,
           "action_ids" : [557, 331],
           "actions" : ["compute_lkp_ipv4_hash", "NoAction"],
-          "base_default_next" : "process_hashes.compute_other_hashes",
+          "base_default_next" : "compute_other_hashes",
           "next_tables" : {
-            "compute_lkp_ipv4_hash" : "process_hashes.compute_other_hashes",
-            "NoAction" : "process_hashes.compute_other_hashes"
+            "compute_lkp_ipv4_hash" : "compute_other_hashes",
+            "NoAction" : "compute_other_hashes"
           },
           "default_entry" : {
             "action_id" : 331,
@@ -48530,7 +48337,7 @@
           }
         },
         {
-          "name" : "process_hashes.compute_ipv6_hashes",
+          "name" : "compute_ipv6_hashes",
           "id" : 69,
           "source_info" : {
             "filename" : "../hashes.p4",
@@ -48553,10 +48360,10 @@
           "direct_meters" : null,
           "action_ids" : [558, 332],
           "actions" : ["compute_lkp_ipv6_hash", "NoAction"],
-          "base_default_next" : "process_hashes.compute_other_hashes",
+          "base_default_next" : "compute_other_hashes",
           "next_tables" : {
-            "compute_lkp_ipv6_hash" : "process_hashes.compute_other_hashes",
-            "NoAction" : "process_hashes.compute_other_hashes"
+            "compute_lkp_ipv6_hash" : "compute_other_hashes",
+            "NoAction" : "compute_other_hashes"
           },
           "default_entry" : {
             "action_id" : 332,
@@ -48566,7 +48373,7 @@
           }
         },
         {
-          "name" : "process_hashes.compute_non_ip_hashes",
+          "name" : "compute_non_ip_hashes",
           "id" : 70,
           "source_info" : {
             "filename" : "../hashes.p4",
@@ -48589,10 +48396,10 @@
           "direct_meters" : null,
           "action_ids" : [559, 333],
           "actions" : ["compute_lkp_non_ip_hash", "NoAction"],
-          "base_default_next" : "process_hashes.compute_other_hashes",
+          "base_default_next" : "compute_other_hashes",
           "next_tables" : {
-            "compute_lkp_non_ip_hash" : "process_hashes.compute_other_hashes",
-            "NoAction" : "process_hashes.compute_other_hashes"
+            "compute_lkp_non_ip_hash" : "compute_other_hashes",
+            "NoAction" : "compute_other_hashes"
           },
           "default_entry" : {
             "action_id" : 333,
@@ -48602,7 +48409,7 @@
           }
         },
         {
-          "name" : "process_hashes.compute_other_hashes",
+          "name" : "compute_other_hashes",
           "id" : 71,
           "source_info" : {
             "filename" : "../hashes.p4",
@@ -48639,7 +48446,7 @@
           }
         },
         {
-          "name" : "process_meter_action.meter_action",
+          "name" : "meter_action",
           "id" : 72,
           "source_info" : {
             "filename" : "../meter.p4",
@@ -48681,7 +48488,7 @@
           }
         },
         {
-          "name" : "process_ingress_bd_stats.ingress_bd_stats",
+          "name" : "ingress_bd_stats",
           "id" : 73,
           "source_info" : {
             "filename" : "../port.p4",
@@ -48698,10 +48505,10 @@
           "direct_meters" : null,
           "action_ids" : [564, 336],
           "actions" : ["update_ingress_bd_stats", "NoAction"],
-          "base_default_next" : "process_ingress_acl_stats.acl_stats",
+          "base_default_next" : "acl_stats",
           "next_tables" : {
-            "update_ingress_bd_stats" : "process_ingress_acl_stats.acl_stats",
-            "NoAction" : "process_ingress_acl_stats.acl_stats"
+            "update_ingress_bd_stats" : "acl_stats",
+            "NoAction" : "acl_stats"
           },
           "default_entry" : {
             "action_id" : 336,
@@ -48711,7 +48518,7 @@
           }
         },
         {
-          "name" : "process_ingress_acl_stats.acl_stats",
+          "name" : "acl_stats",
           "id" : 74,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -48728,10 +48535,10 @@
           "direct_meters" : null,
           "action_ids" : [565, 337],
           "actions" : ["acl_stats_update", "NoAction"],
-          "base_default_next" : "process_storm_control_stats.storm_control_stats",
+          "base_default_next" : "storm_control_stats",
           "next_tables" : {
-            "acl_stats_update" : "process_storm_control_stats.storm_control_stats",
-            "NoAction" : "process_storm_control_stats.storm_control_stats"
+            "acl_stats_update" : "storm_control_stats",
+            "NoAction" : "storm_control_stats"
           },
           "default_entry" : {
             "action_id" : 337,
@@ -48741,7 +48548,7 @@
           }
         },
         {
-          "name" : "process_storm_control_stats.storm_control_stats",
+          "name" : "storm_control_stats",
           "id" : 75,
           "source_info" : {
             "filename" : "../security.p4",
@@ -48782,7 +48589,7 @@
           }
         },
         {
-          "name" : "process_fwd_results.fwd_result",
+          "name" : "fwd_result",
           "id" : 76,
           "source_info" : {
             "filename" : "../nexthop.p4",
@@ -48893,7 +48700,7 @@
           }
         },
         {
-          "name" : "process_nexthop.ecmp_group",
+          "name" : "ecmp_group",
           "id" : 77,
           "source_info" : {
             "filename" : "../nexthop.p4",
@@ -48926,7 +48733,7 @@
           }
         },
         {
-          "name" : "process_nexthop.nexthop",
+          "name" : "nexthop",
           "id" : 78,
           "source_info" : {
             "filename" : "../nexthop.p4",
@@ -48964,7 +48771,7 @@
           }
         },
         {
-          "name" : "process_multicast_flooding.bd_flood",
+          "name" : "bd_flood",
           "id" : 79,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -49006,7 +48813,7 @@
           }
         },
         {
-          "name" : "process_lag.lag_group",
+          "name" : "lag_group",
           "id" : 80,
           "source_info" : {
             "filename" : "../port.p4",
@@ -49039,7 +48846,7 @@
           }
         },
         {
-          "name" : "process_mac_learning.learn_notify",
+          "name" : "learn_notify",
           "id" : 81,
           "source_info" : {
             "filename" : "../l2.p4",
@@ -49072,11 +48879,11 @@
           "direct_meters" : null,
           "action_ids" : [589, 590, 344],
           "actions" : ["nop", "generate_learn_notify", "NoAction"],
-          "base_default_next" : "process_fabric_lag.fabric_lag",
+          "base_default_next" : "fabric_lag",
           "next_tables" : {
-            "nop" : "process_fabric_lag.fabric_lag",
-            "generate_learn_notify" : "process_fabric_lag.fabric_lag",
-            "NoAction" : "process_fabric_lag.fabric_lag"
+            "nop" : "fabric_lag",
+            "generate_learn_notify" : "fabric_lag",
+            "NoAction" : "fabric_lag"
           },
           "default_entry" : {
             "action_id" : 344,
@@ -49086,7 +48893,7 @@
           }
         },
         {
-          "name" : "process_fabric_lag.fabric_lag",
+          "name" : "fabric_lag",
           "id" : 82,
           "source_info" : {
             "filename" : "../fabric.p4",
@@ -49110,16 +48917,16 @@
           "direct_meters" : null,
           "action_ids" : [591, 592, 593, 345],
           "actions" : ["nop", "set_fabric_lag_port", "set_fabric_multicast", "NoAction"],
-          "base_default_next" : "process_traffic_class.traffic_class",
+          "base_default_next" : "traffic_class",
           "next_tables" : {
-            "nop" : "process_traffic_class.traffic_class",
-            "set_fabric_lag_port" : "process_traffic_class.traffic_class",
-            "set_fabric_multicast" : "process_traffic_class.traffic_class",
-            "NoAction" : "process_traffic_class.traffic_class"
+            "nop" : "traffic_class",
+            "set_fabric_lag_port" : "traffic_class",
+            "set_fabric_multicast" : "traffic_class",
+            "NoAction" : "traffic_class"
           }
         },
         {
-          "name" : "process_traffic_class.traffic_class",
+          "name" : "traffic_class",
           "id" : 83,
           "source_info" : {
             "filename" : "../qos.p4",
@@ -49163,7 +48970,7 @@
           }
         },
         {
-          "name" : "process_system_acl.system_acl",
+          "name" : "system_acl",
           "id" : 84,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -49321,7 +49128,7 @@
           }
         },
         {
-          "name" : "process_system_acl.drop_stats",
+          "name" : "drop_stats",
           "id" : 85,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -49413,15 +49220,18 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "ipv4"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_validate_outer_header.validate_outer_ipv4_header.validate_outer_ipv4_packet",
+          "true_next" : "validate_outer_ipv4_packet",
           "false_next" : "node_7"
         },
         {
@@ -49436,15 +49246,18 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv6", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "ipv6"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_validate_outer_header.validate_outer_ipv6_header.validate_outer_ipv6_packet",
+          "true_next" : "validate_outer_ipv6_packet",
           "false_next" : "node_9"
         },
         {
@@ -49459,16 +49272,19 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["mpls[0]", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "mpls[0]"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_validate_outer_header.validate_mpls_header.validate_mpls_packet",
-          "false_next" : "process_global_params.switch_config_params"
+          "true_next" : "validate_mpls_packet",
+          "false_next" : "switch_config_params"
         },
         {
           "name" : "node_13",
@@ -49513,7 +49329,7 @@
               }
             }
           },
-          "true_next" : "process_spanning_tree.spanning_tree",
+          "true_next" : "spanning_tree",
           "false_next" : "node_15"
         },
         {
@@ -49575,7 +49391,7 @@
               }
             }
           },
-          "true_next" : "process_ingress_qos_map.ingress_qos_map_dscp",
+          "true_next" : "ingress_qos_map_dscp",
           "false_next" : "node_18"
         },
         {
@@ -49601,7 +49417,7 @@
               }
             }
           },
-          "true_next" : "process_ingress_qos_map.ingress_qos_map_pcp",
+          "true_next" : "ingress_qos_map_pcp",
           "false_next" : "node_20"
         },
         {
@@ -49647,7 +49463,7 @@
               }
             }
           },
-          "true_next" : "process_ip_sourceguard.ipsg",
+          "true_next" : "ipsg",
           "false_next" : "node_23"
         },
         {
@@ -49656,29 +49472,25 @@
           "source_info" : {
             "filename" : "../int_transit.p4",
             "line" : 527,
-            "column" : 8,
-            "source_fragment" : "not"
+            "column" : 12,
+            "source_fragment" : "valid(int_header)"
           },
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "not",
-              "left" : null,
+              "op" : "!=",
+              "left" : {
+                "type" : "field",
+                "value" : ["int_header", "$valid$"]
+              },
               "right" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "valid",
-                  "left" : null,
-                  "right" : {
-                    "type" : "header",
-                    "value" : "int_header"
-                  }
-                }
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_int_endpoint.int_source",
-          "false_next" : "process_int_endpoint.int_terminate"
+          "true_next" : "int_source",
+          "false_next" : "int_terminate"
         },
         {
           "name" : "node_29",
@@ -49703,7 +49515,7 @@
               }
             }
           },
-          "true_next" : "process_tunnel.process_ingress_fabric.fabric_ingress_dst_lkp",
+          "true_next" : "fabric_ingress_dst_lkp",
           "false_next" : "node_36"
         },
         {
@@ -49744,15 +49556,18 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["fabric_header_multicast", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "fabric_header_multicast"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_tunnel.process_ingress_fabric.fabric_ingress_src_lkp",
+          "true_next" : "fabric_ingress_src_lkp",
           "false_next" : "node_34"
         },
         {
@@ -49778,7 +49593,7 @@
               }
             }
           },
-          "true_next" : "process_tunnel.process_ingress_fabric.native_packet_over_fabric",
+          "true_next" : "native_packet_over_fabric",
           "false_next" : "node_36"
         },
         {
@@ -49804,7 +49619,7 @@
               }
             }
           },
-          "true_next" : "process_tunnel.outer_rmac",
+          "true_next" : "outer_rmac",
           "false_next" : "node_52"
         },
         {
@@ -49819,15 +49634,18 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "ipv4"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_tunnel.process_ipv4_vtep.ipv4_src_vtep",
+          "true_next" : "ipv4_src_vtep",
           "false_next" : "node_41"
         },
         {
@@ -49842,15 +49660,18 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv6", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "ipv6"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_tunnel.process_ipv6_vtep.ipv6_src_vtep",
+          "true_next" : "ipv6_src_vtep",
           "false_next" : "node_44"
         },
         {
@@ -49865,15 +49686,18 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["mpls[0]", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "mpls[0]"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_tunnel.process_mpls.mpls",
+          "true_next" : "mpls",
           "false_next" : "node_52"
         },
         {
@@ -49888,15 +49712,18 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "ipv4"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_tunnel.process_outer_multicast.process_outer_ipv4_multicast.outer_ipv4_multicast",
+          "true_next" : "outer_ipv4_multicast",
           "false_next" : "node_49"
         },
         {
@@ -49911,15 +49738,18 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv6", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "ipv6"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_tunnel.process_outer_multicast.process_outer_ipv6_multicast.outer_ipv6_multicast",
+          "true_next" : "outer_ipv6_multicast",
           "false_next" : "node_52"
         },
         {
@@ -50045,8 +49875,8 @@
               }
             }
           },
-          "true_next" : "process_tunnel.tunnel",
-          "false_next" : "process_tunnel.adjust_lkp_fields"
+          "true_next" : "tunnel",
+          "false_next" : "adjust_lkp_fields"
         },
         {
           "name" : "node_56",
@@ -50071,7 +49901,7 @@
               }
             }
           },
-          "true_next" : "process_storm_control.storm_control",
+          "true_next" : "storm_control",
           "false_next" : "node_58"
         },
         {
@@ -50121,11 +49951,14 @@
                   "left" : {
                     "type" : "expression",
                     "value" : {
-                      "op" : "valid",
-                      "left" : null,
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["mpls[0]", "$valid$"]
+                      },
                       "right" : {
-                        "type" : "header",
-                        "value" : "mpls[0]"
+                        "type" : "hexstr",
+                        "value" : "0x01"
                       }
                     }
                   },
@@ -50203,8 +50036,8 @@
               }
             }
           },
-          "true_next" : "process_validate_packet.validate_packet",
-          "false_next" : "process_ingress_l4port.ingress_l4_src_port"
+          "true_next" : "validate_packet",
+          "false_next" : "ingress_l4_src_port"
         },
         {
           "name" : "node_64",
@@ -50259,7 +50092,7 @@
               }
             }
           },
-          "true_next" : "process_mac.smac",
+          "true_next" : "smac",
           "false_next" : "node_66"
         },
         {
@@ -50295,7 +50128,7 @@
               }
             }
           },
-          "true_next" : "process_mac.dmac",
+          "true_next" : "dmac",
           "false_next" : "node_68"
         },
         {
@@ -50357,7 +50190,7 @@
               }
             }
           },
-          "true_next" : "process_mac_acl.mac_acl",
+          "true_next" : "mac_acl",
           "false_next" : "rmac"
         },
         {
@@ -50419,7 +50252,7 @@
               }
             }
           },
-          "true_next" : "process_ip_acl.ip_acl",
+          "true_next" : "ip_acl",
           "false_next" : "node_74"
         },
         {
@@ -50445,7 +50278,7 @@
               }
             }
           },
-          "true_next" : "process_ip_acl.ipv6_acl",
+          "true_next" : "ipv6_acl",
           "false_next" : "rmac"
         },
         {
@@ -50482,7 +50315,7 @@
             }
           },
           "true_next" : "node_78",
-          "false_next" : "process_ingress_nat.nat_twice"
+          "false_next" : "nat_twice"
         },
         {
           "name" : "node_78",
@@ -50527,7 +50360,7 @@
               }
             }
           },
-          "true_next" : "process_ipv4_racl.ipv4_racl",
+          "true_next" : "ipv4_racl",
           "false_next" : "node_85"
         },
         {
@@ -50553,8 +50386,8 @@
               }
             }
           },
-          "true_next" : "process_ipv4_urpf.ipv4_urpf",
-          "false_next" : "process_ipv4_fib.ipv4_fib"
+          "true_next" : "ipv4_urpf",
+          "false_next" : "ipv4_fib"
         },
         {
           "name" : "node_85",
@@ -50599,7 +50432,7 @@
               }
             }
           },
-          "true_next" : "process_ipv6_racl.ipv6_racl",
+          "true_next" : "ipv6_racl",
           "false_next" : "node_92"
         },
         {
@@ -50625,8 +50458,8 @@
               }
             }
           },
-          "true_next" : "process_ipv6_urpf.ipv6_urpf",
-          "false_next" : "process_ipv6_fib.ipv6_fib"
+          "true_next" : "ipv6_urpf",
+          "false_next" : "ipv6_fib"
         },
         {
           "name" : "node_92",
@@ -50671,8 +50504,8 @@
               }
             }
           },
-          "true_next" : "process_urpf_bd.urpf_bd",
-          "false_next" : "process_ingress_nat.nat_twice"
+          "true_next" : "urpf_bd",
+          "false_next" : "nat_twice"
         },
         {
           "name" : "node_94",
@@ -50733,7 +50566,7 @@
               }
             }
           },
-          "true_next" : "process_multicast.process_ipv4_multicast.ipv4_multicast_bridge",
+          "true_next" : "ipv4_multicast_bridge",
           "false_next" : "node_98"
         },
         {
@@ -50789,8 +50622,8 @@
               }
             }
           },
-          "true_next" : "process_multicast.process_ipv4_multicast.ipv4_multicast_route",
-          "false_next" : "process_ingress_nat.nat_twice"
+          "true_next" : "ipv4_multicast_route",
+          "false_next" : "nat_twice"
         },
         {
           "name" : "node_101",
@@ -50816,7 +50649,7 @@
             }
           },
           "true_next" : "node_102",
-          "false_next" : "process_ingress_nat.nat_twice"
+          "false_next" : "nat_twice"
         },
         {
           "name" : "node_102",
@@ -50851,7 +50684,7 @@
               }
             }
           },
-          "true_next" : "process_multicast.process_ipv6_multicast.ipv6_multicast_bridge",
+          "true_next" : "ipv6_multicast_bridge",
           "false_next" : "node_105"
         },
         {
@@ -50907,8 +50740,8 @@
               }
             }
           },
-          "true_next" : "process_multicast.process_ipv6_multicast.ipv6_multicast_route",
-          "false_next" : "process_ingress_nat.nat_twice"
+          "true_next" : "ipv6_multicast_route",
+          "false_next" : "nat_twice"
         },
         {
           "name" : "node_112",
@@ -50943,7 +50776,7 @@
               }
             }
           },
-          "true_next" : "process_meter_index.meter_index",
+          "true_next" : "meter_index",
           "false_next" : "node_114"
         },
         {
@@ -50980,11 +50813,14 @@
                   "right" : {
                     "type" : "expression",
                     "value" : {
-                      "op" : "valid",
-                      "left" : null,
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "$valid$"]
+                      },
                       "right" : {
-                        "type" : "header",
-                        "value" : "ipv4"
+                        "type" : "hexstr",
+                        "value" : "0x01"
                       }
                     }
                   }
@@ -51011,11 +50847,14 @@
                   "right" : {
                     "type" : "expression",
                     "value" : {
-                      "op" : "valid",
-                      "left" : null,
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["inner_ipv4", "$valid$"]
+                      },
                       "right" : {
-                        "type" : "header",
-                        "value" : "inner_ipv4"
+                        "type" : "hexstr",
+                        "value" : "0x01"
                       }
                     }
                   }
@@ -51023,7 +50862,7 @@
               }
             }
           },
-          "true_next" : "process_hashes.compute_ipv4_hashes",
+          "true_next" : "compute_ipv4_hashes",
           "false_next" : "node_116"
         },
         {
@@ -51060,11 +50899,14 @@
                   "right" : {
                     "type" : "expression",
                     "value" : {
-                      "op" : "valid",
-                      "left" : null,
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv6", "$valid$"]
+                      },
                       "right" : {
-                        "type" : "header",
-                        "value" : "ipv6"
+                        "type" : "hexstr",
+                        "value" : "0x01"
                       }
                     }
                   }
@@ -51091,11 +50933,14 @@
                   "right" : {
                     "type" : "expression",
                     "value" : {
-                      "op" : "valid",
-                      "left" : null,
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["inner_ipv6", "$valid$"]
+                      },
                       "right" : {
-                        "type" : "header",
-                        "value" : "inner_ipv6"
+                        "type" : "hexstr",
+                        "value" : "0x01"
                       }
                     }
                   }
@@ -51103,8 +50948,8 @@
               }
             }
           },
-          "true_next" : "process_hashes.compute_ipv6_hashes",
-          "false_next" : "process_hashes.compute_non_ip_hashes"
+          "true_next" : "compute_ipv6_hashes",
+          "false_next" : "compute_non_ip_hashes"
         },
         {
           "name" : "node_120",
@@ -51139,7 +50984,7 @@
               }
             }
           },
-          "true_next" : "process_meter_action.meter_action",
+          "true_next" : "meter_action",
           "false_next" : "node_122"
         },
         {
@@ -51165,8 +51010,8 @@
               }
             }
           },
-          "true_next" : "process_ingress_bd_stats.ingress_bd_stats",
-          "false_next" : "process_fabric_lag.fabric_lag"
+          "true_next" : "ingress_bd_stats",
+          "false_next" : "fabric_lag"
         },
         {
           "name" : "node_126",
@@ -51191,7 +51036,7 @@
               }
             }
           },
-          "true_next" : "process_fwd_results.fwd_result",
+          "true_next" : "fwd_result",
           "false_next" : "node_128"
         },
         {
@@ -51217,8 +51062,8 @@
               }
             }
           },
-          "true_next" : "process_nexthop.ecmp_group",
-          "false_next" : "process_nexthop.nexthop"
+          "true_next" : "ecmp_group",
+          "false_next" : "nexthop"
         },
         {
           "name" : "node_131",
@@ -51243,8 +51088,8 @@
               }
             }
           },
-          "true_next" : "process_multicast_flooding.bd_flood",
-          "false_next" : "process_lag.lag_group"
+          "true_next" : "bd_flood",
+          "false_next" : "lag_group"
         },
         {
           "name" : "node_134",
@@ -51269,8 +51114,8 @@
               }
             }
           },
-          "true_next" : "process_mac_learning.learn_notify",
-          "false_next" : "process_fabric_lag.fabric_lag"
+          "true_next" : "learn_notify",
+          "false_next" : "fabric_lag"
         },
         {
           "name" : "node_138",
@@ -51332,7 +51177,7 @@
             }
           },
           "false_next" : null,
-          "true_next" : "process_system_acl.system_acl"
+          "true_next" : "system_acl"
         },
         {
           "name" : "node_141",
@@ -51358,7 +51203,7 @@
             }
           },
           "false_next" : null,
-          "true_next" : "process_system_acl.drop_stats"
+          "true_next" : "drop_stats"
         }
       ]
     },
@@ -51368,7 +51213,7 @@
       "init_table" : "node_145",
       "tables" : [
         {
-          "name" : "process_mirroring.mirror",
+          "name" : "mirror",
           "id" : 86,
           "source_info" : {
             "filename" : "../mirror.p4",
@@ -51407,7 +51252,7 @@
           }
         },
         {
-          "name" : "process_replication.rid",
+          "name" : "rid",
           "id" : 87,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -51430,12 +51275,12 @@
           "direct_meters" : null,
           "action_ids" : [51, 53, 54, 3],
           "actions" : ["nop", "outer_replica_from_rid", "inner_replica_from_rid", "NoAction"],
-          "base_default_next" : "process_replication.replica_type",
+          "base_default_next" : "replica_type",
           "next_tables" : {
-            "nop" : "process_replication.replica_type",
-            "outer_replica_from_rid" : "process_replication.replica_type",
-            "inner_replica_from_rid" : "process_replication.replica_type",
-            "NoAction" : "process_replication.replica_type"
+            "nop" : "replica_type",
+            "outer_replica_from_rid" : "replica_type",
+            "inner_replica_from_rid" : "replica_type",
+            "NoAction" : "replica_type"
           },
           "default_entry" : {
             "action_id" : 3,
@@ -51445,7 +51290,7 @@
           }
         },
         {
-          "name" : "process_replication.replica_type",
+          "name" : "replica_type",
           "id" : 88,
           "source_info" : {
             "filename" : "../multicast.p4",
@@ -51510,12 +51355,12 @@
           "direct_meters" : null,
           "action_ids" : [43, 44, 45, 0],
           "actions" : ["egress_port_type_normal", "egress_port_type_fabric", "egress_port_type_cpu", "NoAction"],
-          "base_default_next" : "process_egress_l4port.egress_l4port_fields",
+          "base_default_next" : "egress_l4port_fields",
           "next_tables" : {
             "egress_port_type_normal" : "node_152",
-            "egress_port_type_fabric" : "process_egress_l4port.egress_l4port_fields",
-            "egress_port_type_cpu" : "process_egress_l4port.egress_l4port_fields",
-            "NoAction" : "process_egress_l4port.egress_l4port_fields"
+            "egress_port_type_fabric" : "egress_l4port_fields",
+            "egress_port_type_cpu" : "egress_l4port_fields",
+            "NoAction" : "egress_l4port_fields"
           },
           "default_entry" : {
             "action_id" : 0,
@@ -51525,7 +51370,7 @@
           }
         },
         {
-          "name" : "process_vlan_decap.vlan_decap",
+          "name" : "vlan_decap",
           "id" : 90,
           "source_info" : {
             "filename" : "../l2.p4",
@@ -51535,13 +51380,13 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "vlan_tag_[0]",
+              "match_type" : "exact",
+              "target" : ["vlan_tag_[0]", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "vlan_tag_[1]",
+              "match_type" : "exact",
+              "target" : ["vlan_tag_[1]", "$valid$"],
               "mask" : null
             }
           ],
@@ -51568,7 +51413,7 @@
           }
         },
         {
-          "name" : "process_tunnel_decap.tunnel_decap_process_outer",
+          "name" : "tunnel_decap_process_outer",
           "id" : 91,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -51583,13 +51428,13 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_ipv4",
+              "match_type" : "exact",
+              "target" : ["inner_ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_ipv6",
+              "match_type" : "exact",
+              "target" : ["inner_ipv6", "$valid$"],
               "mask" : null
             }
           ],
@@ -51601,38 +51446,38 @@
           "direct_meters" : null,
           "action_ids" : [62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 6],
           "actions" : ["decap_vxlan_inner_ipv4", "decap_vxlan_inner_ipv6", "decap_vxlan_inner_non_ip", "decap_genv_inner_ipv4", "decap_genv_inner_ipv6", "decap_genv_inner_non_ip", "decap_nvgre_inner_ipv4", "decap_nvgre_inner_ipv6", "decap_nvgre_inner_non_ip", "decap_gre_inner_ipv4", "decap_gre_inner_ipv6", "decap_gre_inner_non_ip", "decap_ip_inner_ipv4", "decap_ip_inner_ipv6", "decap_mpls_inner_ipv4_pop1", "decap_mpls_inner_ipv6_pop1", "decap_mpls_inner_ethernet_ipv4_pop1", "decap_mpls_inner_ethernet_ipv6_pop1", "decap_mpls_inner_ethernet_non_ip_pop1", "decap_mpls_inner_ipv4_pop2", "decap_mpls_inner_ipv6_pop2", "decap_mpls_inner_ethernet_ipv4_pop2", "decap_mpls_inner_ethernet_ipv6_pop2", "decap_mpls_inner_ethernet_non_ip_pop2", "decap_mpls_inner_ipv4_pop3", "decap_mpls_inner_ipv6_pop3", "decap_mpls_inner_ethernet_ipv4_pop3", "decap_mpls_inner_ethernet_ipv6_pop3", "decap_mpls_inner_ethernet_non_ip_pop3", "NoAction"],
-          "base_default_next" : "process_tunnel_decap.tunnel_decap_process_inner",
+          "base_default_next" : "tunnel_decap_process_inner",
           "next_tables" : {
-            "decap_vxlan_inner_ipv4" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_vxlan_inner_ipv6" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_vxlan_inner_non_ip" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_genv_inner_ipv4" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_genv_inner_ipv6" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_genv_inner_non_ip" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_nvgre_inner_ipv4" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_nvgre_inner_ipv6" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_nvgre_inner_non_ip" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_gre_inner_ipv4" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_gre_inner_ipv6" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_gre_inner_non_ip" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_ip_inner_ipv4" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_ip_inner_ipv6" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ipv4_pop1" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ipv6_pop1" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ethernet_ipv4_pop1" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ethernet_ipv6_pop1" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ethernet_non_ip_pop1" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ipv4_pop2" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ipv6_pop2" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ethernet_ipv4_pop2" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ethernet_ipv6_pop2" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ethernet_non_ip_pop2" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ipv4_pop3" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ipv6_pop3" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ethernet_ipv4_pop3" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ethernet_ipv6_pop3" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "decap_mpls_inner_ethernet_non_ip_pop3" : "process_tunnel_decap.tunnel_decap_process_inner",
-            "NoAction" : "process_tunnel_decap.tunnel_decap_process_inner"
+            "decap_vxlan_inner_ipv4" : "tunnel_decap_process_inner",
+            "decap_vxlan_inner_ipv6" : "tunnel_decap_process_inner",
+            "decap_vxlan_inner_non_ip" : "tunnel_decap_process_inner",
+            "decap_genv_inner_ipv4" : "tunnel_decap_process_inner",
+            "decap_genv_inner_ipv6" : "tunnel_decap_process_inner",
+            "decap_genv_inner_non_ip" : "tunnel_decap_process_inner",
+            "decap_nvgre_inner_ipv4" : "tunnel_decap_process_inner",
+            "decap_nvgre_inner_ipv6" : "tunnel_decap_process_inner",
+            "decap_nvgre_inner_non_ip" : "tunnel_decap_process_inner",
+            "decap_gre_inner_ipv4" : "tunnel_decap_process_inner",
+            "decap_gre_inner_ipv6" : "tunnel_decap_process_inner",
+            "decap_gre_inner_non_ip" : "tunnel_decap_process_inner",
+            "decap_ip_inner_ipv4" : "tunnel_decap_process_inner",
+            "decap_ip_inner_ipv6" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ipv4_pop1" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ipv6_pop1" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ethernet_ipv4_pop1" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ethernet_ipv6_pop1" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ethernet_non_ip_pop1" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ipv4_pop2" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ipv6_pop2" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ethernet_ipv4_pop2" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ethernet_ipv6_pop2" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ethernet_non_ip_pop2" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ipv4_pop3" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ipv6_pop3" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ethernet_ipv4_pop3" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ethernet_ipv6_pop3" : "tunnel_decap_process_inner",
+            "decap_mpls_inner_ethernet_non_ip_pop3" : "tunnel_decap_process_inner",
+            "NoAction" : "tunnel_decap_process_inner"
           },
           "default_entry" : {
             "action_id" : 6,
@@ -51642,7 +51487,7 @@
           }
         },
         {
-          "name" : "process_tunnel_decap.tunnel_decap_process_inner",
+          "name" : "tunnel_decap_process_inner",
           "id" : 92,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -51652,18 +51497,18 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "inner_tcp",
+              "match_type" : "exact",
+              "target" : ["inner_tcp", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_udp",
+              "match_type" : "exact",
+              "target" : ["inner_udp", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "inner_icmp",
+              "match_type" : "exact",
+              "target" : ["inner_icmp", "$valid$"],
               "mask" : null
             }
           ],
@@ -51691,7 +51536,7 @@
           }
         },
         {
-          "name" : "process_rewrite.rewrite",
+          "name" : "rewrite",
           "id" : 93,
           "source_info" : {
             "filename" : "../rewrite.p4",
@@ -51714,18 +51559,18 @@
           "direct_meters" : null,
           "action_ids" : [91, 93, 94, 95, 96, 97, 98, 99, 100, 7],
           "actions" : ["nop", "set_l2_rewrite", "set_l2_rewrite_with_tunnel", "set_l3_rewrite", "set_l3_rewrite_with_tunnel", "set_mpls_swap_push_rewrite_l2", "set_mpls_push_rewrite_l2", "set_mpls_swap_push_rewrite_l3", "set_mpls_push_rewrite_l3", "NoAction"],
-          "base_default_next" : "process_egress_bd.egress_bd_map",
+          "base_default_next" : "egress_bd_map",
           "next_tables" : {
-            "nop" : "process_egress_bd.egress_bd_map",
-            "set_l2_rewrite" : "process_egress_bd.egress_bd_map",
-            "set_l2_rewrite_with_tunnel" : "process_egress_bd.egress_bd_map",
-            "set_l3_rewrite" : "process_egress_bd.egress_bd_map",
-            "set_l3_rewrite_with_tunnel" : "process_egress_bd.egress_bd_map",
-            "set_mpls_swap_push_rewrite_l2" : "process_egress_bd.egress_bd_map",
-            "set_mpls_push_rewrite_l2" : "process_egress_bd.egress_bd_map",
-            "set_mpls_swap_push_rewrite_l3" : "process_egress_bd.egress_bd_map",
-            "set_mpls_push_rewrite_l3" : "process_egress_bd.egress_bd_map",
-            "NoAction" : "process_egress_bd.egress_bd_map"
+            "nop" : "egress_bd_map",
+            "set_l2_rewrite" : "egress_bd_map",
+            "set_l2_rewrite_with_tunnel" : "egress_bd_map",
+            "set_l3_rewrite" : "egress_bd_map",
+            "set_l3_rewrite_with_tunnel" : "egress_bd_map",
+            "set_mpls_swap_push_rewrite_l2" : "egress_bd_map",
+            "set_mpls_push_rewrite_l2" : "egress_bd_map",
+            "set_mpls_swap_push_rewrite_l3" : "egress_bd_map",
+            "set_mpls_push_rewrite_l3" : "egress_bd_map",
+            "NoAction" : "egress_bd_map"
           },
           "default_entry" : {
             "action_id" : 7,
@@ -51735,7 +51580,7 @@
           }
         },
         {
-          "name" : "process_rewrite.rewrite_multicast",
+          "name" : "rewrite_multicast",
           "id" : 94,
           "source_info" : {
             "filename" : "../rewrite.p4",
@@ -51745,13 +51590,13 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv6",
+              "match_type" : "exact",
+              "target" : ["ipv6", "$valid$"],
               "mask" : null
             },
             {
@@ -51773,12 +51618,12 @@
           "direct_meters" : null,
           "action_ids" : [92, 101, 102, 8],
           "actions" : ["nop", "rewrite_ipv4_multicast", "rewrite_ipv6_multicast", "NoAction"],
-          "base_default_next" : "process_egress_bd.egress_bd_map",
+          "base_default_next" : "egress_bd_map",
           "next_tables" : {
-            "nop" : "process_egress_bd.egress_bd_map",
-            "rewrite_ipv4_multicast" : "process_egress_bd.egress_bd_map",
-            "rewrite_ipv6_multicast" : "process_egress_bd.egress_bd_map",
-            "NoAction" : "process_egress_bd.egress_bd_map"
+            "nop" : "egress_bd_map",
+            "rewrite_ipv4_multicast" : "egress_bd_map",
+            "rewrite_ipv6_multicast" : "egress_bd_map",
+            "NoAction" : "egress_bd_map"
           },
           "default_entry" : {
             "action_id" : 8,
@@ -51788,7 +51633,7 @@
           }
         },
         {
-          "name" : "process_egress_bd.egress_bd_map",
+          "name" : "egress_bd_map",
           "id" : 95,
           "source_info" : {
             "filename" : "../l2.p4",
@@ -51825,7 +51670,7 @@
           }
         },
         {
-          "name" : "process_egress_qos_map.egress_qos_map",
+          "name" : "egress_qos_map",
           "id" : 96,
           "source_info" : {
             "filename" : "../qos.p4",
@@ -51869,7 +51714,7 @@
           }
         },
         {
-          "name" : "process_mac_rewrite.l3_rewrite",
+          "name" : "l3_rewrite",
           "id" : 97,
           "source_info" : {
             "filename" : "../l3.p4",
@@ -51879,18 +51724,18 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv6",
+              "match_type" : "exact",
+              "target" : ["ipv6", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "mpls[0]",
+              "match_type" : "exact",
+              "target" : ["mpls[0]", "$valid$"],
               "mask" : null
             },
             {
@@ -51912,15 +51757,15 @@
           "direct_meters" : null,
           "action_ids" : [109, 110, 111, 112, 113, 114, 11],
           "actions" : ["nop", "ipv4_unicast_rewrite", "ipv4_multicast_rewrite", "ipv6_unicast_rewrite", "ipv6_multicast_rewrite", "mpls_rewrite", "NoAction"],
-          "base_default_next" : "process_mac_rewrite.smac_rewrite",
+          "base_default_next" : "smac_rewrite",
           "next_tables" : {
-            "nop" : "process_mac_rewrite.smac_rewrite",
-            "ipv4_unicast_rewrite" : "process_mac_rewrite.smac_rewrite",
-            "ipv4_multicast_rewrite" : "process_mac_rewrite.smac_rewrite",
-            "ipv6_unicast_rewrite" : "process_mac_rewrite.smac_rewrite",
-            "ipv6_multicast_rewrite" : "process_mac_rewrite.smac_rewrite",
-            "mpls_rewrite" : "process_mac_rewrite.smac_rewrite",
-            "NoAction" : "process_mac_rewrite.smac_rewrite"
+            "nop" : "smac_rewrite",
+            "ipv4_unicast_rewrite" : "smac_rewrite",
+            "ipv4_multicast_rewrite" : "smac_rewrite",
+            "ipv6_unicast_rewrite" : "smac_rewrite",
+            "ipv6_multicast_rewrite" : "smac_rewrite",
+            "mpls_rewrite" : "smac_rewrite",
+            "NoAction" : "smac_rewrite"
           },
           "default_entry" : {
             "action_id" : 11,
@@ -51930,7 +51775,7 @@
           }
         },
         {
-          "name" : "process_mac_rewrite.smac_rewrite",
+          "name" : "smac_rewrite",
           "id" : 98,
           "source_info" : {
             "filename" : "../l3.p4",
@@ -51953,10 +51798,10 @@
           "direct_meters" : null,
           "action_ids" : [115, 12],
           "actions" : ["rewrite_smac", "NoAction"],
-          "base_default_next" : "process_mtu.mtu",
+          "base_default_next" : "mtu",
           "next_tables" : {
-            "rewrite_smac" : "process_mtu.mtu",
-            "NoAction" : "process_mtu.mtu"
+            "rewrite_smac" : "mtu",
+            "NoAction" : "mtu"
           },
           "default_entry" : {
             "action_id" : 12,
@@ -51966,7 +51811,7 @@
           }
         },
         {
-          "name" : "process_mtu.mtu",
+          "name" : "mtu",
           "id" : 99,
           "source_info" : {
             "filename" : "../l3.p4",
@@ -51981,13 +51826,13 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv6",
+              "match_type" : "exact",
+              "target" : ["ipv6", "$valid$"],
               "mask" : null
             }
           ],
@@ -51999,12 +51844,12 @@
           "direct_meters" : null,
           "action_ids" : [116, 117, 118, 13],
           "actions" : ["mtu_miss", "ipv4_mtu_check", "ipv6_mtu_check", "NoAction"],
-          "base_default_next" : "process_int_insertion.int_insert",
+          "base_default_next" : "int_insert",
           "next_tables" : {
-            "mtu_miss" : "process_int_insertion.int_insert",
-            "ipv4_mtu_check" : "process_int_insertion.int_insert",
-            "ipv6_mtu_check" : "process_int_insertion.int_insert",
-            "NoAction" : "process_int_insertion.int_insert"
+            "mtu_miss" : "int_insert",
+            "ipv4_mtu_check" : "int_insert",
+            "ipv6_mtu_check" : "int_insert",
+            "NoAction" : "int_insert"
           },
           "default_entry" : {
             "action_id" : 13,
@@ -52014,7 +51859,7 @@
           }
         },
         {
-          "name" : "process_int_insertion.int_insert",
+          "name" : "int_insert",
           "id" : 100,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -52034,8 +51879,8 @@
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "int_header",
+              "match_type" : "exact",
+              "target" : ["int_header", "$valid$"],
               "mask" : null
             }
           ],
@@ -52062,7 +51907,7 @@
           }
         },
         {
-          "name" : "process_int_insertion.int_inst_0003",
+          "name" : "int_inst_0003",
           "id" : 101,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -52085,25 +51930,25 @@
           "direct_meters" : null,
           "action_ids" : [134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 16],
           "actions" : ["int_set_header_0003_i0", "int_set_header_0003_i1", "int_set_header_0003_i2", "int_set_header_0003_i3", "int_set_header_0003_i4", "int_set_header_0003_i5", "int_set_header_0003_i6", "int_set_header_0003_i7", "int_set_header_0003_i8", "int_set_header_0003_i9", "int_set_header_0003_i10", "int_set_header_0003_i11", "int_set_header_0003_i12", "int_set_header_0003_i13", "int_set_header_0003_i14", "int_set_header_0003_i15", "NoAction"],
-          "base_default_next" : "process_int_insertion.int_inst_0407",
+          "base_default_next" : "int_inst_0407",
           "next_tables" : {
-            "int_set_header_0003_i0" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i1" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i2" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i3" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i4" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i5" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i6" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i7" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i8" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i9" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i10" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i11" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i12" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i13" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i14" : "process_int_insertion.int_inst_0407",
-            "int_set_header_0003_i15" : "process_int_insertion.int_inst_0407",
-            "NoAction" : "process_int_insertion.int_inst_0407"
+            "int_set_header_0003_i0" : "int_inst_0407",
+            "int_set_header_0003_i1" : "int_inst_0407",
+            "int_set_header_0003_i2" : "int_inst_0407",
+            "int_set_header_0003_i3" : "int_inst_0407",
+            "int_set_header_0003_i4" : "int_inst_0407",
+            "int_set_header_0003_i5" : "int_inst_0407",
+            "int_set_header_0003_i6" : "int_inst_0407",
+            "int_set_header_0003_i7" : "int_inst_0407",
+            "int_set_header_0003_i8" : "int_inst_0407",
+            "int_set_header_0003_i9" : "int_inst_0407",
+            "int_set_header_0003_i10" : "int_inst_0407",
+            "int_set_header_0003_i11" : "int_inst_0407",
+            "int_set_header_0003_i12" : "int_inst_0407",
+            "int_set_header_0003_i13" : "int_inst_0407",
+            "int_set_header_0003_i14" : "int_inst_0407",
+            "int_set_header_0003_i15" : "int_inst_0407",
+            "NoAction" : "int_inst_0407"
           },
           "default_entry" : {
             "action_id" : 16,
@@ -52113,7 +51958,7 @@
           }
         },
         {
-          "name" : "process_int_insertion.int_inst_0407",
+          "name" : "int_inst_0407",
           "id" : 102,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -52136,26 +51981,26 @@
           "direct_meters" : null,
           "action_ids" : [150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 128, 17],
           "actions" : ["int_set_header_0407_i0", "int_set_header_0407_i1", "int_set_header_0407_i2", "int_set_header_0407_i3", "int_set_header_0407_i4", "int_set_header_0407_i5", "int_set_header_0407_i6", "int_set_header_0407_i7", "int_set_header_0407_i8", "int_set_header_0407_i9", "int_set_header_0407_i10", "int_set_header_0407_i11", "int_set_header_0407_i12", "int_set_header_0407_i13", "int_set_header_0407_i14", "int_set_header_0407_i15", "nop", "NoAction"],
-          "base_default_next" : "process_int_insertion.int_inst_0811",
+          "base_default_next" : "int_inst_0811",
           "next_tables" : {
-            "int_set_header_0407_i0" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i1" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i2" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i3" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i4" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i5" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i6" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i7" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i8" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i9" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i10" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i11" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i12" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i13" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i14" : "process_int_insertion.int_inst_0811",
-            "int_set_header_0407_i15" : "process_int_insertion.int_inst_0811",
-            "nop" : "process_int_insertion.int_inst_0811",
-            "NoAction" : "process_int_insertion.int_inst_0811"
+            "int_set_header_0407_i0" : "int_inst_0811",
+            "int_set_header_0407_i1" : "int_inst_0811",
+            "int_set_header_0407_i2" : "int_inst_0811",
+            "int_set_header_0407_i3" : "int_inst_0811",
+            "int_set_header_0407_i4" : "int_inst_0811",
+            "int_set_header_0407_i5" : "int_inst_0811",
+            "int_set_header_0407_i6" : "int_inst_0811",
+            "int_set_header_0407_i7" : "int_inst_0811",
+            "int_set_header_0407_i8" : "int_inst_0811",
+            "int_set_header_0407_i9" : "int_inst_0811",
+            "int_set_header_0407_i10" : "int_inst_0811",
+            "int_set_header_0407_i11" : "int_inst_0811",
+            "int_set_header_0407_i12" : "int_inst_0811",
+            "int_set_header_0407_i13" : "int_inst_0811",
+            "int_set_header_0407_i14" : "int_inst_0811",
+            "int_set_header_0407_i15" : "int_inst_0811",
+            "nop" : "int_inst_0811",
+            "NoAction" : "int_inst_0811"
           },
           "default_entry" : {
             "action_id" : 17,
@@ -52165,7 +52010,7 @@
           }
         },
         {
-          "name" : "process_int_insertion.int_inst_0811",
+          "name" : "int_inst_0811",
           "id" : 103,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -52188,10 +52033,10 @@
           "direct_meters" : null,
           "action_ids" : [129, 18],
           "actions" : ["nop", "NoAction"],
-          "base_default_next" : "process_int_insertion.int_inst_1215",
+          "base_default_next" : "int_inst_1215",
           "next_tables" : {
-            "nop" : "process_int_insertion.int_inst_1215",
-            "NoAction" : "process_int_insertion.int_inst_1215"
+            "nop" : "int_inst_1215",
+            "NoAction" : "int_inst_1215"
           },
           "default_entry" : {
             "action_id" : 18,
@@ -52201,7 +52046,7 @@
           }
         },
         {
-          "name" : "process_int_insertion.int_inst_1215",
+          "name" : "int_inst_1215",
           "id" : 104,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -52224,10 +52069,10 @@
           "direct_meters" : null,
           "action_ids" : [130, 19],
           "actions" : ["nop", "NoAction"],
-          "base_default_next" : "process_int_insertion.int_bos",
+          "base_default_next" : "int_bos",
           "next_tables" : {
-            "nop" : "process_int_insertion.int_bos",
-            "NoAction" : "process_int_insertion.int_bos"
+            "nop" : "int_bos",
+            "NoAction" : "int_bos"
           },
           "default_entry" : {
             "action_id" : 19,
@@ -52237,7 +52082,7 @@
           }
         },
         {
-          "name" : "process_int_insertion.int_bos",
+          "name" : "int_bos",
           "id" : 105,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -52280,18 +52125,18 @@
           "direct_meters" : null,
           "action_ids" : [119, 120, 121, 122, 123, 124, 125, 126, 127, 14],
           "actions" : ["int_set_header_0_bos", "int_set_header_1_bos", "int_set_header_2_bos", "int_set_header_3_bos", "int_set_header_4_bos", "int_set_header_5_bos", "int_set_header_6_bos", "int_set_header_7_bos", "nop", "NoAction"],
-          "base_default_next" : "process_int_insertion.int_meta_header_update",
+          "base_default_next" : "int_meta_header_update",
           "next_tables" : {
-            "int_set_header_0_bos" : "process_int_insertion.int_meta_header_update",
-            "int_set_header_1_bos" : "process_int_insertion.int_meta_header_update",
-            "int_set_header_2_bos" : "process_int_insertion.int_meta_header_update",
-            "int_set_header_3_bos" : "process_int_insertion.int_meta_header_update",
-            "int_set_header_4_bos" : "process_int_insertion.int_meta_header_update",
-            "int_set_header_5_bos" : "process_int_insertion.int_meta_header_update",
-            "int_set_header_6_bos" : "process_int_insertion.int_meta_header_update",
-            "int_set_header_7_bos" : "process_int_insertion.int_meta_header_update",
-            "nop" : "process_int_insertion.int_meta_header_update",
-            "NoAction" : "process_int_insertion.int_meta_header_update"
+            "int_set_header_0_bos" : "int_meta_header_update",
+            "int_set_header_1_bos" : "int_meta_header_update",
+            "int_set_header_2_bos" : "int_meta_header_update",
+            "int_set_header_3_bos" : "int_meta_header_update",
+            "int_set_header_4_bos" : "int_meta_header_update",
+            "int_set_header_5_bos" : "int_meta_header_update",
+            "int_set_header_6_bos" : "int_meta_header_update",
+            "int_set_header_7_bos" : "int_meta_header_update",
+            "nop" : "int_meta_header_update",
+            "NoAction" : "int_meta_header_update"
           },
           "default_entry" : {
             "action_id" : 14,
@@ -52301,7 +52146,7 @@
           }
         },
         {
-          "name" : "process_int_insertion.int_meta_header_update",
+          "name" : "int_meta_header_update",
           "id" : 106,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -52338,7 +52183,7 @@
           }
         },
         {
-          "name" : "process_egress_nat.egress_nat",
+          "name" : "egress_nat",
           "id" : 107,
           "source_info" : {
             "filename" : "../nat.p4",
@@ -52361,19 +52206,19 @@
           "direct_meters" : null,
           "action_ids" : [168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 21],
           "actions" : ["nop", "set_nat_src_rewrite", "set_nat_dst_rewrite", "set_nat_src_dst_rewrite", "set_nat_src_udp_rewrite", "set_nat_dst_udp_rewrite", "set_nat_src_dst_udp_rewrite", "set_nat_src_tcp_rewrite", "set_nat_dst_tcp_rewrite", "set_nat_src_dst_tcp_rewrite", "NoAction"],
-          "base_default_next" : "process_egress_bd_stats.egress_bd_stats",
+          "base_default_next" : "egress_bd_stats",
           "next_tables" : {
-            "nop" : "process_egress_bd_stats.egress_bd_stats",
-            "set_nat_src_rewrite" : "process_egress_bd_stats.egress_bd_stats",
-            "set_nat_dst_rewrite" : "process_egress_bd_stats.egress_bd_stats",
-            "set_nat_src_dst_rewrite" : "process_egress_bd_stats.egress_bd_stats",
-            "set_nat_src_udp_rewrite" : "process_egress_bd_stats.egress_bd_stats",
-            "set_nat_dst_udp_rewrite" : "process_egress_bd_stats.egress_bd_stats",
-            "set_nat_src_dst_udp_rewrite" : "process_egress_bd_stats.egress_bd_stats",
-            "set_nat_src_tcp_rewrite" : "process_egress_bd_stats.egress_bd_stats",
-            "set_nat_dst_tcp_rewrite" : "process_egress_bd_stats.egress_bd_stats",
-            "set_nat_src_dst_tcp_rewrite" : "process_egress_bd_stats.egress_bd_stats",
-            "NoAction" : "process_egress_bd_stats.egress_bd_stats"
+            "nop" : "egress_bd_stats",
+            "set_nat_src_rewrite" : "egress_bd_stats",
+            "set_nat_dst_rewrite" : "egress_bd_stats",
+            "set_nat_src_dst_rewrite" : "egress_bd_stats",
+            "set_nat_src_udp_rewrite" : "egress_bd_stats",
+            "set_nat_dst_udp_rewrite" : "egress_bd_stats",
+            "set_nat_src_dst_udp_rewrite" : "egress_bd_stats",
+            "set_nat_src_tcp_rewrite" : "egress_bd_stats",
+            "set_nat_dst_tcp_rewrite" : "egress_bd_stats",
+            "set_nat_src_dst_tcp_rewrite" : "egress_bd_stats",
+            "NoAction" : "egress_bd_stats"
           },
           "default_entry" : {
             "action_id" : 21,
@@ -52383,7 +52228,7 @@
           }
         },
         {
-          "name" : "process_egress_bd_stats.egress_bd_stats",
+          "name" : "egress_bd_stats",
           "id" : 108,
           "source_info" : {
             "filename" : "../l2.p4",
@@ -52411,10 +52256,10 @@
           "direct_meters" : null,
           "action_ids" : [178, 22],
           "actions" : ["nop", "NoAction"],
-          "base_default_next" : "process_egress_l4port.egress_l4port_fields",
+          "base_default_next" : "egress_l4port_fields",
           "next_tables" : {
-            "nop" : "process_egress_l4port.egress_l4port_fields",
-            "NoAction" : "process_egress_l4port.egress_l4port_fields"
+            "nop" : "egress_l4port_fields",
+            "NoAction" : "egress_l4port_fields"
           },
           "default_entry" : {
             "action_id" : 22,
@@ -52424,7 +52269,7 @@
           }
         },
         {
-          "name" : "process_egress_l4port.egress_l4port_fields",
+          "name" : "egress_l4port_fields",
           "id" : 109,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -52434,18 +52279,18 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "tcp",
+              "match_type" : "exact",
+              "target" : ["tcp", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "udp",
+              "match_type" : "exact",
+              "target" : ["udp", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "icmp",
+              "match_type" : "exact",
+              "target" : ["icmp", "$valid$"],
               "mask" : null
             }
           ],
@@ -52457,13 +52302,13 @@
           "direct_meters" : null,
           "action_ids" : [181, 184, 185, 186, 25],
           "actions" : ["nop", "set_egress_tcp_port_fields", "set_egress_udp_port_fields", "set_egress_icmp_port_fields", "NoAction"],
-          "base_default_next" : "process_egress_l4port.egress_l4_src_port",
+          "base_default_next" : "egress_l4_src_port",
           "next_tables" : {
-            "nop" : "process_egress_l4port.egress_l4_src_port",
-            "set_egress_tcp_port_fields" : "process_egress_l4port.egress_l4_src_port",
-            "set_egress_udp_port_fields" : "process_egress_l4port.egress_l4_src_port",
-            "set_egress_icmp_port_fields" : "process_egress_l4port.egress_l4_src_port",
-            "NoAction" : "process_egress_l4port.egress_l4_src_port"
+            "nop" : "egress_l4_src_port",
+            "set_egress_tcp_port_fields" : "egress_l4_src_port",
+            "set_egress_udp_port_fields" : "egress_l4_src_port",
+            "set_egress_icmp_port_fields" : "egress_l4_src_port",
+            "NoAction" : "egress_l4_src_port"
           },
           "default_entry" : {
             "action_id" : 25,
@@ -52473,7 +52318,7 @@
           }
         },
         {
-          "name" : "process_egress_l4port.egress_l4_src_port",
+          "name" : "egress_l4_src_port",
           "id" : 110,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -52496,11 +52341,11 @@
           "direct_meters" : null,
           "action_ids" : [180, 183, 24],
           "actions" : ["nop", "set_egress_src_port_range_id", "NoAction"],
-          "base_default_next" : "process_egress_l4port.egress_l4_dst_port",
+          "base_default_next" : "egress_l4_dst_port",
           "next_tables" : {
-            "nop" : "process_egress_l4port.egress_l4_dst_port",
-            "set_egress_src_port_range_id" : "process_egress_l4port.egress_l4_dst_port",
-            "NoAction" : "process_egress_l4port.egress_l4_dst_port"
+            "nop" : "egress_l4_dst_port",
+            "set_egress_src_port_range_id" : "egress_l4_dst_port",
+            "NoAction" : "egress_l4_dst_port"
           },
           "default_entry" : {
             "action_id" : 24,
@@ -52510,7 +52355,7 @@
           }
         },
         {
-          "name" : "process_egress_l4port.egress_l4_dst_port",
+          "name" : "egress_l4_dst_port",
           "id" : 111,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -52547,7 +52392,7 @@
           }
         },
         {
-          "name" : "process_tunnel_encap.egress_vni",
+          "name" : "egress_vni",
           "id" : 112,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -52589,7 +52434,7 @@
           }
         },
         {
-          "name" : "process_tunnel_encap.tunnel_encap_process_inner",
+          "name" : "tunnel_encap_process_inner",
           "id" : 113,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -52599,28 +52444,28 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "ipv6",
+              "match_type" : "exact",
+              "target" : ["ipv6", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "tcp",
+              "match_type" : "exact",
+              "target" : ["tcp", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "udp",
+              "match_type" : "exact",
+              "target" : ["udp", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "icmp",
+              "match_type" : "exact",
+              "target" : ["icmp", "$valid$"],
               "mask" : null
             }
           ],
@@ -52632,18 +52477,18 @@
           "direct_meters" : null,
           "action_ids" : [198, 199, 200, 201, 202, 203, 204, 205, 206, 29],
           "actions" : ["inner_ipv4_udp_rewrite", "inner_ipv4_tcp_rewrite", "inner_ipv4_icmp_rewrite", "inner_ipv4_unknown_rewrite", "inner_ipv6_udp_rewrite", "inner_ipv6_tcp_rewrite", "inner_ipv6_icmp_rewrite", "inner_ipv6_unknown_rewrite", "inner_non_ip_rewrite", "NoAction"],
-          "base_default_next" : "process_tunnel_encap.tunnel_encap_process_outer",
+          "base_default_next" : "tunnel_encap_process_outer",
           "next_tables" : {
-            "inner_ipv4_udp_rewrite" : "process_tunnel_encap.tunnel_encap_process_outer",
-            "inner_ipv4_tcp_rewrite" : "process_tunnel_encap.tunnel_encap_process_outer",
-            "inner_ipv4_icmp_rewrite" : "process_tunnel_encap.tunnel_encap_process_outer",
-            "inner_ipv4_unknown_rewrite" : "process_tunnel_encap.tunnel_encap_process_outer",
-            "inner_ipv6_udp_rewrite" : "process_tunnel_encap.tunnel_encap_process_outer",
-            "inner_ipv6_tcp_rewrite" : "process_tunnel_encap.tunnel_encap_process_outer",
-            "inner_ipv6_icmp_rewrite" : "process_tunnel_encap.tunnel_encap_process_outer",
-            "inner_ipv6_unknown_rewrite" : "process_tunnel_encap.tunnel_encap_process_outer",
-            "inner_non_ip_rewrite" : "process_tunnel_encap.tunnel_encap_process_outer",
-            "NoAction" : "process_tunnel_encap.tunnel_encap_process_outer"
+            "inner_ipv4_udp_rewrite" : "tunnel_encap_process_outer",
+            "inner_ipv4_tcp_rewrite" : "tunnel_encap_process_outer",
+            "inner_ipv4_icmp_rewrite" : "tunnel_encap_process_outer",
+            "inner_ipv4_unknown_rewrite" : "tunnel_encap_process_outer",
+            "inner_ipv6_udp_rewrite" : "tunnel_encap_process_outer",
+            "inner_ipv6_tcp_rewrite" : "tunnel_encap_process_outer",
+            "inner_ipv6_icmp_rewrite" : "tunnel_encap_process_outer",
+            "inner_ipv6_unknown_rewrite" : "tunnel_encap_process_outer",
+            "inner_non_ip_rewrite" : "tunnel_encap_process_outer",
+            "NoAction" : "tunnel_encap_process_outer"
           },
           "default_entry" : {
             "action_id" : 29,
@@ -52653,7 +52498,7 @@
           }
         },
         {
-          "name" : "process_tunnel_encap.tunnel_encap_process_outer",
+          "name" : "tunnel_encap_process_outer",
           "id" : 114,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -52686,29 +52531,29 @@
           "direct_meters" : null,
           "action_ids" : [190, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 30],
           "actions" : ["nop", "fabric_rewrite", "ipv4_vxlan_rewrite", "ipv4_genv_rewrite", "ipv4_nvgre_rewrite", "ipv4_gre_rewrite", "ipv4_ip_rewrite", "ipv6_gre_rewrite", "ipv6_ip_rewrite", "ipv6_nvgre_rewrite", "ipv6_vxlan_rewrite", "ipv6_genv_rewrite", "mpls_ethernet_push1_rewrite", "mpls_ip_push1_rewrite", "mpls_ethernet_push2_rewrite", "mpls_ip_push2_rewrite", "mpls_ethernet_push3_rewrite", "mpls_ip_push3_rewrite", "ipv4_erspan_t3_rewrite", "ipv6_erspan_t3_rewrite", "NoAction"],
-          "base_default_next" : "process_tunnel_encap.tunnel_rewrite",
+          "base_default_next" : "tunnel_rewrite",
           "next_tables" : {
-            "nop" : "process_tunnel_encap.tunnel_rewrite",
-            "fabric_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv4_vxlan_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv4_genv_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv4_nvgre_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv4_gre_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv4_ip_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv6_gre_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv6_ip_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv6_nvgre_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv6_vxlan_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv6_genv_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "mpls_ethernet_push1_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "mpls_ip_push1_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "mpls_ethernet_push2_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "mpls_ip_push2_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "mpls_ethernet_push3_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "mpls_ip_push3_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv4_erspan_t3_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "ipv6_erspan_t3_rewrite" : "process_tunnel_encap.tunnel_rewrite",
-            "NoAction" : "process_tunnel_encap.tunnel_rewrite"
+            "nop" : "tunnel_rewrite",
+            "fabric_rewrite" : "tunnel_rewrite",
+            "ipv4_vxlan_rewrite" : "tunnel_rewrite",
+            "ipv4_genv_rewrite" : "tunnel_rewrite",
+            "ipv4_nvgre_rewrite" : "tunnel_rewrite",
+            "ipv4_gre_rewrite" : "tunnel_rewrite",
+            "ipv4_ip_rewrite" : "tunnel_rewrite",
+            "ipv6_gre_rewrite" : "tunnel_rewrite",
+            "ipv6_ip_rewrite" : "tunnel_rewrite",
+            "ipv6_nvgre_rewrite" : "tunnel_rewrite",
+            "ipv6_vxlan_rewrite" : "tunnel_rewrite",
+            "ipv6_genv_rewrite" : "tunnel_rewrite",
+            "mpls_ethernet_push1_rewrite" : "tunnel_rewrite",
+            "mpls_ip_push1_rewrite" : "tunnel_rewrite",
+            "mpls_ethernet_push2_rewrite" : "tunnel_rewrite",
+            "mpls_ip_push2_rewrite" : "tunnel_rewrite",
+            "mpls_ethernet_push3_rewrite" : "tunnel_rewrite",
+            "mpls_ip_push3_rewrite" : "tunnel_rewrite",
+            "ipv4_erspan_t3_rewrite" : "tunnel_rewrite",
+            "ipv6_erspan_t3_rewrite" : "tunnel_rewrite",
+            "NoAction" : "tunnel_rewrite"
           },
           "default_entry" : {
             "action_id" : 30,
@@ -52718,7 +52563,7 @@
           }
         },
         {
-          "name" : "process_tunnel_encap.tunnel_rewrite",
+          "name" : "tunnel_rewrite",
           "id" : 115,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -52741,17 +52586,17 @@
           "direct_meters" : null,
           "action_ids" : [191, 228, 229, 230, 231, 232, 233, 234, 32],
           "actions" : ["nop", "cpu_rx_rewrite", "set_tunnel_rewrite_details", "set_mpls_rewrite_push1", "set_mpls_rewrite_push2", "set_mpls_rewrite_push3", "fabric_unicast_rewrite", "fabric_multicast_rewrite", "NoAction"],
-          "base_default_next" : "process_tunnel_encap.tunnel_mtu",
+          "base_default_next" : "tunnel_mtu",
           "next_tables" : {
-            "nop" : "process_tunnel_encap.tunnel_mtu",
-            "cpu_rx_rewrite" : "process_tunnel_encap.tunnel_mtu",
-            "set_tunnel_rewrite_details" : "process_tunnel_encap.tunnel_mtu",
-            "set_mpls_rewrite_push1" : "process_tunnel_encap.tunnel_mtu",
-            "set_mpls_rewrite_push2" : "process_tunnel_encap.tunnel_mtu",
-            "set_mpls_rewrite_push3" : "process_tunnel_encap.tunnel_mtu",
-            "fabric_unicast_rewrite" : "process_tunnel_encap.tunnel_mtu",
-            "fabric_multicast_rewrite" : "process_tunnel_encap.tunnel_mtu",
-            "NoAction" : "process_tunnel_encap.tunnel_mtu"
+            "nop" : "tunnel_mtu",
+            "cpu_rx_rewrite" : "tunnel_mtu",
+            "set_tunnel_rewrite_details" : "tunnel_mtu",
+            "set_mpls_rewrite_push1" : "tunnel_mtu",
+            "set_mpls_rewrite_push2" : "tunnel_mtu",
+            "set_mpls_rewrite_push3" : "tunnel_mtu",
+            "fabric_unicast_rewrite" : "tunnel_mtu",
+            "fabric_multicast_rewrite" : "tunnel_mtu",
+            "NoAction" : "tunnel_mtu"
           },
           "default_entry" : {
             "action_id" : 32,
@@ -52761,7 +52606,7 @@
           }
         },
         {
-          "name" : "process_tunnel_encap.tunnel_mtu",
+          "name" : "tunnel_mtu",
           "id" : 116,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -52784,11 +52629,11 @@
           "direct_meters" : null,
           "action_ids" : [226, 227, 31],
           "actions" : ["tunnel_mtu_check", "tunnel_mtu_miss", "NoAction"],
-          "base_default_next" : "process_tunnel_encap.tunnel_src_rewrite",
+          "base_default_next" : "tunnel_src_rewrite",
           "next_tables" : {
-            "tunnel_mtu_check" : "process_tunnel_encap.tunnel_src_rewrite",
-            "tunnel_mtu_miss" : "process_tunnel_encap.tunnel_src_rewrite",
-            "NoAction" : "process_tunnel_encap.tunnel_src_rewrite"
+            "tunnel_mtu_check" : "tunnel_src_rewrite",
+            "tunnel_mtu_miss" : "tunnel_src_rewrite",
+            "NoAction" : "tunnel_src_rewrite"
           },
           "default_entry" : {
             "action_id" : 31,
@@ -52798,7 +52643,7 @@
           }
         },
         {
-          "name" : "process_tunnel_encap.tunnel_src_rewrite",
+          "name" : "tunnel_src_rewrite",
           "id" : 117,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -52821,12 +52666,12 @@
           "direct_meters" : null,
           "action_ids" : [193, 236, 237, 34],
           "actions" : ["nop", "rewrite_tunnel_ipv4_src", "rewrite_tunnel_ipv6_src", "NoAction"],
-          "base_default_next" : "process_tunnel_encap.tunnel_dst_rewrite",
+          "base_default_next" : "tunnel_dst_rewrite",
           "next_tables" : {
-            "nop" : "process_tunnel_encap.tunnel_dst_rewrite",
-            "rewrite_tunnel_ipv4_src" : "process_tunnel_encap.tunnel_dst_rewrite",
-            "rewrite_tunnel_ipv6_src" : "process_tunnel_encap.tunnel_dst_rewrite",
-            "NoAction" : "process_tunnel_encap.tunnel_dst_rewrite"
+            "nop" : "tunnel_dst_rewrite",
+            "rewrite_tunnel_ipv4_src" : "tunnel_dst_rewrite",
+            "rewrite_tunnel_ipv6_src" : "tunnel_dst_rewrite",
+            "NoAction" : "tunnel_dst_rewrite"
           },
           "default_entry" : {
             "action_id" : 34,
@@ -52836,7 +52681,7 @@
           }
         },
         {
-          "name" : "process_tunnel_encap.tunnel_dst_rewrite",
+          "name" : "tunnel_dst_rewrite",
           "id" : 118,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -52859,12 +52704,12 @@
           "direct_meters" : null,
           "action_ids" : [189, 196, 197, 28],
           "actions" : ["nop", "rewrite_tunnel_ipv4_dst", "rewrite_tunnel_ipv6_dst", "NoAction"],
-          "base_default_next" : "process_tunnel_encap.tunnel_smac_rewrite",
+          "base_default_next" : "tunnel_smac_rewrite",
           "next_tables" : {
-            "nop" : "process_tunnel_encap.tunnel_smac_rewrite",
-            "rewrite_tunnel_ipv4_dst" : "process_tunnel_encap.tunnel_smac_rewrite",
-            "rewrite_tunnel_ipv6_dst" : "process_tunnel_encap.tunnel_smac_rewrite",
-            "NoAction" : "process_tunnel_encap.tunnel_smac_rewrite"
+            "nop" : "tunnel_smac_rewrite",
+            "rewrite_tunnel_ipv4_dst" : "tunnel_smac_rewrite",
+            "rewrite_tunnel_ipv6_dst" : "tunnel_smac_rewrite",
+            "NoAction" : "tunnel_smac_rewrite"
           },
           "default_entry" : {
             "action_id" : 28,
@@ -52874,7 +52719,7 @@
           }
         },
         {
-          "name" : "process_tunnel_encap.tunnel_smac_rewrite",
+          "name" : "tunnel_smac_rewrite",
           "id" : 119,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -52897,11 +52742,11 @@
           "direct_meters" : null,
           "action_ids" : [192, 235, 33],
           "actions" : ["nop", "rewrite_tunnel_smac", "NoAction"],
-          "base_default_next" : "process_tunnel_encap.tunnel_dmac_rewrite",
+          "base_default_next" : "tunnel_dmac_rewrite",
           "next_tables" : {
-            "nop" : "process_tunnel_encap.tunnel_dmac_rewrite",
-            "rewrite_tunnel_smac" : "process_tunnel_encap.tunnel_dmac_rewrite",
-            "NoAction" : "process_tunnel_encap.tunnel_dmac_rewrite"
+            "nop" : "tunnel_dmac_rewrite",
+            "rewrite_tunnel_smac" : "tunnel_dmac_rewrite",
+            "NoAction" : "tunnel_dmac_rewrite"
           },
           "default_entry" : {
             "action_id" : 33,
@@ -52911,7 +52756,7 @@
           }
         },
         {
-          "name" : "process_tunnel_encap.tunnel_dmac_rewrite",
+          "name" : "tunnel_dmac_rewrite",
           "id" : 120,
           "source_info" : {
             "filename" : "../tunnel.p4",
@@ -52948,7 +52793,7 @@
           }
         },
         {
-          "name" : "process_egress_acl.egress_ip_acl",
+          "name" : "egress_ip_acl",
           "id" : 121,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -53016,7 +52861,7 @@
           }
         },
         {
-          "name" : "process_egress_acl.egress_ipv6_acl",
+          "name" : "egress_ipv6_acl",
           "id" : 122,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -53084,7 +52929,7 @@
           }
         },
         {
-          "name" : "process_egress_acl.egress_mac_acl",
+          "name" : "egress_mac_acl",
           "id" : 123,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -53142,7 +52987,7 @@
           }
         },
         {
-          "name" : "process_int_outer_encap.int_outer_encap",
+          "name" : "int_outer_encap",
           "id" : 124,
           "source_info" : {
             "filename" : "../int_transit.p4",
@@ -53152,13 +52997,13 @@
           },
           "key" : [
             {
-              "match_type" : "valid",
-              "target" : "ipv4",
+              "match_type" : "exact",
+              "target" : ["ipv4", "$valid$"],
               "mask" : null
             },
             {
-              "match_type" : "valid",
-              "target" : "vxlan_gpe",
+              "match_type" : "exact",
+              "target" : ["vxlan_gpe", "$valid$"],
               "mask" : null
             },
             {
@@ -53195,7 +53040,7 @@
           }
         },
         {
-          "name" : "process_vlan_xlate.egress_vlan_xlate",
+          "name" : "egress_vlan_xlate",
           "id" : 125,
           "source_info" : {
             "filename" : "../port.p4",
@@ -53223,12 +53068,12 @@
           "direct_meters" : null,
           "action_ids" : [250, 251, 252, 39],
           "actions" : ["set_egress_packet_vlan_untagged", "set_egress_packet_vlan_tagged", "set_egress_packet_vlan_double_tagged", "NoAction"],
-          "base_default_next" : "process_egress_filter.egress_filter",
+          "base_default_next" : "egress_filter",
           "next_tables" : {
-            "set_egress_packet_vlan_untagged" : "process_egress_filter.egress_filter",
-            "set_egress_packet_vlan_tagged" : "process_egress_filter.egress_filter",
-            "set_egress_packet_vlan_double_tagged" : "process_egress_filter.egress_filter",
-            "NoAction" : "process_egress_filter.egress_filter"
+            "set_egress_packet_vlan_untagged" : "egress_filter",
+            "set_egress_packet_vlan_tagged" : "egress_filter",
+            "set_egress_packet_vlan_double_tagged" : "egress_filter",
+            "NoAction" : "egress_filter"
           },
           "default_entry" : {
             "action_id" : 39,
@@ -53238,7 +53083,7 @@
           }
         },
         {
-          "name" : "process_egress_filter.egress_filter",
+          "name" : "egress_filter",
           "id" : 126,
           "source_info" : {
             "filename" : "../egress_filter.p4",
@@ -53268,7 +53113,7 @@
           }
         },
         {
-          "name" : "process_egress_filter.egress_filter_drop",
+          "name" : "egress_filter_drop",
           "id" : 127,
           "source_info" : {
             "filename" : "../egress_filter.p4",
@@ -53298,7 +53143,7 @@
           }
         },
         {
-          "name" : "process_egress_system_acl.egress_system_acl",
+          "name" : "egress_system_acl",
           "id" : 128,
           "source_info" : {
             "filename" : "../acl.p4",
@@ -53452,7 +53297,7 @@
               }
             }
           },
-          "true_next" : "process_mirroring.mirror",
+          "true_next" : "mirror",
           "false_next" : "node_148"
         },
         {
@@ -53478,7 +53323,7 @@
               }
             }
           },
-          "true_next" : "process_replication.rid",
+          "true_next" : "rid",
           "false_next" : "egress_port_mapping"
         },
         {
@@ -53524,7 +53369,7 @@
               }
             }
           },
-          "true_next" : "process_vlan_decap.vlan_decap",
+          "true_next" : "vlan_decap",
           "false_next" : "node_154"
         },
         {
@@ -53596,7 +53441,7 @@
               }
             }
           },
-          "true_next" : "process_tunnel_decap.tunnel_decap_process_outer",
+          "true_next" : "tunnel_decap_process_outer",
           "false_next" : "node_158"
         },
         {
@@ -53642,8 +53487,8 @@
               }
             }
           },
-          "true_next" : "process_rewrite.rewrite",
-          "false_next" : "process_rewrite.rewrite_multicast"
+          "true_next" : "rewrite",
+          "false_next" : "rewrite_multicast"
         },
         {
           "name" : "node_162",
@@ -53678,7 +53523,7 @@
               }
             }
           },
-          "true_next" : "process_egress_qos_map.egress_qos_map",
+          "true_next" : "egress_qos_map",
           "false_next" : "node_164"
         },
         {
@@ -53704,8 +53549,8 @@
               }
             }
           },
-          "true_next" : "process_mac_rewrite.l3_rewrite",
-          "false_next" : "process_mtu.mtu"
+          "true_next" : "l3_rewrite",
+          "false_next" : "mtu"
         },
         {
           "name" : "node_169",
@@ -53730,8 +53575,8 @@
               }
             }
           },
-          "true_next" : "process_int_insertion.int_inst_0003",
-          "false_next" : "process_int_insertion.int_meta_header_update"
+          "true_next" : "int_inst_0003",
+          "false_next" : "int_meta_header_update"
         },
         {
           "name" : "node_176",
@@ -53776,8 +53621,8 @@
               }
             }
           },
-          "true_next" : "process_egress_nat.egress_nat",
-          "false_next" : "process_egress_bd_stats.egress_bd_stats"
+          "true_next" : "egress_nat",
+          "false_next" : "egress_bd_stats"
         },
         {
           "name" : "node_182",
@@ -53822,7 +53667,7 @@
               }
             }
           },
-          "true_next" : "process_tunnel_encap.egress_vni",
+          "true_next" : "egress_vni",
           "false_next" : "node_193"
         },
         {
@@ -53868,8 +53713,8 @@
               }
             }
           },
-          "true_next" : "process_tunnel_encap.tunnel_encap_process_inner",
-          "false_next" : "process_tunnel_encap.tunnel_encap_process_outer"
+          "true_next" : "tunnel_encap_process_inner",
+          "false_next" : "tunnel_encap_process_outer"
         },
         {
           "name" : "node_193",
@@ -53909,15 +53754,18 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "ipv4"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_egress_acl.egress_ip_acl",
+          "true_next" : "egress_ip_acl",
           "false_next" : "node_196"
         },
         {
@@ -53932,16 +53780,19 @@
           "expression" : {
             "type" : "expression",
             "value" : {
-              "op" : "valid",
-              "left" : null,
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv6", "$valid$"]
+              },
               "right" : {
-                "type" : "header",
-                "value" : "ipv6"
+                "type" : "hexstr",
+                "value" : "0x01"
               }
             }
           },
-          "true_next" : "process_egress_acl.egress_ipv6_acl",
-          "false_next" : "process_egress_acl.egress_mac_acl"
+          "true_next" : "egress_ipv6_acl",
+          "false_next" : "egress_mac_acl"
         },
         {
           "name" : "node_199",
@@ -53966,7 +53817,7 @@
               }
             }
           },
-          "true_next" : "process_int_outer_encap.int_outer_encap",
+          "true_next" : "int_outer_encap",
           "false_next" : "node_201"
         },
         {
@@ -53992,8 +53843,8 @@
               }
             }
           },
-          "true_next" : "process_vlan_xlate.egress_vlan_xlate",
-          "false_next" : "process_egress_filter.egress_filter"
+          "true_next" : "egress_vlan_xlate",
+          "false_next" : "egress_filter"
         },
         {
           "name" : "node_204",
@@ -54164,7 +54015,7 @@
               }
             }
           },
-          "true_next" : "process_egress_filter.egress_filter_drop",
+          "true_next" : "egress_filter_drop",
           "false_next" : "node_207"
         },
         {
@@ -54217,7 +54068,7 @@
             }
           },
           "false_next" : null,
-          "true_next" : "process_egress_system_acl.egress_system_acl"
+          "true_next" : "egress_system_acl"
         }
       ]
     }
